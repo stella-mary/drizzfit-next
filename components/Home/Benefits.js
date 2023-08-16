@@ -1,6 +1,5 @@
 import styles from "@/styles/Benefits.module.css";
 import { useRouter } from "next/router";
-import CheckIcon from "@mui/icons-material/Check";
 import Image from "next/image";
 
 const Benefits = () => {
