@@ -1,9 +1,52 @@
 import styles from "@/styles/Choose.module.css"
 import { useRouter } from "next/router"
 import Image from "next/image";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 
+const boxVariant = {
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.5 },
+    },
+    hidden: { opacity: 0, y: 50 },
+};
 
 const Choose = () => {
+
+    const control1 = useAnimation();
+    const [ref1, inView1] = useInView();
+    const control2 = useAnimation();
+    const [ref2, inView2] = useInView();
+    const control3 = useAnimation();
+    const [ref3, inView3] = useInView();
+    useEffect(() => {
+        if (inView1) {
+            control1.start("visible");
+        } else {
+            control1.start("hidden");
+        }
+    }, [control1, inView1]);
+
+    useEffect(() => {
+        if (inView2) {
+            control2.start("visible");
+        } else {
+            control2.start("hidden");
+        }
+    }, [control2, inView2]);
+
+    useEffect(() => {
+        if (inView3) {
+            control3.start("visible");
+        } else {
+            control3.start("hidden");
+        }
+    }, [control3, inView3]);
+
+
     return (
         <div className={styles.choose}>
             <div className={styles.chooseMain}>
@@ -15,6 +58,7 @@ const Choose = () => {
 
                 <div className={styles.para}>Reusable upto 5 years</div>
                 <div className={styles.img}>
+
                     <Image
                         src="/image/choose6.png"
                         alt="choose2"
@@ -50,17 +94,25 @@ const Choose = () => {
                 </div>
             </div>
 
-            <Image
-                src="/image/choose.png"
-                alt="choose"
-                sizes="100vw"
-                style={{
-                    width: '100%',
-                    height: 'auto',
-                }}
-                width={500}
-                height={100}
-            />
+            <motion.div
+                ref={ref1}
+                variants={boxVariant}
+                initial="hidden"
+                animate={control1}
+            >
+                <Image
+                    src="/image/choose.png"
+                    alt="choose"
+                    sizes="100vw"
+                    style={{
+                        width: "100%",
+                        height: "100vh",
+                    }}
+                    width={500}
+                    height={100}
+                />
+
+            </motion.div>
         </div>
     )
 }

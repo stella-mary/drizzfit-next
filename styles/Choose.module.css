@@ -1,9 +1,22 @@
 .choose {
   display: grid;
   grid-template-columns: 1fr 2fr;
+  /* background-color: #fee600; */
+  width: 100%;
+  gap: 50px;
+  /* align-items: center;
+  justify-content: center;
+  overflow: hidden; */
+  
+}
+
+
+/* .choose {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
   gap: 50px;
   width: 100%;  
-}
+} */
 
 .chooseMain{
   display: flex;
@@ -46,7 +59,6 @@
   font-size: 16px;
   margin-top: 30px;
 }
-
 
 
 @media (max-width: 768px) {
