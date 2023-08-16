@@ -92,6 +92,7 @@ const Promotion = () => {
                 }}
                 width={500}
                 height={100}
+                className="no-display-image"
             />
         </div>
     )

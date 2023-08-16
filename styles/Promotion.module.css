@@ -9,6 +9,11 @@
   
 }
 
+.no-display-image {
+  display: none;
+}
+
+
 .promotionMain{
   display: flex;
   padding-left: 10%;
