@@ -35,7 +35,6 @@
    
 }
 
-/* For screens up to 768px wide (typical tablet portrait) */
 @media (max-width: 768px) {
   .encouragementMain {
       grid-template-columns: 1fr; 

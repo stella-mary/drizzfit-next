@@ -48,7 +48,7 @@
 }
 
 
-/* For screens up to 768px wide (typical tablet portrait) */
+
 @media (max-width: 768px) {
   .choose {
       grid-template-columns: 1fr; 
@@ -72,11 +72,11 @@
   }
 
   .h1 {
-      font-size: 30px; /* Adjust font size for mobile */
-      margin-top: 3rem; /* Adjust margin-top value */
+      font-size: 30px; 
+      margin-top: 3rem; 
   }
 
   .para {
-      font-size: 14px; /* Adjust font size for mobile */
+      font-size: 14px; 
   }
 }
