@@ -1,0 +1,59 @@
+.encouragement {
+    background-color: #fee600;
+    width: 100%;    
+}
+
+.encouragementMain {
+  display: grid;
+  grid-template-columns: 1.5fr 3fr;
+  gap: 50px;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.encouragementImage {
+  /* width: 100%; */
+}
+
+.encouragementSub {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+}
+
+.h1 {
+  font-family: 'Telegraf UltraBold 800';
+  font-size: 80px;
+  width: 80%;
+  font-weight: bold;
+}
+
+.para {
+  font-family: 'Telegraf Regular 400';
+   font-size: 24px;
+   
+}
+
+/* For screens up to 768px wide (typical tablet portrait) */
+@media (max-width: 768px) {
+  .encouragementMain {
+      grid-template-columns: 1fr; 
+      gap: 20px;
+      text-align: center; 
+  }
+
+  .h1 {
+      font-size: 40px;
+      text-align: left;
+      padding: 5%; 
+  }
+
+  .para {
+      font-size: 18px; 
+  }
+
+  .encouragementSub {
+    gap: 20px;
+  }
+}

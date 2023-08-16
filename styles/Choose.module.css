@@ -1,0 +1,82 @@
+.choose {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 50px;
+  width: 100%;  
+}
+
+.chooseMain{
+  display: flex;
+  flex-direction: column;
+  padding-left: 15%;
+}
+
+.img {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.img1 {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gridItem {
+  width: 100%;
+}
+
+.h1{
+  font-family: 'Telegraf UltraBold 800';
+  font-weight: bold;
+  font-size: 36px;
+  margin-bottom: 20px;
+  margin-top: 7rem;
+}
+
+.para {
+  font-family: 'Telegraf Regular 400';
+  font-size: 16px;
+  margin-top: 30px;
+}
+
+
+/* For screens up to 768px wide (typical tablet portrait) */
+@media (max-width: 768px) {
+  .choose {
+      grid-template-columns: 1fr; 
+      gap: 20px;
+  }
+
+  .chooseMain {
+      padding-left: 5%;
+  }
+
+  .img {
+      width: 100%;
+  }
+
+  .img1 {
+      flex-direction: column; 
+  }
+
+  .img2 {
+    width: 50%;
+  }
+
+  .h1 {
+      font-size: 30px; /* Adjust font size for mobile */
+      margin-top: 3rem; /* Adjust margin-top value */
+  }
+
+  .para {
+      font-size: 14px; /* Adjust font size for mobile */
+  }
+}

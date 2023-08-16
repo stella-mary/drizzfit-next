@@ -1,0 +1,85 @@
+.promotion {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr;
+  background-color: #fee600;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  
+}
+
+.promotionMain{
+  display: flex;
+  padding-left: 10%;
+  justify-content: center;
+  flex-direction: column;
+  transition: padding-left 0.5s ease;
+}
+
+.h1{
+  font-family: 'Telegraf UltraBold 800';
+  font-size: 65px;
+}
+
+.para {
+  font-family: 'Telegraf Regular 400';
+  margin-top: 20px;
+  font-size: 28px;
+  line-height: 1.5em;
+  font-weight: normal;
+}
+
+.button {
+  font-family: 'Telegraf UltraBold 800';
+  background-color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  font-size: 21px;
+  margin-top: 20px;
+  width: 20%;
+  padding: 20px;
+  text-align: center;
+}
+
+.promotionImage {
+
+}
+
+@media screen and (max-width: 768px) {
+  .promotion {
+    grid-template-columns: 1fr;
+   
+  }
+  
+  .promotionMain {
+    padding: 5%; 
+  }
+  
+  .button {
+    width: 40%; 
+    padding: 10px; 
+    font-size: 18px; 
+  }
+
+  .promotionImage {
+    padding-left: 5%;
+    padding-right: 5%;  
+  }
+
+
+}
+
+@media screen and (max-width: 480px) {
+  .h1 {
+    font-size: 40px;
+     
+  }
+  
+  .para {
+    font-size: 18px; 
+  }
+
+
+}  
+

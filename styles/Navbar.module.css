@@ -1,0 +1,42 @@
+.navbar {
+  background: black;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+  padding: 40px;
+  align-items: center;  
+}
+
+.navbarHead {
+  font-family: 'Telegraf UltraBold 800';
+color: white;
+  font-size: 36px;
+  text-align: left;
+}
+
+.navbarLogo {
+  text-align: right;
+}
+
+.navbarImage {
+  /* width: 100%; */
+}
+
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 20px; 
+  }
+
+  .navbarHead {
+    font-size: 20px;
+  }
+  
+.navbarImage {
+  width: 25%;
+}
+
+}
+
+

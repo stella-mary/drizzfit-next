@@ -1,0 +1,23 @@
+.guide {
+  background-color: #fee600;
+  /* height: 100vh; */
+  padding: 70px;
+  justify-content: center; 
+}
+
+
+.h1{
+  font-family: 'Telegraf UltraBold 800';
+  font-weight: bold;
+  font-size: 36px;
+  text-align: center;
+}
+
+.para {
+  font-family: 'Telegraf Regular 400';
+  margin-top: 20px;
+  font-size: 21px;
+  text-align: center;
+}
+
+

@@ -1,0 +1,96 @@
+.benefits {
+  background: black;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5%;
+  justify-content: center;
+}
+
+.h1 {
+  font-family: 'Telegraf UltraBold 800';
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  width: 50%;
+  color: #fee600;
+
+}
+
+.benefitsMain {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 60px;
+  gap: 30px;
+}
+
+.benefitsSub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.icon {
+  margin-top: 30px;
+  background-color: #fee600;
+  border-radius: 50%;
+  color: black;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.para {
+  font-family: 'Telegraf UltraBold 800';
+  font-size: 24px;
+  color: white;
+  white-space: normal;
+}
+
+.para1 {
+  font-family: 'Telegraf UltraBold 800';
+  font-size: 21px;
+  color: #fee600;
+  line-height: 1.5em;
+}
+
+@media (max-width: 768px) {
+  .benefitsMain {
+      grid-template-columns: repeat(1fr, 1fr, 1fr); 
+      gap: 20px; 
+  }
+
+  .h1 {
+      width: 70%;
+    }
+
+  .para {
+      font-size: 18px;
+    }
+
+  .para1 {
+      font-size: 16px; 
+  }
+}
+
+@media (max-width: 480px) {
+  .benefitsMain {
+      grid-template-columns: 1fr; 
+      gap: 10px; 
+  }
+
+  .h1 {
+      font-size: 28px; 
+      width: 90%; 
+  }
+
+  .para {
+      font-size: 16px; 
+  }
+
+  .para1 {
+      font-size: 14px; 
+  }
+}

@@ -1,0 +1,96 @@
+.usersSubSub {
+  background-color: #fee600;
+  padding: 20px;
+  border-radius: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.cardTop {
+  width: 100%;
+  display: flex;
+  margin-top: -5rem;
+  justify-content: center; 
+  align-items: center;
+}
+
+.usersImage {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.cardBottom {
+  margin-top: 20px; 
+  text-align: left; 
+}
+
+.usersMain {
+  display: grid;
+  width: 100%;
+  gap: 30px;
+  margin-top: 40px;
+  grid-template-columns: 1fr 1fr 1fr;
+  
+}
+
+.users {
+  width: 100%;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.h2 {
+  font-family: 'Telegraf UltraBold 800';
+  font-size: 24px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.h3 {
+  font-family: 'Telegraf Regular 400';
+  font-size: 24px;
+  text-align: left;
+  font-weight: normal;
+}
+
+
+.h1 {
+  font-family: 'Telegraf UltraBold 800';
+  font-size: 36px;
+  margin-top: 7rem;
+  margin-bottom: 3rem;
+  font-weight: bold;
+  text-align: center;
+ 
+}
+
+.para {
+  font-family: 'Telegraf Regular 400';
+  font-size: 16px;
+  line-height: 1.5em;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .usersMain {
+    grid-template-columns: 1fr;
+    gap: 70px;
+  }
+
+  .h1 {
+    margin-top: 1rem;
+    font-size: 25px;
+  }
+
+  .users {
+    padding: 20px;
+  }
+  
+}
+
