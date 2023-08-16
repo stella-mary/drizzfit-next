@@ -61,14 +61,10 @@ const Benefits = () => {
                                 ref={ref1}
                                 variants={boxVariant}
                                 initial="hidden"
-                                animate={control1}>
-
-                                <Image
-                                    src="/image/tick.png"
-                                    width="180"
-                                    height="100"
-                                    alt=""
-                                />
+                                animate={control1}
+                                className={styles.imageContainer2}
+                            >
+                                <div className={styles.image}></div>
                             </motion.div>
                             <div className={styles.para}>100% Medical Graded Silicone</div>
                             <div className={styles.para1}>
@@ -80,14 +76,10 @@ const Benefits = () => {
                                 ref={ref2}
                                 variants={boxVariant}
                                 initial="hidden"
-                                animate={control2}>
-
-                                <Image
-                                    src="/image/tick.png"
-                                    width="180"
-                                    height="100"
-                                    alt=""
-                                />
+                                animate={control2}
+                                className={styles.imageContainer3}
+                            >
+                                <div className={styles.image}></div>
                             </motion.div>
                             <div className={styles.para}>Upto 8-10 hours protection</div>
                             <div className={styles.para1}>
@@ -99,14 +91,10 @@ const Benefits = () => {
                                 ref={ref3}
                                 variants={boxVariant}
                                 initial="hidden"
-                                animate={control3}>
-
-                                <Image
-                                    src="/image/tick.png"
-                                    width="180"
-                                    height="100"
-                                    alt=""
-                                />
+                                animate={control3}
+                                className={styles.imageContainer4}
+                            >
+                                <div className={styles.image}></div>
                             </motion.div>
                             <div className={styles.para}>Eco friendly & Plastic free</div>
                             <div className={styles.para1}>
