@@ -5,7 +5,7 @@
   width: 100%;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  /* overflow: hidden; */
   
 }
 
@@ -14,7 +14,7 @@
   padding-left: 10%;
   justify-content: center;
   flex-direction: column;
-  transition: padding-left 0.5s ease;
+  /* transition: padding-left 0.5s ease; */
 }
 
 .h1{
