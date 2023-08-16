@@ -82,18 +82,19 @@ const Promotion = () => {
                     Shop
                 </motion.div>
             </div>
-            <Image
-                src="/image/promotion.png"
-                alt="promotion"
-                sizes="100vw"
-                style={{
-                    width: "100%",
-                    height: "100vh",
-                }}
-                width={500}
-                height={100}
-                className="no-display-image"
-            />
+            <div className={styles.content}>
+                <Image
+                    src="/image/promotion.png"
+                    alt="promotion"
+                    sizes="100vw"
+                    style={{
+                        width: "100%",
+                        height: "100vh",
+                    }}
+                    width={500}
+                    height={100}
+                />
+            </div>
         </div>
     )
 }
