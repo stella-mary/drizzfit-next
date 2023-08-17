@@ -1,11 +1,10 @@
 .guide {
   background-color: #fee600;
   padding: 70px;
-  justify-content: center; 
+  justify-content: center;
 }
 
-
-.h1{
+.h1 {
   font-family: 'Telegraf UltraBold 800';
   font-weight: bold;
   font-size: 36px;
@@ -20,3 +19,16 @@
 }
 
 
+@media (max-width: 768px) {
+  .guide {
+    padding: 40px; 
+  }
+
+  .h1 {
+    font-size: 28px; 
+  }
+
+  .para {
+    font-size: 18px; 
+  }
+}

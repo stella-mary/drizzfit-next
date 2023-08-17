@@ -56,17 +56,6 @@ const Encouragement = () => {
                 <div className={styles.imageContainer1}>
                 </div>
 
-                {/* <Image
-                    src="/image/encouragement.png"
-                    alt="encouragement"
-                    sizes="100vw"
-                    style={{
-                        width: '100%',
-                        height: '100vh',
-                    }}
-                    width={500}
-                    height={100}
-                /> */}
                 <div className={styles.encouragementSub}>
                     <motion.div
                         className={styles.h1}

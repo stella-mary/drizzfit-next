@@ -58,14 +58,16 @@ const Choose = () => {
 
                 <div className={styles.para}>Reusable upto 5 years</div>
                 <div className={styles.img}>
+                    <div className={styles.imageContainer2}>
+                    </div>
 
-                    <Image
+                    {/* <Image
                         src="/image/choose6.png"
-                        alt="choose2"
+                        alt="choose6"
                         width={300}
                         height={200}
                         className={styles.gridItem}
-                    />
+                    /> */}
                     {/* <div className={styles.img1}>
                         <Image
                             src="/image/choose2.png"
@@ -102,18 +104,6 @@ const Choose = () => {
             >
                 <div className={styles.imageContainer1}>
                 </div>
-
-                {/* <Image
-                    src="/image/choose.png"
-                    alt="choose"
-                    sizes="100vw"
-                    style={{
-                        width: "100%",
-                        height: "100vh",
-                    }}
-                    width={500}
-                    height={100}
-                /> */}
 
             </motion.div>
         </div>

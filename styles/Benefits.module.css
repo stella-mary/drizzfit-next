@@ -103,7 +103,7 @@
   }
 }
 
-/* @media (max-width: 480px) {
+@media (max-width: 480px) {
   .benefitsMain {
       grid-template-columns: 1fr; 
       gap: 10px; 
@@ -111,14 +111,12 @@
 
   .h1 {
       font-size: 28px; 
-      width: 90%; 
+      width: 90%;
+      margin-top: 20px; 
   }
 
-  .para {
-      font-size: 16px; 
+  .benefits {
+    padding: 10%;
   }
 
-  .para1 {
-      font-size: 14px; 
-  }
-} */
+}
