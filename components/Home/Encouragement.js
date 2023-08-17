@@ -53,7 +53,10 @@ const Encouragement = () => {
     return (
         <div className={styles.encouragement}>
             <div className={styles.encouragementMain}>
-                <Image
+                <div className={styles.imageContainer1}>
+                </div>
+
+                {/* <Image
                     src="/image/encouragement.png"
                     alt="encouragement"
                     sizes="100vw"
@@ -63,7 +66,7 @@ const Encouragement = () => {
                     }}
                     width={500}
                     height={100}
-                />
+                /> */}
                 <div className={styles.encouragementSub}>
                     <motion.div
                         className={styles.h1}

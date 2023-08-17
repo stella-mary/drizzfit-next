@@ -77,6 +77,36 @@
   margin-top: 20px;
 }
 
+.imageContainer1 {
+  width: 50%; 
+  height: 25vh;
+  background-image: url("/image/user.png");
+  background-position: center;
+  background-size: contain; 
+  background-repeat: no-repeat; 
+}
+
+.imageContainer2 {
+  width: 50%; 
+  height: 25vh;
+  background-image: url("/image/profile.png");
+  background-position: center;
+  background-size: contain; 
+  background-repeat: no-repeat; 
+
+}
+
+.imageContainer3 {
+  width: 50%; 
+  height: 25vh;
+  background-image: url("/image/user6.png");
+  background-position: center;
+  background-size: contain; 
+  background-repeat: no-repeat; 
+
+}
+
+
 @media (max-width: 768px) {
   .usersMain {
     grid-template-columns: 1fr;

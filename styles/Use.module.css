@@ -67,6 +67,36 @@
   line-height: 1.5em;
 }
 
+.imageContainer1 {
+  width: 50%; 
+  height: 25vh;
+  background-image: url("/image/use12.png");
+  background-position: center;
+  background-size: contain; 
+  background-repeat: no-repeat; 
+
+}
+
+.imageContainer2 {
+  width: 50%; 
+  height: 25vh;
+  background-image: url("/image/use10.png");
+  background-position: center;
+  background-size: contain; 
+  background-repeat: no-repeat; 
+}
+
+.imageContainer3 {
+  width: 50%; 
+  height: 25vh;
+background-image: url("/image/use11.png");
+background-position: center;
+  background-size: contain; /* Change this value to adjust the image size */
+  background-repeat: no-repeat; /* Prevent image repetition */
+
+}
+
+
 @media (max-width: 768px) {
   .useMain {    
     grid-template-columns: 1fr;

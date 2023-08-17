@@ -56,31 +56,32 @@
   line-height: 1.5em;
 }
 
+.imageContainer1 {
+  width: 50%; 
+  height: 15vh;
+  background-image: url("/image/tick.png");
+  background-position: center;
+  background-size: contain; 
+  background-repeat: no-repeat; 
+}
+
 
 .imageContainer2 {
-  width: 40%; 
-  height: 40%;
-background-image: url("/image/tick.png");
-background-size: cover;
+  width: 50%; 
+  height: 15vh;
+  background-image: url("/image/tick.png");
+  background-position: center;
+  background-size: contain; 
+  background-repeat: no-repeat; 
 }
 
 .imageContainer3 {
-  width: 40%; 
-  height: 40%;
-background-image: url("/image/tick.png");
-background-size: cover;
-}
-
-.imageContainer4 {
-  width: 40%; 
-  height: 40%;
-background-image: url("/image/tick.png");
-background-size: cover;
-}
-
-.image {
-  width: 100%;
-  height: 100%;
+  width: 50%; 
+  height: 15vh;
+  background-image: url("/image/tick.png");
+  background-position: center;
+  background-size: contain; 
+  background-repeat: no-repeat; 
 }
 
 @media (max-width: 768px) {

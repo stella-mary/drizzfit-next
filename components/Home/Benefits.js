@@ -62,10 +62,10 @@ const Benefits = () => {
                                 variants={boxVariant}
                                 initial="hidden"
                                 animate={control1}
-                                className={styles.imageContainer2}
+                                className={styles.imageContainer1}
                             >
-                                <div className={styles.image}></div>
                             </motion.div>
+
                             <div className={styles.para}>100% Medical Graded Silicone</div>
                             <div className={styles.para1}>
                                 All cups are made in FDA approved facilities and are BPA free.
@@ -77,9 +77,8 @@ const Benefits = () => {
                                 variants={boxVariant}
                                 initial="hidden"
                                 animate={control2}
-                                className={styles.imageContainer3}
+                                className={styles.imageContainer2}
                             >
-                                <div className={styles.image}></div>
                             </motion.div>
                             <div className={styles.para}>Upto 8-10 hours protection</div>
                             <div className={styles.para1}>
@@ -92,9 +91,8 @@ const Benefits = () => {
                                 variants={boxVariant}
                                 initial="hidden"
                                 animate={control3}
-                                className={styles.imageContainer4}
+                                className={styles.imageContainer3}
                             >
-                                <div className={styles.image}></div>
                             </motion.div>
                             <div className={styles.para}>Eco friendly & Plastic free</div>
                             <div className={styles.para1}>

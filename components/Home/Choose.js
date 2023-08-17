@@ -100,7 +100,10 @@ const Choose = () => {
                 initial="hidden"
                 animate={control1}
             >
-                <Image
+                <div className={styles.imageContainer1}>
+                </div>
+
+                {/* <Image
                     src="/image/choose.png"
                     alt="choose"
                     sizes="100vw"
@@ -110,7 +113,7 @@ const Choose = () => {
                     }}
                     width={500}
                     height={100}
-                />
+                /> */}
 
             </motion.div>
         </div>

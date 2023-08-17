@@ -35,6 +35,14 @@
    
 }
 
+.imageContainer1 {
+  width: 100%; 
+  height: 100vh;
+background-image: url("/image/encouragement.png");
+background-position: center;
+background-size: cover;
+}
+
 @media (max-width: 768px) {
   .encouragementMain {
       grid-template-columns: 1fr; 

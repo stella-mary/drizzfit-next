@@ -94,7 +94,10 @@ const Size = () => {
         <div className={styles.size}>
             <div className={styles.backgroundImage}>
 
-                <Image
+                <div className={styles.imageContainer1}>
+                </div>
+
+                {/* <Image
                     src="/image/size2.png"
                     alt="size"
                     style={{
@@ -103,15 +106,18 @@ const Size = () => {
                     }}
                     width={100}
                     height={100}
-                />
+                /> */}
             </div>
             <div className={styles.contentContainer}>
-                <Image
+                <div className={styles.imageContainer2}>
+                </div>
+
+                {/* <Image
                     src="/image/sizeCup1.png"
                     width={200}
                     height={100}
                     alt=""
-                />
+                /> */}
             </div>
             <div className={styles.sizeMain}>
                 <div className={styles.sizeSub}>

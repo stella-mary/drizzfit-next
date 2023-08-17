@@ -60,6 +60,14 @@
   margin-top: 30px;
 }
 
+.imageContainer1 {
+  width: 100%; 
+  height: 100vh;
+background-image: url("/image/choose.png");
+background-position: center;
+background-size: cover;
+}
+
 
 @media (max-width: 768px) {
   .choose {

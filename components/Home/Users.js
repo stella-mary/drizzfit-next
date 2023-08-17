@@ -11,13 +11,16 @@ const Users = () => {
                 <div className={styles.usersSub}>
                     <div className={styles.usersSubSub}>
                         <div className={styles.cardTop}>
-                            <Image
+
+                            <div className={styles.imageContainer1}>
+                            </div>
+                            {/* <Image
                                 src="/image/user.png"
                                 width="150"
                                 height="150"
                                 alt=""
                                 className={styles.usersImage}
-                            />
+                            /> */}
                         </div>
                         <div className={styles.cardBottom}>
                             <div className={styles.h2}>Vidhya</div>
@@ -30,13 +33,15 @@ const Users = () => {
                 <div className={styles.usersSub}>
                     <div className={styles.usersSubSub}>
                         <div className={styles.cardTop}>
-                            <Image
+                            <div className={styles.imageContainer2}>
+                            </div>
+                            {/* <Image
                                 src="/image/profile.png"
                                 width="150"
                                 height="150"
                                 alt=""
                                 className={styles.usersImage}
-                            />
+                            /> */}
                         </div>
                         <div className={styles.cardBottom}>
                             <div className={styles.h2}>Fathima Xavier</div>
@@ -51,13 +56,15 @@ const Users = () => {
                 <div className={styles.usersSub}>
                     <div className={styles.usersSubSub}>
                         <div className={styles.cardTop}>
-                            <Image
+                            <div className={styles.imageContainer3}>
+                            </div>
+                            {/* <Image
                                 src="/image/user6.png"
                                 width="150"
                                 height="150"
                                 alt=""
                                 className={styles.usersImage}
-                            />
+                            /> */}
                         </div>
                         <div className={styles.cardBottom}>
                             <div className={styles.h2}>Daffy</div>
