@@ -80,7 +80,7 @@ const Size = () => {
         } else {
             control6.start("hidden");
         }
-    }, [control6, inView4]);
+    }, [control6, inView6]);
 
     useEffect(() => {
         if (inView7) {
@@ -88,7 +88,7 @@ const Size = () => {
         } else {
             control7.start("hidden");
         }
-    }, [control7, inView4]);
+    }, [control7, inView7]);
 
     return (
         <div className={styles.size}>
