@@ -1,5 +1,6 @@
 .size {
   width: 100%;
+  height: 100vh;
   padding-top: 5%;
   padding-bottom: 10%;
   position: relative; 
@@ -74,27 +75,35 @@ background-size: cover;
 }
 
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
+  .size {
+    padding-top: 10%; /* Increase top padding for mobile display */
+  }
+
   .sizeMain {
-    grid-template-columns: 1fr;
-    gap: 15px;
+    grid-template-columns: 1fr; /* Switch to a single column layout */
+    padding: 15%; /* Remove left padding */
+  }
+
+  .sizeSub {
+    width: 100%; /* Full width for mobile display */
+    padding: 0 15px  /* Add horizontal padding for mobile */
   }
 
   .h1 {
-    font-size: 25px;
+    font-size: 28px; /* Reduce font size for mobile */
   }
-  
-  .backgroundImage {
-    width: 100%;
-    height: 100%;
+
+  .bullet {
+    font-size: 14px; /* Reduce font size for mobile */
   }
 
   .imageContainer1 {
-    width: 100%;
-    /* background-size: contain;  */
-    background-repeat: no-repeat;  
-    height: 110vh;
-  }  
+    height: 100vh; /* Adjust height for mobile display */
+  }
 
+  .imageContainer2 {
+    width: 100%; /* Full width for mobile display */
+    height: 15vh; /* Adjust height for mobile display */
+  }
 }
-
