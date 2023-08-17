@@ -57,7 +57,7 @@ const Choose = () => {
                 <div className={styles.para}>Wear upto 10 hours</div>
 
                 <div className={styles.para}>Reusable upto 5 years</div>
-                <div className={styles.img}>
+                . <div className={styles.img}>
                     <div className={styles.imageContainer2}>
                     </div>
 

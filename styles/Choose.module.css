@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   width: 100%;
+  /* padding-left: 5%; */
   gap: 50px;
 }
 
@@ -18,7 +19,7 @@
 .chooseMain{
   display: flex;
   flex-direction: column;
-  /* padding-left: 15%; */
+  padding-left: 15%;
 }
 
 .img {
