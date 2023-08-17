@@ -39,24 +39,25 @@
 
 @media screen and (max-width: 768px) {
   .encouragementMain {
-    grid-template-columns: 1fr; /* Switch to a single column layout */
-    gap: 20px; /* Reduce the gap for better spacing */
-    align-items: center; /* Center content vertically */
-    padding: 10%; /* Adjust padding for better mobile display */
+    grid-template-columns: 1fr;  
+    gap: 20px; 
+    align-items: center; 
+    padding: 10%; 
   }
 
   .h1 {
-    font-size: 40px; /* Reduce font size for mobile */
-    text-align: center; /* Center align text */
-    width: 100%; /* Full width text */
+    font-size: 40px; 
+    text-align: center; 
+    width: 100%; 
   }
 
   .para {
-    font-size: 18px; /* Reduce font size for mobile */
-    text-align: center; /* Center align text */
+    font-size: 18px; 
+    text-align: center; 
   }
 
   .imageContainer1 {
-    height: 50vh; /* Adjust height for mobile display */
+    height: 50vh; 
   }
+  
 }
