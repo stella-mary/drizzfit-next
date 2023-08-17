@@ -11,13 +11,15 @@ const Navbar = () => {
                     <div className={styles.navbarHead}>
                         DRIZZFIT
                     </div>
-                    <Image
+                    <div className={styles.imageContainer1}>
+                    </div>
+                    {/* <Image
                         src="/image/logoImages.png"
                         width="100"
                         height="100"
                         alt=""
                         className={styles.navbarImage}
-                    />
+                    /> */}
 
                 </div>
             </div>

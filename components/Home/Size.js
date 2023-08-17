@@ -183,6 +183,7 @@ const Size = () => {
                         initial="hidden"
                         animate={control6}
                     >
+
                         <ul>
                             <li> Prefect if you have given birth vaginally.</li>
                             <li> For those who have a heavy flow.</li>

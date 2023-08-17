@@ -12,9 +12,9 @@
 .imageContainer1 {
   width: 100%; 
   height: 100vh;
-background-image: url("/image/promotion.png");
-background-position: center;
-background-size: cover;
+  background-image: url("/image/promotion.png");
+  background-position: center;
+  background-size: cover;
 }
 
 
@@ -50,9 +50,6 @@ background-size: cover;
   text-align: center;
 }
 
-.promotionImage {
-
-}
 
 @media screen and (max-width: 768px) {
   .promotion {
@@ -78,7 +75,7 @@ background-size: cover;
 
 }
 
-/* @media screen and (max-width: 480px) {
+@media screen and (max-width: 480px) {
   .h1 {
     font-size: 40px;
      
@@ -87,7 +84,5 @@ background-size: cover;
   .para {
     font-size: 18px; 
   }
-
-
-}   */
+}  
 

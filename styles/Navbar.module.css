@@ -23,6 +23,15 @@ color: white;
   /* width: 100%; */
 }
 
+.imageContainer1 {
+  width: 10%; 
+  height: 15vh;
+  background-image: url("/image/logoImages.png");
+  background-position: center;
+  background-size: contain; 
+  background-repeat: no-repeat; 
+}
+
 
 @media (max-width: 768px) {
   .navbar {
@@ -33,10 +42,6 @@ color: white;
     font-size: 20px;
   }
   
-.navbarImage {
-  width: 25%;
-}
-
 }
 
 
