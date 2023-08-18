@@ -54,11 +54,13 @@
 @media screen and (max-width: 768px) {
   .promotion {
     grid-template-columns: 1fr;
+    padding: 5%;
+    gap: 20px;
    
   }
   
   .promotionMain {
-    padding: 5%; 
+    padding: 0%; 
   }
   
   .button {
@@ -66,12 +68,6 @@
     padding: 10px; 
     font-size: 18px; 
   }
-
-  .promotionImage {
-    padding-left: 5%;
-    padding-right: 5%;  
-  }
-
 
 }
 

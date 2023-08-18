@@ -103,12 +103,13 @@
 /* Add this media query for mobile responsiveness */
 @media screen and (max-width: 768px) {
   .use {
-    padding: 40px; /* Adjust padding for better spacing on small screens */
+    padding-top: 3rem;
+    padding-bottom: 65rem; 
   }
 
   .useMain {
     grid-template-columns: 1fr; /* Change to a single column layout */
-    gap: 20px; /* Adjusted gap */
+    gap: 50px; /* Adjusted gap */
     margin-top: 30px; /* Adjusted margin-top */
   }
 

@@ -87,11 +87,12 @@
 
 @media screen and (max-width: 768px) {
   .benefits {
-    padding: 5%; 
+    padding-top: 25rem;
+    padding-bottom: 25rem; 
   }
 
   .h1 {
-    margin-top: 20px;
+    /* margin-top: 20px; */
     font-size: 28px; 
     width: 100%; 
   }
@@ -109,14 +110,10 @@
   .imageContainer1,
   .imageContainer2,
   .imageContainer3 {
-    width: 80%; 
+    width: 50%; 
     height: 10vh; /* Adjusted height for better visibility */
   }
 
-  .icon {
-    margin-top: 20px; 
-    padding: 15px; 
-  }
 
   .para {
     font-size: 20px; 

@@ -45,7 +45,8 @@
   }
 
   .encouragement {
-    padding: 5%;
+    padding-top: 2rem;
+    padding-bottom: 45rem;
   }
 
   .imageContainer1 {
@@ -54,10 +55,13 @@
   }
 
   .h1 {
-      font-size: 40px; 
+      font-size: 40px;
+      padding-left: 5%; 
   }
 
   .para {
-      font-size: 18px; 
+      font-size: 15px; 
+      padding-left: 5%; 
+
   }
 }

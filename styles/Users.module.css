@@ -110,13 +110,14 @@
 /* Add this media query for mobile responsiveness */
 @media screen and (max-width: 768px) {
   .users {
-      padding-bottom: 40px; /* Add bottom padding */
+    padding-bottom: 65rem; 
+
   }
 
   .usersMain {
       grid-template-columns: 1fr; /* Single column layout for mobile */
-      gap: 40px; /* Adjusted gap */
-      padding: 20px; /* Reduced padding */
+      gap: 70px; /* Adjusted gap */
+      padding: 50px; /* Reduced padding */
   }
 
   .usersSubSub {
@@ -125,7 +126,7 @@
   }
 
   .cardTop {
-      margin-top: -2.5rem; /* Adjusted margin-top */
+      margin-top: -3.5rem; /* Adjusted margin-top */
   }
 
   .usersImage {
@@ -138,8 +139,7 @@
   }
 
   .h1 {
-      font-size: 24px; /* Reduced font size */
-      margin-top: 2rem; /* Adjusted margin-top */
+      font-size: 24px; /* Reduced font size */      
       margin-bottom: 2rem; /* Adjusted margin-bottom */
   }
 
@@ -159,7 +159,7 @@
   .imageContainer2,
   .imageContainer3 {
       width: 100%; /* Adjusted image width */
-      height: 10vh; /* Adjusted image height */
+      height: 15vh; /* Adjusted image height */
   }
 }
 
