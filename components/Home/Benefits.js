@@ -49,56 +49,52 @@ const Benefits = () => {
 
 
     return (
-        <div>
-            <div className={styles.container}>
-                <div className={styles.benefits}>
-                    <div className={styles.h1}>
-                        Days of messy periods are over. We are here to cure it!
-                    </div>
-                    <div className={styles.benefitsMain}>
-                        <div className={styles.benefitsSub}>
-                            <motion.div
-                                ref={ref1}
-                                variants={boxVariant}
-                                initial="hidden"
-                                animate={control1}
-                                className={styles.imageContainer1}
-                            >
-                            </motion.div>
+        <div className={styles.benefits}>
+            <div className={styles.h1}>
+                Days of messy periods are over. We are here to cure it!
+            </div>
+            <div className={styles.benefitsMain}>
+                <div className={styles.benefitsSub}>
+                    <motion.div
+                        ref={ref1}
+                        variants={boxVariant}
+                        initial="hidden"
+                        animate={control1}
+                        className={styles.imageContainer1}
+                    >
+                    </motion.div>
 
-                            <div className={styles.para}>100% Medical Graded Silicone</div>
-                            <div className={styles.para1}>
-                                All cups are made in FDA approved facilities and are BPA free.
-                            </div>
-                        </div>
-                        <div className={styles.benefitsSub}>
-                            <motion.div
-                                ref={ref2}
-                                variants={boxVariant}
-                                initial="hidden"
-                                animate={control2}
-                                className={styles.imageContainer2}
-                            >
-                            </motion.div>
-                            <div className={styles.para}>Upto 8-10 hours protection</div>
-                            <div className={styles.para1}>
-                                We got you covered for 10 hours so that you don't have to worry about leaks.
-                            </div>
-                        </div>
-                        <div className={styles.benefitsSub}>
-                            <motion.div
-                                ref={ref3}
-                                variants={boxVariant}
-                                initial="hidden"
-                                animate={control3}
-                                className={styles.imageContainer3}
-                            >
-                            </motion.div>
-                            <div className={styles.para}>Eco friendly & Plastic free</div>
-                            <div className={styles.para1}>
-                                Our cups are reusable and durable that helps you use them for upto 5 years.
-                            </div>
-                        </div>
+                    <div className={styles.para}>100% Medical Graded Silicone</div>
+                    <div className={styles.para1}>
+                        All cups are made in FDA approved facilities and are BPA free.
+                    </div>
+                </div>
+                <div className={styles.benefitsSub}>
+                    <motion.div
+                        ref={ref2}
+                        variants={boxVariant}
+                        initial="hidden"
+                        animate={control2}
+                        className={styles.imageContainer2}
+                    >
+                    </motion.div>
+                    <div className={styles.para}>Upto 8-10 hours protection</div>
+                    <div className={styles.para1}>
+                        We got you covered for 10 hours so that you don't have to worry about leaks.
+                    </div>
+                </div>
+                <div className={styles.benefitsSub}>
+                    <motion.div
+                        ref={ref3}
+                        variants={boxVariant}
+                        initial="hidden"
+                        animate={control3}
+                        className={styles.imageContainer3}
+                    >
+                    </motion.div>
+                    <div className={styles.para}>Eco friendly & Plastic free</div>
+                    <div className={styles.para1}>
+                        Our cups are reusable and durable that helps you use them for upto 5 years.
                     </div>
                 </div>
             </div>

@@ -91,6 +91,7 @@
   }
 
   .h1 {
+    margin-top: 20px;
     font-size: 28px; 
     width: 100%; 
   }
@@ -102,13 +103,14 @@
 
   .benefitsSub {
     text-align: center;
+    gap: 5px; 
   }
 
   .imageContainer1,
   .imageContainer2,
   .imageContainer3 {
     width: 80%; 
-    height: auto; 
+    height: 10vh; /* Adjusted height for better visibility */
   }
 
   .icon {

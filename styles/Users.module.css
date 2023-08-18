@@ -41,8 +41,6 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  /* justify-content: center; */
 }
 
 .h2 {
@@ -64,6 +62,7 @@
   font-family: 'Telegraf UltraBold 800';
   font-size: 36px;
   margin-bottom: 3rem;
+  margin-top: 5rem;
   font-weight: bold;
   text-align: center;
  
@@ -106,24 +105,61 @@
 }
 
 
-@media (max-width: 768px) {
-  .usersMain {
-    grid-template-columns: 1fr;
-    gap: 60px;
-    padding: 20px;
-  }
+/* Existing styles */
 
-  .h1 {
-    margin-top: -7rem;
-    font-size: 25px;
-  }
-
+/* Add this media query for mobile responsiveness */
+@media screen and (max-width: 768px) {
   .users {
-    padding: 20px;
+      padding-bottom: 40px; /* Add bottom padding */
+  }
+
+  .usersMain {
+      grid-template-columns: 1fr; /* Single column layout for mobile */
+      gap: 40px; /* Adjusted gap */
+      padding: 20px; /* Reduced padding */
+  }
+
+  .usersSubSub {
+      padding: 15px; /* Reduced padding */
+      border-radius: 15px; /* Reduced border radius */
   }
 
   .cardTop {
-    margin-top: -6rem;
+      margin-top: -2.5rem; /* Adjusted margin-top */
   }
-  
+
+  .usersImage {
+      width: 100px; /* Reduced image size */
+      height: 100px;
+  }
+
+  .cardBottom {
+      margin-top: 15px; /* Adjusted margin-top */
+  }
+
+  .h1 {
+      font-size: 24px; /* Reduced font size */
+      margin-top: 2rem; /* Adjusted margin-top */
+      margin-bottom: 2rem; /* Adjusted margin-bottom */
+  }
+
+  .h2,
+  .h3 {
+      font-size: 18px; /* Reduced font size */
+      text-align: center; /* Center text for mobile */
+  }
+
+  .para {
+      font-size: 14px; /* Reduced font size */
+      line-height: 1.3em; /* Adjusted line height */
+      margin-top: 10px; /* Adjusted margin-top */
+  }
+
+  .imageContainer1,
+  .imageContainer2,
+  .imageContainer3 {
+      width: 100%; /* Adjusted image width */
+      height: 10vh; /* Adjusted image height */
+  }
 }
+

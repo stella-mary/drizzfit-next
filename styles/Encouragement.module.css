@@ -37,27 +37,27 @@
   background-size: cover;
 }
 
+
 @media screen and (max-width: 768px) {
   .encouragementMain {
-    grid-template-columns: 1fr;  
-    gap: 20px; 
-    align-items: center; 
-    padding: 10%; 
+      grid-template-columns: 1fr; 
+      gap: 20px; 
   }
 
-  .h1 {
-    font-size: 40px; 
-    text-align: center; 
-    width: 100%; 
-  }
-
-  .para {
-    font-size: 18px; 
-    text-align: center; 
+  .encouragement {
+    padding: 5%;
   }
 
   .imageContainer1 {
-    height: 50vh; 
+    width: 100%;
+      height: 70vh; 
   }
-  
+
+  .h1 {
+      font-size: 40px; 
+  }
+
+  .para {
+      font-size: 18px; 
+  }
 }

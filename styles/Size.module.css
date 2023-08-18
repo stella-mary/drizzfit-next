@@ -1,7 +1,7 @@
 .size {
   width: 100%;
   height: 100vh;
-  padding-top: 5%;
+  padding-top: 10%;
   padding-bottom: 10%;
   position: relative; 
 }
@@ -16,21 +16,16 @@
 }
 
 .contentContainer {
-   /* margin-left: 40%; */
     display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.sizeImageWrapper {
-  margin-top: 60px; 
 }
 
 
 .sizeMain {
   display: grid;
   width: 100%;
-  margin-top: 40px;
+  margin-top: 10px;
   padding-left: 15%;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 40px;
@@ -60,7 +55,7 @@
 .imageContainer1 {
   width: 100%; 
   height: 100vh;
-background-image: url("/image/size2.png");
+  background-image: url("/image/size.png");
 background-position: center;
 background-size: cover;
 }
@@ -77,33 +72,30 @@ background-size: cover;
 
 @media screen and (max-width: 768px) {
   .size {
-    padding-top: 10%; /* Increase top padding for mobile display */
+    padding-top: 10%; 
   }
 
   .sizeMain {
-    grid-template-columns: 1fr; /* Switch to a single column layout */
-    padding: 15%; /* Remove left padding */
+    grid-template-columns: 1fr; 
+    padding: 15%; 
   }
 
   .sizeSub {
-    width: 100%; /* Full width for mobile display */
-    padding: 0 15px  /* Add horizontal padding for mobile */
+    width: 100%; 
+    padding: 0 15px 
   }
 
   .h1 {
-    font-size: 28px; /* Reduce font size for mobile */
+    font-size: 28px; 
   }
 
-  .bullet {
-    font-size: 14px; /* Reduce font size for mobile */
-  }
 
   .imageContainer1 {
-    height: 100vh; /* Adjust height for mobile display */
+    height: 100vh; 
   }
 
   .imageContainer2 {
-    width: 100%; /* Full width for mobile display */
-    height: 15vh; /* Adjust height for mobile display */
+    width: 100%; 
+    height: 13vh;
   }
 }

@@ -21,14 +21,16 @@
 
 @media (max-width: 768px) {
   .guide {
-    padding: 40px; 
+    padding-top: 20%;
+    padding-bottom: 20%; 
   }
 
   .h1 {
-    font-size: 28px; 
+    font-size: 28px;
+    margin-top: 50px; 
   }
 
   .para {
-    font-size: 18px; 
+    font-size: 15px; 
   }
 }
