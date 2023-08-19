@@ -1,4 +1,6 @@
-import styles from "@/styles/Shop.module.css"
+import styles from "@/styles/Promotion.module.css"
+// import styles from "@/styles/Shop.module.css"
+
 import { Box, Typography, useTheme } from "@mui/material";
 import { Facebook, Instagram, Twitter } from '@mui/icons-material';
 import Image from "next/image";
@@ -29,22 +31,28 @@ export default function Shop() {
                     width: "10%",
                 }}
             >
-                <div className={styles.shopContainer}></div>
-                <div className={styles.shopContainer}></div>
-                <div className={styles.shopContainer}></div>
+
+                <div className={styles.imageContainer2}>
+                </div>
+                <div className={styles.imageContainer2}>
+                </div>
+                <div className={styles.imageContainer2}>
+                </div>
+
             </Box>
 
             <Box
                 sx={{
                     width: "44%",
                     display: "flex",
-                    // objectFit: "cover",
-                    // alignItems: "top",
+                    objectFit: "cover",
+                    alignItems: "top",
                 }}
             >
-                <div className={`${styles["product-details"]} ${styles["product-image-container"]}`} style={{ position: 'relative' }} >
-                    {/* <div className="product-details" style={{ position: 'relative' }} > */}
-                    <div className={styles.shopContainer}></div>
+                <div className="product-details">
+                    <div className={styles.imageContainer3}>
+                    </div>
+
                     <div className="heart-icon">
                         <FavoriteBorderIcon sx={{ fontSize: "20px", color: "white", textAlign: 'center' }} />
 
