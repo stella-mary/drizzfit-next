@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Buy = () => {
+const BuyRight = () => {
     return (
         <div>
-            adafasdkahyakkfd
+            stella
         </div>
     )
 }
 
-export default Buy
+export default BuyRight

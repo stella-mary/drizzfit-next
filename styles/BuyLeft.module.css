@@ -1,0 +1,21 @@
+.buyLeft {
+    justify-content: center;
+    align-items: center;
+}
+
+.para {
+    font-family: 'Telegraf Regular 400';
+    font-size: 15px;
+    text-align: center;
+}
+
+.para1 {
+    font-family: 'Telegraf Regular 400';
+    font-size:15px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.paraColor {
+    color: #dd7579;
+}
