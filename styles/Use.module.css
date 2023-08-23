@@ -121,9 +121,9 @@
   .imageContainer1,
   .imageContainer2,
   .imageContainer3 {
-    width: 100%; /* Adjusted image width */
-    height: 150px; /* Adjusted image height */
-    background-size: contain; /* Keep the image contained within the container */
+    width: 100%; 
+    height: 150px; 
+    background-size: contain; 
   }
 
   .h1 {
