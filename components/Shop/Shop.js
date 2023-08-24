@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import styles from "@/styles/Shop.module.css"
 import { Box, Typography, useTheme } from "@mui/material";
-import { Facebook, Instagram, Twitter } from '@mui/icons-material';
+import { BorderClear, BorderColor, Facebook, Instagram, Twitter } from '@mui/icons-material';
 import { useRouter } from "next/router"
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export default function Buy() {
+export default function Shop() {
 
     const router = useRouter();
 
@@ -32,22 +32,21 @@ export default function Buy() {
         <div className={styles.shop}>
             <Box
                 display="flex"
-                width="97%"
+                width="100%"
+                gap="1%"
                 height="100vh"
                 alignItems="top"
-                gap="1%"
-                borderRadius="10px"
+                // borderRadius="10px"
                 paddingLeft="1%"
-                paddingTop='1%'
+                paddingTop='5%'
                 paddingRight='1%'
-                m="10px"
                 backgroundColor="#fee600"
             >
                 <Box
                     sx={{
                         display: "flex",
                         flexDirection: "column",
-                        gap: "20px",
+                        gap: "10px",
                         width: "10%",
                     }}
                 >
@@ -67,55 +66,55 @@ export default function Buy() {
                     <div className={styles.productDetails}>
                         <div className={styles.shopContainer5}></div>
                         <div className={styles.heartIcon}>
-                            <FavoriteBorderIcon sx={{ fontSize: "40px", color: "black", textAlign: 'center' }} />
+                            {/* <div className={styles.heartIcon} style={{ backgroundColor: "yellow", padding: "10px", marginLeft: '10%', display: "flex", alignItems: "center", justifyContent: "center", borderRadius: '50px', }}> */}
+                            <FavoriteBorderIcon sx={{ fontSize: "30px", cursor: 'pointer', color: "black" }} />
                         </div>
+
                     </div>
                 </Box>
+
 
                 <Box
                     sx={{
                         width: "44%",
-                        marginLeft: "10px",
+                        marginLeft: "40px",
                         alignItems: "top",
                     }}
                 >
                     <Typography
                         backgroundColor="black"
                         color="white"
-                        padding="5px"
-                        width="25%"
+                        padding="10px"
+                        width="20%"
                         borderRadius="10px"
                         textAlign="center"
-                        style={{ fontFamily: "'Telegraf UltraBold 800', sans-serif" }}
+                        style={{ fontFamily: "'Telegraf UltraBold 800', sans-serif", fontSize: '12px' }}
                     >
                         In Stock
                     </Typography>
                     <Typography
-                        variant="h5"
                         color="black"
                         marginTop="20px"
-                        style={{ fontFamily: "'Telegraf UltraBold 800', sans-serif" }}
+                        style={{ fontFamily: "'Telegraf UltraBold 800', sans-serif", fontSize: '16px' }}
                     >
                         NIKE
                     </Typography>
                     <Typography
-                        variant="h3"
                         marginTop="10px"
-                        style={{ fontFamily: "'Telegraf UltraBold 800', sans-serif" }}
+                        style={{ fontFamily: "'Telegraf UltraBold 800', sans-serif", fontSize: '24px' }}
                     >
                         <b>Air Jordan 270</b>
                     </Typography>
                     <Typography
-                        variant="h3"
                         marginTop="10px"
                         color="black"
-                        style={{ fontFamily: "'Telegraf UltraBold 800', sans-serif" }}
+                        style={{ fontFamily: "'Telegraf UltraBold 800', sans-serif", fontSize: '24px' }}
                     >
                         $350
                     </Typography>
 
                     <div style={{ display: 'flex', alignItems: 'center', fontFamily: "'Telegraf Regular 400', sans-serif", marginTop: '20px', gap: '10px' }}>
-                        <label htmlFor="sizeSelect" style={{ marginRight: '10px', fontSize: '20px', fontFamily: "'Telegraf Regular 400', sans-serif" }}>
+                        <label htmlFor="sizeSelect" style={{ marginRight: '10px', fontSize: '14px', fontFamily: "'Telegraf Regular 400', sans-serif" }}>
                             Select Size:
                         </label>
                         <select
@@ -128,31 +127,27 @@ export default function Buy() {
                                 color: 'black',
                                 backgroundColor: "transparent",
                                 padding: '10px',
-                                fontFamily: "'Telegraf UltraBold 800', sans-serif",
+                                fontFamily: "'Telegraf Regular 400', sans-serif",
                                 borderWidth: '2px',
-                                borderStyle: 'solid'
+                                borderStyle: 'solid',
+                                borderColor: 'black', // Set default border color
                             }}
                         >
-                            <option style={{ color: 'black', fontFamily: "'Telegraf Regular 400', sans-serif" }} value="M">M</option>
-                            <option style={{ color: 'black', fontFamily: "'Telegraf Regular 400', sans-serif" }} value="S">S</option>
-                            <option style={{ color: 'black', fontFamily: "'Telegraf Regular 400', sans-serif" }} value="L">L</option>
+                            <option style={{ color: 'black', fontFamily: "'Telegraf Regular 400', sans-serif", fontSize: '14px' }} value="M">M</option>
+                            <option style={{ color: 'black', fontFamily: "'Telegraf Regular 400', sans-serif", fontSize: '14px' }} value="S">S</option>
+                            <option style={{ color: 'black', fontFamily: "'Telegraf Regular 400', sans-serif", fontSize: '14px' }} value="L">L</option>
                         </select>
-                        <style>{`
-          select#sizeSelect option:checked {
-            border-color: black;
-          }
-        `}</style>
                     </div>
 
-                    <div style={{ display: 'flex', alignItems: 'center', fontFamily: "'Telegraf Regular 400', sans-serif", marginTop: '20px', gap: '20px' }}>
-                        <Typography variant="h6" marginTop="20px" style={{ fontFamily: "'Telegraf Regular 400', sans-serif" }}>Quantity:</Typography>
+                    <div style={{ display: 'flex', alignItems: 'center', fontFamily: "'Telegraf Regular 400', sans-serif", marginTop: '20px', gap: '20px', fontSize: '14px' }}>
+                        <Typography variant="h6" marginTop="20px" style={{ fontFamily: "'Telegraf Regular 400', sans-serif", fontSize: '14px' }}>Quantity:</Typography>
                         <div>
                             <div
                                 style={{
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',
-                                    fontSize: '15px',
+                                    fontSize: '14px',
                                     marginTop: '15px',
                                     border: '2px solid black',
                                     borderRadius: '6px',
@@ -169,7 +164,7 @@ export default function Buy() {
                                         backgroundColor: 'transparent',
                                         cursor: 'pointer',
                                         marginRight: '5px',
-                                        fontSize: '15px',
+                                        fontSize: '14px',
                                         color: 'black',
                                         fontFamily: "'Telegraf Regular 400', sans-serif"
                                     }}
@@ -181,14 +176,14 @@ export default function Buy() {
                                 >
                                     -
                                 </button>
-                                <span style={{ flex: 1, textAlign: 'center', color: 'black', fontFamily: "'Telegraf Regular 400', sans-serif" }}>{selectedQuantity}</span>
+                                <span style={{ flex: 1, textAlign: 'center', color: 'black', fontFamily: "'Telegraf Regular 400', sans-serif", fontSize: '14px' }}>{selectedQuantity}</span>
                                 <button
                                     style={{
                                         border: 'none',
                                         backgroundColor: 'transparent',
                                         cursor: 'pointer',
                                         marginLeft: '5px',
-                                        fontSize: '15px',
+                                        fontSize: '14px',
                                         color: 'black',
                                         fontFamily: "'Telegraf Regular 400', sans-serif"
                                     }}
@@ -200,14 +195,9 @@ export default function Buy() {
                                 >
                                     +
                                 </button>
-
                             </div>
-
                         </div>
                     </div>
-                    <Typography variant="h6" marginTop="15px" style={{ fontFamily: "'Telegraf Regular 400', sans-serif" }}>
-                        <span className="color21">Available: 12</span>
-                    </Typography>
 
                     <Box
                         display="flex"
@@ -215,13 +205,15 @@ export default function Buy() {
                         gap="20px"
                         fontFamily="'Telegraf Regular 400', sans-serif"
                     >
-                        <Typography fontSize="15px">
+                        <Typography fontSize="12px" fontFamily="'Telegraf Regular 400', sans-serif"
+                        >
                             <span class={styles.bgcolor5}>
                                 {/* onClick={handleAddToCart} */}
                                 Add to cart
                             </span>
                         </Typography>
-                        <Typography fontSize="15px">
+                        <Typography fontSize="12px" fontFamily="'Telegraf Regular 400', sans-serif"
+                        >
                             <span class={styles.bgcolor5} onClick={navigateToBuy}>
                                 Buy Now
                             </span>
