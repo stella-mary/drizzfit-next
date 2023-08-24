@@ -88,7 +88,7 @@ export default function Shop() {
                         width="20%"
                         borderRadius="10px"
                         textAlign="center"
-                        style={{ fontFamily: "'Telegraf UltraBold 800', sans-serif", fontSize: '12px' }}
+                        style={{ fontFamily: "'Telegraf UltraBold 800', sans-serif", fontSize: '13px' }}
                     >
                         In Stock
                     </Typography>
@@ -97,24 +97,24 @@ export default function Shop() {
                         marginTop="20px"
                         style={{ fontFamily: "'Telegraf UltraBold 800', sans-serif", fontSize: '16px' }}
                     >
-                        NIKE
+                        DRIZZFIT
                     </Typography>
                     <Typography
                         marginTop="10px"
                         style={{ fontFamily: "'Telegraf UltraBold 800', sans-serif", fontSize: '24px' }}
                     >
-                        <b>Air Jordan 270</b>
+                        <b>Reusable Menstrual Cup</b>
                     </Typography>
                     <Typography
                         marginTop="10px"
                         color="black"
                         style={{ fontFamily: "'Telegraf UltraBold 800', sans-serif", fontSize: '24px' }}
                     >
-                        $350
+                        ₹ 299
                     </Typography>
 
-                    <div style={{ display: 'flex', alignItems: 'center', fontFamily: "'Telegraf Regular 400', sans-serif", marginTop: '20px', gap: '10px' }}>
-                        <label htmlFor="sizeSelect" style={{ marginRight: '10px', fontSize: '14px', fontFamily: "'Telegraf Regular 400', sans-serif" }}>
+                    <div style={{ display: 'flex', alignItems: 'center', fontFamily: "'Telegraf UltraBold 800', sans-serif", marginTop: '20px', gap: '10px' }}>
+                        <label htmlFor="sizeSelect" style={{ marginRight: '10px', fontSize: '14px', fontFamily: "'Telegraf UltraBold 800', sans-serif" }}>
                             Select Size:
                         </label>
                         <select
@@ -127,20 +127,21 @@ export default function Shop() {
                                 color: 'black',
                                 backgroundColor: "transparent",
                                 padding: '10px',
-                                fontFamily: "'Telegraf Regular 400', sans-serif",
+                                fontFamily: "'Telegraf UltraBold 800', sans-serif",
                                 borderWidth: '2px',
                                 borderStyle: 'solid',
                                 borderColor: 'black', // Set default border color
                             }}
                         >
-                            <option style={{ color: 'black', fontFamily: "'Telegraf Regular 400', sans-serif", fontSize: '14px' }} value="M">M</option>
-                            <option style={{ color: 'black', fontFamily: "'Telegraf Regular 400', sans-serif", fontSize: '14px' }} value="S">S</option>
-                            <option style={{ color: 'black', fontFamily: "'Telegraf Regular 400', sans-serif", fontSize: '14px' }} value="L">L</option>
+
+                            <option style={{ color: 'black', fontFamily: "'Telegraf UltraBold 800', sans-serif", fontSize: '14px' }} value="M">M</option>
+                            <option style={{ color: 'black', fontFamily: "'Telegraf UltraBold 800', sans-serif", fontSize: '14px' }} value="S">S</option>
+                            <option style={{ color: 'black', fontFamily: "'Telegraf UltraBold 800', sans-serif", fontSize: '14px' }} value="L">L</option>
                         </select>
                     </div>
 
-                    <div style={{ display: 'flex', alignItems: 'center', fontFamily: "'Telegraf Regular 400', sans-serif", marginTop: '20px', gap: '20px', fontSize: '14px' }}>
-                        <Typography variant="h6" marginTop="20px" style={{ fontFamily: "'Telegraf Regular 400', sans-serif", fontSize: '14px' }}>Quantity:</Typography>
+                    <div style={{ display: 'flex', alignItems: 'center', fontFamily: "'Telegraf UltraBold 800', sans-serif", marginTop: '20px', gap: '20px', fontSize: '14px' }}>
+                        <Typography variant="h6" marginTop="20px" style={{ fontFamily: "'Telegraf UltraBold 800', sans-serif", fontSize: '14px' }}>Quantity:</Typography>
                         <div>
                             <div
                                 style={{
@@ -154,7 +155,7 @@ export default function Shop() {
                                     padding: '10px',
                                     width: '100px',
                                     height: '40px',
-                                    fontFamily: "'Telegraf Regular 400', sans-serif"
+                                    fontFamily: "'Telegraf UltraBold 800', sans-serif"
                                 }}
                             >
                                 <button
@@ -166,7 +167,7 @@ export default function Shop() {
                                         marginRight: '5px',
                                         fontSize: '14px',
                                         color: 'black',
-                                        fontFamily: "'Telegraf Regular 400', sans-serif"
+                                        fontFamily: "'Telegraf UltraBold 800', sans-serif"
                                     }}
                                     onClick={handleDecreaseQuantity}
 
@@ -185,7 +186,7 @@ export default function Shop() {
                                         marginLeft: '5px',
                                         fontSize: '14px',
                                         color: 'black',
-                                        fontFamily: "'Telegraf Regular 400', sans-serif"
+                                        fontFamily: "'Telegraf UltraBold 800', sans-serif"
                                     }}
                                     onClick={handleIncreaseQuantity}
 
@@ -203,16 +204,16 @@ export default function Shop() {
                         display="flex"
                         marginTop="40px"
                         gap="20px"
-                        fontFamily="'Telegraf Regular 400', sans-serif"
+                        fontFamily="'Telegraf UltraBold 800', sans-serif"
                     >
-                        <Typography fontSize="12px" fontFamily="'Telegraf Regular 400', sans-serif"
+                        <Typography fontSize="12px" fontFamily="'Telegraf UltraBold 800', sans-serif"
                         >
                             <span class={styles.bgcolor5}>
                                 {/* onClick={handleAddToCart} */}
                                 Add to cart
                             </span>
                         </Typography>
-                        <Typography fontSize="12px" fontFamily="'Telegraf Regular 400', sans-serif"
+                        <Typography fontSize="12px" fontFamily="'Telegraf UltraBold 800', sans-serif"
                         >
                             <span class={styles.bgcolor5} onClick={navigateToBuy}>
                                 Buy Now

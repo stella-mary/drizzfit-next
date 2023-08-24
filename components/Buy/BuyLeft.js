@@ -3,6 +3,7 @@ import styles from "@/styles/BuyLeft.module.css"
 
 const BuyLeft = () => {
     return (
+
         <div className={styles.buyLeft}>
             <div className={styles.para}>
                 Returning customer? <span className={styles.paraColor}>Click here to login</span>
