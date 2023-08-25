@@ -37,15 +37,14 @@ export default function Shop() {
                 display="flex"
                 width="100%"
                 gap="1%"
-                height={isNonMobile ? "100%" : "100vh"}
-                // height="100vh"
+                height="100vh"
                 alignItems="top"
                 flexDirection={isNonMobile ? "column" : "row"}
                 // borderRadius="10px"
                 paddingLeft={isNonMobile ? "5%" : "1%"}
                 paddingTop='5%'
                 paddingRight={isNonMobile ? "5%" : "1%"}
-                paddingBottom={isNonMobile ? "5%" : "1%"}
+                paddingBottom={isNonMobile ? "100%" : "1%"}
                 backgroundColor="#fee600"
             >
                 <Box
