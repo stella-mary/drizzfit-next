@@ -150,48 +150,12 @@
   background: #0c5d96;
 }
 
-
-@media screen and (max-width: 768px) {
-  .shop {
-    /* Adjust overall layout for smaller screens */
-    justify-content: flex-start; /* Align items to the top */
-    padding-top: 20px; /* Increase top padding */
-    flex-direction: column; /* Stack elements vertically */
-  }
-
-  .shopContainer2,
-  .shopContainer3,
-  .shopContainer4,
+@media (max-width: 768px) {
   .shopContainer5 {
-    /* Adjust container heights for smaller screens */
-    height: 40vh; /* Adjust height for better mobile display */
-  }
+    max-width: 100%; 
+     }
 
-  .heartIcon {
-    /* Adjust heart icon position for mobile */
-    margin-left: 50%; /* Center heart icon horizontally */
-    transform: translateX(-50%); /* Center heart icon using transform */
-    margin-top: 2%; /* Adjust top margin */
-  }
-
-  .productDetails {
-    /* Adjust product details container */
-    width: 100%;
-    margin-left: 0; /* Remove left margin */
-  }
-
-  .bgcolor5,
-  .bgcolor6 {
-    /* Adjust button styles for mobile */
-    padding: 10px 20px; /* Adjust padding for smaller buttons */
-    font-size: 10px; /* Adjust font size for smaller buttons */
-  }
-
-  .socialIcon {
-    /* Adjust social icon styles for mobile */
-    height: 30px; /* Adjust height for smaller icons */
-    width: 30px; /* Adjust width for smaller icons */
-  }
-
-  /* You can add more adjustments for other elements as needed */
+     .heartIcon{
+      margin-left: 75%;
+    }
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "@/styles/Shop.module.css"
-import { Box, Typography, useTheme } from "@mui/material";
+import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 import { BorderClear, BorderColor, Facebook, Instagram, Twitter } from '@mui/icons-material';
 import { useRouter } from "next/router"
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
@@ -10,6 +10,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export default function Shop() {
 
     const router = useRouter();
+
+    const isNonMobile = useMediaQuery("(max-width: 768px)");
+
 
     const navigateToBuy = () => {
         router.push("/buy");
@@ -36,18 +39,20 @@ export default function Shop() {
                 gap="1%"
                 height="100vh"
                 alignItems="top"
+                flexDirection={isNonMobile ? "column" : "row"}
                 // borderRadius="10px"
-                paddingLeft="1%"
+                paddingLeft={isNonMobile ? "5%" : "1%"}
                 paddingTop='5%'
-                paddingRight='1%'
+                paddingRight={isNonMobile ? "5%" : "1%"}
+                paddingBottom={isNonMobile ? "5%" : "1%"}
                 backgroundColor="#fee600"
             >
                 <Box
                     sx={{
                         display: "flex",
-                        flexDirection: "column",
+                        flexDirection: isNonMobile ? "row" : "column",
                         gap: "10px",
-                        width: "10%",
+                        width: isNonMobile ? "100%" : "10%",
                     }}
                 >
                     <div className={styles.shopContainer2}></div>
@@ -57,7 +62,9 @@ export default function Shop() {
 
                 <Box
                     sx={{
-                        width: "44%",
+                        // width: "44%",
+                        width: isNonMobile ? "100%" : "44%",
+                        height: isNonMobile ? "50%" : "auto",
                         display: "flex",
                         objectFit: "cover",
                         alignItems: "top",
@@ -67,7 +74,10 @@ export default function Shop() {
                         <div className={styles.shopContainer5}></div>
                         <div className={styles.heartIcon}>
                             {/* <div className={styles.heartIcon} style={{ backgroundColor: "yellow", padding: "10px", marginLeft: '10%', display: "flex", alignItems: "center", justifyContent: "center", borderRadius: '50px', }}> */}
-                            <FavoriteBorderIcon sx={{ fontSize: "30px", cursor: 'pointer', color: "black" }} />
+                            <FavoriteBorderIcon
+                                sx={{
+                                    fontSize: "30px", cursor: 'pointer', color: "black"
+                                }} />
                         </div>
 
                     </div>
@@ -77,7 +87,8 @@ export default function Shop() {
                 <Box
                     sx={{
                         width: "44%",
-                        marginLeft: "40px",
+                        marginLeft: isNonMobile ? "5px" : "40px",
+                        // marginLeft: "40px",
                         alignItems: "top",
                     }}
                 >
@@ -85,7 +96,8 @@ export default function Shop() {
                         backgroundColor="black"
                         color="white"
                         padding="10px"
-                        width="20%"
+                        width={isNonMobile ? "100%" : "20%"}
+                        // width="20%"
                         borderRadius="10px"
                         textAlign="center"
                         style={{ fontFamily: "'Telegraf UltraBold 800', sans-serif", fontSize: '13px' }}
