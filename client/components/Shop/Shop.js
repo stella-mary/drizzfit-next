@@ -37,6 +37,7 @@ export default function Shop() {
                 display="flex"
                 width="100%"
                 gap="1%"
+                // height={isNonMobile ? "auto" : "100vh"}
                 height="100vh"
                 alignItems="top"
                 flexDirection={isNonMobile ? "column" : "row"}
@@ -96,6 +97,7 @@ export default function Shop() {
                         backgroundColor="black"
                         color="white"
                         padding="10px"
+                        marginTop={isNonMobile ? "20px" : "auto"}
                         width={isNonMobile ? "100%" : "20%"}
                         // width="20%"
                         borderRadius="10px"
@@ -113,7 +115,11 @@ export default function Shop() {
                     </Typography>
                     <Typography
                         marginTop="10px"
-                        style={{ fontFamily: "'Telegraf UltraBold 800', sans-serif", fontSize: '24px' }}
+                        width={isNonMobile ? "230%" : "auto"}
+                        style={{
+                            fontFamily: "'Telegraf UltraBold 800', sans-serif",
+                            fontSize: '24px'
+                        }}
                     >
                         <b>Reusable Menstrual Cup</b>
                     </Typography>
@@ -125,8 +131,18 @@ export default function Shop() {
                         ₹ 299
                     </Typography>
 
-                    <div style={{ display: 'flex', alignItems: 'center', fontFamily: "'Telegraf UltraBold 800', sans-serif", marginTop: '20px', gap: '10px' }}>
-                        <label htmlFor="sizeSelect" style={{ marginRight: '10px', fontSize: '14px', fontFamily: "'Telegraf UltraBold 800', sans-serif" }}>
+                    <div style={{
+                        display: 'flex',
+                        width: isNonMobile ? "200%" : "auto",
+                        alignItems: 'center', fontFamily: "'Telegraf UltraBold 800', sans-serif", marginTop: '20px', gap: '10px'
+                    }}>
+                        <label htmlFor="sizeSelect"
+                            style={{
+                                marginRight: '10px',
+                                fontSize: '14px',
+
+                                fontFamily: "'Telegraf UltraBold 800', sans-serif"
+                            }}>
                             Select Size:
                         </label>
                         <select
@@ -215,6 +231,7 @@ export default function Shop() {
                     <Box
                         display="flex"
                         marginTop="40px"
+                        width={isNonMobile ? "200%" : "auto"}
                         gap="20px"
                         fontFamily="'Telegraf UltraBold 800', sans-serif"
                     >
