@@ -42,9 +42,9 @@ export default function Shop() {
                 flexDirection={isNonMobile ? "column" : "row"}
                 // borderRadius="10px"
                 paddingLeft={isNonMobile ? "5%" : "1%"}
-                paddingTop='5%'
+                paddingTop={isNonMobile ? "10%" : "5%"}
                 paddingRight={isNonMobile ? "5%" : "1%"}
-                paddingBottom={isNonMobile ? "100%" : "1%"}
+                paddingBottom={isNonMobile ? "160%" : "1%"}
                 backgroundColor="#fee600"
             >
                 <Box
@@ -63,8 +63,9 @@ export default function Shop() {
                 <Box
                     sx={{
                         // width: "44%",
+                        marginTop: isNonMobile ? "20px" : "auto",
                         width: isNonMobile ? "100%" : "44%",
-                        height: isNonMobile ? "50%" : "auto",
+                        height: isNonMobile ? "100%" : "auto",
                         display: "flex",
                         objectFit: "cover",
                         alignItems: "top",
