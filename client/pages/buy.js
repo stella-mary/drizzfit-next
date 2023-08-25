@@ -1,30 +1,53 @@
-import BuyTop from '@/components/Buy/BuyTop'
-import BuyLeft from '@/components/Buy/BuyLeft';
-import BuyCustomer from '@/components/Buy/BuyCustomer';
-import BuyPayment from '@/components/Buy/BuyPayment';
-import BuySummary from '@/components/Buy/BuySummary';
-import BuyRight from '@/components/Buy/BuyRight';
-import styles from '../styles/BuyTop.module.css'
+import Chip from "@mui/material/Chip";
+import FaceIcon from "@mui/icons-material/Face";
+import Paper from "@mui/material/Paper";
+import LockIcon from "@mui/icons-material/Lock";
 
-const shop = () => {
+import Switch from "@mui/material/Switch";
+import { useState } from "react";
+import Login from '@/components/Buy/Login';
+import Register from '@/components/Buy/Register';
+
+
+function App() {
+    const [checked, setChecked] = useState(true);
+
+    const handleChange = (event) => {
+        setChecked(event.target.checked);
+    };
+
     return (
-        <div className={styles.buy}>
-            <div className={styles.buyTopContainer}>
-                <BuyTop />
-            </div>
-            <div className={styles.buyContainer}>
-                <div className={styles.buyLeftContainer}>
-                    <BuyLeft />
-                    {/* <BuyCustomer />
-                    <BuySummary />
-                    <BuyPayment /> */}
+        <div className="App">
+            <Paper elevation={3} style={{ padding: "10px", paddingBottom: "50px" }}>
+                <div align="center">
+                    {checked ? (
+                        <Chip
+                            icon={<LockIcon />}
+                            label="Log In"
+                            variant="outlined"
+                            color="info"
+                        />
+                    ) : (
+                        <Chip
+                            icon={<FaceIcon />}
+                            label="Sign Up"
+                            variant="outlined"
+                            color="info"
+                        />
+                    )}
+                    <br />
+
+                    <Switch
+                        checked={checked}
+                        onChange={handleChange}
+                        inputProps={{ "aria-label": "controlled" }}
+                    />
                 </div>
-                {/* <div className={styles.buyRightContainer}>
-                    <BuyRight />
-                </div> */}
-            </div>
+
+                {checked ? <Login /> : <Register />}
+            </Paper>
         </div>
     );
-};
+}
 
-export default shop;
+export default App;
