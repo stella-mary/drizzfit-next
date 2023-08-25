@@ -37,8 +37,8 @@ export default function Shop() {
                 display="flex"
                 width="100%"
                 gap="1%"
-                // height={isNonMobile ? "auto" : "100vh"}
-                height="100vh"
+                height={isNonMobile ? "100%" : "100vh"}
+                // height="100vh"
                 alignItems="top"
                 flexDirection={isNonMobile ? "column" : "row"}
                 // borderRadius="10px"
