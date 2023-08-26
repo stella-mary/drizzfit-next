@@ -157,7 +157,7 @@ export default function Login() {
                     label="Username"
                     id="standard-basic"
                     variant="standard"
-                    sx={{ width: "100%" }}
+                    sx={{ width: "100%", marginTop: "10px" }}
                     size="small"
                     value={usernameInput}
                     InputProps={{}}
@@ -166,7 +166,7 @@ export default function Login() {
                     }}
                     onBlur={handleUsername}
                     InputLabelProps={{
-                        style: { color: 'white' } // Apply white color to the label
+                        style: { color: 'white', fontSize: '18px', fontFamily: "'Telegraf Regular 400', sans-serif" } // Apply white color to the label
                     }}
                 />
             </div>
@@ -178,7 +178,7 @@ export default function Login() {
                     error={emailError}
                     id="standard-basic"
                     variant="standard"
-                    sx={{ width: "100%" }}
+                    sx={{ width: "100%", marginTop: "10px", marginBottom: "10px" }}
                     value={emailInput}
                     InputProps={{}}
                     size="small"
@@ -187,7 +187,7 @@ export default function Login() {
                         setEmailInput(event.target.value);
                     }}
                     InputLabelProps={{
-                        style: { color: 'white' } // Apply white color to the label
+                        style: { color: 'white', fontSize: '18px', fontFamily: "'Telegraf Regular 400', sans-serif" } // Apply white color to the label
                     }}
                 />
             </div>
@@ -196,7 +196,7 @@ export default function Login() {
                     <InputLabel
                         error={passwordError}
                         htmlFor="standard-adornment-password"
-                        style={{ color: 'white', borderColor: 'white' }}
+                        style={{ color: 'white', borderColor: 'white', fontSize: '18px', fontFamily: "'Telegraf Regular 400', sans-serif" }}
                     >
                         Password
                     </InputLabel>
@@ -225,36 +225,44 @@ export default function Login() {
                 </FormControl>
             </div>
 
-            <div style={{ marginTop: "10px" }}>
+            <div style={{ marginTop: "40px" }}>
                 <Button
                     variant="contained"
                     fullWidth
                     startIcon={<LoginIcon />}
                     onClick={handleSubmit}
+                    sx={{
+                        fontFamily: "'Telegraf UltraBold 800', sans-serif",
+                        fontSize: '16px', // Replace with your desired font size
+                    }}
                 >
                     REGISTER
                 </Button>
             </div>
 
             {/* Show Form Error if any */}
-            {formValid && (
-                <Stack sx={{ width: "100%", paddingTop: "10px" }} spacing={2}>
-                    <Alert severity="error" size="small">
-                        {formValid}
-                    </Alert>
-                </Stack>
-            )}
+            {
+                formValid && (
+                    <Stack sx={{ width: "100%", paddingTop: "10px" }} spacing={2}>
+                        <Alert severity="error" size="small">
+                            {formValid}
+                        </Alert>
+                    </Stack>
+                )
+            }
 
             {/* Show Success if no issues */}
-            {success && (
-                <Stack sx={{ width: "100%", paddingTop: "10px" }} spacing={2}>
-                    <Alert severity="success" size="small">
-                        {success}
-                    </Alert>
-                </Stack>
-            )}
+            {
+                success && (
+                    <Stack sx={{ width: "100%", paddingTop: "10px" }} spacing={2}>
+                        <Alert severity="success" size="small">
+                            {success}
+                        </Alert>
+                    </Stack>
+                )
+            }
 
-            <div style={{ marginTop: "7px", fontSize: "10px", color: 'white' }} margin="left">
+            <div style={{ marginTop: "30px", fontSize: "15px", color: 'white', fontFamily: "'Telegraf Regular 400', sans-serif", }} margin="left">
                 <a>Forgot Password</a>
                 <br />
                 Do you have an account ?{" "}
@@ -262,6 +270,6 @@ export default function Login() {
                     Sign Up
                 </small>
             </div>
-        </div>
+        </div >
     );
 }

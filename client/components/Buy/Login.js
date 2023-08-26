@@ -102,15 +102,15 @@ export default function Login() {
     };
 
     return (
-        <div>
-            <div style={{ marginTop: "5px" }}>
+        <div style={{ padding: '20px' }}>
+            <div style={{ marginTop: "10px" }}>
                 <TextField
                     label="Email Address"
                     fullWidth
                     error={emailError}
                     id="standard-basic"
                     variant="standard"
-                    sx={{ width: "100%" }}
+                    sx={{ width: "100%", marginTop: "10px", marginBottom: "10px" }}
                     value={emailInput}
                     InputProps={{}}
                     size="small"
@@ -119,7 +119,7 @@ export default function Login() {
                         setEmailInput(event.target.value);
                     }}
                     InputLabelProps={{
-                        style: { color: 'white' } // Apply white color to the label
+                        style: { color: 'white', fontSize: '18px', fontFamily: "'Telegraf Regular 400', sans-serif" } // Apply white color to the label
                     }}
                 />
             </div>
@@ -128,9 +128,7 @@ export default function Login() {
                     <InputLabel
                         error={passwordError}
                         htmlFor="standard-adornment-password"
-                        style={{ color: 'white', borderColor: 'white' }}
-
-
+                        style={{ color: 'white', borderColor: 'white', fontSize: '18px', fontFamily: "'Telegraf Regular 400', sans-serif" }}
                     >
                         Password
                     </InputLabel>
@@ -173,6 +171,10 @@ export default function Login() {
                     fullWidth
                     startIcon={<LoginIcon />}
                     onClick={handleSubmit}
+                    sx={{
+                        fontFamily: "'Telegraf UltraBold 800', sans-serif",
+                        fontSize: '16px', // Replace with your desired font size
+                    }}
                 >
                     LOGIN
                 </Button>
@@ -196,7 +198,7 @@ export default function Login() {
                 </Stack>
             )}
 
-            <div style={{ marginTop: "7px", fontSize: "10px", color: 'white' }} margin="left">
+            <div style={{ marginTop: "30px", fontSize: "15px", color: 'white', fontFamily: "'Telegraf Regular 400', sans-serif", }} margin="left">
                 <a>Forgot Password</a>
                 <br />
                 Do you have an account ?{" "}
