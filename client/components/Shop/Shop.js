@@ -24,7 +24,9 @@ export default function Shop() {
   };
 
   const [selectedQuantity, setSelectedQuantity] = useState(1);
-  const [productDetails, setProductDetails] = useState({});
+  const [groupedProductDetails, setGroupedProductDetails] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState({});
+  const [selectedDescription, setSelectedDescription] = useState("");
 
   const handleDecreaseQuantity = () => {
     if (selectedQuantity > 1) {
@@ -38,11 +40,46 @@ export default function Shop() {
 
   useEffect(() => {
     axios.get("http://localhost:1992/product/all").then((response) => {
-      console.log("Product details: ", response.data[0]);
-      setProductDetails(response.data[0]);
+      console.log("Product details: ", response.data);
+
+      // Group products by name
+      const groupedProducts = {};
+      response.data.forEach((product) => {
+        if (!groupedProducts[product.name]) {
+          groupedProducts[product.name] = [];
+        }
+        groupedProducts[product.name].push(product);
+      });
+
+      console.log("groupedProducts: ", groupedProducts);
+      setGroupedProductDetails(groupedProducts);
+
+      // Assuming the first product in the first group is the selected product
+      if (groupedProducts[Object.keys(groupedProducts)[0]]) {
+        console.log(
+          "Selected Product: ",
+          groupedProducts[Object.keys(groupedProducts)[0]][0]
+        );
+        setSelectedProduct(groupedProducts[Object.keys(groupedProducts)[0]][0]);
+        setSelectedDescription(
+          groupedProducts[Object.keys(groupedProducts)[0]][0].description
+        );
+      }
     });
   }, []);
 
+  const handleDescriptionChange = (event) => {
+    const newDescription = event.target.value;
+    setSelectedDescription(newDescription);
+
+    // Find the corresponding product based on the selected description
+    const selectedProductGroup = groupedProductDetails[selectedProduct.name];
+    const selectedProductWithDescription = selectedProductGroup.find(
+      (product) => product.description === newDescription
+    );
+
+    setSelectedProduct(selectedProductWithDescription);
+  };
   return (
     <div className={styles.shop}>
       <Box
@@ -141,7 +178,7 @@ export default function Shop() {
             }}
           >
             {/* <b>Reusable Menstrual Cup</b> */}
-            <b>{productDetails.name}</b>
+            <b>{selectedProduct.name}</b>
           </Typography>
           <Typography
             marginTop="10px"
@@ -151,10 +188,9 @@ export default function Shop() {
               fontSize: "24px",
             }}
           >
-            ₹ {productDetails.price}
+            ₹ {selectedProduct.price}
           </Typography>
-
-          <div
+          <Box
             style={{
               display: "flex",
               width: isNonMobile ? "200%" : "auto",
@@ -177,8 +213,8 @@ export default function Shop() {
             </label>
             <select
               id="sizeSelect"
-              // value={selectedSize}
-              // onChange={handleSizeChange}
+              value={selectedDescription}
+              onChange={handleDescriptionChange}
               style={{
                 flex: "1",
                 maxWidth: "70px",
@@ -188,42 +224,24 @@ export default function Shop() {
                 fontFamily: "'Telegraf UltraBold 800', sans-serif",
                 borderWidth: "2px",
                 borderStyle: "solid",
-                borderColor: "black", // Set default border color
+                borderColor: "black",
               }}
             >
-              <option
-                style={{
-                  color: "black",
-                  fontFamily: "'Telegraf UltraBold 800', sans-serif",
-                  fontSize: "14px",
-                }}
-                value="M"
-              >
-                M
-              </option>
-              <option
-                style={{
-                  color: "black",
-                  fontFamily: "'Telegraf UltraBold 800', sans-serif",
-                  fontSize: "14px",
-                }}
-                value="S"
-              >
-                S
-              </option>
-              <option
-                style={{
-                  color: "black",
-                  fontFamily: "'Telegraf UltraBold 800', sans-serif",
-                  fontSize: "14px",
-                }}
-                value="L"
-              >
-                L
-              </option>
+              {groupedProductDetails[selectedProduct.name]?.map((product) => (
+                <option
+                  key={product._id}
+                  value={product.description}
+                  style={{
+                    color: "black",
+                    fontFamily: "'Telegraf UltraBold 800', sans-serif",
+                    fontSize: "14px",
+                  }}
+                >
+                  {product.description}
+                </option>
+              ))}
             </select>
-          </div>
-
+          </Box>
           <div
             style={{
               display: "flex",
@@ -310,7 +328,6 @@ export default function Shop() {
               </div>
             </div>
           </div>
-
           <Box
             display="flex"
             marginTop="40px"
