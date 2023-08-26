@@ -26,8 +26,8 @@ export default function Login() {
   const [showPassword, setShowPassword] = React.useState(false);
 
   //Inputs
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [emailInput, setEmailInput] = useState();
+  const [passwordInput, setPasswordInput] = useState();
   const [rememberMe, setRememberMe] = useState();
 
   // Inputs Errors
@@ -49,8 +49,8 @@ export default function Login() {
 
   // Validation for onBlur Email
   const handleEmail = () => {
-    console.log(isEmail(email));
-    if (!isEmail(email)) {
+    console.log(isEmail(emailInput));
+    if (!isEmail(emailInput)) {
       setEmailError(true);
       return;
     }
@@ -60,7 +60,11 @@ export default function Login() {
 
   // Validation for onBlur Password
   const handlePassword = () => {
-    if (!password || password.length < 5 || password.length > 20) {
+    if (
+      !passwordInput ||
+      passwordInput.length < 5 ||
+      passwordInput.length > 20
+    ) {
       setPasswordError(true);
       return;
     }
@@ -74,13 +78,13 @@ export default function Login() {
     //First of all Check for Errors
 
     // If Email error is true
-    if (emailError || !email) {
+    if (emailError || !emailInput) {
       setFormValid("Email is Invalid. Please Re-Enter");
       return;
     }
 
     // If Password error is true
-    if (passwordError || !password) {
+    if (passwordError || !passwordInput) {
       setFormValid(
         "Password is set btw 5 - 20 characters long. Please Re-Enter"
       );
@@ -89,8 +93,8 @@ export default function Login() {
     setFormValid(null);
 
     // Proceed to use the information passed
-    console.log("Email : " + email);
-    console.log("Password : " + password);
+    console.log("Email : " + emailInput);
+    console.log("Password : " + passwordInput);
     console.log("Remember : " + rememberMe);
 
     //Show Successfull Submittion
@@ -107,12 +111,12 @@ export default function Login() {
           id="standard-basic"
           variant="standard"
           sx={{ width: "100%" }}
-          value={email}
+          value={emailInput}
           InputProps={{}}
           size="small"
           onBlur={handleEmail}
           onChange={(event) => {
-            setEmail(event.target.value);
+            setEmailInput(event.target.value);
           }}
           InputLabelProps={{
             style: { color: "white" }, // Apply white color to the label
@@ -134,9 +138,9 @@ export default function Login() {
             id="standard-adornment-password"
             type={showPassword ? "text" : "password"}
             onChange={(event) => {
-              setPassword(event.target.value);
+              setPasswordInput(event.target.value);
             }}
-            value={password}
+            value={passwordInput}
             endAdornment={
               <InputAdornment position="end">
                 <IconButton

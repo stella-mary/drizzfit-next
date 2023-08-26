@@ -30,6 +30,9 @@ import {
   Alert,
   Stack,
 } from "@mui/material";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { auth, db } from "../../firebase";
+import { doc, setDoc } from "firebase/firestore";
 
 // Material UI Icon Imports
 import Visibility from "@mui/icons-material/Visibility";
@@ -53,9 +56,9 @@ export default function Login() {
   };
 
   //Inputs
-  const [firstName, setFirstName] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [userNameInput, setUserNameInput] = useState();
+  const [emailInput, setEmailInput] = useState();
+  const [passwordInput, setPasswordInput] = useState();
 
   // Inputs Errors
   const [usernameError, setUsernameError] = useState(false);
@@ -77,7 +80,7 @@ export default function Login() {
 
   // Validation for onBlur Username
   const handleUsername = () => {
-    if (!firstName) {
+    if (!userNameInput) {
       setUsernameError(true);
       return;
     }
@@ -87,8 +90,8 @@ export default function Login() {
 
   // Validation for onBlur Email
   const handleEmail = () => {
-    console.log(isEmail(email));
-    if (!isEmail(email)) {
+    console.log(isEmail(emailInput));
+    if (!isEmail(emailInput)) {
       setEmailError(true);
       return;
     }
@@ -98,7 +101,11 @@ export default function Login() {
 
   // Validation for onBlur Password
   const handlePassword = () => {
-    if (!password || password.length < 5 || password.length > 20) {
+    if (
+      !passwordInput ||
+      passwordInput.length < 5 ||
+      passwordInput.length > 20
+    ) {
       setPasswordError(true);
       return;
     }
@@ -112,7 +119,7 @@ export default function Login() {
     //First of all Check for Errors
 
     // IF username error is true
-    if (usernameError || !firstName) {
+    if (usernameError || !userNameInput) {
       setFormValid(
         "Username is set btw 5 - 15 characters long. Please Re-Enter"
       );
@@ -120,13 +127,13 @@ export default function Login() {
     }
 
     // If Email error is true
-    if (emailError || !email) {
+    if (emailError || !emailInput) {
       setFormValid("Email is Invalid. Please Re-Enter");
       return;
     }
 
     // If Password error is true
-    if (passwordError || !password) {
+    if (passwordError || !passwordInput) {
       setFormValid(
         "Password is set btw 5 - 20 characters long. Please Re-Enter"
       );
@@ -135,9 +142,9 @@ export default function Login() {
     setFormValid(null);
 
     // Proceed to use the information passed
-    console.log("Username : " + firstName);
-    console.log("Email : " + email);
-    console.log("Password : " + password);
+    console.log("Username : " + userNameInput);
+    console.log("Email : " + emailInput);
+    console.log("Password : " + passwordInput);
 
     //Show Successfull Submittion
     setSuccess("Form Submitted Successfully");
@@ -153,10 +160,10 @@ export default function Login() {
           variant="standard"
           sx={{ width: "100%" }}
           size="small"
-          value={firstName}
+          value={userNameInput}
           InputProps={{}}
           onChange={(event) => {
-            setFirstName(event.target.value);
+            setUserNameInput(event.target.value);
           }}
           onBlur={handleUsername}
           InputLabelProps={{
@@ -173,12 +180,12 @@ export default function Login() {
           id="standard-basic"
           variant="standard"
           sx={{ width: "100%" }}
-          value={email}
+          value={emailInput}
           InputProps={{}}
           size="small"
           onBlur={handleEmail}
           onChange={(event) => {
-            setEmail(event.target.value);
+            setEmailInput(event.target.value);
           }}
           InputLabelProps={{
             style: { color: "white" }, // Apply white color to the label
@@ -201,9 +208,9 @@ export default function Login() {
             style={{ color: "white" }}
             type={showPassword ? "text" : "password"}
             onChange={(event) => {
-              setPassword(event.target.value);
+              setPasswordInput(event.target.value);
             }}
-            value={password}
+            value={passwordInput}
             endAdornment={
               <InputAdornment position="end">
                 <IconButton
