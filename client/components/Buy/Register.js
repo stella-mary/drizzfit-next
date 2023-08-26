@@ -52,7 +52,8 @@ export default function Login() {
   const router = useRouter();
 
   const navigateToLogin = () => {
-    router.push("/Login");
+    console.log("Navigating to login page...");
+    router.push("./Buy/Login");
   };
 
   //Inputs
@@ -283,7 +284,7 @@ export default function Login() {
           onClick={navigateToLogin}
           style={{ textDecoration: "underline", color: "blue" }}
         >
-          Sign Up
+          Login
         </small>
       </div>
     </div>
