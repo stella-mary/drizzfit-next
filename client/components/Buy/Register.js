@@ -150,7 +150,7 @@ export default function Login() {
     };
 
     return (
-        <div>
+        <div style={{ padding: '20px' }}>
             <div style={{ marginTop: "10px" }}>
                 <TextField
                     error={usernameError}
