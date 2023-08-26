@@ -110,8 +110,7 @@ export default function Login() {
                     error={emailError}
                     id="standard-basic"
                     variant="standard"
-                    sx={{ width: "100%", marginTop: "10px", marginBottom: "10px" }}
-                    value={emailInput}
+                    sx={{ width: "100%", marginTop: "10px", marginBottom: "10px" }} value={emailInput}
                     InputProps={{}}
                     size="small"
                     onBlur={handleEmail}
@@ -129,6 +128,8 @@ export default function Login() {
                         error={passwordError}
                         htmlFor="standard-adornment-password"
                         style={{ color: 'white', borderColor: 'white', fontSize: '18px', fontFamily: "'Telegraf Regular 400', sans-serif" }}
+
+
                     >
                         Password
                     </InputLabel>
