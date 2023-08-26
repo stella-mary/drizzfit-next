@@ -23,7 +23,7 @@ function App() {
         <div className={styles.buyContainer}>
 
             <div className={styles.buyContainer1}>
-                <Paper elevation={3} style={{ padding: "10px", paddingBottom: "50px" }}>
+                <Paper elevation={3} style={{ padding: "10px", paddingBottom: "50px", background: 'black' }}>
                     <div align="center">
                         {checked ? (
                             <Chip

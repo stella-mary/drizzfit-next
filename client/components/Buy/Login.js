@@ -118,6 +118,9 @@ export default function Login() {
                     onChange={(event) => {
                         setEmailInput(event.target.value);
                     }}
+                    InputLabelProps={{
+                        style: { color: 'white' } // Apply white color to the label
+                    }}
                 />
             </div>
             <div style={{ marginTop: "5px" }}>
@@ -125,6 +128,9 @@ export default function Login() {
                     <InputLabel
                         error={passwordError}
                         htmlFor="standard-adornment-password"
+                        style={{ color: 'white', borderColor: 'white' }}
+
+
                     >
                         Password
                     </InputLabel>
@@ -190,7 +196,7 @@ export default function Login() {
                 </Stack>
             )}
 
-            <div style={{ marginTop: "7px", fontSize: "10px" }} margin="left">
+            <div style={{ marginTop: "7px", fontSize: "10px", color: 'white' }} margin="left">
                 <a>Forgot Password</a>
                 <br />
                 Do you have an account ?{" "}

@@ -36,6 +36,7 @@ import {
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import LoginIcon from "@mui/icons-material/Login";
+import { useRouter } from "next/router"
 
 // Validations
 
@@ -45,6 +46,13 @@ const isEmail = (email) =>
 
 export default function Login() {
     const [showPassword, setShowPassword] = React.useState(false);
+
+    const router = useRouter();
+
+    const navigateToLogin = () => {
+        router.push("/Login");
+    };
+
 
     //Inputs
     const [usernameInput, setUsernameInput] = useState();
@@ -157,6 +165,9 @@ export default function Login() {
                         setUsernameInput(event.target.value);
                     }}
                     onBlur={handleUsername}
+                    InputLabelProps={{
+                        style: { color: 'white' } // Apply white color to the label
+                    }}
                 />
             </div>
 
@@ -175,6 +186,9 @@ export default function Login() {
                     onChange={(event) => {
                         setEmailInput(event.target.value);
                     }}
+                    InputLabelProps={{
+                        style: { color: 'white' } // Apply white color to the label
+                    }}
                 />
             </div>
             <div style={{ marginTop: "5px" }}>
@@ -182,6 +196,7 @@ export default function Login() {
                     <InputLabel
                         error={passwordError}
                         htmlFor="standard-adornment-password"
+                        style={{ color: 'white', borderColor: 'white' }}
                     >
                         Password
                     </InputLabel>
@@ -189,6 +204,7 @@ export default function Login() {
                         error={passwordError}
                         onBlur={handlePassword}
                         id="standard-adornment-password"
+                        style={{ color: 'white' }}
                         type={showPassword ? "text" : "password"}
                         onChange={(event) => {
                             setPasswordInput(event.target.value);
@@ -238,11 +254,11 @@ export default function Login() {
                 </Stack>
             )}
 
-            <div style={{ marginTop: "7px", fontSize: "10px" }} margin="left">
+            <div style={{ marginTop: "7px", fontSize: "10px", color: 'white' }} margin="left">
                 <a>Forgot Password</a>
                 <br />
                 Do you have an account ?{" "}
-                <small style={{ textDecoration: "underline", color: "blue" }}>
+                <small onClick={navigateToLogin} style={{ textDecoration: "underline", color: "blue" }}>
                     Sign Up
                 </small>
             </div>
