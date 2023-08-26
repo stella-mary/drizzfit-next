@@ -5,12 +5,14 @@ export const postReview = (req, res) => {
   const rating = req.body.rating;
   const reviewDetails = req.body.reviewDetails;
   const reviewHeading = req.body.reviewHeading;
+  const customerName = req.body.customerName;
 
   const newReview = new Reviews({
     customerId,
     rating,
     reviewDetails,
     reviewHeading,
+    customerName,
   });
 
   newReview

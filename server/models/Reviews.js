@@ -23,6 +23,10 @@ const reviewSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  customerName: {
+    type: String,
+    required: true,
+  },
 });
 
 reviewSchema.plugin(autoIncrement.plugin, {
