@@ -290,9 +290,9 @@ export default function Shop() {
                   }}
                   onClick={handleDecreaseQuantity}
 
-                  // onClick={() => {
-                  //     setSelectedQuantity(selectedQuantity - 1)
-                  // }}
+                // onClick={() => {
+                //     setSelectedQuantity(selectedQuantity - 1)
+                // }}
                 >
                   -
                 </button>
@@ -319,9 +319,9 @@ export default function Shop() {
                   }}
                   onClick={handleIncreaseQuantity}
 
-                  // onClick={() => {
-                  //     setSelectedQuantity(selectedQuantity + 1)
-                  // }}
+                // onClick={() => {
+                //     setSelectedQuantity(selectedQuantity + 1)
+                // }}
                 >
                   +
                 </button>
