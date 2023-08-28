@@ -49,8 +49,7 @@ export const getCustomerById = (req, res) => {
       if (customer) {
         const customerDetails = {
           email: customer.email,
-          firstName: customer.firstName,
-          secondName: customer.secondName,
+          fullName: customer.fullName,
           phoneNumber: customer.phoneNumber,
           address: customer.address,
         };
