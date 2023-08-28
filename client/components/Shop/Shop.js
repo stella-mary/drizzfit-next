@@ -14,6 +14,19 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 
+import Drawer from '@mui/material/Drawer';
+import Button from '@mui/material/Button';
+import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import MailIcon from '@mui/icons-material/Mail';
+
+
+
 export default function Shop() {
   const router = useRouter();
 
@@ -80,6 +93,59 @@ export default function Shop() {
 
     setSelectedProduct(selectedProductWithDescription);
   };
+
+
+  const [state, setState] = React.useState({
+    // top: false,
+    // left: false,
+    // bottom: false,
+    right: false,
+  });
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+
+    setState({ ...state, [anchor]: open });
+  };
+
+  const list = (anchor) => (
+    <Box
+      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
+    >
+      <List>
+        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          <ListItem key={text} disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          <ListItem key={text} disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+
+
   return (
     <div className={styles.shop}>
       <Box
@@ -335,25 +401,58 @@ export default function Shop() {
             gap="20px"
             fontFamily="'Telegraf UltraBold 800', sans-serif"
           >
-            <Typography
+            {/* <Typography
               fontSize="12px"
               fontFamily="'Telegraf UltraBold 800', sans-serif"
             >
-              <span class={styles.bgcolor5}>
-                {/* onClick={handleAddToCart} */}
-                Add to cart
-              </span>
-            </Typography>
-            <Typography
+              <span class={styles.bgcolor5}> */}
+            {/* onClick={handleAddToCart} */}
+            {/* Add to cart */}
+            {/* </span> */}
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={toggleDrawer("right", true)} // Open the drawer from the right side
+              sx={{
+                fontSize: "12px",
+                fontFamily: "'Telegraf UltraBold 800', sans-serif",
+                textTransform: 'none',
+              }}
+              className={styles.bgcolor5}
+            >
+              Add to Cart
+            </Button>
+
+            <Button
+              variant="contained"
+              color="primary"
+              sx={{
+                fontSize: "12px",
+                fontFamily: "'Telegraf UltraBold 800', sans-serif",
+                textTransform: 'none',
+              }}
+              className={styles.bgcolor5}
+            >
+              Buy Now
+            </Button>
+
+
+            {/* <Typography
               fontSize="12px"
               fontFamily="'Telegraf UltraBold 800', sans-serif"
             >
               <span class={styles.bgcolor5} onClick={navigateToBuy}>
                 Buy Now
               </span>
-            </Typography>
+            </Typography> */}
           </Box>
-
+          <Drawer
+            anchor="right" // Open the drawer from the right side
+            open={state["right"]}
+            onClose={toggleDrawer("right", false)}
+          >
+            {list("right")}
+          </Drawer>
           <Box
             display="flex"
             justifyContent="-moz-initial"
@@ -378,6 +477,18 @@ export default function Shop() {
           </Box>
         </Box>
       </Box>
-    </div>
+      {/* {['left', 'Add to cart', 'top', 'bottom'].map((anchor) => (
+        <React.Fragment key={anchor}>
+          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
+          <Drawer
+            anchor={anchor}
+            open={state[anchor]}
+            onClose={toggleDrawer(anchor, false)}
+          >
+            {list(anchor)}
+          </Drawer>
+        </React.Fragment>
+      ))} */}
+    </div >
   );
 }
