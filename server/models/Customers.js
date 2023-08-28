@@ -7,27 +7,27 @@ const customerSchema = new mongoose.Schema({
   },
   email: {
     type: String,
-    required: true,
+    // required: true,
   },
   // password: {
   //   type: String,
   //   required: true,
   // },
-  firstName: {
+  fullName: {
     type: String,
-    required: true,
+    // required: true,
   },
-  secondName: {
-    type: String,
-    required: true,
-  },
+  // secondName: {
+  //   type: String,
+  //   // required: true,
+  // },
   phoneNumber: {
     type: String,
     required: true,
   },
   address: {
     type: String,
-    required: true,
+    // required: true,
   },
 });
 
