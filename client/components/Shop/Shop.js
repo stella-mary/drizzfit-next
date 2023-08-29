@@ -17,6 +17,7 @@ import axios from "axios";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
 import List from "@mui/material/List";
+import { TextField } from "@mui/material/TextField";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -52,12 +53,6 @@ export default function Shop() {
 
   const handleBuyNow = () => {
     toggleDrawer("right", true)();
-    axios
-      .post("http://localhost:1992/order/add", {
-        orderDate: new Date(),
-        status: "pending",
-      })
-      .then((response) => console.log("Order Response: ", response.data));
   };
 
   const toggleDrawer = (anchor, open) => () => {
@@ -155,43 +150,30 @@ export default function Shop() {
               display: "flex",
               alignItems: "flex-start", // Align vertically to the start (top)
               gap: "20px",
-              padding: "10px",
-              width: "100%",
-              marginTop: "10%",
+              padding: '10px',
+              width: '100%',
+              marginTop: '10%'
             }}
           >
-            <div
-              className={styles.shopContainer6}
-              style={{ alignSelf: "center" }}
-            ></div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start", // Align text to the start (left)
-                gap: "10px",
-                textAlign: "left", // Add left alignment
-              }}
+            <div className={styles.shopContainer6} style={{ alignSelf: 'center' }}></div>
+            <div style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start", // Align text to the start (left)
+              gap: "10px",
+              textAlign: "left", // Add left alignment
+            }}
             >
-              <div
-                style={{
-                  fontFamily: "'Telegraf Regular 400', sans-serif",
-                  fontSize: "20px",
-                  color: "black", // Set font color
-                }}
-              >
-                {" "}
-                Menstrual Cup
-              </div>
-              <div
-                style={{
-                  fontFamily: "'Telegraf Regular 400', sans-serif",
-                  fontSize: "15px",
-                  color: "black", // Set font color
-                }}
-              >
-                Large
-              </div>
+              <div style={{
+                fontFamily: "'Telegraf Regular 400', sans-serif",
+                fontSize: "20px",
+                color: "black", // Set font color
+              }}> Menstrual Cup</div>
+              <div style={{
+                fontFamily: "'Telegraf Regular 400', sans-serif",
+                fontSize: "15px",
+                color: "black", // Set font color
+              }}>Large</div>
               <div
                 style={{
                   display: "flex",
@@ -248,21 +230,37 @@ export default function Shop() {
                 </button>
               </div>
             </div>
-            <div
-              style={{
-                marginTop: "100px",
-                fontFamily: "'Telegraf Regular 400', sans-serif",
-                fontSize: "15px",
-                color: "black", // Set font color
-              }}
-            >
-              Rs. 350
-            </div>
+            <div style={{
+              marginTop: "100px",
+              marginLeft: '70px',
+              fontFamily: "'Telegraf Regular 400', sans-serif",
+              fontSize: "15px",
+              color: "black", // Set font color
+            }}>Rs. 350</div>
           </ListItemIcon>
           <ListItemText />
         </ListItem>
+        <Divider />
       </List>
-    </Box>
+      <List>
+        <ListItem style={{
+          display: 'flex', alignItems: 'center', gap: '10px', fontFamily: "'Telegraf Regular 400', sans-serif",
+        }}>
+          <TextField
+            label="e.g. Discount Code"
+            variant="outlined"
+            size="small"
+            style={{
+              width: '320px', fontFamily: "'Telegraf Regular 400', sans-serif",
+            }}
+          />
+          <Button variant="contained" color="primary" style={{ fontFamily: "'Telegraf UltraBold 800', sans-serif", backgroundColor: 'black', color: 'white', width: '100px' }}>
+            Apply
+          </Button>
+        </ListItem>
+      </List>
+
+    </Box >
   );
 
   return (
@@ -475,9 +473,9 @@ export default function Shop() {
                   }}
                   onClick={handleDecreaseQuantity}
 
-                  // onClick={() => {
-                  //     setSelectedQuantity(selectedQuantity - 1)
-                  // }}
+                // onClick={() => {
+                //     setSelectedQuantity(selectedQuantity - 1)
+                // }}
                 >
                   -
                 </button>
@@ -504,9 +502,9 @@ export default function Shop() {
                   }}
                   onClick={handleIncreaseQuantity}
 
-                  // onClick={() => {
-                  //     setSelectedQuantity(selectedQuantity + 1)
-                  // }}
+                // onClick={() => {
+                //     setSelectedQuantity(selectedQuantity + 1)
+                // }}
                 >
                   +
                 </button>
