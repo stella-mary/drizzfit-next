@@ -17,7 +17,7 @@ import axios from "axios";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
 import List from "@mui/material/List";
-import { TextField } from "@mui/material/TextField";
+import TextField from "@mui/material/TextField";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -51,9 +51,9 @@ export default function Shop() {
     setSelectedQuantity(selectedQuantity + 1);
   };
 
-  const handleBuyNow = () => {
-    toggleDrawer("right", true)();
-  };
+  // const handleBuyNow = () => {
+  //   toggleDrawer("right", true)();
+  // };
 
   const toggleDrawer = (anchor, open) => () => {
     setState({ ...state, [anchor]: open });
@@ -529,7 +529,9 @@ export default function Shop() {
             <Button
               variant="contained"
               color="primary"
-              onClick={handleBuyNow} // Open the drawer from the right side
+              onClick={toggleDrawer("right", true)}
+              // onClick={handleBuyNow}
+              // Open the drawer from the right side
               sx={{
                 fontSize: "12px",
                 fontFamily: "'Telegraf UltraBold 800', sans-serif",
