@@ -14,18 +14,17 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 
-import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-import ClearIcon from '@mui/icons-material/Clear';
-
+import Drawer from "@mui/material/Drawer";
+import Button from "@mui/material/Button";
+import List from "@mui/material/List";
+import Divider from "@mui/material/Divider";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import InboxIcon from "@mui/icons-material/MoveToInbox";
+import MailIcon from "@mui/icons-material/Mail";
+import ClearIcon from "@mui/icons-material/Clear";
 
 export default function Shop() {
   const router = useRouter();
@@ -94,13 +93,15 @@ export default function Shop() {
     setSelectedProduct(selectedProductWithDescription);
   };
 
-
   const [state, setState] = React.useState({
     right: false,
   });
 
   const toggleDrawer = (anchor, open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
       return;
     }
 
@@ -110,11 +111,11 @@ export default function Shop() {
   const list = (anchor) => (
     <Box
       sx={{
-        width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 400,
-        background: '#fee600',
+        width: anchor === "top" || anchor === "bottom" ? "auto" : 400,
+        background: "#fee600",
         fontFamily: "'Telegraf UltraBold 800', sans-serif",
-        height: '100vh',
-        padding: '10px'
+        height: "100vh",
+        padding: "10px",
       }}
       role="presentation"
       // onClick={toggleDrawer(anchor, false)}
@@ -123,28 +124,27 @@ export default function Shop() {
       <List>
         <ListItem
           style={{
-            display: 'flex',
-            alignItems: 'center',        // Align vertically
-            justifyContent: 'center',   // Align horizontally
-            textAlign: 'center',
+            display: "flex",
+            alignItems: "center", // Align vertically
+            justifyContent: "center", // Align horizontally
+            textAlign: "center",
           }}
         >
-          <span style={{ marginRight: 'auto' }}>YOUR CART</span>
+          <span style={{ marginRight: "auto" }}>YOUR CART</span>
           <ClearIcon onClick={toggleDrawer(anchor, false)} />
         </ListItem>
       </List>
       <List>
         <ListItem disablePadding>
-          <ListItemIcon style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between', // Align content evenly along the main axis
-          }}>
+          <ListItemIcon
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between", // Align content evenly along the main axis
+            }}
+          >
             <div className={styles.shopContainer6}></div>
-            <div>
-              Menstrual Cup
-              Large
-            </div>
+            <div>Menstrual Cup Large</div>
             <div
               style={{
                 display: "flex",
@@ -196,23 +196,17 @@ export default function Shop() {
                   fontFamily: "'Telegraf UltraBold 800', sans-serif",
                 }}
                 onClick={handleIncreaseQuantity}
-
               >
                 +
               </button>
             </div>
-            <div>
-              Rs. 350
-            </div>
+            <div>Rs. 350</div>
           </ListItemIcon>
           <ListItemText />
-
         </ListItem>
       </List>
-
-    </Box >
+    </Box>
   );
-
 
   return (
     <div className={styles.shop}>
@@ -484,13 +478,12 @@ export default function Shop() {
               sx={{
                 fontSize: "12px",
                 fontFamily: "'Telegraf UltraBold 800', sans-serif",
-                textTransform: 'none',
+                textTransform: "none",
               }}
               className={styles.bgcolor5}
             >
               Buy Now
             </Button>
-
           </Box>
           <Drawer
             anchor="right" // Open the drawer from the right side
@@ -535,6 +528,6 @@ export default function Shop() {
           </Drawer>
         </React.Fragment>
       ))} */}
-    </div >
+    </div>
   );
 }
