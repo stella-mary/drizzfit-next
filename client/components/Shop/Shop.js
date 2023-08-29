@@ -119,7 +119,7 @@ export default function Shop() {
   const list = (anchor) => (
     <Box
       sx={{
-        width: anchor === "top" || anchor === "bottom" ? "auto" : 400,
+        width: anchor === "top" || anchor === "bottom" ? "auto" : 500,
         background: "#fee600",
         fontFamily: "'Telegraf UltraBold 800', sans-serif",
         height: "100vh",
@@ -147,73 +147,99 @@ export default function Shop() {
           <ListItemIcon
             style={{
               display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between", // Align content evenly along the main axis
+              alignItems: "flex-start", // Align vertically to the start (top)
+              gap: "20px",
+              padding: '10px',
+              width: '100%',
+              marginTop: '10%'
             }}
           >
-            <div className={styles.shopContainer6}></div>
-            <div>Menstrual Cup Large</div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: "14px",
-                marginTop: "15px",
-                border: "2px solid black",
-                borderRadius: "6px",
-                padding: "10px",
-                width: "100px",
-                height: "40px",
-                fontFamily: "'Telegraf UltraBold 800', sans-serif",
-              }}
+            <div className={styles.shopContainer6} style={{ alignSelf: 'center' }}></div>
+            <div style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start", // Align text to the start (left)
+              gap: "10px",
+              textAlign: "left", // Add left alignment
+            }}
             >
-              <button
+              <div style={{
+                fontFamily: "'Telegraf Regular 400', sans-serif",
+                fontSize: "20px",
+                color: "black", // Set font color
+              }}> Menstrual Cup</div>
+              <div style={{
+                fontFamily: "'Telegraf Regular 400', sans-serif",
+                fontSize: "15px",
+                color: "black", // Set font color
+              }}>Large</div>
+              <div
                 style={{
-                  border: "none",
-                  backgroundColor: "transparent",
-                  cursor: "pointer",
-                  marginRight: "5px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
                   fontSize: "14px",
-                  color: "black",
+                  marginTop: "25px",
+                  border: "2px solid black",
+                  borderRadius: "6px",
+                  padding: "10px",
+                  width: "100px",
+                  height: "40px",
                   fontFamily: "'Telegraf UltraBold 800', sans-serif",
                 }}
-                onClick={handleDecreaseQuantity}
               >
-                -
-              </button>
-              <span
-                style={{
-                  flex: 1,
-                  textAlign: "center",
-                  color: "black",
-                  fontFamily: "'Telegraf Regular 400', sans-serif",
-                  fontSize: "14px",
-                }}
-              >
-                {selectedQuantity}
-              </span>
-              <button
-                style={{
-                  border: "none",
-                  backgroundColor: "transparent",
-                  cursor: "pointer",
-                  marginLeft: "5px",
-                  fontSize: "14px",
-                  color: "black",
-                  fontFamily: "'Telegraf UltraBold 800', sans-serif",
-                }}
-                onClick={handleIncreaseQuantity}
-              >
-                +
-              </button>
+                <button
+                  style={{
+                    border: "none",
+                    backgroundColor: "transparent",
+                    cursor: "pointer",
+                    marginRight: "5px",
+                    fontSize: "14px",
+                    color: "black",
+                    fontFamily: "'Telegraf UltraBold 800', sans-serif",
+                  }}
+                  onClick={handleDecreaseQuantity}
+                >
+                  -
+                </button>
+                <span
+                  style={{
+                    flex: 1,
+                    textAlign: "center",
+                    color: "black",
+                    fontFamily: "'Telegraf Regular 400', sans-serif",
+                    fontSize: "14px",
+                  }}
+                >
+                  {selectedQuantity}
+                </span>
+                <button
+                  style={{
+                    border: "none",
+                    backgroundColor: "transparent",
+                    cursor: "pointer",
+                    marginLeft: "5px",
+                    fontSize: "14px",
+                    color: "black",
+                    fontFamily: "'Telegraf UltraBold 800', sans-serif",
+                  }}
+                  onClick={handleIncreaseQuantity}
+                >
+                  +
+                </button>
+              </div>
             </div>
-            <div>Rs. 350</div>
+            <div style={{
+              marginTop: "100px",
+              fontFamily: "'Telegraf Regular 400', sans-serif",
+              fontSize: "15px",
+              color: "black", // Set font color
+            }}>Rs. 350</div>
           </ListItemIcon>
           <ListItemText />
         </ListItem>
       </List>
-    </Box>
+    </Box >
   );
 
   return (
