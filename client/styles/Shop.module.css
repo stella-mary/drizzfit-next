@@ -22,6 +22,15 @@
   background-size: cover;
 }
 
+
+.shopContainer6 {
+  width: 30%; 
+  height: 10vh;
+  background-image: url("/image/cup.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
 .shopContainer3 {
   width: 50%; 
   height: 10vh;

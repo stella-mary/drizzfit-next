@@ -24,7 +24,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-
+import ClearIcon from '@mui/icons-material/Clear';
 
 
 export default function Shop() {
@@ -96,9 +96,6 @@ export default function Shop() {
 
 
   const [state, setState] = React.useState({
-    // top: false,
-    // left: false,
-    // bottom: false,
     right: false,
   });
 
@@ -112,37 +109,108 @@ export default function Shop() {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
+      sx={{
+        width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 400,
+        background: '#fee600',
+        fontFamily: "'Telegraf UltraBold 800', sans-serif",
+        height: '100vh',
+        padding: '10px'
+      }}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
+      // onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        <ListItem
+          style={{
+            display: 'flex',
+            alignItems: 'center',        // Align vertically
+            justifyContent: 'center',   // Align horizontally
+            textAlign: 'center',
+          }}
+        >
+          <span style={{ marginRight: 'auto' }}>YOUR CART</span>
+          <ClearIcon onClick={toggleDrawer(anchor, false)} />
+        </ListItem>
       </List>
-      <Divider />
       <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        <ListItem disablePadding>
+          <ListItemIcon style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between', // Align content evenly along the main axis
+          }}>
+            <div className={styles.shopContainer6}></div>
+            <div>
+              Menstrual Cup
+              Large
+            </div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "14px",
+                marginTop: "15px",
+                border: "2px solid black",
+                borderRadius: "6px",
+                padding: "10px",
+                width: "100px",
+                height: "40px",
+                fontFamily: "'Telegraf UltraBold 800', sans-serif",
+              }}
+            >
+              <button
+                style={{
+                  border: "none",
+                  backgroundColor: "transparent",
+                  cursor: "pointer",
+                  marginRight: "5px",
+                  fontSize: "14px",
+                  color: "black",
+                  fontFamily: "'Telegraf UltraBold 800', sans-serif",
+                }}
+                onClick={handleDecreaseQuantity}
+              >
+                -
+              </button>
+              <span
+                style={{
+                  flex: 1,
+                  textAlign: "center",
+                  color: "black",
+                  fontFamily: "'Telegraf Regular 400', sans-serif",
+                  fontSize: "14px",
+                }}
+              >
+                {selectedQuantity}
+              </span>
+              <button
+                style={{
+                  border: "none",
+                  backgroundColor: "transparent",
+                  cursor: "pointer",
+                  marginLeft: "5px",
+                  fontSize: "14px",
+                  color: "black",
+                  fontFamily: "'Telegraf UltraBold 800', sans-serif",
+                }}
+                onClick={handleIncreaseQuantity}
+
+              >
+                +
+              </button>
+            </div>
+            <div>
+              Rs. 350
+            </div>
+          </ListItemIcon>
+          <ListItemText />
+
+        </ListItem>
       </List>
-    </Box>
+
+    </Box >
   );
 
 
@@ -420,31 +488,9 @@ export default function Shop() {
               }}
               className={styles.bgcolor5}
             >
-              Add to Cart
-            </Button>
-
-            <Button
-              variant="contained"
-              color="primary"
-              sx={{
-                fontSize: "12px",
-                fontFamily: "'Telegraf UltraBold 800', sans-serif",
-                textTransform: 'none',
-              }}
-              className={styles.bgcolor5}
-            >
               Buy Now
             </Button>
 
-
-            {/* <Typography
-              fontSize="12px"
-              fontFamily="'Telegraf UltraBold 800', sans-serif"
-            >
-              <span class={styles.bgcolor5} onClick={navigateToBuy}>
-                Buy Now
-              </span>
-            </Typography> */}
           </Box>
           <Drawer
             anchor="right" // Open the drawer from the right side
