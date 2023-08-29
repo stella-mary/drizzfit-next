@@ -8,7 +8,7 @@ const orderSchema = new mongoose.Schema({
     unique: true,
   },
   orderDate: {
-    type: String,
+    type: Date,
     required: true,
   },
   status: {
@@ -17,11 +17,11 @@ const orderSchema = new mongoose.Schema({
   },
   customerId: {
     type: String,
-    required: true,
+    // required: true,
   },
   billingAddress: {
     type: String,
-    required: true,
+    // required: true,
   },
 });
 

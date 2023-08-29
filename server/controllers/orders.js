@@ -1,22 +1,33 @@
 import Orders from "../models/Orders.js";
 
 export const postOrder = (req, res) => {
-  const customerId = req.body.customerId;
   const orderDate = req.body.orderDate;
   const status = req.body.status;
-  const billingAddress = req.body.billingAddress;
 
   const newOrder = new Orders({
-    customerId,
     orderDate,
     status,
-    billingAddress,
   });
 
   newOrder
     .save()
     .then((data) => res.json(data))
     .catch((err) => res.status(400).json("Error: " + err));
+};
+
+export const updateOrder = (req, res) => {
+  const orderId = req.params.orderId;
+  Orders.findOne({ orderId: orderId })
+    .then((order) => {
+      order.billingAddress = req.body.billingAddress;
+      order.customerId = req.body.customerId;
+      order.address = req.body.address;
+      order
+        .save()
+        .then((data) => res.json("Order Updated: ", data))
+        .catch((err) => res.status(400).json("Error: ", err));
+    })
+    .catch((err) => res.status(400).json("Error: ", err));
 };
 
 export const getOrder = (req, res) => {

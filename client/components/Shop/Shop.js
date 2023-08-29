@@ -50,6 +50,14 @@ export default function Shop() {
     setSelectedQuantity(selectedQuantity + 1);
   };
 
+  const handleBuyNow = () => {
+    toggleDrawer("right", true)();
+  };
+
+  const toggleDrawer = (anchor, open) => () => {
+    setState({ ...state, [anchor]: open });
+  };
+
   useEffect(() => {
     axios.get("http://localhost:1992/product/all").then((response) => {
       console.log("Product details: ", response.data);
@@ -97,16 +105,16 @@ export default function Shop() {
     right: false,
   });
 
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return;
-    }
+  // const toggleDrawer = (anchor, open) => (event) => {
+  //   if (
+  //     event.type === "keydown" &&
+  //     (event.key === "Tab" || event.key === "Shift")
+  //   ) {
+  //     return;
+  //   }
 
-    setState({ ...state, [anchor]: open });
-  };
+  //   setState({ ...state, [anchor]: open });
+  // };
 
   const list = (anchor) => (
     <Box
@@ -418,9 +426,9 @@ export default function Shop() {
                   }}
                   onClick={handleDecreaseQuantity}
 
-                // onClick={() => {
-                //     setSelectedQuantity(selectedQuantity - 1)
-                // }}
+                  // onClick={() => {
+                  //     setSelectedQuantity(selectedQuantity - 1)
+                  // }}
                 >
                   -
                 </button>
@@ -447,9 +455,9 @@ export default function Shop() {
                   }}
                   onClick={handleIncreaseQuantity}
 
-                // onClick={() => {
-                //     setSelectedQuantity(selectedQuantity + 1)
-                // }}
+                  // onClick={() => {
+                  //     setSelectedQuantity(selectedQuantity + 1)
+                  // }}
                 >
                   +
                 </button>
@@ -474,7 +482,7 @@ export default function Shop() {
             <Button
               variant="contained"
               color="primary"
-              onClick={toggleDrawer("right", true)} // Open the drawer from the right side
+              onClick={handleBuyNow} // Open the drawer from the right side
               sx={{
                 fontSize: "12px",
                 fontFamily: "'Telegraf UltraBold 800', sans-serif",
