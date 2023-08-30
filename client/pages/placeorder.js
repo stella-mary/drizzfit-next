@@ -1,14 +1,12 @@
-
-import Navbar from '@/components/Home/Navbar';
-import styles from '../styles/Shop.module.css'
+import React from 'react';
 import PlaceOrder from '@/components/Shop/PlaceOrder';
 
-const shop = () => {
+const PlaceOrderPage = () => {
     return (
-        <div className={styles.container}>
+        <div>
             <PlaceOrder />
         </div>
     );
 };
 
-export default shop;
+export default PlaceOrderPage;
