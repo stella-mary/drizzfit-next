@@ -1,4 +1,5 @@
 import Orders from "../models/Orders.js";
+import OrderItems from "../models/OrderItems.js";
 
 export const postOrder = (req, res) => {
   const orderDate = req.body.orderDate;
@@ -53,4 +54,21 @@ export const getOrderById = (req, res) => {
       }
     })
     .catch((err) => res.status(400).json("Error: ", err));
+};
+
+export const deleteOrder = (req, res) => {
+  const orderId = req.params.orderId;
+  Promise.all([
+    Orders.findOneAndDelete({ orderId }),
+    OrderItems.findOneAndDelete({ orderId }),
+  ])
+    .then(([deletedOrder]) => {
+      if (!deletedOrder) {
+        return res.status(404).json({ error: "Order Not found" });
+      }
+      return res.status(200).json({ message: "Event deleted successfully" });
+    })
+    .catch((err) => {
+      return res.status(500).json({ error: "Failed to delete event" });
+    });
 };
