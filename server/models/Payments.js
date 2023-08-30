@@ -23,6 +23,10 @@ const paymentSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  paymentStatus: {
+    type: String,
+    required: true,
+  },
 });
 
 paymentSchema.plugin(autoIncrement.plugin, {

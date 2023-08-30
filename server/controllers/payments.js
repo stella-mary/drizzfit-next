@@ -5,15 +5,18 @@ export const postPayment = (req, res) => {
   const payementDate = req.body.payementDate;
   const amount = req.body.amount;
   const paymentMethod = req.body.payementDate;
+  const paymentStatus = req.body.paymentStatus;
 
   const newPayment = new Payments({
     orderId,
     payementDate,
     amount,
     paymentMethod,
+    paymentStatus,
   });
 
-  Payments.save()
+  newPayment
+    .save()
     .then((data) => res.json(data))
     .catch((err) => res.status(400).json("Error: ", err));
 };
