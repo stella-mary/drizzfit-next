@@ -36,6 +36,10 @@ export default function Shop() {
     router.push("/buy");
   };
 
+  const navigateToPlaceOrder = () => {
+    router.push("/placeorder");
+  };
+
   const [selectedQuantity, setSelectedQuantity] = useState(1);
   const [groupedProductDetails, setGroupedProductDetails] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState({});
@@ -157,7 +161,7 @@ export default function Shop() {
               gap: "20px",
               padding: "10px",
               width: "100%",
-              marginTop: "10%",
+              marginTop: "5%",
             }}
           >
             <div
@@ -176,7 +180,7 @@ export default function Shop() {
               <div
                 style={{
                   fontFamily: "'Telegraf Regular 400', sans-serif",
-                  fontSize: "20px",
+                  fontSize: "16px",
                   color: "black", // Set font color
                 }}
               >
@@ -290,6 +294,7 @@ export default function Shop() {
               backgroundColor: "black",
               color: "white",
               width: "100px",
+              fontSize: '14px'
             }}
           >
             Apply
@@ -344,22 +349,26 @@ export default function Shop() {
             marginTop: "20px",
             width: "100%",
             fontSize: "16px",
+            backgroundColor: "black", // Apply background color
           }}
+          onClick={navigateToPlaceOrder}
         >
           PLACE ORDER
         </Button>
         <Button
-          variant="outlined"
+          // variant="outlined"
           color="primary"
           sx={{
             fontFamily: "'Telegraf UltraBold 800', sans-serif",
-            textTransform: "none",
+
             marginTop: "10px",
             width: "100%",
-            backgroundColor: "transparent", // Remove background color
-            textDecoration: "underline", // Remove underline style
+            backgroundColor: "transparent",
+            textDecoration: "underline",
             border: "none",
+            outline: "none", // Remove outline border
             fontSize: "16px",
+            color: "black",
           }}
         >
           CONTINUE SHOPPING
@@ -578,9 +587,9 @@ export default function Shop() {
                   }}
                   onClick={handleDecreaseQuantity}
 
-                  // onClick={() => {
-                  //     setSelectedQuantity(selectedQuantity - 1)
-                  // }}
+                // onClick={() => {
+                //     setSelectedQuantity(selectedQuantity - 1)
+                // }}
                 >
                   -
                 </button>
@@ -607,9 +616,9 @@ export default function Shop() {
                   }}
                   onClick={handleIncreaseQuantity}
 
-                  // onClick={() => {
-                  //     setSelectedQuantity(selectedQuantity + 1)
-                  // }}
+                // onClick={() => {
+                //     setSelectedQuantity(selectedQuantity + 1)
+                // }}
                 >
                   +
                 </button>
@@ -641,6 +650,8 @@ export default function Shop() {
                 fontSize: "12px",
                 fontFamily: "'Telegraf UltraBold 800', sans-serif",
                 textTransform: "none",
+                backgroundColor: "black",
+                color: 'white'
               }}
               className={styles.bgcolor5}
             >
