@@ -40,6 +40,7 @@ export default function Shop() {
   const [groupedProductDetails, setGroupedProductDetails] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState({});
   const [selectedDescription, setSelectedDescription] = useState("");
+  const [state, setState] = useState({ right: false });
   const orderDate = new Date();
 
   const handleDecreaseQuantity = () => {
@@ -56,10 +57,22 @@ export default function Shop() {
     toggleDrawer("right", true)();
     axios
       .post("http://localhost:1992/order/add", {
-        orderDate: new Date(),
+        orderDate: orderDate,
         status: "pending",
       })
-      .then((response) => console.log("Order Response: ", response.data));
+      .then((response) => {
+        console.log("Order Response: ", response.data);
+        axios
+          .post("http://localhost:1992/orderitem/add", {
+            orderId: response.data.orderId,
+            quantity: selectedQuantity,
+            priceAtOrder: selectedProduct.price,
+            productId: selectedProduct.productId,
+          })
+          .then((response) =>
+            console.log("orderItems Response: ", response.data)
+          );
+      });
   };
 
   const toggleDrawer = (anchor, open) => () => {
@@ -108,21 +121,6 @@ export default function Shop() {
 
     setSelectedProduct(selectedProductWithDescription);
   };
-
-  const [state, setState] = React.useState({
-    right: false,
-  });
-
-  // const toggleDrawer = (anchor, open) => (event) => {
-  //   if (
-  //     event.type === "keydown" &&
-  //     (event.key === "Tab" || event.key === "Shift")
-  //   ) {
-  //     return;
-  //   }
-
-  //   setState({ ...state, [anchor]: open });
-  // };
 
   const list = (anchor) => (
     <Box
@@ -183,9 +181,9 @@ export default function Shop() {
                 }}
               >
                 {" "}
-                Menstrual Cup
+                {selectedProduct.name}
               </div>
-              <div
+              {/* <div
                 style={{
                   fontFamily: "'Telegraf Regular 400', sans-serif",
                   fontSize: "15px",
@@ -193,7 +191,7 @@ export default function Shop() {
                 }}
               >
                 Large
-              </div>
+              </div> */}
               <div
                 style={{
                   display: "flex",
@@ -259,7 +257,7 @@ export default function Shop() {
                 color: "black", // Set font color
               }}
             >
-              Rs. 350
+              ₹{selectedProduct.price}
             </div>
           </ListItemIcon>
           <ListItemText />
@@ -567,8 +565,8 @@ export default function Shop() {
             <Button
               variant="contained"
               color="primary"
-              onClick={toggleDrawer("right", true)}
-              // onClick={handleBuyNow}
+              // onClick={toggleDrawer("right", true)}
+              onClick={handleBuyNow}
               // Open the drawer from the right side
               sx={{
                 fontSize: "12px",
