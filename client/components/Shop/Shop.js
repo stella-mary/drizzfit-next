@@ -466,7 +466,6 @@ export default function Shop() {
               fontSize: "24px",
             }}
           >
-            {/* <b>Reusable Menstrual Cup</b> */}
             <b>{selectedProduct.name}</b>
           </Typography>
           <Typography
@@ -578,10 +577,6 @@ export default function Shop() {
                     fontFamily: "'Telegraf UltraBold 800', sans-serif",
                   }}
                   onClick={handleDecreaseQuantity}
-
-                  // onClick={() => {
-                  //     setSelectedQuantity(selectedQuantity - 1)
-                  // }}
                 >
                   -
                 </button>
@@ -607,10 +602,6 @@ export default function Shop() {
                     fontFamily: "'Telegraf UltraBold 800', sans-serif",
                   }}
                   onClick={handleIncreaseQuantity}
-
-                  // onClick={() => {
-                  //     setSelectedQuantity(selectedQuantity + 1)
-                  // }}
                 >
                   +
                 </button>
@@ -624,18 +615,9 @@ export default function Shop() {
             gap="20px"
             fontFamily="'Telegraf UltraBold 800', sans-serif"
           >
-            {/* <Typography
-              fontSize="12px"
-              fontFamily="'Telegraf UltraBold 800', sans-serif"
-            >
-              <span class={styles.bgcolor5}> */}
-            {/* onClick={handleAddToCart} */}
-            {/* Add to cart */}
-            {/* </span> */}
             <Button
               variant="contained"
               color="primary"
-              // onClick={toggleDrawer("right", true)}
               onClick={handleBuyNow}
               // Open the drawer from the right side
               sx={{

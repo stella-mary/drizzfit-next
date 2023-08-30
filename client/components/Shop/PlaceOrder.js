@@ -20,6 +20,7 @@ const steps = ["Mobile", "Address", "Payment"];
 export default function PlaceOrder({ open, onClose }) {
   const [activeStep, setActiveStep] = useState(0);
   const [skipped, setSkipped] = useState(new Set());
+  const [phoneNumber, setPhoneNumber] = useState();
 
   const isStepOptional = (step) => {
     return step === 1;
@@ -125,7 +126,15 @@ export default function PlaceOrder({ open, onClose }) {
                         <Typography variant="body">
                           Enter Mobile Number:
                         </Typography>
-                        <TextField />
+                        <TextField
+                          fullWidth
+                          defaultValue="+91 | "
+                          inputProps={{
+                            maxLength: 14, // Including "+91 | "
+                          }}
+                          value={phoneNumber}
+                          onChange={(e) => setPhoneNumber(e.target.value)}
+                        />
                       </Box>
                     </React.Fragment>
                   )}
