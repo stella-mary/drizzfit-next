@@ -296,7 +296,81 @@ export default function Shop() {
           </Button>
         </ListItem>
       </List>
+<<<<<<< Updated upstream
     </Box>
+=======
+      <Divider style={{ marginTop: "7rem" }} />
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          justifyContent: "space-between",
+          padding: '5px',
+          marginTop: "auto", // Push content to the bottom
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            marginTop: '20px',
+            gap: '300px', // Adjust the gap value as needed
+          }}
+        >
+          <Typography
+            variant="subtitle1"
+            sx={{
+              fontFamily: "'Telegraf UltraBold 800', sans-serif",
+              fontSize: "16px",
+            }}
+          >
+            SUBTOTAL
+          </Typography>
+          <Typography
+            variant="h6"
+            sx={{
+              fontFamily: "'Telegraf UltraBold 800', sans-serif",
+              fontSize: "16px",
+            }}
+          >
+            RS. 900
+          </Typography>
+        </Box>
+        <Button
+          variant="contained"
+          color="primary"
+          sx={{
+            fontFamily: "'Telegraf UltraBold 800', sans-serif",
+            textTransform: "none",
+            marginTop: "20px",
+            width: '100%',
+            fontSize: '16px'
+          }}
+        >
+          PLACE ORDER
+        </Button>
+        <Button
+          variant="outlined"
+          color="primary"
+          sx={{
+            fontFamily: "'Telegraf UltraBold 800', sans-serif",
+            textTransform: "none",
+            marginTop: "10px",
+            width: '100%',
+            backgroundColor: 'transparent', // Remove background color
+            textDecoration: 'underline', // Remove underline style
+            border: 'none',
+            fontSize: '16px'
+          }}
+        >
+          CONTINUE SHOPPING
+        </Button>
+      </Box>
+    </Box>
+
+>>>>>>> Stashed changes
   );
 
   return (
@@ -609,18 +683,9 @@ export default function Shop() {
           </Box>
         </Box>
       </Box>
-      {/* {['left', 'Add to cart', 'top', 'bottom'].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-          <Drawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-          >
-            {list(anchor)}
-          </Drawer>
-        </React.Fragment>
-      ))} */}
+
+
+
     </div>
   );
 }
