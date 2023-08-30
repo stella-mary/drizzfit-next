@@ -296,9 +296,6 @@ export default function Shop() {
           </Button>
         </ListItem>
       </List>
-<<<<<<< Updated upstream
-    </Box>
-=======
       <Divider style={{ marginTop: "7rem" }} />
       <Box
         sx={{
@@ -369,8 +366,6 @@ export default function Shop() {
         </Button>
       </Box>
     </Box>
-
->>>>>>> Stashed changes
   );
 
   return (
@@ -583,9 +578,9 @@ export default function Shop() {
                   }}
                   onClick={handleDecreaseQuantity}
 
-                  // onClick={() => {
-                  //     setSelectedQuantity(selectedQuantity - 1)
-                  // }}
+                // onClick={() => {
+                //     setSelectedQuantity(selectedQuantity - 1)
+                // }}
                 >
                   -
                 </button>
@@ -612,9 +607,9 @@ export default function Shop() {
                   }}
                   onClick={handleIncreaseQuantity}
 
-                  // onClick={() => {
-                  //     setSelectedQuantity(selectedQuantity + 1)
-                  // }}
+                // onClick={() => {
+                //     setSelectedQuantity(selectedQuantity + 1)
+                // }}
                 >
                   +
                 </button>
@@ -683,8 +678,6 @@ export default function Shop() {
           </Box>
         </Box>
       </Box>
-
-
 
     </div>
   );
