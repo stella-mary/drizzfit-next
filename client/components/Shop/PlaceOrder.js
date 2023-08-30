@@ -63,7 +63,15 @@ export default function PlaceOrder({ open, onClose }) {
 
   return (
     <div className={styles.shop}>
-      <Dialog open={open} onClose={onClose}>
+      <Dialog
+        open={open}
+        onClose={onClose}
+        PaperProps={{
+          sx: {
+            width: "80%",
+          },
+        }}
+      >
         {/* <DialogTitle>Order Placed Successfully</DialogTitle> */}
         <DialogContent>
           <DialogContentText>

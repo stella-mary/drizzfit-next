@@ -1,30 +1,20 @@
 import React, { useEffect, useState } from "react";
 import styles from "@/styles/Shop.module.css";
-import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
-import {
-  BorderClear,
-  BorderColor,
-  Facebook,
-  Instagram,
-  Twitter,
-} from "@mui/icons-material";
+import { Box, Typography, useMediaQuery } from "@mui/material";
+import { Instagram, Twitter } from "@mui/icons-material";
 import { useRouter } from "next/router";
 import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
-
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
 import List from "@mui/material/List";
 import TextField from "@mui/material/TextField";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import ClearIcon from "@mui/icons-material/Clear";
 import PlaceOrder from "./PlaceOrder";
 
