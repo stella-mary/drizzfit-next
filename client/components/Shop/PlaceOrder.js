@@ -11,6 +11,7 @@ import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Typography from "@mui/material/Typography";
+import TextField from "@mui/material/TextField";
 
 const steps = ["Mobile", "Address", "Payment"];
 
@@ -60,17 +61,6 @@ export default function PlaceOrder({ open, onClose }) {
     setActiveStep(0);
   };
 
-  const handleBuyNow = () => {
-    // ...existing code...
-
-    setOpenDialog(true);
-  };
-
-  const handleCloseDialog = () => {
-    // Close the dialog
-    setOpenDialog(false);
-  };
-
   return (
     <div className={styles.shop}>
       <Dialog open={open} onClose={onClose}>
@@ -89,14 +79,6 @@ export default function PlaceOrder({ open, onClose }) {
                 {steps.map((label, index) => {
                   const stepProps = {};
                   const labelProps = {};
-                  //   if (isStepOptional(index)) {
-                  //     labelProps.optional = (
-                  //       <Typography variant="caption">Optional</Typography>
-                  //     );
-                  //   }
-                  //   if (isStepSkipped(index)) {
-                  //     stepProps.completed = false;
-                  //   }
                   return (
                     <Step key={label} {...stepProps}>
                       <StepLabel {...labelProps}>{label}</StepLabel>
@@ -119,6 +101,16 @@ export default function PlaceOrder({ open, onClose }) {
                   <Typography sx={{ mt: 2, mb: 1 }}>
                     Step {activeStep + 1}
                   </Typography>
+                  {activeStep === 0 && (
+                    <React.Fragment>
+                      <Box sx={{ display: "flex", flexDirection: "column" }}>
+                        <Typography variant="body">
+                          Enter Mobile Number:
+                        </Typography>
+                        <TextField />
+                      </Box>
+                    </React.Fragment>
+                  )}
                   <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
                     <Button
                       color="inherit"
@@ -129,16 +121,6 @@ export default function PlaceOrder({ open, onClose }) {
                       Back
                     </Button>
                     <Box sx={{ flex: "1 1 auto" }} />
-                    {isStepOptional(activeStep) && (
-                      <Button
-                        color="inherit"
-                        onClick={handleSkip}
-                        sx={{ mr: 1 }}
-                      >
-                        Skip
-                      </Button>
-                    )}
-
                     <Button onClick={handleNext}>
                       {activeStep === steps.length - 1 ? "Finish" : "Next"}
                     </Button>
