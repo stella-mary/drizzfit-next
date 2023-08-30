@@ -26,10 +26,17 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import ClearIcon from "@mui/icons-material/Clear";
+import PlaceOrder from "./PlaceOrder";
 
 export default function Shop() {
   const router = useRouter();
-
+  const [openDialog, setOpenDialog] = useState(false);
+  const [selectedQuantity, setSelectedQuantity] = useState(1);
+  const [groupedProductDetails, setGroupedProductDetails] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState({});
+  const [selectedDescription, setSelectedDescription] = useState("");
+  const [state, setState] = useState({ right: false });
+  const orderDate = new Date();
   const isNonMobile = useMediaQuery("(max-width: 768px)");
 
   const navigateToBuy = () => {
@@ -37,15 +44,9 @@ export default function Shop() {
   };
 
   const navigateToPlaceOrder = () => {
-    router.push("/placeorder");
+    setOpenDialog(true);
+    // router.push("/placeorder");
   };
-
-  const [selectedQuantity, setSelectedQuantity] = useState(1);
-  const [groupedProductDetails, setGroupedProductDetails] = useState([]);
-  const [selectedProduct, setSelectedProduct] = useState({});
-  const [selectedDescription, setSelectedDescription] = useState("");
-  const [state, setState] = useState({ right: false });
-  const orderDate = new Date();
 
   const handleDecreaseQuantity = () => {
     if (selectedQuantity > 1) {
@@ -294,7 +295,7 @@ export default function Shop() {
               backgroundColor: "black",
               color: "white",
               width: "100px",
-              fontSize: '14px'
+              fontSize: "14px",
             }}
           >
             Apply
@@ -374,6 +375,7 @@ export default function Shop() {
           CONTINUE SHOPPING
         </Button>
       </Box>
+      <PlaceOrder open={openDialog} onClose={() => setOpenDialog(false)} />
     </Box>
   );
 
@@ -587,9 +589,9 @@ export default function Shop() {
                   }}
                   onClick={handleDecreaseQuantity}
 
-                // onClick={() => {
-                //     setSelectedQuantity(selectedQuantity - 1)
-                // }}
+                  // onClick={() => {
+                  //     setSelectedQuantity(selectedQuantity - 1)
+                  // }}
                 >
                   -
                 </button>
@@ -616,9 +618,9 @@ export default function Shop() {
                   }}
                   onClick={handleIncreaseQuantity}
 
-                // onClick={() => {
-                //     setSelectedQuantity(selectedQuantity + 1)
-                // }}
+                  // onClick={() => {
+                  //     setSelectedQuantity(selectedQuantity + 1)
+                  // }}
                 >
                   +
                 </button>
@@ -651,7 +653,7 @@ export default function Shop() {
                 fontFamily: "'Telegraf UltraBold 800', sans-serif",
                 textTransform: "none",
                 backgroundColor: "black",
-                color: 'white'
+                color: "white",
               }}
               className={styles.bgcolor5}
             >

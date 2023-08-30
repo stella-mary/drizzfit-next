@@ -14,9 +14,7 @@ import Typography from "@mui/material/Typography";
 
 const steps = ["Mobile", "Address", "Payment"];
 
-export default function PlaceOrder() {
-  const [openDialog, setOpenDialog] = useState(false);
-
+export default function PlaceOrder({ open, onClose }) {
   const [activeStep, setActiveStep] = useState(0);
   const [skipped, setSkipped] = useState(new Set());
 
@@ -75,23 +73,7 @@ export default function PlaceOrder() {
 
   return (
     <div className={styles.shop}>
-      {/* ...existing code... */}
-      <Button
-        variant="contained"
-        color="primary"
-        sx={{
-          fontSize: "12px",
-          fontFamily: "'Telegraf UltraBold 800', sans-serif",
-          textTransform: "none",
-          backgroundColor: "black",
-          color: "white",
-        }}
-        onClick={handleBuyNow}
-      >
-        place order
-      </Button>
-      {/* Dialog for Order Confirmation */}
-      <Dialog open={openDialog} onClose={handleCloseDialog}>
+      <Dialog open={open} onClose={onClose}>
         {/* <DialogTitle>Order Placed Successfully</DialogTitle> */}
         <DialogContent>
           <DialogContentText>
@@ -167,7 +149,7 @@ export default function PlaceOrder() {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleCloseDialog} color="primary">
+          <Button onClick={onClose} color="primary">
             Close
           </Button>
         </DialogActions>
