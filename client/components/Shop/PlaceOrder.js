@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "@/styles/Shop.module.css";
 import Dialog from "@mui/material/Dialog";
+import ClearIcon from "@mui/icons-material/Clear";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
@@ -12,6 +13,7 @@ import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
+
 
 const steps = ["Mobile", "Address", "Payment"];
 
@@ -63,23 +65,30 @@ export default function PlaceOrder({ open, onClose }) {
 
   return (
     <div className={styles.shop}>
+
       <Dialog
         open={open}
         onClose={onClose}
         PaperProps={{
           sx: {
-            width: "80%",
+            width: "100%",
           },
         }}
       >
+        <DialogActions>
+          <ClearIcon onClick={onClose} color="primary">
+            Close
+          </ClearIcon>
+        </DialogActions>
+
         {/* <DialogTitle>Order Placed Successfully</DialogTitle> */}
         <DialogContent>
           <DialogContentText>
             <Box
               sx={
                 {
-                  // width: '100%',
-                  // margin: '0 auto'
+                  width: '100%',
+                  padding: '24px'
                 }
               }
             >
@@ -107,10 +116,11 @@ export default function PlaceOrder({ open, onClose }) {
               ) : (
                 <React.Fragment>
                   <Typography sx={{ mt: 2, mb: 1 }}>
-                    Step {activeStep + 1}
+                    {/* Step {activeStep + 1} */}
                   </Typography>
                   {activeStep === 0 && (
                     <React.Fragment>
+
                       <Box sx={{ display: "flex", flexDirection: "column" }}>
                         <Typography variant="body">
                           Enter Mobile Number:
@@ -126,7 +136,7 @@ export default function PlaceOrder({ open, onClose }) {
                       onClick={handleBack}
                       sx={{ mr: 1 }}
                     >
-                      Back
+                      {/* Back */}
                     </Button>
                     <Box sx={{ flex: "1 1 auto" }} />
                     <Button onClick={handleNext}>
@@ -138,11 +148,6 @@ export default function PlaceOrder({ open, onClose }) {
             </Box>
           </DialogContentText>
         </DialogContent>
-        <DialogActions>
-          <Button onClick={onClose} color="primary">
-            Close
-          </Button>
-        </DialogActions>
       </Dialog>
       {/* ...existing code... */}
     </div>
