@@ -303,7 +303,7 @@ export default function Shop() {
           flexDirection: "column",
           alignItems: "flex-start",
           justifyContent: "space-between",
-          padding: '5px',
+          padding: "5px",
           marginTop: "auto", // Push content to the bottom
         }}
       >
@@ -312,8 +312,8 @@ export default function Shop() {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            marginTop: '20px',
-            gap: '300px', // Adjust the gap value as needed
+            marginTop: "20px",
+            gap: "300px", // Adjust the gap value as needed
           }}
         >
           <Typography
@@ -332,7 +332,7 @@ export default function Shop() {
               fontSize: "16px",
             }}
           >
-            RS. 900
+            ₹ {selectedQuantity * selectedProduct.price}
           </Typography>
         </Box>
         <Button
@@ -342,8 +342,8 @@ export default function Shop() {
             fontFamily: "'Telegraf UltraBold 800', sans-serif",
             textTransform: "none",
             marginTop: "20px",
-            width: '100%',
-            fontSize: '16px'
+            width: "100%",
+            fontSize: "16px",
           }}
         >
           PLACE ORDER
@@ -355,11 +355,11 @@ export default function Shop() {
             fontFamily: "'Telegraf UltraBold 800', sans-serif",
             textTransform: "none",
             marginTop: "10px",
-            width: '100%',
-            backgroundColor: 'transparent', // Remove background color
-            textDecoration: 'underline', // Remove underline style
-            border: 'none',
-            fontSize: '16px'
+            width: "100%",
+            backgroundColor: "transparent", // Remove background color
+            textDecoration: "underline", // Remove underline style
+            border: "none",
+            fontSize: "16px",
           }}
         >
           CONTINUE SHOPPING
@@ -578,9 +578,9 @@ export default function Shop() {
                   }}
                   onClick={handleDecreaseQuantity}
 
-                // onClick={() => {
-                //     setSelectedQuantity(selectedQuantity - 1)
-                // }}
+                  // onClick={() => {
+                  //     setSelectedQuantity(selectedQuantity - 1)
+                  // }}
                 >
                   -
                 </button>
@@ -607,9 +607,9 @@ export default function Shop() {
                   }}
                   onClick={handleIncreaseQuantity}
 
-                // onClick={() => {
-                //     setSelectedQuantity(selectedQuantity + 1)
-                // }}
+                  // onClick={() => {
+                  //     setSelectedQuantity(selectedQuantity + 1)
+                  // }}
                 >
                   +
                 </button>
@@ -678,7 +678,6 @@ export default function Shop() {
           </Box>
         </Box>
       </Box>
-
     </div>
   );
 }
