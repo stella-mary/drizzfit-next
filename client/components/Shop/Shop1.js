@@ -79,7 +79,7 @@ const Shop1 = () => {
         <div className={styles.imageContainer1}></div>
         <div className={styles.shop1Sub}>
           <div className={styles.h1}>{selectedProduct.name}</div>
-          <div className={styles.h2}>₹ {selectedProduct.price}</div>
+          <div className={styles.h2}>₹{selectedProduct.price}</div>
           <div className={styles.footnote}>* inclusive of all taxes</div>
           <div className={styles.size}>
             <FormControl>
@@ -164,5 +164,4 @@ const Shop1 = () => {
     </div>
   );
 };
-
 export default Shop1;
