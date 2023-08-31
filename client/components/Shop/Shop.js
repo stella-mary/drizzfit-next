@@ -600,6 +600,7 @@ export default function Shop() {
             open={openDialog}
             onClose={() => setOpenDialog(false)}
             orderId={orderId}
+            openDialog={openDialog}
           />
           <Box
             display="flex"

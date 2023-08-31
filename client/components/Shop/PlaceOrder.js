@@ -17,7 +17,7 @@ import axios from "axios";
 
 const steps = ["Mobile", "Address", "Payment"];
 
-export default function PlaceOrder({ open, onClose, orderId }) {
+export default function PlaceOrder({ open, onClose, orderId, openDialog }) {
   const [activeStep, setActiveStep] = useState(0);
   const [skipped, setSkipped] = useState(new Set());
   const [phoneNumber, setPhoneNumber] = useState();
@@ -43,7 +43,7 @@ export default function PlaceOrder({ open, onClose, orderId }) {
           })
           .then((res) => console.log("Order update response: ", res.data));
       });
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    // setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
   const handleBack = () => {
