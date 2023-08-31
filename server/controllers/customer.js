@@ -1,14 +1,12 @@
 import Customers from "../models/Customers.js";
 
 export const postCustomer = (req, res) => {
-  const customerId = req.body.customerId;
   const phoneNumber = req.body.phoneNumber;
   const fullName = " ";
   const email = " ";
   const address = " ";
 
   const newCustomer = new Customers({
-    customerId,
     phoneNumber,
     fullName,
     email,

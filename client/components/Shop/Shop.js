@@ -28,6 +28,7 @@ export default function Shop() {
   const [state, setState] = useState({ right: false });
   const orderDate = new Date();
   const isNonMobile = useMediaQuery("(max-width: 768px)");
+  const [orderId, setOrderId] = useState();
 
   const navigateToBuy = () => {
     router.push("/buy");
@@ -57,6 +58,7 @@ export default function Shop() {
       })
       .then((response) => {
         console.log("Order Response: ", response.data);
+        setOrderId(response.data.orderId);
         axios
           .post("http://localhost:1992/orderitem/add", {
             orderId: response.data.orderId,
@@ -338,7 +340,6 @@ export default function Shop() {
           PLACE ORDER
         </Button>
       </Box>
-      {/* <PlaceOrder open={openDialog} onClose={() => setOpenDialog(false)} /> */}
     </Box>
   );
 
@@ -385,7 +386,6 @@ export default function Shop() {
           <div className={styles.productDetails}>
             <div className={styles.shopContainer5}></div>
             <div className={styles.heartIcon}>
-              {/* <div className={styles.heartIcon} style={{ backgroundColor: "yellow", padding: "10px", marginLeft: '10%', display: "flex", alignItems: "center", justifyContent: "center", borderRadius: '50px', }}> */}
               <FavoriteBorderIcon
                 sx={{
                   fontSize: "30px",
@@ -612,7 +612,11 @@ export default function Shop() {
           >
             {list("right")}
           </Drawer>
-          <PlaceOrder open={openDialog} onClose={() => setOpenDialog(false)} />
+          <PlaceOrder
+            open={openDialog}
+            onClose={() => setOpenDialog(false)}
+            orderId={orderId}
+          />
           <Box
             display="flex"
             justifyContent="-moz-initial"

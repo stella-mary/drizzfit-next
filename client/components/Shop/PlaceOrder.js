@@ -13,15 +13,11 @@ import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
+import axios from "axios";
 
 const steps = ["Mobile", "Address", "Payment"];
 
-export default function PlaceOrder({
-  open,
-  onClose,
-  setOpenDialog,
-  openDialog,
-}) {
+export default function PlaceOrder({ open, onClose, orderId }) {
   const [activeStep, setActiveStep] = useState(0);
   const [skipped, setSkipped] = useState(new Set());
   const [phoneNumber, setPhoneNumber] = useState();
@@ -35,14 +31,19 @@ export default function PlaceOrder({
   };
 
   const handleNext = () => {
-    let newSkipped = skipped;
-    if (isStepSkipped(activeStep)) {
-      newSkipped = new Set(newSkipped.values());
-      newSkipped.delete(activeStep);
-    }
-
+    axios
+      .post("http://localhost:1992/customer/add", {
+        phoneNumber: phoneNumber,
+      })
+      .then((response) => {
+        console.log("Customer Response: ", response.data);
+        axios
+          .put(`http://localhost:1992/update/${orderId}`, {
+            customerId: response.data.customerId,
+          })
+          .then((res) => console.log("Order update response: ", res.data));
+      });
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    setSkipped(newSkipped);
   };
 
   const handleBack = () => {
@@ -153,7 +154,7 @@ export default function PlaceOrder({
                     </Button>
                     <Box sx={{ flex: "1 1 auto" }} />
                     <Button onClick={handleNext}>
-                      {activeStep === steps.length - 1 ? "Finish" : "Next"}
+                      {activeStep === steps.length - 1 ? "Finish" : "Continue"}
                     </Button>
                   </Box>
                 </React.Fragment>

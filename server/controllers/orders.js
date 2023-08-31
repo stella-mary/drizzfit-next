@@ -22,7 +22,6 @@ export const updateOrder = (req, res) => {
     .then((order) => {
       order.billingAddress = req.body.billingAddress;
       order.customerId = req.body.customerId;
-      order.address = req.body.address;
       order
         .save()
         .then((data) => res.json("Order Updated: ", data))
