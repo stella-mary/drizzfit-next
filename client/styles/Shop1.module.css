@@ -16,8 +16,14 @@ padding: 5%;
 
 }
 
+.input {
+  border: none;
+}
+
 .shop1SubSub {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 20px;
 }
 
 .imageContainer1 {
