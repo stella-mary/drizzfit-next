@@ -19,8 +19,8 @@ const Promotion = () => {
 
     const router = useRouter();
 
-    const navigateToShop = () => {
-        router.push("/shop");
+    const navigateToShop1 = () => {
+        router.push("/shop1");
     };
 
     const control1 = useAnimation();
@@ -83,7 +83,7 @@ const Promotion = () => {
                     variants={boxVariant}
                     initial="hidden"
                     animate={control3}
-                    onClick={navigateToShop}
+                    onClick={navigateToShop1}
                 >
                     Shop
                 </motion.div>

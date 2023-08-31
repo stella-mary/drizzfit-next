@@ -406,22 +406,6 @@ export default function Shop() {
           }}
         >
           <Typography
-            backgroundColor="black"
-            color="white"
-            padding="10px"
-            marginTop={isNonMobile ? "20px" : "auto"}
-            width={isNonMobile ? "100%" : "20%"}
-            // width="20%"
-            borderRadius="10px"
-            textAlign="center"
-            style={{
-              fontFamily: "'Telegraf UltraBold 800', sans-serif",
-              fontSize: "13px",
-            }}
-          >
-            In Stock
-          </Typography>
-          <Typography
             color="black"
             marginTop="20px"
             style={{

@@ -1,0 +1,7 @@
+.shop1Container1 {
+  width: 50%; 
+  height: 10vh;
+  background-image: url("/image/cup.jpg");
+  background-position: center;
+  background-size: cover;
+}

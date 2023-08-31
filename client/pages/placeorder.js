@@ -5,6 +5,7 @@ const PlaceOrderPage = () => {
     return (
         <div>
             <PlaceOrder />
+
         </div>
     );
 };
