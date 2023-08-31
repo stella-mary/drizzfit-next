@@ -178,15 +178,6 @@ export default function Shop() {
                 {" "}
                 {selectedProduct.name}
               </div>
-              {/* <div
-                style={{
-                  fontFamily: "'Telegraf Regular 400', sans-serif",
-                  fontSize: "15px",
-                  color: "black", // Set font color
-                }}
-              >
-                Large
-              </div> */}
               <div
                 style={{
                   display: "flex",
@@ -346,26 +337,8 @@ export default function Shop() {
         >
           PLACE ORDER
         </Button>
-        <Button
-          // variant="outlined"
-          color="primary"
-          sx={{
-            fontFamily: "'Telegraf UltraBold 800', sans-serif",
-
-            marginTop: "10px",
-            width: "100%",
-            backgroundColor: "transparent",
-            textDecoration: "underline",
-            border: "none",
-            outline: "none", // Remove outline border
-            fontSize: "16px",
-            color: "black",
-          }}
-        >
-          CONTINUE SHOPPING
-        </Button>
       </Box>
-      <PlaceOrder open={openDialog} onClose={() => setOpenDialog(false)} />
+      {/* <PlaceOrder open={openDialog} onClose={() => setOpenDialog(false)} /> */}
     </Box>
   );
 
@@ -639,6 +612,7 @@ export default function Shop() {
           >
             {list("right")}
           </Drawer>
+          <PlaceOrder open={openDialog} onClose={() => setOpenDialog(false)} />
           <Box
             display="flex"
             justifyContent="-moz-initial"

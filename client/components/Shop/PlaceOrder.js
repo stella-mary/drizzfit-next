@@ -14,10 +14,14 @@ import StepLabel from "@mui/material/StepLabel";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 
-
 const steps = ["Mobile", "Address", "Payment"];
 
-export default function PlaceOrder({ open, onClose }) {
+export default function PlaceOrder({
+  open,
+  onClose,
+  setOpenDialog,
+  openDialog,
+}) {
   const [activeStep, setActiveStep] = useState(0);
   const [skipped, setSkipped] = useState(new Set());
   const [phoneNumber, setPhoneNumber] = useState();
@@ -64,12 +68,15 @@ export default function PlaceOrder({ open, onClose }) {
     setActiveStep(0);
   };
 
+  const handleClose = () => {
+    onClose(openDialog);
+  };
+
   return (
     <div className={styles.shop}>
-
       <Dialog
         open={open}
-        onClose={onClose}
+        onClose={handleClose}
         PaperProps={{
           sx: {
             width: "100%",
@@ -86,12 +93,10 @@ export default function PlaceOrder({ open, onClose }) {
         <DialogContent>
           <DialogContentText>
             <Box
-              sx={
-                {
-                  width: '100%',
-                  padding: '24px'
-                }
-              }
+              sx={{
+                width: "100%",
+                padding: "24px",
+              }}
             >
               <Stepper activeStep={activeStep}>
                 {steps.map((label, index) => {
@@ -121,7 +126,6 @@ export default function PlaceOrder({ open, onClose }) {
                   </Typography>
                   {activeStep === 0 && (
                     <React.Fragment>
-
                       <Box sx={{ display: "flex", flexDirection: "column" }}>
                         <Typography variant="body">
                           Enter Mobile Number:
@@ -130,7 +134,7 @@ export default function PlaceOrder({ open, onClose }) {
                           fullWidth
                           defaultValue="+91 | "
                           inputProps={{
-                            maxLength: 14, // Including "+91 | "
+                            maxLength: 18, // Including "+91 | "
                           }}
                           value={phoneNumber}
                           onChange={(e) => setPhoneNumber(e.target.value)}
