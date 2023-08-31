@@ -1,7 +1,98 @@
-.shop1Container1 {
-  width: 50%; 
-  height: 10vh;
-  background-image: url("/image/cup.jpg");
-  background-position: center;
-  background-size: cover;
+.shop1 {
+height: 100vh;
+width: 100%;
+padding: 5%;
+}
+
+.shop1Main {
+  display: flex;
+  gap: 40px;
+}
+
+.shop1Sub {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.shop1SubSub {
+  display: flex;
+}
+
+.imageContainer1 {
+    width: 50%; 
+    height: 80vh;
+    background-image: url("/image/cup.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.h1 {
+  font-family: 'Telegraf UltraBold 800';
+  color: #4f7694;
+  font-size: 45px;
+}
+
+.h2 {
+  font-family: 'Telegraf UltraBold 800';
+  font-size: 42px;
+  margin-top: 10px;
+}
+
+.footnote {
+  font-family: 'Telegraf Regular 400';
+  margin-top: 20px;
+  font-size: 12px;
+}
+
+.boxnote {
+  background: #fef6f8;
+  padding: 5%;
+  border-radius: 20px;
+}
+
+
+.boxnoteh1 {
+  font-family: 'Telegraf UltraBold 800';
+  font-size: 18px;
+  color: #db6891;
+}
+
+.boxnotePara {
+  font-family: 'Telegraf Regular 400';
+  font-size: 14px;
+  line-height: 1.5em;
+  margin-top: 20px;
+}
+
+.boxnotePara1 {
+  font-family: 'Telegraf Regular 400';
+  font-size: 14px;
+  line-height: 1.5em;
+}
+
+.button {
+  background-color: #f4785c;
+  color: white;
+  font-family: 'Telegraf UltraBold 800';
+  font-size: 14px;
+  margin-top: 20px;
+  text-align: center;
+  padding: 10px;
+}
+
+.list{
+  font-family: 'Telegraf Regular 400';
+  font-size: 14px;
+  margin-top: 20px;
+  padding: 3%;
+  line-height: 1.5em;
+}
+
+.size {
+  font-family: 'Telegraf Regular 400';
+  font-size: 15px;
+margin-top: 20px;
+
 }
