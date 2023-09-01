@@ -111,7 +111,7 @@ const Shop1 = () => {
             </div>
 
             <div className={styles.boxnotePara}>
-              The Plush Menstrual Cup is a perfect option for you to go all
+              The Drizzfit Menstrual Cup is a perfect option for you to go all
               sustainable during your cycle.Our cups are:
             </div>
 
@@ -125,7 +125,7 @@ const Shop1 = () => {
               <b>Size Guide</b>
             </div>
             <div className={styles.boxnotePara}>
-              Plush Menstrual Cups comes in 3 sizes
+              Drizzfit Menstrual Cups comes in 3 sizes
             </div>
             <div className={styles.boxnotePara}>
               <b>Extra Small(XS)</b> – Perfect if you are under 18 years of age
@@ -150,9 +150,11 @@ const Shop1 = () => {
               style={{
                 border: "none",
                 maxWidth: "61px",
-                padding: "4px 8px",
-                fontSize: "14px",
-                background: "grey",
+                padding: "12px 26px 12px 7px",
+                fontSize: "20px",
+                background: "transparent",
+                color: "#252b2f",
+                textAlign: "center",
               }}
             ></input>
             <div className={styles.button}>Buy Now</div>
