@@ -5,6 +5,9 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import axios from "axios";
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+
 
 const Shop1 = () => {
   const [selectedQuantity, setSelectedQuantity] = useState(1);
@@ -13,6 +16,8 @@ const Shop1 = () => {
   const [selectedDescription, setSelectedDescription] = useState("");
   const orderDate = new Date();
   const [orderId, setOrderId] = useState();
+
+
 
   useEffect(() => {
     axios.get("http://localhost:1992/product/all").then((response) => {
@@ -73,10 +78,43 @@ const Shop1 = () => {
     }
   };
 
+
   return (
     <div className={styles.shop1}>
       <div className={styles.shop1Main}>
-        <div className={styles.imageContainer1}></div>
+        <Carousel
+          showThumbs={false}
+          showStatus={false}
+          infiniteLoop
+          className={styles.carouselContainer} // Add this class to apply background color
+        >
+          <div className={styles.imageContainer1}></div>
+          <div className={styles.imageContainer2}></div>
+          <div className={styles.imageContainer3}></div>
+          <div className={styles.imageContainer4}></div>
+          <div className={styles.imageContainer5}></div>
+          <div className={styles.imageContainer6}></div>
+        </Carousel>
+        {/* <Carousel showThumbs={false} showStatus={false} infiniteLoop>
+          <div
+            className={`${styles.sliderImage} ${styles.imageContainer1}`}
+          />
+          <div
+            className={`${styles.sliderImage} ${styles.imageContainer2}`}
+          />
+          <div
+            className={`${styles.sliderImage} ${styles.imageContainer3}`}
+          />
+          <div
+            className={`${styles.sliderImage} ${styles.imageContainer4}`}
+          />
+          <div
+            className={`${styles.sliderImage} ${styles.imageContainer5}`}
+          />
+          <div
+            className={`${styles.sliderImage} ${styles.imageContainer6}`}
+          />
+        </Carousel> */}
         <div className={styles.shop1Sub}>
           <div className={styles.h1}>{selectedProduct.name}</div>
           <div className={styles.h2}>₹{selectedProduct.price}</div>
@@ -111,7 +149,7 @@ const Shop1 = () => {
             </div>
 
             <div className={styles.boxnotePara}>
-              The Drizzfit Menstrual Cup is a perfect option for you to go all
+              The Plush Menstrual Cup is a perfect option for you to go all
               sustainable during your cycle.Our cups are:
             </div>
 
@@ -125,7 +163,7 @@ const Shop1 = () => {
               <b>Size Guide</b>
             </div>
             <div className={styles.boxnotePara}>
-              Drizzfit Menstrual Cups comes in 3 sizes
+              Plush Menstrual Cups comes in 3 sizes
             </div>
             <div className={styles.boxnotePara}>
               <b>Extra Small(XS)</b> – Perfect if you are under 18 years of age
@@ -150,18 +188,16 @@ const Shop1 = () => {
               style={{
                 border: "none",
                 maxWidth: "61px",
-                padding: "12px 26px 12px 7px",
-                fontSize: "20px",
-                background: "transparent",
-                color: "#252b2f",
-                textAlign: "center",
+                padding: "4px 8px",
+                fontSize: "14px",
+                background: "grey",
               }}
             ></input>
             <div className={styles.button}>Buy Now</div>
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

@@ -27,11 +27,51 @@ padding: 5%;
 }
 
 .imageContainer1 {
-    width: 50%; 
+    width: 100%; 
     height: 80vh;
-    background-image: url("/image/cup.jpg");
+    background-image: url("/image/product.webp");
     background-position: center;
     background-size: cover;
+}
+
+.imageContainer2 {
+  width: 100%; 
+  height: 80vh;
+  background-image: url("/image/product1.webp");
+  background-position: center;
+  background-size: cover;
+}
+
+.imageContainer3 {
+  width: 100%; 
+  height: 80vh;
+  background-image: url("/image/product2.webp");
+  background-position: center;
+  background-size: cover;
+}
+
+.imageContainer4 {
+  width: 100%; 
+  height: 80vh;
+  background-image: url("/image/product3.webp");
+  background-position: center;
+  background-size: cover;
+}
+
+.imageContainer5 {
+  width: 100%; 
+  height: 80vh;
+  background-image: url("/image/product4.webp");
+  background-position: center;
+  background-size: cover;
+}
+
+.imageContainer6 {
+  width: 100%; 
+  height: 80vh;
+  background-image: url("/image/product5.webp");
+  background-position: center;
+  background-size: cover;
 }
 
 .h1 {
@@ -101,4 +141,51 @@ padding: 5%;
   font-size: 15px;
 margin-top: 20px;
 
+}
+
+/* Add these styles to your CSS stylesheet */
+.carouselContainer {
+  background-color: gray; /* Replace with your desired background color */
+  position: relative;
+  overflow: hidden; 
+  width: 100%; /* Ensure it takes the full width of the parent */
+  height: 80vh; /* Adjust the height as needed */
+}
+
+.carousel .carousel-slider {
+  overflow: hidden;
+}
+
+.carousel .slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel .carousel-status {
+  display: none; /* Hide the status dots if desired */
+}
+
+.carousel .control-arrow {
+  background-color: transparent; /* Set the arrow background color to transparent */
+  color: red; /* Change the arrow color to red */
+  font-size: 24px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s; /* Add smooth transition */
+}
+
+.carousel .control-arrow:hover {
+  background-color: transparent; /* Set the hover background color to transparent */
+  color: white; /* Change the hover text color */
+}
+
+/* Optional: Adjust arrow positioning */
+.carousel .control-prev {
+  left: 20px; /* Adjust the left position */
+}
+
+.carousel .control-next {
+  right: 20px; /* Adjust the right position */
 }
