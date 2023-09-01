@@ -124,8 +124,8 @@ const Shop1 = () => {
   const list = (anchor) => (
     <Box
       sx={{
-        width: anchor === "top" || anchor === "bottom" ? "auto" : 500,
-        background: "#fee600",
+        width: anchor === "top" || anchor === "bottom" ? "auto" : 400,
+        // background: "#fee600",
         fontFamily: "'Telegraf UltraBold 800', sans-serif",
         height: "100vh",
         padding: "10px",
@@ -471,25 +471,33 @@ const Shop1 = () => {
                 textAlign: "center",
               }}
             ></input>
-            <div className={styles.button} onClick={handleBuyNow}>
+            <div
+              className={styles.button}
+              onClick={handleBuyNow}
+              style={{
+                "&:hover": {
+                  cursor: "pointer",
+                },
+              }}
+            >
               Buy Now
             </div>
-            <Drawer
-              anchor="right" // Open the drawer from the right side
-              open={state["right"]}
-              onClose={toggleDrawer("right", false)}
-            >
-              {list("right")}
-            </Drawer>
-            <PlaceOrder
-              open={openDialog}
-              onClose={() => setOpenDialog(false)}
-              orderId={orderId}
-              openDialog={openDialog}
-            />
           </div>
         </div>
       </div>
+      <Drawer
+        anchor="right" // Open the drawer from the right side
+        open={state["right"]}
+        onClose={toggleDrawer("right", false)}
+      >
+        {list("right")}
+      </Drawer>
+      <PlaceOrder
+        open={openDialog}
+        onClose={() => setOpenDialog(false)}
+        orderId={orderId}
+        openDialog={openDialog}
+      />
     </div>
   );
 };
