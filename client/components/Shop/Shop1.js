@@ -302,10 +302,9 @@ const Shop1 = () => {
         sx={{
           display: "flex",
           flexDirection: "column",
-          alignItems: "flex-start",
           justifyContent: "space-between",
           padding: "5px",
-          marginTop: "auto", // Push content to the bottom
+          marginTop: "auto",
         }}
       >
         <Box
@@ -314,7 +313,6 @@ const Shop1 = () => {
             alignItems: "center",
             justifyContent: "space-between",
             marginTop: "20px",
-            gap: "300px", // Adjust the gap value as needed
           }}
         >
           <Typography
@@ -345,7 +343,10 @@ const Shop1 = () => {
             marginTop: "20px",
             width: "100%",
             fontSize: "16px",
-            backgroundColor: "black", // Apply background color
+            backgroundColor: "#ff9900",
+            "&:hover": {
+              backgroundColor: "#ff9900",
+            },
           }}
           onClick={navigateToPlaceOrder}
         >
