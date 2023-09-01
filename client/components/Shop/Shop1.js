@@ -16,6 +16,8 @@ const Shop1 = () => {
   const [selectedDescription, setSelectedDescription] = useState("");
   const orderDate = new Date();
   const [orderId, setOrderId] = useState();
+  const [state, setState] = useState({ right: false });
+  // const isNonMobile = useMediaQuery("(max-width: 768px)");
 
 
 
@@ -77,6 +79,260 @@ const Shop1 = () => {
       setNumber((prevNumber) => prevNumber - 1);
     }
   };
+
+  const handleBuyNow = () => {
+    toggleDrawer("right", true)();
+    // axios
+    //   .post("http://localhost:1992/order/add", {
+    //     orderDate: orderDate,
+    //     status: "pending",
+    //   })
+    //   .then((response) => {
+    //     console.log("Order Response: ", response.data);
+    //     setOrderId(response.data.orderId);
+    //     axios
+    //       .post("http://localhost:1992/orderitem/add", {
+    //         orderId: response.data.orderId,
+    //         quantity: selectedQuantity,
+    //         priceAtOrder: selectedProduct.price,
+    //         productId: selectedProduct.productId,
+    //       })
+    //       .then((response) =>
+    //         console.log("orderItems Response: ", response.data)
+    //       );
+    //   });
+  };
+
+
+  const toggleDrawer = (anchor, open) => () => {
+    setState({ ...state, [anchor]: open });
+  };
+
+
+
+  const list = (anchor) => (
+    <Box
+      sx={{
+        width: anchor === "top" || anchor === "bottom" ? "auto" : 500,
+        background: "#fee600",
+        fontFamily: "'Telegraf UltraBold 800', sans-serif",
+        height: "100vh",
+        padding: "10px",
+      }}
+      role="presentation"
+      // onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
+    >
+      <List>
+        <ListItem
+          style={{
+            display: "flex",
+            alignItems: "center", // Align vertically
+            justifyContent: "center", // Align horizontally
+            textAlign: "center",
+          }}
+        >
+          <span style={{ marginRight: "auto" }}>YOUR CART</span>
+          <ClearIcon onClick={toggleDrawer(anchor, false)} />
+        </ListItem>
+      </List>
+      <List>
+        <ListItem disablePadding>
+          <ListItemIcon
+            style={{
+              display: "flex",
+              alignItems: "flex-start", // Align vertically to the start (top)
+              gap: "20px",
+              padding: "10px",
+              width: "100%",
+              marginTop: "5%",
+            }}
+          >
+            <div
+              className={styles.shopContainer6}
+              style={{ alignSelf: "center" }}
+            ></div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start", // Align text to the start (left)
+                gap: "10px",
+                textAlign: "left", // Add left alignment
+              }}
+            >
+              <div
+                style={{
+                  fontFamily: "'Telegraf Regular 400', sans-serif",
+                  fontSize: "16px",
+                  color: "black", // Set font color
+                }}
+              >
+                {" "}
+                {selectedProduct.name}
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "14px",
+                  marginTop: "25px",
+                  border: "2px solid black",
+                  borderRadius: "6px",
+                  padding: "10px",
+                  width: "100px",
+                  height: "40px",
+                  fontFamily: "'Telegraf UltraBold 800', sans-serif",
+                }}
+              >
+                <button
+                  style={{
+                    border: "none",
+                    backgroundColor: "transparent",
+                    cursor: "pointer",
+                    marginRight: "5px",
+                    fontSize: "14px",
+                    color: "black",
+                    fontFamily: "'Telegraf UltraBold 800', sans-serif",
+                  }}
+                  onClick={handleDecreaseQuantity}
+                >
+                  -
+                </button>
+                <span
+                  style={{
+                    flex: 1,
+                    textAlign: "center",
+                    color: "black",
+                    fontFamily: "'Telegraf Regular 400', sans-serif",
+                    fontSize: "14px",
+                  }}
+                >
+                  {selectedQuantity}
+                </span>
+                <button
+                  style={{
+                    border: "none",
+                    backgroundColor: "transparent",
+                    cursor: "pointer",
+                    marginLeft: "5px",
+                    fontSize: "14px",
+                    color: "black",
+                    fontFamily: "'Telegraf UltraBold 800', sans-serif",
+                  }}
+                  onClick={handleIncreaseQuantity}
+                >
+                  +
+                </button>
+              </div>
+            </div>
+            <div
+              style={{
+                marginTop: "100px",
+                marginLeft: "70px",
+                fontFamily: "'Telegraf Regular 400', sans-serif",
+                fontSize: "15px",
+                color: "black", // Set font color
+              }}
+            >
+              ₹{selectedProduct.price}
+            </div>
+          </ListItemIcon>
+          <ListItemText />
+        </ListItem>
+        <Divider />
+      </List>
+      <List>
+        <ListItem
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "10px",
+            fontFamily: "'Telegraf Regular 400', sans-serif",
+          }}
+        >
+          <TextField
+            label="e.g. Discount Code"
+            variant="outlined"
+            size="small"
+            style={{
+              width: "320px",
+              fontFamily: "'Telegraf Regular 400', sans-serif",
+            }}
+          />
+          <Button
+            variant="contained"
+            color="primary"
+            style={{
+              fontFamily: "'Telegraf UltraBold 800', sans-serif",
+              backgroundColor: "black",
+              color: "white",
+              width: "100px",
+              fontSize: "14px",
+            }}
+          >
+            Apply
+          </Button>
+        </ListItem>
+      </List>
+      <Divider style={{ marginTop: "7rem" }} />
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          justifyContent: "space-between",
+          padding: "5px",
+          marginTop: "auto", // Push content to the bottom
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            marginTop: "20px",
+            gap: "300px", // Adjust the gap value as needed
+          }}
+        >
+          <Typography
+            variant="subtitle1"
+            sx={{
+              fontFamily: "'Telegraf UltraBold 800', sans-serif",
+              fontSize: "16px",
+            }}
+          >
+            SUBTOTAL
+          </Typography>
+          <Typography
+            variant="h6"
+            sx={{
+              fontFamily: "'Telegraf UltraBold 800', sans-serif",
+              fontSize: "16px",
+            }}
+          >
+            ₹ {selectedQuantity * selectedProduct.price}
+          </Typography>
+        </Box>
+        <Button
+          variant="contained"
+          color="primary"
+          sx={{
+            fontFamily: "'Telegraf UltraBold 800', sans-serif",
+            textTransform: "none",
+            marginTop: "20px",
+            width: "100%",
+            fontSize: "16px",
+            backgroundColor: "black", // Apply background color
+          }}
+          onClick={navigateToPlaceOrder}
+        >
+          PLACE ORDER
+        </Button>
+      </Box>
+    </Box>
+  );
 
 
   return (
@@ -193,7 +449,8 @@ const Shop1 = () => {
                 background: "grey",
               }}
             ></input>
-            <div className={styles.button}>Buy Now</div>
+            <div className={styles.button} onClick={handleBuyNow}
+            >Buy Now</div>
           </div>
         </div>
       </div>
