@@ -143,8 +143,17 @@ const Shop1 = () => {
               type="number"
               id="quantity"
               name="quantity"
-              min="0"
+              min="1"
               max="100"
+              value={selectedQuantity}
+              onChange={(e) => setSelectedQuantity(e.target.value)}
+              style={{
+                border: "none",
+                maxWidth: "61px",
+                padding: "4px 8px",
+                fontSize: "14px",
+                background: "grey",
+              }}
             ></input>
             <div className={styles.button}>Buy Now</div>
           </div>
@@ -153,4 +162,5 @@ const Shop1 = () => {
     </div>
   );
 };
+
 export default Shop1;
