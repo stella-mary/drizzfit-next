@@ -5,9 +5,22 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import axios from "axios";
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import {
+  Box,
+  Button,
+  Divider,
+  Drawer,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  TextField,
+  Typography,
+} from "@mui/material";
+import ClearIcon from "@mui/icons-material/Clear";
+import PlaceOrder from "./PlaceOrder";
 
 const Shop1 = () => {
   const [selectedQuantity, setSelectedQuantity] = useState(1);
@@ -17,9 +30,8 @@ const Shop1 = () => {
   const orderDate = new Date();
   const [orderId, setOrderId] = useState();
   const [state, setState] = useState({ right: false });
+  const [openDialog, setOpenDialog] = useState(false);
   // const isNonMobile = useMediaQuery("(max-width: 768px)");
-
-
 
   useEffect(() => {
     axios.get("http://localhost:1992/product/all").then((response) => {
@@ -70,45 +82,48 @@ const Shop1 = () => {
 
   const [number, setNumber] = useState(0);
 
-  const handleIncrement = () => {
+  const handleIncreaseFun = () => {
+    console.log("+ btn clicked");
     setNumber((prevNumber) => prevNumber + 1);
   };
 
-  const handleDecrement = () => {
+  const handleDecreseFun = () => {
+    console.log("- btn clicked");
     if (number > 0) {
       setNumber((prevNumber) => prevNumber - 1);
     }
   };
 
-  const handleBuyNow = () => {
-    toggleDrawer("right", true)();
-    // axios
-    //   .post("http://localhost:1992/order/add", {
-    //     orderDate: orderDate,
-    //     status: "pending",
-    //   })
-    //   .then((response) => {
-    //     console.log("Order Response: ", response.data);
-    //     setOrderId(response.data.orderId);
-    //     axios
-    //       .post("http://localhost:1992/orderitem/add", {
-    //         orderId: response.data.orderId,
-    //         quantity: selectedQuantity,
-    //         priceAtOrder: selectedProduct.price,
-    //         productId: selectedProduct.productId,
-    //       })
-    //       .then((response) =>
-    //         console.log("orderItems Response: ", response.data)
-    //       );
-    //   });
+  const navigateToPlaceOrder = () => {
+    setOpenDialog(true);
   };
 
+  const handleBuyNow = () => {
+    toggleDrawer("right", true)();
+    axios
+      .post("http://localhost:1992/order/add", {
+        orderDate: orderDate,
+        status: "pending",
+      })
+      .then((response) => {
+        console.log("Order Response: ", response.data);
+        setOrderId(response.data.orderId);
+        axios
+          .post("http://localhost:1992/orderitem/add", {
+            orderId: response.data.orderId,
+            quantity: selectedQuantity,
+            priceAtOrder: selectedProduct.price,
+            productId: selectedProduct.productId,
+          })
+          .then((response) =>
+            console.log("orderItems Response: ", response.data)
+          );
+      });
+  };
 
   const toggleDrawer = (anchor, open) => () => {
     setState({ ...state, [anchor]: open });
   };
-
-
 
   const list = (anchor) => (
     <Box
@@ -173,6 +188,16 @@ const Shop1 = () => {
               </div>
               <div
                 style={{
+                  color: "#000000",
+                  display: "block",
+                  fontSize: "14px",
+                  fontWeight: "normal",
+                }}
+              >
+                {selectedProduct.description}
+              </div>
+              <div
+                style={{
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -196,7 +221,7 @@ const Shop1 = () => {
                     color: "black",
                     fontFamily: "'Telegraf UltraBold 800', sans-serif",
                   }}
-                  onClick={handleDecreaseQuantity}
+                  onClick={handleDecreseFun}
                 >
                   -
                 </button>
@@ -221,7 +246,7 @@ const Shop1 = () => {
                     color: "black",
                     fontFamily: "'Telegraf UltraBold 800', sans-serif",
                   }}
-                  onClick={handleIncreaseQuantity}
+                  onClick={handleIncreaseFun}
                 >
                   +
                 </button>
@@ -334,7 +359,6 @@ const Shop1 = () => {
     </Box>
   );
 
-
   return (
     <div className={styles.shop1}>
       <div className={styles.shop1Main}>
@@ -443,18 +467,34 @@ const Shop1 = () => {
               onChange={(e) => setSelectedQuantity(e.target.value)}
               style={{
                 border: "none",
-                maxWidth: "61px",
-                padding: "4px 8px",
-                fontSize: "14px",
-                background: "grey",
+                maxWidth: "81px",
+                padding: "12px 26px 12px 7px",
+                fontSize: "20px",
+                background: "#F2F4F8",
+                color: "#252b2f",
+                textAlign: "center",
               }}
             ></input>
-            <div className={styles.button} onClick={handleBuyNow}
-            >Buy Now</div>
+            <div className={styles.button} onClick={handleBuyNow}>
+              Buy Now
+            </div>
+            <Drawer
+              anchor="right" // Open the drawer from the right side
+              open={state["right"]}
+              onClose={toggleDrawer("right", false)}
+            >
+              {list("right")}
+            </Drawer>
+            <PlaceOrder
+              open={openDialog}
+              onClose={() => setOpenDialog(false)}
+              orderId={orderId}
+              openDialog={openDialog}
+            />
           </div>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 
