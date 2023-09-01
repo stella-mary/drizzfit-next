@@ -80,18 +80,14 @@ const Shop1 = () => {
     fontSize: "16px",
   };
 
-  const [number, setNumber] = useState(0);
-
-  const handleIncreaseFun = () => {
-    console.log("+ btn clicked");
-    setNumber((prevNumber) => prevNumber + 1);
+  const handleDecreaseQuantity = () => {
+    if (selectedQuantity > 1) {
+      setSelectedQuantity(selectedQuantity - 1);
+    }
   };
 
-  const handleDecreseFun = () => {
-    console.log("- btn clicked");
-    if (number > 0) {
-      setNumber((prevNumber) => prevNumber - 1);
-    }
+  const handleIncreaseQuantity = () => {
+    setSelectedQuantity(selectedQuantity + 1);
   };
 
   const navigateToPlaceOrder = () => {
@@ -221,7 +217,7 @@ const Shop1 = () => {
                     color: "black",
                     fontFamily: "'Telegraf UltraBold 800', sans-serif",
                   }}
-                  onClick={handleDecreseFun}
+                  onClick={handleDecreaseQuantity}
                 >
                   -
                 </button>
@@ -246,7 +242,7 @@ const Shop1 = () => {
                     color: "black",
                     fontFamily: "'Telegraf UltraBold 800', sans-serif",
                   }}
-                  onClick={handleIncreaseFun}
+                  onClick={handleIncreaseQuantity}
                 >
                   +
                 </button>
