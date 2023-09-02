@@ -30,9 +30,6 @@ import {
   Alert,
   Stack,
 } from "@mui/material";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth, db } from "../../firebase";
-import { doc, setDoc } from "firebase/firestore";
 
 // Material UI Icon Imports
 import Visibility from "@mui/icons-material/Visibility";
