@@ -31,7 +31,7 @@ const Shop1 = () => {
   const [orderId, setOrderId] = useState();
   const [state, setState] = useState({ right: false });
   const [openDialog, setOpenDialog] = useState(false);
-  // const isNonMobile = useMediaQuery("(max-width: 768px)");
+  const [finalQuantity, setFinalQuantity] = useState(selectedQuantity);
 
   useEffect(() => {
     axios.get("http://localhost:1992/product/all").then((response) => {
@@ -107,7 +107,7 @@ const Shop1 = () => {
     axios
       .post("http://localhost:1992/order/add", {
         orderDate: orderDate,
-        status: "pending",
+        status: "Added to cart",
       })
       .then((response) => {
         console.log("Order Response: ", response.data);
@@ -237,6 +237,8 @@ const Shop1 = () => {
                     fontFamily: "'Telegraf Regular 400', sans-serif",
                     fontSize: "14px",
                   }}
+                  value={finalQuantity}
+                  onChange={(e) => setFinalQuantity(e.target.value)}
                 >
                   {selectedQuantity}
                 </span>
@@ -489,7 +491,6 @@ const Shop1 = () => {
             </div>
           </div>
           <div className={styles.shop1SubSub}>
-
             <input
               type="number"
               id="quantity"
