@@ -485,6 +485,7 @@ const Shop1 = () => {
             </div>
           </div>
           <div className={styles.shop1SubSub}>
+
             <input
               type="number"
               id="quantity"
@@ -495,14 +496,19 @@ const Shop1 = () => {
               onChange={(e) => setSelectedQuantity(e.target.value)}
               style={{
                 border: "none",
-                maxWidth: "81px",
+                width: "100%",
                 padding: "12px 26px 12px 7px",
+                background: "#f2f4f8",
                 fontSize: "20px",
-                background: "#F2F4F8",
                 color: "#252b2f",
                 textAlign: "center",
+                outline: "none",
               }}
-            ></input>
+              onBlur={(e) => {
+                e.target.style.border = "none";
+              }}
+            />
+
             <div
               className={styles.button}
               onClick={handleBuyNow}
