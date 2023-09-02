@@ -31,7 +31,7 @@ const Shop1 = () => {
   const [orderId, setOrderId] = useState();
   const [state, setState] = useState({ right: false });
   const [openDialog, setOpenDialog] = useState(false);
-  const [finalQuantity, setFinalQuantity] = useState(selectedQuantity);
+  // const isNonMobile = useMediaQuery("(max-width: 768px)");
 
   useEffect(() => {
     axios.get("http://localhost:1992/product/all").then((response) => {
@@ -91,14 +91,6 @@ const Shop1 = () => {
   };
 
   const navigateToPlaceOrder = () => {
-    axios
-      .post("http://localhost:1992/orderitem/add", {
-        orderId: orderId,
-        quantity: selectedQuantity,
-        priceAtOrder: selectedProduct.price,
-        productId: selectedProduct.productId,
-      })
-      .then((response) => console.log("orderItems Response: ", response.data));
     setOpenDialog(true);
   };
 
@@ -107,21 +99,21 @@ const Shop1 = () => {
     axios
       .post("http://localhost:1992/order/add", {
         orderDate: orderDate,
-        status: "Added to cart",
+        status: "pending",
       })
       .then((response) => {
         console.log("Order Response: ", response.data);
         setOrderId(response.data.orderId);
-        // axios
-        //   .post("http://localhost:1992/orderitem/add", {
-        //     orderId: response.data.orderId,
-        //     quantity: selectedQuantity,
-        //     priceAtOrder: selectedProduct.price,
-        //     productId: selectedProduct.productId,
-        //   })
-        //   .then((response) =>
-        //     console.log("orderItems Response: ", response.data)
-        //   );
+        axios
+          .post("http://localhost:1992/orderitem/add", {
+            orderId: response.data.orderId,
+            quantity: selectedQuantity,
+            priceAtOrder: selectedProduct.price,
+            productId: selectedProduct.productId,
+          })
+          .then((response) =>
+            console.log("orderItems Response: ", response.data)
+          );
       });
   };
 
@@ -237,8 +229,6 @@ const Shop1 = () => {
                     fontFamily: "'Telegraf Regular 400', sans-serif",
                     fontSize: "14px",
                   }}
-                  value={finalQuantity}
-                  onChange={(e) => setFinalQuantity(e.target.value)}
                 >
                   {selectedQuantity}
                 </span>
@@ -409,8 +399,8 @@ const Shop1 = () => {
                   left: "20px", // Adjust this value to align the button as desired
                   fontSize: "24px",
                   backgroundColor: "white",
-                  borderRadius: "50%",
-                  padding: "10px",
+                  borderRadius: '50%',
+                  padding: '10px',
                   color: "black",
                   cursor: "pointer",
                   border: "none",
@@ -421,13 +411,17 @@ const Shop1 = () => {
             )
           }
         >
+
           <div className={styles.imageContainer1}></div>
           <div className={styles.imageContainer2}></div>
           <div className={styles.imageContainer3}></div>
           <div className={styles.imageContainer4}></div>
           <div className={styles.imageContainer5}></div>
           <div className={styles.imageContainer6}></div>
+
         </Carousel>
+
+
 
         <div className={styles.shop1Sub}>
           <div className={styles.h1}>{selectedProduct.name}</div>
@@ -491,6 +485,7 @@ const Shop1 = () => {
             </div>
           </div>
           <div className={styles.shop1SubSub}>
+
             <input
               type="number"
               id="quantity"
@@ -500,17 +495,17 @@ const Shop1 = () => {
               value={selectedQuantity}
               onChange={(e) => setSelectedQuantity(e.target.value)}
               style={{
-                border: "none",
-                width: "100%",
+                border: "none",  /* Set default border style */
+                maxWidth: "81px",
                 padding: "12px 26px 12px 7px",
                 background: "#f2f4f8",
                 fontSize: "20px",
                 color: "#252b2f",
                 textAlign: "center",
-                outline: "none",
+                outline: "none", /* Remove the focus outline */
               }}
               onBlur={(e) => {
-                e.target.style.border = "none";
+                e.target.style.border = "none"; /* Remove the border when not in focus */
               }}
             />
 
@@ -541,7 +536,8 @@ const Shop1 = () => {
         orderId={orderId}
         openDialog={openDialog}
       />
-    </div>
+    </div >
+
   );
 };
 
