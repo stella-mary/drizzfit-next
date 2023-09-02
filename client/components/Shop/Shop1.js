@@ -173,8 +173,7 @@ const Shop1 = () => {
             }}
           >
             <div
-              className={styles.shopContainer6}
-              style={{ alignSelf: "center" }}
+              className={styles.imageContainer7}
             ></div>
             <div
               style={{
@@ -509,8 +508,9 @@ const Shop1 = () => {
               onChange={(e) => setSelectedQuantity(e.target.value)}
               style={{
                 border: "none",
-                width: "100%",
-                padding: "12px 26px 12px 7px",
+                width: "40%",
+                marginTop: '20px',
+                padding: "10px",
                 background: "#f2f4f8",
                 fontSize: "20px",
                 color: "#252b2f",
