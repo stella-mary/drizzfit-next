@@ -91,6 +91,14 @@ const Shop1 = () => {
   };
 
   const navigateToPlaceOrder = () => {
+    axios
+      .post("http://localhost:1992/orderitem/add", {
+        orderId: orderId,
+        quantity: selectedQuantity,
+        priceAtOrder: selectedProduct.price,
+        productId: selectedProduct.productId,
+      })
+      .then((response) => console.log("orderItems Response: ", response.data));
     setOpenDialog(true);
   };
 
@@ -104,16 +112,16 @@ const Shop1 = () => {
       .then((response) => {
         console.log("Order Response: ", response.data);
         setOrderId(response.data.orderId);
-        axios
-          .post("http://localhost:1992/orderitem/add", {
-            orderId: response.data.orderId,
-            quantity: selectedQuantity,
-            priceAtOrder: selectedProduct.price,
-            productId: selectedProduct.productId,
-          })
-          .then((response) =>
-            console.log("orderItems Response: ", response.data)
-          );
+        // axios
+        //   .post("http://localhost:1992/orderitem/add", {
+        //     orderId: response.data.orderId,
+        //     quantity: selectedQuantity,
+        //     priceAtOrder: selectedProduct.price,
+        //     productId: selectedProduct.productId,
+        //   })
+        //   .then((response) =>
+        //     console.log("orderItems Response: ", response.data)
+        //   );
       });
   };
 
@@ -399,8 +407,8 @@ const Shop1 = () => {
                   left: "20px", // Adjust this value to align the button as desired
                   fontSize: "24px",
                   backgroundColor: "white",
-                  borderRadius: '50%',
-                  padding: '10px',
+                  borderRadius: "50%",
+                  padding: "10px",
                   color: "black",
                   cursor: "pointer",
                   border: "none",
@@ -411,17 +419,13 @@ const Shop1 = () => {
             )
           }
         >
-
           <div className={styles.imageContainer1}></div>
           <div className={styles.imageContainer2}></div>
           <div className={styles.imageContainer3}></div>
           <div className={styles.imageContainer4}></div>
           <div className={styles.imageContainer5}></div>
           <div className={styles.imageContainer6}></div>
-
         </Carousel>
-
-
 
         <div className={styles.shop1Sub}>
           <div className={styles.h1}>{selectedProduct.name}</div>
@@ -530,8 +534,7 @@ const Shop1 = () => {
         orderId={orderId}
         openDialog={openDialog}
       />
-    </div >
-
+    </div>
   );
 };
 
