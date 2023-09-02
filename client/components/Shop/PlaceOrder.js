@@ -19,16 +19,8 @@ const steps = ["Mobile", "Address", "Payment"];
 
 export default function PlaceOrder({ open, onClose, orderId, openDialog }) {
   const [activeStep, setActiveStep] = useState(0);
-  const [skipped, setSkipped] = useState(new Set());
   const [phoneNumber, setPhoneNumber] = useState();
-
-  const isStepOptional = (step) => {
-    return step === 1;
-  };
-
-  const isStepSkipped = (step) => {
-    return skipped.has(step);
-  };
+  console.log("Order Id in place order: ", orderId);
 
   const handleNext = () => {
     axios
@@ -38,7 +30,7 @@ export default function PlaceOrder({ open, onClose, orderId, openDialog }) {
       .then((response) => {
         console.log("Customer Response: ", response.data);
         axios
-          .put(`http://localhost:1992/update/${orderId}`, {
+          .put(`http://localhost:1992/order/update/${orderId}`, {
             customerId: response.data.customerId,
           })
           .then((res) => console.log("Order update response: ", res.data));
@@ -48,21 +40,6 @@ export default function PlaceOrder({ open, onClose, orderId, openDialog }) {
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
-  const handleSkip = () => {
-    if (!isStepOptional(activeStep)) {
-      // You probably want to guard against something like this,
-      // it should never occur unless someone's actively trying to break something.
-      throw new Error("You can't skip a step that isn't optional.");
-    }
-
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    setSkipped((prevSkipped) => {
-      const newSkipped = new Set(prevSkipped.values());
-      newSkipped.add(activeStep);
-      return newSkipped;
-    });
   };
 
   const handleReset = () => {

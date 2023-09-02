@@ -108,9 +108,12 @@ const Shop1 = () => {
       .post("http://localhost:1992/order/add", {
         orderDate: orderDate,
         status: "Added to cart",
+        billingAddress: "",
+        customerId: "",
       })
       .then((response) => {
         console.log("Order Response: ", response.data);
+        console.log("orderId: ", response.data.orderId);
         setOrderId(response.data.orderId);
         // axios
         //   .post("http://localhost:1992/orderitem/add", {

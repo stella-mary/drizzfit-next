@@ -4,10 +4,14 @@ import OrderItems from "../models/OrderItems.js";
 export const postOrder = (req, res) => {
   const orderDate = req.body.orderDate;
   const status = req.body.status;
+  const billingAddress = req.body.billingAddress;
+  const customerId = req.body.customerId;
 
   const newOrder = new Orders({
     orderDate,
     status,
+    billingAddress,
+    customerId,
   });
 
   newOrder
