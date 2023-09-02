@@ -363,35 +363,66 @@ const Shop1 = () => {
           showThumbs={false}
           showStatus={false}
           infiniteLoop
-          className={styles.carouselContainer} // Add this class to apply background color
+          className={styles.carouselContainer}
+          renderArrowPrev={(onClickHandler, hasPrev, label) =>
+            hasPrev && (
+              <>
+                <button
+                  type="button"
+                  onClick={onClickHandler}
+                  title={label}
+                  style={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "20px",
+                    fontSize: "24px",
+                    backgroundColor: "white",
+                    color: "black",
+                    cursor: "pointer",
+                    border: "none",
+                  }}
+                >
+                  {"<"}
+                </button>
+              </>
+            )
+          }
+          renderArrowNext={(onClickHandler, hasNext, label) =>
+            hasNext && (
+              <button
+                type="button"
+                onClick={onClickHandler}
+                title={label}
+                style={{
+                  position: "absolute",
+                  top: "90%",
+                  left: "20px", // Adjust this value to align the button as desired
+                  fontSize: "24px",
+                  backgroundColor: "white",
+                  borderRadius: '50%',
+                  padding: '10px',
+                  color: "black",
+                  cursor: "pointer",
+                  border: "none",
+                }}
+              >
+                &rarr; {/* HTML entity for right arrow */}
+              </button>
+            )
+          }
         >
+
           <div className={styles.imageContainer1}></div>
           <div className={styles.imageContainer2}></div>
           <div className={styles.imageContainer3}></div>
           <div className={styles.imageContainer4}></div>
           <div className={styles.imageContainer5}></div>
           <div className={styles.imageContainer6}></div>
+
         </Carousel>
-        {/* <Carousel showThumbs={false} showStatus={false} infiniteLoop>
-          <div
-            className={`${styles.sliderImage} ${styles.imageContainer1}`}
-          />
-          <div
-            className={`${styles.sliderImage} ${styles.imageContainer2}`}
-          />
-          <div
-            className={`${styles.sliderImage} ${styles.imageContainer3}`}
-          />
-          <div
-            className={`${styles.sliderImage} ${styles.imageContainer4}`}
-          />
-          <div
-            className={`${styles.sliderImage} ${styles.imageContainer5}`}
-          />
-          <div
-            className={`${styles.sliderImage} ${styles.imageContainer6}`}
-          />
-        </Carousel> */}
+
+
+
         <div className={styles.shop1Sub}>
           <div className={styles.h1}>{selectedProduct.name}</div>
           <div className={styles.h2}>₹{selectedProduct.price}</div>
@@ -499,7 +530,8 @@ const Shop1 = () => {
         orderId={orderId}
         openDialog={openDialog}
       />
-    </div>
+    </div >
+
   );
 };
 
