@@ -2,7 +2,7 @@ import styles from "@/styles/Promotion.module.css"
 import { useRouter } from "next/router"
 import Image from "next/image";
 import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, } from "react";
 import { useInView } from "react-intersection-observer";
 
 const boxVariant = {

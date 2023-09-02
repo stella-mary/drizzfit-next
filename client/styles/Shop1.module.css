@@ -141,13 +141,13 @@ padding: 5%;
 
 }
 
-
 .size {
-  font-family: 'Telegraf UltraBold 800';
+  display: flex;
+  gap: 10px;
+  font-family: 'Telegraf Regular 400';
   font-size: 15px;
   margin-top: 20px;
 }
-
 
 
 /* Add these styles to your CSS stylesheet */
