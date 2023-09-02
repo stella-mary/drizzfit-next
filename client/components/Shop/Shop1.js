@@ -32,6 +32,8 @@ const Shop1 = () => {
   const [state, setState] = useState({ right: false });
   const [openDialog, setOpenDialog] = useState(false);
   const [finalQuantity, setFinalQuantity] = useState(selectedQuantity);
+  const [size, setSize] = useState();
+
 
   useEffect(() => {
     axios.get("http://localhost:1992/product/all").then((response) => {
@@ -437,7 +439,7 @@ const Shop1 = () => {
           <div className={styles.h2}>₹{selectedProduct.price}</div>
           <div className={styles.footnote}>* inclusive of all taxes</div>
           <div className={styles.size}>
-            <FormControl>
+            {/* <FormControl>
               <RadioGroup
                 row
                 aria-labelledby="demo-row-radio-buttons-group-label"
@@ -451,11 +453,14 @@ const Shop1 = () => {
                     value={product.description}
                     control={<Radio />}
                     label={product.description}
-                    style={labelStyle}
+                    className={styles.customfont} // Apply the custom font class here
                   />
                 ))}
               </RadioGroup>
-            </FormControl>
+            </FormControl> */}
+            <input type="radio" name="size" value="Large" onChange={e => setSize(e.target.value)} />Large
+            <input type="radio" name="size" value="Small" onChange={e => setSize(e.target.value)} />Small
+            <input type="radio" name="size" value="Extra Large" onChange={e => setSize(e.target.value)} />Extra Large
           </div>
           <div className={styles.boxnote}>
             <div className={styles.boxnoteh1}>

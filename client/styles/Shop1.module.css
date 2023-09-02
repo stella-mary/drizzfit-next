@@ -136,8 +136,14 @@ padding: 5%;
   line-height: 1.5em;
 }
 
+.customfont {
+  font-family: 'Telegraf UltraBold 800';
+
+}
+
+
 .size {
-  font-family: 'Telegraf Regular 400';
+  font-family: 'Telegraf UltraBold 800';
   font-size: 15px;
   margin-top: 20px;
 }
