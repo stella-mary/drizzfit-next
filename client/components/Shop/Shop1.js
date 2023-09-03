@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
 import styles from "@/styles/Shop1.module.css";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
@@ -378,29 +379,29 @@ const Shop1 = () => {
           showStatus={false}
           infiniteLoop
           className={styles.carouselContainer}
-          renderArrowPrev={(onClickHandler, hasPrev, label) =>
-            hasPrev && (
-              <>
-                <button
-                  type="button"
-                  onClick={onClickHandler}
-                  title={label}
-                  style={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "20px",
-                    fontSize: "24px",
-                    backgroundColor: "white",
-                    color: "black",
-                    cursor: "pointer",
-                    border: "none",
-                  }}
-                >
-                  {"<"}
-                </button>
-              </>
-            )
-          }
+          // renderArrowPrev={(onClickHandler, hasPrev, label) =>
+          //   hasPrev && (
+          //     <button
+          //       type="button"
+          //       onClick={onClickHandler}
+          //       title={label}
+          //       style={{
+          //         position: "absolute",
+          //         top: "90%",
+          //         left: "20px", // Adjust this value to align the button as desired for the previous button
+          //         fontSize: "24px",
+          //         backgroundColor: "white",
+          //         borderRadius: "50%",
+          //         padding: "10px",
+          //         color: "black",
+          //         cursor: "pointer",
+          //         border: "none",
+          //       }}
+          //     >
+          //       {"<"}
+          //     </button>
+          //   )
+          // }
           renderArrowNext={(onClickHandler, hasNext, label) =>
             hasNext && (
               <button
@@ -410,7 +411,7 @@ const Shop1 = () => {
                 style={{
                   position: "absolute",
                   top: "90%",
-                  left: "20px", // Adjust this value to align the button as desired
+                  right: "20px", // Adjust this value to align the button as desired for the next button
                   fontSize: "24px",
                   backgroundColor: "white",
                   borderRadius: "50%",
@@ -420,11 +421,12 @@ const Shop1 = () => {
                   border: "none",
                 }}
               >
-                &rarr; {/* HTML entity for right arrow */}
+                {">"}
               </button>
             )
           }
         >
+
           <div className={styles.imageContainer1}></div>
           <div className={styles.imageContainer2}></div>
           <div className={styles.imageContainer3}></div>
@@ -508,12 +510,12 @@ const Shop1 = () => {
               onChange={(e) => setSelectedQuantity(e.target.value)}
               style={{
                 border: "none",
-                width: "40%",
+                width: "70%",
                 marginTop: '20px',
                 padding: "10px",
-                background: "#f2f4f8",
-                fontSize: "20px",
-                color: "#252b2f",
+                background: "black",
+                color: "white",
+                fontSize: "15px",
                 textAlign: "center",
                 outline: "none",
               }}
@@ -531,7 +533,10 @@ const Shop1 = () => {
                 },
               }}
             >
-              Buy Now
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', textAlign: "center" }}>
+                <CardGiftcardIcon style={{ verticalAlign: 'middle' }} /> Buy Now
+              </div>
+
             </div>
           </div>
         </div>
