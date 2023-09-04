@@ -138,11 +138,6 @@ const Shop1 = () => {
     setState({ ...state, [anchor]: open });
   };
 
-
-
-
-
-
   const list = (anchor) => (
     <Box
       sx={{
