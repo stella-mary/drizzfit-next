@@ -138,6 +138,11 @@ const Shop1 = () => {
     setState({ ...state, [anchor]: open });
   };
 
+
+
+
+
+
   const list = (anchor) => (
     <Box
       sx={{
@@ -177,7 +182,8 @@ const Shop1 = () => {
             }}
           >
             <div
-              className={styles.imageContainer7}
+              className={styles.shopContainer6}
+              style={{ alignSelf: "center" }}
             ></div>
             <div
               style={{
