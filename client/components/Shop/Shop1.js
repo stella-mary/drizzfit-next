@@ -37,7 +37,7 @@ const Shop1 = () => {
 
 
   useEffect(() => {
-    axios.get(`${process.env.BASE_URL}product/all`).then((response) => {
+    axios.get(`${process.env.BASE_URL}/product/all`).then((response) => {
       console.log("Product details: ", response.data);
 
       // Group products by name
