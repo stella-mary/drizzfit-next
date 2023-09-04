@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
+import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 import styles from "@/styles/Shop1.module.css";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
@@ -22,7 +22,7 @@ import {
 } from "@mui/material";
 import ClearIcon from "@mui/icons-material/Clear";
 import PlaceOrder from "./PlaceOrder";
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 const Shop1 = () => {
   const [selectedQuantity, setSelectedQuantity] = useState(1);
@@ -36,10 +36,9 @@ const Shop1 = () => {
   const [finalQuantity, setFinalQuantity] = useState(selectedQuantity);
   const [size, setSize] = useState();
 
-
   useEffect(() => {
-    console.log("server" + process.env.BASE_URL)
-    console.log("process" + JSON.stringify(process.env))
+    console.log("server" + process.env.BASE_URL);
+    console.log("process" + JSON.stringify(process.env));
     // console.log("stella" + BASE_URL)
     axios.get(`${process.env.BASE_URL}/product/all`).then((response) => {
       console.log("Product details: ", response.data);
@@ -93,8 +92,8 @@ const Shop1 = () => {
     }
   };
 
-  const handleIncreaseQuantity = () => {
-    setSelectedQuantity(selectedQuantity + 1);
+  const handleIncrease = () => {
+    setFinalQuantity(selectedQuantity + 1);
   };
 
   const navigateToPlaceOrder = () => {
@@ -262,7 +261,7 @@ const Shop1 = () => {
                     color: "black",
                     fontFamily: "'Telegraf UltraBold 800', sans-serif",
                   }}
-                  onClick={handleIncreaseQuantity}
+                  onClick={handleIncrease}
                 >
                   +
                 </button>
@@ -464,9 +463,27 @@ const Shop1 = () => {
                 ))}
               </RadioGroup>
             </FormControl> */}
-            <input type="radio" name="size" value="Large" onChange={e => setSize(e.target.value)} />Large
-            <input type="radio" name="size" value="Small" onChange={e => setSize(e.target.value)} />Small
-            <input type="radio" name="size" value="Extra Large" onChange={e => setSize(e.target.value)} />Extra Large
+            <input
+              type="radio"
+              name="size"
+              value="Large"
+              onChange={(e) => setSize(e.target.value)}
+            />
+            Large
+            <input
+              type="radio"
+              name="size"
+              value="Small"
+              onChange={(e) => setSize(e.target.value)}
+            />
+            Small
+            <input
+              type="radio"
+              name="size"
+              value="Extra Large"
+              onChange={(e) => setSize(e.target.value)}
+            />
+            Extra Large
           </div>
           <div className={styles.boxnote}>
             <div className={styles.boxnoteh1}>
@@ -516,7 +533,7 @@ const Shop1 = () => {
               style={{
                 border: "none",
                 width: "70%",
-                marginTop: '20px',
+                marginTop: "20px",
                 padding: "10px",
                 background: "black",
                 color: "white",
@@ -538,10 +555,17 @@ const Shop1 = () => {
                 },
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', textAlign: "center" }}>
-                <CardGiftcardIcon style={{ verticalAlign: 'middle' }} /> Buy Now
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "10px",
+                  textAlign: "center",
+                }}
+              >
+                <CardGiftcardIcon style={{ verticalAlign: "middle" }} /> Buy Now
               </div>
-
             </div>
           </div>
         </div>
