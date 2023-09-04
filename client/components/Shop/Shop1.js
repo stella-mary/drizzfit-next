@@ -22,6 +22,7 @@ import {
 } from "@mui/material";
 import ClearIcon from "@mui/icons-material/Clear";
 import PlaceOrder from "./PlaceOrder";
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const Shop1 = () => {
   const [selectedQuantity, setSelectedQuantity] = useState(1);
@@ -177,7 +178,7 @@ const Shop1 = () => {
             }}
           >
             <div
-              className={styles.shopContainer6}
+              className={styles.imageContainer7}
               style={{ alignSelf: "center" }}
             ></div>
             <div
@@ -425,12 +426,12 @@ const Shop1 = () => {
                   border: "none",
                 }}
               >
-                {">"}
+                <ArrowForwardIcon />
+                {/* {">"} */}
               </button>
             )
           }
         >
-
           <div className={styles.imageContainer1}></div>
           <div className={styles.imageContainer2}></div>
           <div className={styles.imageContainer3}></div>
