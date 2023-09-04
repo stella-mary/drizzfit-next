@@ -37,7 +37,7 @@ const Shop1 = () => {
 
 
   useEffect(() => {
-    axios.get("http://localhost:1992/product/all").then((response) => {
+    axios.get(`${process.env.BASE_URL}product/all`).then((response) => {
       console.log("Product details: ", response.data);
 
       // Group products by name
@@ -95,7 +95,7 @@ const Shop1 = () => {
 
   const navigateToPlaceOrder = () => {
     axios
-      .post("http://localhost:1992/orderitem/add", {
+      .post(`${process.env.BASE_URL}/orderitem/add`, {
         orderId: orderId,
         quantity: selectedQuantity,
         priceAtOrder: selectedProduct.price,

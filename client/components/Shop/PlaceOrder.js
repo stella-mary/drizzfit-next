@@ -24,13 +24,13 @@ export default function PlaceOrder({ open, onClose, orderId, openDialog }) {
 
   const handleNext = () => {
     axios
-      .post("http://localhost:1992/customer/add", {
+      .post(`${process.env.BASE_URL}/customer/add`, {
         phoneNumber: phoneNumber,
       })
       .then((response) => {
         console.log("Customer Response: ", response.data);
         axios
-          .put(`http://localhost:1992/order/update/${orderId}`, {
+          .put(`${process.env.BASE_URL}/order/update/${orderId}`, {
             customerId: response.data.customerId,
           })
           .then((res) => console.log("Order update response: ", res.data));
