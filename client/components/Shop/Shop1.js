@@ -21,7 +21,8 @@ import {
   Typography,
 } from "@mui/material";
 import ClearIcon from "@mui/icons-material/Clear";
-import PlaceOrder from "./PlaceOrder";
+// import PlaceOrder from "./PlaceOrder";
+import PlaceOrderMenu from "../PlaceOrder/PlaceOrderMenu";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 const Shop1 = () => {
@@ -96,7 +97,7 @@ const Shop1 = () => {
     setFinalQuantity(selectedQuantity + 1);
   };
 
-  const navigateToPlaceOrder = () => {
+  const navigateToPlaceOrderMenu = () => {
     axios
       .post(`${process.env.BASE_URL}/orderitem/add`, {
         orderId: orderId,
@@ -367,7 +368,7 @@ const Shop1 = () => {
               backgroundColor: "#ff9900",
             },
           }}
-          onClick={navigateToPlaceOrder}
+          onClick={navigateToPlaceOrderMenu}
         >
           PLACE ORDER
         </Button>
@@ -577,7 +578,7 @@ const Shop1 = () => {
       >
         {list("right")}
       </Drawer>
-      <PlaceOrder
+      <PlaceOrderMenu
         open={openDialog}
         onClose={() => setOpenDialog(false)}
         orderId={orderId}
