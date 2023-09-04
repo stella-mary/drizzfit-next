@@ -94,7 +94,8 @@ const Shop1 = () => {
   };
 
   const handleIncrease = () => {
-    setFinalQuantity(selectedQuantity + 1);
+    setSelectedQuantity(selectedQuantity + 1);
+    setFinalQuantity(selectedQuantity);
   };
 
   const navigateToPlaceOrderMenu = () => {
