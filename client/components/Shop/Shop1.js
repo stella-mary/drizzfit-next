@@ -37,6 +37,9 @@ const Shop1 = () => {
 
 
   useEffect(() => {
+    console.log("server" + process.env.BASE_URL)
+    console.log("process" + JSON.stringify(process.env))
+    // console.log("stella" + BASE_URL)
     axios.get(`${process.env.BASE_URL}/product/all`).then((response) => {
       console.log("Product details: ", response.data);
 
@@ -108,7 +111,7 @@ const Shop1 = () => {
   const handleBuyNow = () => {
     toggleDrawer("right", true)();
     axios
-      .post("http://localhost:1992/order/add", {
+      .post(`${process.env.BASE_URL}/order/add`, {
         orderDate: orderDate,
         status: "Added to cart",
         billingAddress: "",
