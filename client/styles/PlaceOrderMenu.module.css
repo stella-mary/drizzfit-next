@@ -8,5 +8,7 @@
   background-repeat: no-repeat; 
 }
 
-.PlaceOrderMenu{
+.PlaceOrderMenuMain{
+  display: flex;
+  justify-content: space-between;
 }

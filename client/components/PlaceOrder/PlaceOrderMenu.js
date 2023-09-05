@@ -60,9 +60,10 @@ export default function PlaceOrderMenu({ open, onClose, orderId, openDialog }) {
                         <CloseIcon />
                     </Button>
                 </DialogActions>
-                <PlaceOrderStepper />
-                <PlaceOrderSummary />
-
+                <div className={styles.PlaceOrderMenuMain}>
+                    <PlaceOrderStepper />
+                    <PlaceOrderSummary />
+                </div>
 
             </Dialog>
 
