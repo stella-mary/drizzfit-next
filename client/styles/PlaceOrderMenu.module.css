@@ -8,7 +8,14 @@
   background-repeat: no-repeat; 
 }
 
-.PlaceOrderMenuMain{
-  display: flex;
-  justify-content: space-between;
+.PlaceOrderMenu {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20%;
+}
+
+.PlaceOrderSub {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20%;
 }
