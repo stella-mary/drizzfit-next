@@ -94,8 +94,13 @@ const Shop1 = () => {
   };
 
   const handleIncrease = () => {
-    setSelectedQuantity(selectedQuantity + 1);
-    setFinalQuantity(selectedQuantity);
+    // if (selectedQuantity >= 1) {
+    setSelectedQuantity(parseInt(selectedQuantity) + 1);
+    console.log(
+      "Selected Quantity is now an integer:",
+      parseInt(selectedQuantity) + 1
+    );
+    // }
   };
 
   const navigateToPlaceOrderMenu = () => {
@@ -248,8 +253,8 @@ const Shop1 = () => {
                     fontFamily: "'Telegraf Regular 400', sans-serif",
                     fontSize: "14px",
                   }}
-                  value={finalQuantity}
-                  onChange={(e) => setFinalQuantity(e.target.value)}
+                  // value={selectedQuantity}
+                  // onChange={(e) => setSelectedQuantity(e.target.value)}
                 >
                   {selectedQuantity}
                 </span>
