@@ -13,7 +13,7 @@ import Select from '@mui/material/Select';
 import Switch from '@mui/material/Switch';
 import axios from "axios";
 import React, { useState } from "react";
-import styles from "@/styles/Shop.module.css";
+import styles from "@/styles/PlaceOrderMenu.module.css";
 import CloseIcon from '@mui/icons-material/Close';
 
 export default function PlaceOrderMenu({ open, onClose, orderId, openDialog }) {
@@ -36,8 +36,30 @@ export default function PlaceOrderMenu({ open, onClose, orderId, openDialog }) {
                 open={open}
                 onClose={onClose}
             >
-                <DialogActions>
-                    <Button onClick={onClose}><CloseIcon /></Button>
+                <DialogActions
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'space-between', // Adjust alignment as needed
+                        alignItems: 'center', // Adjust alignment as needed
+                    }}
+                >
+                    <div className={styles.imageContainer}>
+                    </div>
+                    <Button
+                        onClick={onClose}
+                        style={{
+                            backgroundColor: '#dddddd',
+                            cursor: 'pointer',
+                            borderRadius: '50%',
+                            paddingTop: '10px',
+                            paddingBottom: '10px',
+                            paddingLeft: '5px',
+                            paddingRight: '5px',
+                            color: 'white',
+                        }}
+                    >
+                        <CloseIcon />
+                    </Button>
                 </DialogActions>
                 <DialogTitle>Optional sizes</DialogTitle>
                 <DialogContent>
