@@ -1,6 +1,6 @@
 
 .imageContainer {
-  width: 15%; 
+  width: 10%; 
   height: 10vh;
   background-image: url("/image/logoImages.png");
   background-position: center;
@@ -8,4 +8,5 @@
   background-repeat: no-repeat; 
 }
 
-
+.PlaceOrderMenu{
+}
