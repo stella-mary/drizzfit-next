@@ -458,19 +458,25 @@ const Shop1 = () => {
                 name="row-radio-buttons-group"
                 value={selectedDescription}
                 onChange={handleDescriptionChange}
+              > */}
+            {groupedProductDetails[selectedProduct.name]?.map((product) => (
+              <label
+                key={product._id}
+                className={styles.customfont}
+                value={selectedDescription}
+                onChange={handleDescriptionChange}
               >
-                {groupedProductDetails[selectedProduct.name]?.map((product) => (
-                  <FormControlLabel
-                    key={product._id}
-                    value={product.description}
-                    control={<Radio />}
-                    label={product.description}
-                    className={styles.customfont} // Apply the custom font class here
-                  />
-                ))}
-              </RadioGroup>
+                <input
+                  type="radio"
+                  value={product.description}
+                  name="productDescription"
+                />
+                {product.description}
+              </label>
+            ))}
+            {/* </RadioGroup>
             </FormControl> */}
-            <input
+            {/* <input
               type="radio"
               name="size"
               value="Large"
@@ -490,7 +496,7 @@ const Shop1 = () => {
               value="Extra Large"
               onChange={(e) => setSize(e.target.value)}
             />
-            Extra Large
+            Extra Large */}
           </div>
           <div className={styles.boxnote}>
             <div className={styles.boxnoteh1}>
