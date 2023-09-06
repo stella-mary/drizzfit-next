@@ -12,6 +12,7 @@
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 20%;
+  padding: 20px;
 }
 
 .PlaceOrderSub {

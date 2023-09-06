@@ -1,0 +1,9 @@
+
+.PlaceOrderStepper {
+  font-family: 'Telegraf UltraBold 800';
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20%;
+  padding: 20px;
+}
+
