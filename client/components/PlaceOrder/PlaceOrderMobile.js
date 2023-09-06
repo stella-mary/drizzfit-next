@@ -33,6 +33,7 @@ const PlaceOrderMobile = () => {
                     sx={{
                         marginTop: '18px',
                         fontFamily: "'Telegraf UltraBold 800', sans-serif",
+                        borderRadius: '20px',
                     }}
                 />
                 <Typography
