@@ -1,9 +1,11 @@
 import React from 'react'
+import styles from "@/styles/PlaceOrderFooter.module.css";
+
 
 const PlaceOrderFooter = () => {
     return (
-        <div>
-            <button>Continue</button>
+        <div className={styles.PlaceOrderFooter}>
+            <div className={styles.Button}>Continue</div>
         </div>
     )
 }

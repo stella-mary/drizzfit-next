@@ -5,11 +5,11 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
-import CloseIcon from '@mui/icons-material/Close';
+import ClearIcon from '@mui/icons-material/Clear';
 import styles from "@/styles/PlaceOrderSummary.module.css";
 
 
-const PlaceOrderSummary = (onClose) => {
+const PlaceOrderSummary = ({ onClose }) => {
 
     return (
         <div className={styles.PlaceOrderSummary}>
@@ -34,11 +34,10 @@ const PlaceOrderSummary = (onClose) => {
                         color: 'white',
                     }}
                 >
-                    <CloseIcon />
+                    <ClearIcon />
                 </Button>
             </DialogActions>
             ordersummary
-
         </div>
     )
 }
