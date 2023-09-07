@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 import styles from "@/styles/Shop1.module.css";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
 import axios from "axios";
-import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import {
   Box,
@@ -21,12 +16,9 @@ import {
   Typography,
 } from "@mui/material";
 import ClearIcon from "@mui/icons-material/Clear";
-// import PlaceOrder from "./PlaceOrder";
 import PlaceOrderMenu from "../PlaceOrder/PlaceOrderMenu";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useTheme } from '@mui/material/styles';
 import MobileStepper from '@mui/material/MobileStepper';
-import Paper from '@mui/material/Paper';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
@@ -37,7 +29,6 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 const images = [
   {
     className: styles.imageContainer1,
-
   },
   {
     className: styles.imageContainer2,
@@ -192,7 +183,7 @@ const Shop1 = () => {
   const list = (anchor) => (
     <Box
       sx={{
-        width: anchor === "top" || anchor === "bottom" ? "auto" : 400,
+        width: anchor === "top" || anchor === "bottom" ? "auto" : 450,
         // background: "#fee600",
         fontFamily: "'Telegraf UltraBold 800', sans-serif",
         height: "100vh",
@@ -206,14 +197,12 @@ const Shop1 = () => {
         <ListItem
           style={{
             display: "flex",
-            alignItems: "center", // Align vertically
-            justifyContent: "center", // Align horizontally
-            textAlign: "center",
           }}
         >
           <span style={{ marginRight: "auto" }}>YOUR CART</span>
           <ClearIcon onClick={toggleDrawer(anchor, false)} />
         </ListItem>
+
       </List>
       <List>
         <ListItem disablePadding>
@@ -488,69 +477,6 @@ const Shop1 = () => {
 
         </Box>
 
-        {/* <Carousel
-          showThumbs={false}
-          showStatus={false}
-          infiniteLoop
-          className={styles.carouselContainer}
-          renderArrowPrev={(onClickHandler, hasPrev, label) =>
-            hasPrev && (
-              <button
-                type="button"
-                onClick={onClickHandler}
-                title={label}
-                style={{
-                  position: "absolute",
-                  top: "90%",
-                  left: "20px", 
-                  fontSize: "24px",
-                  backgroundColor: "white",
-                  borderRadius: "50%",
-                  padding: "10px",
-                  color: "black",
-                  cursor: "pointer",
-                  border: "none",
-                }}
-              >
-                <ArrowForwardIcon />
-              </button>
-            )
-          }
-          renderArrowNext={(onClickHandler, hasNext, label) =>
-            hasNext && (
-              <button
-                type="button"
-                onClick={onClickHandler}
-                title={label}
-                style={{
-                  position: "absolute",
-                  top: "90%",
-                  right: "20px", 
-                  fontSize: "24px",
-                  backgroundColor: "white",
-                  borderRadius: "50%",
-                  padding: "10px",
-                  color: "black",
-                  cursor: "pointer",
-                  border: "none",
-                }}
-              >
-                <ArrowForwardIcon />
-              </button>
-            )
-          }
-        >
-          <div className={styles.imageContainer1}></div>
-          <div className={styles.imageContainer2}></div>
-          <div className={styles.imageContainer3}></div>
-          <div className={styles.imageContainer4}></div>
-          <div className={styles.imageContainer5}></div>
-          <div className={styles.imageContainer6}></div>
-        </Carousel> */}
-
-
-
-
         <div className={styles.shop1Sub}>
           <div className={styles.h1}>{selectedProduct.name}</div>
           <div className={styles.h2}>₹{selectedProduct.price}</div>
@@ -584,12 +510,10 @@ const Shop1 = () => {
             <div className={styles.boxnotePara}>
               1 Menstrual Cup with Cotton Pouch
             </div>
-
             <div className={styles.boxnotePara}>
               The Plush Menstrual Cup is a perfect option for you to go all
               sustainable during your cycle.Our cups are:
             </div>
-
             <div className={styles.list}>
               <li>100 % Medical Grade Silicone</li>
               <li>BPA Free | Latex Free</li>
@@ -637,7 +561,6 @@ const Shop1 = () => {
                 e.target.style.border = "none";
               }}
             />
-
             <div
               className={styles.button}
               onClick={handleBuyNow}
