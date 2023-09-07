@@ -24,8 +24,44 @@ import ClearIcon from "@mui/icons-material/Clear";
 // import PlaceOrder from "./PlaceOrder";
 import PlaceOrderMenu from "../PlaceOrder/PlaceOrderMenu";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { useTheme } from '@mui/material/styles';
+import MobileStepper from '@mui/material/MobileStepper';
+import Paper from '@mui/material/Paper';
+import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+import SwipeableViews from 'react-swipeable-views';
+import { autoPlay } from 'react-swipeable-views-utils';
+
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+
+const images = [
+  {
+    className: styles.imageContainer1,
+
+  },
+  {
+    className: styles.imageContainer2,
+  },
+  {
+    className: styles.imageContainer3,
+  },
+  {
+    className: styles.imageContainer4,
+  },
+  {
+    className: styles.imageContainer5,
+  },
+  {
+    className: styles.imageContainer6,
+  },
+
+];
+
 
 const Shop1 = () => {
+  const theme = useTheme();
+  const [activeStep, setActiveStep] = React.useState(0);
+  const maxSteps = images.length;
   const [selectedQuantity, setSelectedQuantity] = useState(1);
   const [groupedProductDetails, setGroupedProductDetails] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState({});
@@ -36,6 +72,18 @@ const Shop1 = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const [finalQuantity, setFinalQuantity] = useState(selectedQuantity);
   const [size, setSize] = useState();
+
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  const handleStepChange = (step) => {
+    setActiveStep(step);
+  };
 
   useEffect(() => {
     console.log("server" + process.env.BASE_URL);
@@ -82,10 +130,6 @@ const Shop1 = () => {
     setSelectedProduct(selectedProductWithDescription);
   };
 
-  const labelStyle = {
-    fontFamily: "Telegraf UltraBold 800, sans-serif",
-    fontSize: "16px",
-  };
 
   const handleDecreaseQuantity = () => {
     if (selectedQuantity > 1) {
@@ -253,8 +297,8 @@ const Shop1 = () => {
                     fontFamily: "'Telegraf Regular 400', sans-serif",
                     fontSize: "14px",
                   }}
-                  // value={selectedQuantity}
-                  // onChange={(e) => setSelectedQuantity(e.target.value)}
+                // value={selectedQuantity}
+                // onChange={(e) => setSelectedQuantity(e.target.value)}
                 >
                   {selectedQuantity}
                 </span>
@@ -385,36 +429,72 @@ const Shop1 = () => {
   return (
     <div className={styles.shop1}>
       <div className={styles.shop1Main}>
-        <Carousel
+        <Box sx={{ maxWidth: 750, flexGrow: 1 }}>
+          <AutoPlaySwipeableViews
+            axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+            index={activeStep}
+            onChangeIndex={handleStepChange}
+            enableMouseEvents
+            infiniteLoop
+
+          >
+            {images.map((image, index) => (
+              <div
+                key={index}
+                className={image.className}
+              >
+              </div>
+            ))}
+          </AutoPlaySwipeableViews>
+          <MobileStepper
+            steps={maxSteps}
+            position="static"
+            activeStep={activeStep}
+            nextButton={
+              <Button
+                size="small"
+                onClick={handleNext}
+                disabled={activeStep === maxSteps - 1}
+                style={{
+                  backgroundColor: '#e8e8e8', // Set the background color to grey
+                  color: 'white',
+                  padding: '10px',
+                  borderRadius: '50%', // Add border-radius for a circular button
+                }}
+              >
+                {theme.direction === 'rtl' ? (
+                  <KeyboardArrowLeft />
+                ) : (
+                  <KeyboardArrowRight />
+                )}
+              </Button>
+            }
+            backButton={
+              <Button size="small" onClick={handleBack} disabled={activeStep === 0} style={{
+                backgroundColor: '#e8e8e8', // Set the background color to grey
+                color: 'white',
+                padding: '10px',
+                borderRadius: '50%', // Add border-radius for a circular button
+              }}>
+                {theme.direction === 'rtl' ? (
+                  <KeyboardArrowRight />
+                ) : (
+                  <KeyboardArrowLeft />
+                )}
+
+              </Button>
+            }
+          />
+
+        </Box>
+
+        {/* <Carousel
           showThumbs={false}
           showStatus={false}
           infiniteLoop
           className={styles.carouselContainer}
-          // renderArrowPrev={(onClickHandler, hasPrev, label) =>
-          //   hasPrev && (
-          //     <button
-          //       type="button"
-          //       onClick={onClickHandler}
-          //       title={label}
-          //       style={{
-          //         position: "absolute",
-          //         top: "90%",
-          //         left: "20px", // Adjust this value to align the button as desired for the previous button
-          //         fontSize: "24px",
-          //         backgroundColor: "white",
-          //         borderRadius: "50%",
-          //         padding: "10px",
-          //         color: "black",
-          //         cursor: "pointer",
-          //         border: "none",
-          //       }}
-          //     >
-          //       {"<"}
-          //     </button>
-          //   )
-          // }
-          renderArrowNext={(onClickHandler, hasNext, label) =>
-            hasNext && (
+          renderArrowPrev={(onClickHandler, hasPrev, label) =>
+            hasPrev && (
               <button
                 type="button"
                 onClick={onClickHandler}
@@ -422,7 +502,7 @@ const Shop1 = () => {
                 style={{
                   position: "absolute",
                   top: "90%",
-                  right: "20px", // Adjust this value to align the button as desired for the next button
+                  left: "20px", 
                   fontSize: "24px",
                   backgroundColor: "white",
                   borderRadius: "50%",
@@ -433,7 +513,29 @@ const Shop1 = () => {
                 }}
               >
                 <ArrowForwardIcon />
-                {/* {">"} */}
+              </button>
+            )
+          }
+          renderArrowNext={(onClickHandler, hasNext, label) =>
+            hasNext && (
+              <button
+                type="button"
+                onClick={onClickHandler}
+                title={label}
+                style={{
+                  position: "absolute",
+                  top: "90%",
+                  right: "20px", 
+                  fontSize: "24px",
+                  backgroundColor: "white",
+                  borderRadius: "50%",
+                  padding: "10px",
+                  color: "black",
+                  cursor: "pointer",
+                  border: "none",
+                }}
+              >
+                <ArrowForwardIcon />
               </button>
             )
           }
@@ -444,59 +546,36 @@ const Shop1 = () => {
           <div className={styles.imageContainer4}></div>
           <div className={styles.imageContainer5}></div>
           <div className={styles.imageContainer6}></div>
-        </Carousel>
+        </Carousel> */}
+
+
+
 
         <div className={styles.shop1Sub}>
           <div className={styles.h1}>{selectedProduct.name}</div>
           <div className={styles.h2}>₹{selectedProduct.price}</div>
           <div className={styles.footnote}>* inclusive of all taxes</div>
           <div className={styles.size}>
-            {/* <FormControl>
-              <RadioGroup
-                row
-                aria-labelledby="demo-row-radio-buttons-group-label"
-                name="row-radio-buttons-group"
-                value={selectedDescription}
-                onChange={handleDescriptionChange}
-              > */}
             {groupedProductDetails[selectedProduct.name]?.map((product) => (
               <label
                 key={product._id}
                 className={styles.customfont}
-                value={selectedDescription}
-                onChange={handleDescriptionChange}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  marginRight: '20px',
+                }}
               >
                 <input
                   type="radio"
                   value={product.description}
                   name="productDescription"
+                  style={{ marginRight: '5px' }} // Adjust the spacing as needed
+                  onChange={handleDescriptionChange}
                 />
-                {product.description}
+                <span style={{ verticalAlign: 'middle' }}>{product.description}</span>
               </label>
             ))}
-            {/* </RadioGroup>
-            </FormControl> */}
-            {/* <input
-              type="radio"
-              name="size"
-              value="Large"
-              onChange={(e) => setSize(e.target.value)}
-            />
-            Large
-            <input
-              type="radio"
-              name="size"
-              value="Small"
-              onChange={(e) => setSize(e.target.value)}
-            />
-            Small
-            <input
-              type="radio"
-              name="size"
-              value="Extra Large"
-              onChange={(e) => setSize(e.target.value)}
-            />
-            Extra Large */}
           </div>
           <div className={styles.boxnote}>
             <div className={styles.boxnoteh1}>
