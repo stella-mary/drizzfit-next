@@ -107,7 +107,9 @@ padding-top: 5%;
   padding: 30px 22px;
   background-size: 100% 100%;
   margin-top: 15px 0px 40px;
+  filter: hue-rotate(90deg); /* Change the hue to adjust the color */
 }
+
 
 
 .boxnoteh1 {
