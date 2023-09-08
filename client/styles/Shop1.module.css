@@ -107,7 +107,8 @@ padding-top: 5%;
   padding: 30px 22px;
   background-size: 100% 100%;
   margin-top: 15px 0px 40px;
-  filter: hue-rotate(60deg); /* Change the hue to adjust the color */
+  /* background-color: #fff8b7; */
+  filter: hue-rotate(70deg);
 }
 
 

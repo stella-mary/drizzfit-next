@@ -42,5 +42,5 @@ a {
 
 input[type=number]::-webkit-inner-spin-button {
   opacity: 1;
-  background-color: black; /* Add this line to set the background color to black */
+
 }

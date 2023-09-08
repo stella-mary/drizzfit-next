@@ -474,7 +474,6 @@ const Shop1 = () => {
               </Button>
             }
           />
-
         </Box>
 
         <div className={styles.shop1Sub}>
@@ -511,26 +510,26 @@ const Shop1 = () => {
               1 Menstrual Cup with Cotton Pouch
             </div>
             <div className={styles.boxnotePara}>
-              The Plush Menstrual Cup is a perfect option for you to go all
-              sustainable during your cycle.Our cups are:
+              The Drizzfit Menstrual Cup is a perfect option for you to go all
+              sustainable during your cycle. Our cups are:
             </div>
             <div className={styles.list}>
               <li>100 % Medical Grade Silicone</li>
               <li>BPA Free | Latex Free</li>
               <li>Made in FDA Approved Plant</li>
-              <li>Reusable upto 5 years</li>
+              <li>Reusable upto 8 years</li>
             </div>
             <div className={styles.boxnotePara}>
               <b>Size Guide</b>
             </div>
             <div className={styles.boxnotePara}>
-              Plush Menstrual Cups comes in 3 sizes
+              Drizzfit Menstrual Cups comes in 3 sizes
             </div>
             <div className={styles.boxnotePara}>
-              <b>Extra Small(XS)</b> – Perfect if you are under 18 years of age
+              <b>Small(S)</b> – Perfect if you are under 18 years of age
             </div>
             <div className={styles.boxnotePara1}>
-              <b>Small (S)</b> – Perfect if you are above 18 years // or gave
+              <b>Mediumn (M)</b> – Perfect if you are above 18 years // or gave
               birth via C - section
             </div>
             <div className={styles.boxnotePara1}>
@@ -579,7 +578,7 @@ const Shop1 = () => {
                   textAlign: "center",
                 }}
               >
-                <CardGiftcardIcon style={{ verticalAlign: "middle" }} /> Buy Now
+                <CardGiftcardIcon style={{ verticalAlign: "middle" }} /> BUY NOW
               </div>
             </div>
           </div>
