@@ -230,7 +230,7 @@ const Shop1 = () => {
             >
               <div
                 style={{
-                  fontFamily: "'Telegraf Regular 400', sans-serif",
+                  fontFamily: "'Telegraf UltraBold 800', sans-serif",
                   fontSize: "16px",
                   color: "black", // Set font color
                 }}
@@ -249,7 +249,7 @@ const Shop1 = () => {
               >
                 {selectedProduct.description}
               </div>
-              <div
+              {/* <div
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -305,12 +305,18 @@ const Shop1 = () => {
                 >
                   +
                 </button>
+              </div> */}
+              <div className="input-group">
+                <button type="button" onClick={() => handleDecrement(item.id)} className="input-group-text">-</button>
+                <div className="form-control text-center">{item.product_qty}</div>
+                <button type="button" onClick={() => handleIncrement(item.id)} className="input-group-text">+</button>
               </div>
+
             </div>
             <div
               style={{
-                marginTop: "100px",
-                marginLeft: "70px",
+                marginTop: "70px",
+                marginLeft: "100px",
                 fontFamily: "'Telegraf Regular 400', sans-serif",
                 fontSize: "15px",
                 color: "black", // Set font color
