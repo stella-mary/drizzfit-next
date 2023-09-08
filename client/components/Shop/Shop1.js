@@ -199,10 +199,9 @@ const Shop1 = () => {
             display: "flex",
           }}
         >
-          <span style={{ marginRight: "auto" }}>YOUR CART</span>
+          <span style={{ marginRight: "auto", textAlign: 'center' }}>YOUR CART</span>
           <ClearIcon onClick={toggleDrawer(anchor, false)} />
         </ListItem>
-
       </List>
       <List>
         <ListItem disablePadding>
@@ -242,9 +241,10 @@ const Shop1 = () => {
               <div
                 style={{
                   color: "#000000",
-                  display: "block",
+                  // display: "block",
                   fontSize: "14px",
-                  fontWeight: "normal",
+                  fontFamily: "'Telegraf Regular 400', sans-serif",
+                  // fontWeight: "normal",
                 }}
               >
                 {selectedProduct.description}
@@ -255,7 +255,7 @@ const Shop1 = () => {
                   alignItems: "center",
                   justifyContent: "center",
                   fontSize: "14px",
-                  marginTop: "25px",
+                  marginTop: "5px",
                   border: "2px solid black",
                   borderRadius: "6px",
                   padding: "10px",
