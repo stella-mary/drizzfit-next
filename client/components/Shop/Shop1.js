@@ -341,11 +341,20 @@ const Shop1 = () => {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "10px",
+            gap: "20px",
             fontFamily: "'Telegraf Regular 400', sans-serif",
           }}
         >
-          <TextField
+          <input style={{
+            fontFamily: "'Telegraf UltraBold 800', sans-serif",
+            // backgroundColor: "black",
+            color: "white",
+            width: "100%",
+            padding: '10px',
+            fontSize: "14px",
+          }}
+            type="text" placeholder="e.g. Discount Code" ></input>
+          {/* <TextField
             label="e.g. Discount Code"
             variant="outlined"
             size="small"
@@ -353,7 +362,7 @@ const Shop1 = () => {
               width: "320px",
               fontFamily: "'Telegraf Regular 400', sans-serif",
             }}
-          />
+          /> */}
           <Button
             variant="contained"
             color="primary"
@@ -362,6 +371,7 @@ const Shop1 = () => {
               backgroundColor: "black",
               color: "white",
               width: "100px",
+              padding: '10px',
               fontSize: "14px",
             }}
           >
@@ -369,14 +379,14 @@ const Shop1 = () => {
           </Button>
         </ListItem>
       </List>
-      <Divider style={{ marginTop: "9rem" }} />
+      <Divider style={{ marginTop: "12rem", marginBottom: '-3rem' }} />
       <Box
         sx={{
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "5px",
-          marginTop: "auto",
+          // marginTop: "auto",
         }}
       >
         <Box

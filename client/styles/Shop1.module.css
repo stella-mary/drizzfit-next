@@ -21,6 +21,13 @@ padding-top: 5%;
   border: none;
 }
 
+.customtextfield {
+  /* Add your desired styles here */
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 200px;
+}
+
 .shop1SubSub {
   display: grid;
   justify-content: center;
