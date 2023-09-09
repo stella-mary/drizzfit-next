@@ -188,22 +188,23 @@ const Shop1 = () => {
   const list = (anchor) => (
     <Box
       sx={{
-        width: anchor === "top" || anchor === "bottom" ? "auto" : 450,
-        // background: "#fee600",
+        width: anchor === "top" || anchor === "bottom" ? "auto" : (isNonMobile ? "100%" : "450px"), // Adjust width here
         fontFamily: "'Telegraf UltraBold 800', sans-serif",
         height: "100vh",
         padding: "10px",
+        // padding: isNonMobile ? "10px" : "10px",
       }}
-      width={isNonMobile ? "450" : "10"}
-
       role="presentation"
       // onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List>
+      <List
+      >
         <ListItem
           style={{
             display: "flex",
+            paddingLeft: isNonMobile ? "40px" : "10px",
+
           }}
         >
           <span style={{ marginRight: "auto", textAlign: 'center' }}>YOUR CART</span>
