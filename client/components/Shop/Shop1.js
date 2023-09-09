@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 import styles from "@/styles/Shop1.module.css";
 import axios from "axios";
+import { useMediaQuery } from "@mui/material";
+
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import {
   Box,
@@ -23,6 +25,7 @@ import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
+
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -63,6 +66,8 @@ const Shop1 = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const [finalQuantity, setFinalQuantity] = useState(selectedQuantity);
   const [size, setSize] = useState();
+  const isNonMobile = useMediaQuery("(max-width: 768px)");
+
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -189,6 +194,8 @@ const Shop1 = () => {
         height: "100vh",
         padding: "10px",
       }}
+      width={isNonMobile ? "450" : "10"}
+
       role="presentation"
       // onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
@@ -249,7 +256,7 @@ const Shop1 = () => {
               >
                 {selectedProduct.description}
               </div>
-              {/* <div
+              <div
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -305,11 +312,6 @@ const Shop1 = () => {
                 >
                   +
                 </button>
-              </div> */}
-              <div className="input-group">
-                <button type="button" onClick={() => handleDecrement(item.id)} className="input-group-text">-</button>
-                <div className="form-control text-center">{item.product_qty}</div>
-                <button type="button" onClick={() => handleIncrement(item.id)} className="input-group-text">+</button>
               </div>
 
             </div>
@@ -362,7 +364,7 @@ const Shop1 = () => {
           </Button>
         </ListItem>
       </List>
-      <Divider style={{ marginTop: "7rem" }} />
+      <Divider style={{ marginTop: "9rem" }} />
       <Box
         sx={{
           display: "flex",
@@ -385,6 +387,7 @@ const Shop1 = () => {
             sx={{
               fontFamily: "'Telegraf UltraBold 800', sans-serif",
               fontSize: "16px",
+              marginBottom: '-25%'
             }}
           >
             SUBTOTAL
@@ -394,6 +397,7 @@ const Shop1 = () => {
             sx={{
               fontFamily: "'Telegraf UltraBold 800', sans-serif",
               fontSize: "16px",
+              marginBottom: '-25%'
             }}
           >
             ₹ {selectedQuantity * selectedProduct.price}
@@ -405,7 +409,7 @@ const Shop1 = () => {
           sx={{
             fontFamily: "'Telegraf UltraBold 800', sans-serif",
             textTransform: "none",
-            marginTop: "20px",
+            marginTop: "20%",
             width: "100%",
             fontSize: "16px",
             backgroundColor: "#ff9900",
@@ -418,7 +422,7 @@ const Shop1 = () => {
           PLACE ORDER
         </Button>
       </Box>
-    </Box>
+    </Box >
   );
 
   return (
