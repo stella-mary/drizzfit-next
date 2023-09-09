@@ -256,63 +256,68 @@ const Shop1 = () => {
               >
                 {selectedProduct.description}
               </div>
-              <div
+              <table
                 style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
                   fontSize: "14px",
-                  marginTop: "5px",
-                  border: "2px solid black",
-                  borderRadius: "6px",
-                  padding: "10px",
-                  width: "100px",
-                  height: "40px",
-                  fontFamily: "'Telegraf UltraBold 800', sans-serif",
+                  width: "100%", // Adjust the width as needed
+                  border: "1px solid #cccccc",
+                  borderRadius: "5px",
+                  paddingLeft: '10px',
+                  paddingRight: '10px',
+                  margin: "0 auto", // Center the table
                 }}
               >
-                <button
-                  style={{
-                    border: "none",
-                    backgroundColor: "transparent",
-                    cursor: "pointer",
-                    marginRight: "5px",
-                    fontSize: "14px",
-                    color: "black",
-                    fontFamily: "'Telegraf UltraBold 800', sans-serif",
-                  }}
-                  onClick={handleDecreaseQuantity}
-                >
-                  -
-                </button>
-                <span
-                  style={{
-                    flex: 1,
-                    textAlign: "center",
-                    color: "black",
-                    fontFamily: "'Telegraf Regular 400', sans-serif",
-                    fontSize: "14px",
-                  }}
-                // value={selectedQuantity}
-                // onChange={(e) => setSelectedQuantity(e.target.value)}
-                >
-                  {selectedQuantity}
-                </span>
-                <button
-                  style={{
-                    border: "none",
-                    backgroundColor: "transparent",
-                    cursor: "pointer",
-                    marginLeft: "5px",
-                    fontSize: "14px",
-                    color: "black",
-                    fontFamily: "'Telegraf UltraBold 800', sans-serif",
-                  }}
-                  onClick={handleIncrease}
-                >
-                  +
-                </button>
-              </div>
+                <tr>
+                  <td style={{ textAlign: "center" }}>
+                    <button
+                      style={{
+                        border: "none",
+                        backgroundColor: "transparent",
+                        cursor: "pointer",
+                        fontSize: "14px",
+                        color: "black",
+                        marginTop: '5px',
+                        marginBottom: '5px',
+                        fontFamily: "'Telegraf UltraBold 800', sans-serif",
+                        fontSize: '15px',
+                        color: '#cccccc'
+                      }}
+                      onClick={handleDecreaseQuantity}
+                    >
+                      -
+                    </button>
+                  </td>
+                  <td style={{ borderRight: 'solid 2px #cccccc' }}></td>
+                  <td style={{
+                    textAlign: "center", fontSize: '15px', color: "black", marginTop: '10px', marginBottom: '5px',
+                    fontFamily: "'Telegraf Regular 400', sans-serif", fontSize: "14px", paddingLeft: '5px', paddingRight: '5px'
+                  }}>
+                    {selectedQuantity}
+                  </td>
+                  <td style={{ borderRight: 'solid 2px #cccccc' }}></td>
+
+                  <td style={{
+                    textAlign: "center", marginTop: '5px',
+                    marginBottom: '5px', fontSize: '15px'
+                  }}>
+                    <button
+                      style={{
+                        border: "none",
+                        backgroundColor: "transparent",
+                        cursor: "pointer",
+                        fontSize: "14px",
+                        color: "#cccccc",
+                        fontFamily: "'Telegraf UltraBold 800', sans-serif",
+                        fontSize: '20px'
+                      }}
+                      onClick={handleIncrease}
+                    >
+                      +
+                    </button>
+                  </td>
+                </tr>
+              </table>
+
 
             </div>
             <div
@@ -505,9 +510,11 @@ const Shop1 = () => {
                   type="radio"
                   value={product.description}
                   name="productDescription"
-                  style={{ marginRight: '5px' }} // Adjust the spacing as needed
+                  style={{ marginRight: '5px' }}
                   onChange={handleDescriptionChange}
+                  defaultChecked={product.description === size} // Set to true if this is the default value
                 />
+
                 <span style={{ verticalAlign: 'middle' }}>{product.description}</span>
               </label>
             ))}
@@ -557,7 +564,7 @@ const Shop1 = () => {
               onChange={(e) => setSelectedQuantity(e.target.value)}
               style={{
                 border: "none",
-                width: "70%",
+                width: "85%",
                 marginTop: "20px",
                 padding: "10px",
                 background: "black",
