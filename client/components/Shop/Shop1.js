@@ -203,7 +203,7 @@ const Shop1 = () => {
         <ListItem
           style={{
             display: "flex",
-            paddingLeft: isNonMobile ? "40px" : "10px",
+            // paddingLeft: isNonMobile ? "40px" : "10px",
 
           }}
         >
