@@ -62,11 +62,12 @@ const Shop1 = () => {
   const [selectedDescription, setSelectedDescription] = useState("");
   const orderDate = new Date();
   const [orderId, setOrderId] = useState();
-  const [state, setState] = useState({ right: false });
+  const [state, setState] = useState({ right: true });
   const [openDialog, setOpenDialog] = useState(false);
   const [finalQuantity, setFinalQuantity] = useState(selectedQuantity);
   const [size, setSize] = useState();
   const isNonMobile = useMediaQuery("(max-width: 768px)");
+  const [discountCode, setDiscountCode] = useState("");
 
   const inputRef = useRef(null);
 
@@ -81,6 +82,17 @@ const Shop1 = () => {
   const handleStepChange = (step) => {
     setActiveStep(step);
   };
+
+
+  const handleInputChange = (e) => {
+    setDiscountCode(e.target.value);
+  };
+
+  const handleInputBlur = () => {
+    setState({ ...state, right: true });
+  };
+
+
 
   useEffect(() => {
     console.log("server" + process.env.BASE_URL);
@@ -348,20 +360,13 @@ const Shop1 = () => {
           }}
         >
           <input
-            style={{
-              fontFamily: "'Telegraf UltraBold 800', sans-serif",
-              color: "white",
-              width: "100%",
-              padding: '10px',
-              fontSize: "14px",
-            }}
+            className={styles.custominput} // Apply a CSS class for styling
             type="text"
             placeholder="e.g. Discount Code"
-            onBlur={() => setState({ ...state, right: true })} // Close the drawer when the input loses focus
-            onClick={() => inputRef.current.focus()} // Focus the input when it's clicked
-            ref={inputRef} // Set the ref to the input element
+            value={discountCode} // Bind the input value to the state
+            onChange={handleInputChange}
+            onBlur={handleInputBlur}
           />
-
 
           {/* <TextField
             label="e.g. Discount Code"
@@ -371,6 +376,8 @@ const Shop1 = () => {
               width: "320px",
               fontFamily: "'Telegraf Regular 400', sans-serif",
             }}
+            onChange={(e) => setDiscountCode(e.target.value)}
+            onBlur={() => setState({ ...state, right: true })}
           /> */}
           <Button
             variant="contained"
