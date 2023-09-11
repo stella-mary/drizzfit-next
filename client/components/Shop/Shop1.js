@@ -66,7 +66,7 @@ const Shop1 = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const [finalQuantity, setFinalQuantity] = useState(selectedQuantity);
   const [size, setSize] = useState();
-  const isNonMobile = useMediaQuery("(max-width: 768px)");
+  const isMobile = useMediaQuery("(max-width: 768px)");
   const [discountCode, setDiscountCode] = useState("");
 
   const inputRef = useRef(null);
@@ -201,11 +201,10 @@ const Shop1 = () => {
   const list = (anchor) => (
     <Box
       sx={{
-        width: anchor === "top" || anchor === "bottom" ? "auto" : (isNonMobile ? "100%" : "450px"), // Adjust width here
+        width: anchor === "top" || anchor === "bottom" ? "auto" : (isMobile ? "100vw" : "450px"), // Adjust width here
         fontFamily: "'Telegraf UltraBold 800', sans-serif",
         height: "100vh",
         padding: "10px",
-        // padding: isNonMobile ? "10px" : "10px",
       }}
       role="presentation"
       // onClick={toggleDrawer(anchor, false)}
@@ -394,8 +393,14 @@ const Shop1 = () => {
             Apply
           </Button>
         </ListItem>
+
       </List>
-      <Divider style={{ marginTop: "12rem", marginBottom: '-3rem' }} />
+      <Divider
+        style=
+        {{
+          marginBottom: '-3rem',
+          marginTop: isMobile ? "25rem" : "12rem",
+        }} />
       <Box
         sx={{
           display: "flex",
