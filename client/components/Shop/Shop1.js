@@ -399,7 +399,7 @@ const Shop1 = () => {
         style=
         {{
           marginBottom: '-3rem',
-          marginTop: isMobile ? "25rem" : "12rem",
+          marginTop: isMobile ? "20rem" : "12rem",
         }} />
       <Box
         sx={{
@@ -639,12 +639,12 @@ const Shop1 = () => {
       >
         {list("right")}
       </Drawer>
-      <PlaceOrderMenu
+      {/* <PlaceOrderMenu
         open={openDialog}
         onClose={() => setOpenDialog(false)}
         orderId={orderId}
         openDialog={openDialog}
-      />
+      /> */}
     </div>
   );
 };
