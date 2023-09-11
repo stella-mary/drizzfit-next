@@ -639,12 +639,12 @@ const Shop1 = () => {
       >
         {list("right")}
       </Drawer>
-      {/* <PlaceOrderMenu
+      <PlaceOrderMenu
         open={openDialog}
         onClose={() => setOpenDialog(false)}
         orderId={orderId}
         openDialog={openDialog}
-      /> */}
+      />
     </div>
   );
 };
