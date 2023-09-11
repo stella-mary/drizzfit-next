@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 import styles from "@/styles/Shop1.module.css";
 import axios from "axios";
@@ -68,6 +68,7 @@ const Shop1 = () => {
   const [size, setSize] = useState();
   const isNonMobile = useMediaQuery("(max-width: 768px)");
 
+  const inputRef = useRef(null);
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -346,15 +347,22 @@ const Shop1 = () => {
             fontFamily: "'Telegraf Regular 400', sans-serif",
           }}
         >
-          <input style={{
-            fontFamily: "'Telegraf UltraBold 800', sans-serif",
-            // backgroundColor: "black",
-            color: "white",
-            width: "100%",
-            padding: '10px',
-            fontSize: "14px",
-          }}
-            type="text" placeholder="e.g. Discount Code" ></input>
+          <input
+            style={{
+              fontFamily: "'Telegraf UltraBold 800', sans-serif",
+              color: "white",
+              width: "100%",
+              padding: '10px',
+              fontSize: "14px",
+            }}
+            type="text"
+            placeholder="e.g. Discount Code"
+            onBlur={() => setState({ ...state, right: true })} // Close the drawer when the input loses focus
+            onClick={() => inputRef.current.focus()} // Focus the input when it's clicked
+            ref={inputRef} // Set the ref to the input element
+          />
+
+
           {/* <TextField
             label="e.g. Discount Code"
             variant="outlined"
