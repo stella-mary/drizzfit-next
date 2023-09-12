@@ -5,6 +5,7 @@ import { useMediaQuery } from "@mui/material";
 import { useRouter } from "next/router"
 import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import BuyPage from "@/pages/buy";
 
 const Shop2 = () => {
   const [selectedQuantity, setSelectedQuantity] = useState(1);
@@ -18,12 +19,17 @@ const Shop2 = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
   const [discountCode, setDiscountCode] = useState("");
 
-
   const router = useRouter();
 
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
+  const openSidebar = () => {
+    setIsSidebarOpen(true);
+  };
 
-
+  const closeSidebar = () => {
+    setIsSidebarOpen(false);
+  };
 
   useEffect(() => {
     console.log("server" + process.env.BASE_URL);
@@ -108,8 +114,7 @@ const Shop2 = () => {
         <div className={styles.boxnotePara}><b>Small(S)</b> – Perfect if you are under 18 years of age</div>
         <div className={styles.boxnotePara1}><b>Mediumn (M)</b> – Perfect if you are above 18 years // or gave birth via C - section</div>
         <div className={styles.boxnotePara1}><b>Large (L)</b> – Perfect if you have given birth vaginally</div>
-      </div>
-      <div className={styles.shop1SubSub}>
+      </div> <div className={styles.shop1SubSub}>
         <input
           type="number"
           id="quantity"
@@ -125,18 +130,28 @@ const Shop2 = () => {
         />
         <div
           className={styles.button}
-
+          onClick={openSidebar}
           style={{
             "&:hover": {
               cursor: "pointer",
             },
-          }}>
+          }}
+        >
           <div className={styles.button1}>
             <CardGiftcardIcon style={{ verticalAlign: "middle" }} /> BUY NOW
           </div>
         </div>
       </div>
-
+      {/* Conditionally render the sidebar when isSidebarOpen is true */}
+      {isSidebarOpen && (
+        <div className={`${styles.sidebar} ${styles.open}`}>
+          <div className={styles.closeButton} onClick={closeSidebar}>
+            {/* Add a close button inside the sidebar */}
+            <span>&times;</span>
+          </div>
+          <BuyPage />
+        </div>
+      )}
     </div>
 
   );

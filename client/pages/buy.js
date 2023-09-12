@@ -14,7 +14,7 @@ function BuyPage() {
                 <BuyHead />
                 <BuyDetails />
                 <BuySummary />
-                <BuyOrder />
+
             </div>
         </div >
     );

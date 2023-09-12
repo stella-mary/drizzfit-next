@@ -14,7 +14,6 @@ const Shop1Page = () => {
                     <Shop1 />
                     <Shop2 />
                 </div>
-                <BuyPage />
             </div>
         </div>
     );
