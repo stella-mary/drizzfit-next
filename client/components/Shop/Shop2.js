@@ -6,6 +6,7 @@ import { useRouter } from "next/router"
 import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import BuyPage from "@/pages/buy";
+import CloseIcon from '@mui/icons-material/Close';
 
 const Shop2 = () => {
   const [selectedQuantity, setSelectedQuantity] = useState(1);
@@ -143,18 +144,15 @@ const Shop2 = () => {
           </div>
         </div>
       </div>
-      {/* Conditionally render the sidebar when isSidebarOpen is true */}
       {isSidebarOpen && (
         <div className={`${styles.sidebar} ${styles.open}`}>
           <div className={styles.closeButton} onClick={closeSidebar}>
-            {/* Add a close button inside the sidebar */}
-            <span>&times;</span>
+            <CloseIcon />
           </div>
           <BuyPage />
         </div>
       )}
     </div>
-
   );
 };
 

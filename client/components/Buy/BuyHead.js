@@ -1,8 +1,10 @@
 import React from 'react'
+import styles from "@/styles/BuyHead.module.css";
+
 
 const BuyHead = () => {
     return (
-        <div>
+        <div className={styles.BuyHead}>
             YOUR CART
         </div>
     )
