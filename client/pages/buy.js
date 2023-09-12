@@ -3,17 +3,19 @@ import BuyHead from "@/components/Buy/BuyHead";
 import BuyDetails from "@/components/Buy/BuyDetails";
 import BuySummary from "@/components/Buy/BuySummary";
 import BuyOrder from "@/components/Buy/BuyOrder";
+import styles from '../styles/Buy.module.css';
 
 
 function BuyPage() {
 
     return (
         <div>
-            <Navbar />
-            <BuyHead />
-            <BuyDetails />
-            <BuySummary />
-            <BuyOrder />
+            <div className={styles.buy}>
+                <BuyHead />
+                <BuyDetails />
+                <BuySummary />
+                <BuyOrder />
+            </div>
         </div >
     );
 }

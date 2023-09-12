@@ -3,8 +3,9 @@ import Navbar from '@/components/Home/Navbar';
 import styles from '../styles/Shop1.module.css';
 import Shop1 from '@/components/Shop/Shop1';
 import Shop2 from '@/components/Shop/Shop2';
+import BuyPage from './buy';
 
-const Shop1Page = (isDrawerOpen, setIsDrawerOpen, selectedProduct, selectedQuantity) => {
+const Shop1Page = () => {
     return (
         <div>
             <Navbar />
@@ -13,6 +14,7 @@ const Shop1Page = (isDrawerOpen, setIsDrawerOpen, selectedProduct, selectedQuant
                     <Shop1 />
                     <Shop2 />
                 </div>
+                <BuyPage />
             </div>
         </div>
     );

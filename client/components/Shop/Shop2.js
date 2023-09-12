@@ -3,9 +3,8 @@ import styles from "@/styles/Shop1.module.css";
 import axios from "axios";
 import { useMediaQuery } from "@mui/material";
 import { useRouter } from "next/router"
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
-import BuyDetails from "../Buy/BuyDetails";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const Shop2 = () => {
   const [selectedQuantity, setSelectedQuantity] = useState(1);
@@ -18,18 +17,12 @@ const Shop2 = () => {
   const [size, setSize] = useState();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const [discountCode, setDiscountCode] = useState("");
+
+
   const router = useRouter();
 
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false); // State to control drawer visibility
 
-  // Function to open the drawer
-  const openDrawer = () => {
-    setIsDrawerOpen(true);
-  };
 
-  const navigateToBuy = () => {
-    openDrawer(); // Open the drawer when Buy Now is clicked
-  };
 
 
   useEffect(() => {
@@ -132,7 +125,7 @@ const Shop2 = () => {
         />
         <div
           className={styles.button}
-          onClick={navigateToBuy}
+
           style={{
             "&:hover": {
               cursor: "pointer",
@@ -144,15 +137,6 @@ const Shop2 = () => {
         </div>
       </div>
 
-      {isDrawerOpen && (
-        <BuyDetails
-          isDrawerOpen={isDrawerOpen}
-          setIsDrawerOpen={setIsDrawerOpen} // Pass state and function to close the drawer
-          selectedProduct={selectedProduct} // Pass any necessary data to the drawer
-          selectedQuantity={selectedQuantity} // Pass any necessary data to the drawer
-        // ... Add more props as needed
-        />
-      )}
     </div>
 
   );
