@@ -23,6 +23,7 @@ const Shop2 = () => {
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
+  // Function to open/close the sidebar
   const openSidebar = () => {
     setIsSidebarOpen(true);
   };
