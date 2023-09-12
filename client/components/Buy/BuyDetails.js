@@ -86,72 +86,42 @@ const BuyDetails = () => {
     };
 
     return (
-        <div className={styles.BuyDetailsMain}>
-            <div className={styles.imageContainer7}></div>
-            <div className={styles.BuyName}>
-                <div className={styles.BuyNameMain}>
-                    {" "}
-                    {selectedProduct.name}
+        <div>
+            <div className={styles.BuyDetailsMain}>
+                <div className={styles.imageContainer7}></div>
+                <div className={styles.BuyName}>
+                    <div className={styles.BuyNameMain}>
+                        {" "}
+                        {selectedProduct.name}
+                    </div>
+                    <div className={styles.BuyNameSub}>
+                        {selectedProduct.description}
+                    </div>
+                    <table className={styles.table}>
+                        <tbody>
+                            <tr>
+                                <td style={{ textAlign: "center" }}>
+                                    <div className={styles.BuyDetailsButton} onClick={handleDecreaseQuantity}>
+                                        -
+                                    </div>
+                                </td>
+                                <td style={{ borderRight: 'solid 2px #cccccc' }}></td>
+                                <td style={{ textAlign: "center", fontSize: '15px', color: "black", marginTop: '10px', marginBottom: '5px', fontFamily: "'Telegraf Regular 400', sans-serif", fontSize: "14px", paddingLeft: '5px', paddingRight: '5px' }}>
+                                    {selectedQuantity}
+                                </td>
+                                <td style={{ borderRight: 'solid 2px #cccccc' }}></td>
+                                <td style={{ textAlign: "center", marginTop: '5px', marginBottom: '5px', fontSize: '15px' }}>
+                                    <div className={styles.BuyDetailsButton1} onClick={handleIncrease}>
+                                        +
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <div className={styles.BuyNameSub}>
-                    {selectedProduct.description}
-                </div>
-                <table className={styles.table}>
-                    <tbody>
-                        <tr>
-                            <td style={{ textAlign: "center" }}>
-                                <button
-                                    style={{
-                                        border: "none",
-                                        backgroundColor: "transparent",
-                                        cursor: "pointer",
-                                        fontSize: "14px",
-                                        color: "black",
-                                        marginTop: '5px',
-                                        marginBottom: '5px',
-                                        fontFamily: "'Telegraf UltraBold 800', sans-serif",
-                                        fontSize: '15px',
-                                        color: '#cccccc'
-                                    }}
-                                    onClick={handleDecreaseQuantity}
-                                >
-                                    -
-                                </button>
-                            </td>
-                            <td style={{ borderRight: 'solid 2px #cccccc' }}></td>
-                            <td style={{
-                                textAlign: "center", fontSize: '15px', color: "black", marginTop: '10px', marginBottom: '5px',
-                                fontFamily: "'Telegraf Regular 400', sans-serif", fontSize: "14px", paddingLeft: '5px', paddingRight: '5px'
-                            }}>
-                                {selectedQuantity}
-                            </td>
-                            <td style={{ borderRight: 'solid 2px #cccccc' }}></td>
-
-                            <td style={{
-                                textAlign: "center", marginTop: '5px',
-                                marginBottom: '5px', fontSize: '15px'
-                            }}>
-                                <button
-                                    style={{
-                                        border: "none",
-                                        backgroundColor: "transparent",
-                                        cursor: "pointer",
-                                        fontSize: "14px",
-                                        color: "#cccccc",
-                                        fontFamily: "'Telegraf UltraBold 800', sans-serif",
-                                        fontSize: '20px'
-                                    }}
-                                    onClick={handleIncrease}
-                                >
-                                    +
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
+                <div className={styles.BuyPrice}>₹{selectedProduct.price}</div>
             </div>
-            <div className={styles.BuyPrice}>₹{selectedProduct.price}</div>
+            <div className={styles.borderbottom}>&#160;</div>
         </div>
     )
 }

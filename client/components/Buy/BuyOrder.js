@@ -3,7 +3,7 @@ import React from 'react'
 const BuyOrder = () => {
   return (
     <div>
-      buyorder
+      {/* buyorder */}
 
     </div>
   )

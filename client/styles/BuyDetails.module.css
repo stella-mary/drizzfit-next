@@ -5,8 +5,8 @@
 }
 
 .imageContainer7 {
-  width: 100px; 
-  height: 10vh;
+  width: 140px; 
+  height: 12vh;
   background-image: url("/image/product.webp");
   background-position: center;
   background-size: cover;
@@ -15,20 +15,44 @@
 .BuyDetailsMain {
   display: flex;
   align-items: flex-start;
-  gap: 20px;
+  gap: 40px;
   padding: 10px;
   width: 100%;
-  margin-top: 5%;
+  margin-top: 10%;
 }
 
 .table {
     font-size: 14px;
-    width: 100%; 
+    width: 70%; 
     border: 1px solid #cccccc;
     border-radius: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin: 0 auto; 
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 10px; 
+}
+
+
+.BuyDetailsButton {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  color: black;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-family: 'Telegraf UltraBold 800', sans-serif;
+  font-size: '15px';
+  color: #cccccc;
+}
+
+.BuyDetailsButton1 {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  color: #cccccc;
+  font-family: 'Telegraf UltraBold 800', sans-serif;
+  font-size: 20px;
 }
 
 .BuyName {
@@ -36,12 +60,13 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
+  width: 100%;
   text-align: left;
 }
 
 .BuyNameMain {
   font-family: 'Telegraf UltraBold 800', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   color: black;
 }
 
@@ -55,8 +80,12 @@
 
 .BuyPrice {
   margin-top: 70px;
-  margin-left: 100px;
+  margin-right: 10px;
   font-family: 'Telegraf Regular 400', sans-serif;
   font-size: 15px;
   color: black;
+}
+
+.borderbottom{
+  border-bottom: solid 1px #8d8d8d;
 }
