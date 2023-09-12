@@ -88,6 +88,13 @@ const Shop1 = () => {
     setDiscountCode(e.target.value);
   };
 
+  const handleInputFocus = (e) => {
+    console.log("clicked on the input field" + e)
+    // setDiscountCode(e.target.value);
+  };
+
+
+
   const handleInputBlur = () => {
     setState({ ...state, right: true });
   };
@@ -210,19 +217,17 @@ const Shop1 = () => {
       // onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List
-      >
-        <ListItem
-          style={{
-            display: "flex",
-            // paddingLeft: isNonMobile ? "40px" : "10px",
+      <div
+        style={{
+          display: "flex",
+          // paddingLeft: isNonMobile ? "40px" : "10px",
 
-          }}
-        >
-          <span style={{ marginRight: "auto", textAlign: 'center' }}>YOUR CART</span>
-          <ClearIcon onClick={toggleDrawer(anchor, false)} />
-        </ListItem>
-      </List>
+        }}
+      >
+        <span style={{ marginRight: "auto", textAlign: 'center' }}>YOUR CART</span>
+        <ClearIcon onClick={toggleDrawer(anchor, false)} />
+      </div>
+
       <List>
         <ListItem disablePadding>
           <ListItemIcon
@@ -280,55 +285,57 @@ const Shop1 = () => {
                   margin: "0 auto", // Center the table
                 }}
               >
-                <tr>
-                  <td style={{ textAlign: "center" }}>
-                    <button
-                      style={{
-                        border: "none",
-                        backgroundColor: "transparent",
-                        cursor: "pointer",
-                        fontSize: "14px",
-                        color: "black",
-                        marginTop: '5px',
-                        marginBottom: '5px',
-                        fontFamily: "'Telegraf UltraBold 800', sans-serif",
-                        fontSize: '15px',
-                        color: '#cccccc'
-                      }}
-                      onClick={handleDecreaseQuantity}
-                    >
-                      -
-                    </button>
-                  </td>
-                  <td style={{ borderRight: 'solid 2px #cccccc' }}></td>
-                  <td style={{
-                    textAlign: "center", fontSize: '15px', color: "black", marginTop: '10px', marginBottom: '5px',
-                    fontFamily: "'Telegraf Regular 400', sans-serif", fontSize: "14px", paddingLeft: '5px', paddingRight: '5px'
-                  }}>
-                    {selectedQuantity}
-                  </td>
-                  <td style={{ borderRight: 'solid 2px #cccccc' }}></td>
+                <tbody>
+                  <tr>
+                    <td style={{ textAlign: "center" }}>
+                      <button
+                        style={{
+                          border: "none",
+                          backgroundColor: "transparent",
+                          cursor: "pointer",
+                          fontSize: "14px",
+                          color: "black",
+                          marginTop: '5px',
+                          marginBottom: '5px',
+                          fontFamily: "'Telegraf UltraBold 800', sans-serif",
+                          fontSize: '15px',
+                          color: '#cccccc'
+                        }}
+                        onClick={handleDecreaseQuantity}
+                      >
+                        -
+                      </button>
+                    </td>
+                    <td style={{ borderRight: 'solid 2px #cccccc' }}></td>
+                    <td style={{
+                      textAlign: "center", fontSize: '15px', color: "black", marginTop: '10px', marginBottom: '5px',
+                      fontFamily: "'Telegraf Regular 400', sans-serif", fontSize: "14px", paddingLeft: '5px', paddingRight: '5px'
+                    }}>
+                      {selectedQuantity}
+                    </td>
+                    <td style={{ borderRight: 'solid 2px #cccccc' }}></td>
 
-                  <td style={{
-                    textAlign: "center", marginTop: '5px',
-                    marginBottom: '5px', fontSize: '15px'
-                  }}>
-                    <button
-                      style={{
-                        border: "none",
-                        backgroundColor: "transparent",
-                        cursor: "pointer",
-                        fontSize: "14px",
-                        color: "#cccccc",
-                        fontFamily: "'Telegraf UltraBold 800', sans-serif",
-                        fontSize: '20px'
-                      }}
-                      onClick={handleIncrease}
-                    >
-                      +
-                    </button>
-                  </td>
-                </tr>
+                    <td style={{
+                      textAlign: "center", marginTop: '5px',
+                      marginBottom: '5px', fontSize: '15px'
+                    }}>
+                      <button
+                        style={{
+                          border: "none",
+                          backgroundColor: "transparent",
+                          cursor: "pointer",
+                          fontSize: "14px",
+                          color: "#cccccc",
+                          fontFamily: "'Telegraf UltraBold 800', sans-serif",
+                          fontSize: '20px'
+                        }}
+                        onClick={handleIncrease}
+                      >
+                        +
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
               </table>
 
 
@@ -347,27 +354,26 @@ const Shop1 = () => {
           </ListItemIcon>
           <ListItemText />
         </ListItem>
-        <Divider />
       </List>
-      <List>
-        <ListItem
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "20px",
-            fontFamily: "'Telegraf Regular 400', sans-serif",
-          }}
-        >
-          <input
-            className={styles.custominput} // Apply a CSS class for styling
-            type="text"
-            placeholder="e.g. Discount Code"
-            value={discountCode} // Bind the input value to the state
-            onChange={handleInputChange}
-            onBlur={handleInputBlur}
-          />
+      <Divider />
+      <div style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "20px",
+        fontFamily: "'Telegraf Regular 400', sans-serif",
+      }}
+      >
+        <input
+          className={styles.custominput} // Apply a CSS class for styling
+          type="text"
+          placeholder="e.g. Discount Code"
+          value={discountCode} // Bind the input value to the state
+          onChange={handleInputChange}
+          onFocus={handleInputFocus}
+          onBlur={handleInputBlur}
+        />
 
-          {/* <TextField
+        {/* <TextField
             label="e.g. Discount Code"
             variant="outlined"
             size="small"
@@ -378,23 +384,22 @@ const Shop1 = () => {
             onChange={(e) => setDiscountCode(e.target.value)}
             onBlur={() => setState({ ...state, right: true })}
           /> */}
-          <Button
-            variant="contained"
-            color="primary"
-            style={{
-              fontFamily: "'Telegraf UltraBold 800', sans-serif",
-              backgroundColor: "black",
-              color: "white",
-              width: "100px",
-              padding: '10px',
-              fontSize: "14px",
-            }}
-          >
-            Apply
-          </Button>
-        </ListItem>
+        <Button
+          variant="contained"
+          color="primary"
+          style={{
+            fontFamily: "'Telegraf UltraBold 800', sans-serif",
+            backgroundColor: "black",
+            color: "white",
+            width: "100px",
+            padding: '10px',
+            fontSize: "14px",
+          }}
+        >
+          Apply
+        </Button>
+      </div>
 
-      </List>
       <Divider
         style=
         {{
@@ -470,7 +475,7 @@ const Shop1 = () => {
             index={activeStep}
             onChangeIndex={handleStepChange}
             enableMouseEvents
-            infiniteLoop
+          // infiniteLoop
 
           >
             {images.map((image, index) => (
