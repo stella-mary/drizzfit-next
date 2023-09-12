@@ -4,7 +4,7 @@ import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 import axios from "axios";
 
-const BuyRight = () => {
+const BuyOrder = () => {
   return (
     <div className={styles.BuyRightContainer}>
       <div className={styles.h1}>3000+ Happy Customers</div>
@@ -23,4 +23,4 @@ const BuyRight = () => {
   );
 };
 
-export default BuyRight;
+export default BuyOrder;
