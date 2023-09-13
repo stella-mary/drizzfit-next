@@ -2,19 +2,8 @@
 import styles from "@/styles/BuyDetails.module.css";
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
-
-import {
-    Box,
-    Button,
-    Divider,
-    Drawer,
-    List,
-    ListItem,
-    ListItemIcon,
-    ListItemText,
-    TextField,
-    Typography,
-} from "@mui/material";
+import BuySummary from "./BuySummary";
+import BuyPage from "@/pages/buy";
 
 
 const BuyDetails = () => {
@@ -23,6 +12,11 @@ const BuyDetails = () => {
     const [groupedProductDetails, setGroupedProductDetails] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState({});
     const [selectedDescription, setSelectedDescription] = useState("");
+
+    const subtotal = selectedQuantity * (selectedProduct.price || 0);
+    console.log("selectedQuantity" + selectedQuantity)
+    console.log("subtotal" + subtotal)
+
 
     useEffect(() => {
         console.log("server" + process.env.BASE_URL);
@@ -76,13 +70,11 @@ const BuyDetails = () => {
     };
 
     const handleIncrease = () => {
-        // if (selectedQuantity >= 1) {
         setSelectedQuantity(parseInt(selectedQuantity) + 1);
         console.log(
             "Selected Quantity is now an integer:",
             parseInt(selectedQuantity) + 1
         );
-        // }
     };
 
     return (

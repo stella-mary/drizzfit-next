@@ -7,7 +7,7 @@ import BuyDiscount from "@/components/Buy/BuyDiscount";
 import styles from '../styles/Buy.module.css';
 
 
-function BuyPage() {
+function BuyPage({ selectedQuantity, selectedProductPrice, subtotal }) {
 
     return (
         <div>
@@ -15,8 +15,8 @@ function BuyPage() {
                 <BuyHead />
                 <BuyDetails />
                 <BuyDiscount />
+                <BuySummary subtotal={subtotal} />
                 <BuyOrder />
-                <BuySummary />
 
             </div>
         </div >
