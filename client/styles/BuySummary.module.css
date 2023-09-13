@@ -21,7 +21,9 @@
 .BuySummarySubSub {
   font-family: 'Telegraf UltraBold 800', sans-serif;
   font-size: 16px;
-  margin-bottom: -25%;
+  color: black;
+  margin-right: 50px;
+  /* margin-bottom: -25%; */
 }
 
 .borderbottom{

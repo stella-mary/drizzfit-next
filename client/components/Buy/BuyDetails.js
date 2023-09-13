@@ -114,6 +114,7 @@ const BuyDetails = () => {
                 <div className={styles.BuyPrice}>₹{selectedProduct.price}</div>
             </div>
             <div className={styles.borderbottom}>&#160;</div>
+            <BuySummary subtotal={subtotal} />
         </div>
     )
 }
