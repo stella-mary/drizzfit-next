@@ -1,3 +1,4 @@
+import React, { useState, useRef } from "react";
 import styles from "@/styles/Promotion.module.css"
 import { useRouter } from "next/router"
 import Image from "next/image";

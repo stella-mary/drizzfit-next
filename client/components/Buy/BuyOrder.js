@@ -31,11 +31,13 @@ const BuyOrder = () => {
       </div >
       {isDialogOpen && (
         <div className={styles.dialogContainer}>
-          <div className={styles.dialogContent}>
-            {/* <div className={styles.closeButton} onClick={closeDialog}>
+          <div className={styles.dialogContainer1}>
+            <div className={styles.dialogContent}>
+              {/* <div className={styles.closeButton} onClick={closeDialog}>
               <CloseIcon />
             </div> */}
-            <PlaceOrderPage />
+              <PlaceOrderPage />
+            </div>
           </div>
         </div>
       )}
