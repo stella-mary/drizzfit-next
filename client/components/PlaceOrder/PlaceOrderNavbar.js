@@ -1,13 +1,19 @@
-import React from 'react';
-import styles from '@/styles/PlaceOrderFooter.module.css';
-import EastIcon from '@mui/icons-material/East';
+import React, { useState } from "react";
+import styles from "@/styles/PlaceOrderNavbar.module.css";
+import CloseIcon from "@mui/icons-material/Close";
 
 const PlaceOrderNavbar = () => {
-    return (
-        <div>
 
+    return (
+        <div className={styles.PlaceOrderNavbar}>
+            <div className={styles.orderContainer1}></div>
+            <div className={styles.PlaceOrderClose}>
+                <div className={styles.closeButton}>
+                    <CloseIcon />
+                </div>
+            </div>
         </div>
-    );
-};
+    )
+}
 
 export default PlaceOrderNavbar;

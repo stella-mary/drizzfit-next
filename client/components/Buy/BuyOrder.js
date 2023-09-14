@@ -13,32 +13,32 @@ const BuyOrder = () => {
     router.push("/placeorder");
   };
 
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-  // Function to open/close the sidebar
-  const openSidebar = () => {
-    setIsSidebarOpen(true);
+  const openDialog = () => {
+    setIsDialogOpen(true);
   };
 
-  const closeSidebar = () => {
-    setIsSidebarOpen(false);
+  const closeDialog = () => {
+    setIsDialogOpen(false);
   };
 
 
   return (
     <div>
-      <div className={styles.BuyOrder} onClick={openSidebar}>
+      <div className={styles.BuyOrder} onClick={openDialog}>
         PLACE ORDER
       </div >
-      {
-        isSidebarOpen && (
-          <div className={`${styles.sidebar} ${styles.open}`}>
-            <div className={styles.closeButton} onClick={closeSidebar}>
+      {isDialogOpen && (
+        <div className={styles.dialogContainer}>
+          <div className={styles.dialogContent}>
+            {/* <div className={styles.closeButton} onClick={closeDialog}>
               <CloseIcon />
-            </div>
+            </div> */}
             <PlaceOrderPage />
           </div>
-        )}
+        </div>
+      )}
     </div>
   );
 };

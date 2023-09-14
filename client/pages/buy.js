@@ -14,10 +14,7 @@ function BuyPage({ selectedQuantity, setSelectedQuantity, selectedProductPrice, 
             <div className={styles.buy}>
                 <BuyHead />
                 <BuyDetails selectedQuantity={selectedQuantity} setSelectedQuantity={setSelectedQuantity} subtotal={subtotal} />
-                {/* <BuyDiscount /> */}
-                {/* <BuySummary /> */}
                 <BuyOrder />
-
             </div>
         </div >
     );
