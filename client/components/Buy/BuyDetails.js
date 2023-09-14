@@ -3,6 +3,7 @@ import styles from "@/styles/BuyDetails.module.css";
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import BuySummary from "./BuySummary";
+import BuyDiscount from './BuyDiscount';
 import BuyPage from "@/pages/buy";
 
 
@@ -114,6 +115,7 @@ const BuyDetails = () => {
                 <div className={styles.BuyPrice}>₹{selectedProduct.price}</div>
             </div>
             <div className={styles.borderbottom}>&#160;</div>
+            <BuyDiscount />
             <BuySummary subtotal={subtotal} />
         </div>
     )

@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 5px;
+  padding: 10px;
 }
 
 .BuySummaryMain {
@@ -15,15 +15,14 @@
 .BuySummarySub {
   font-family: 'Telegraf UltraBold 800', sans-serif;
   font-size: 16px;
-  margin-bottom: -25%;
+  /* margin-bottom: -25%; */
 }
 
 .BuySummarySubSub {
   font-family: 'Telegraf UltraBold 800', sans-serif;
   font-size: 16px;
   color: black;
-  margin-right: 50px;
-  /* margin-bottom: -25%; */
+  margin-right: 10px;
 }
 
 .borderbottom{

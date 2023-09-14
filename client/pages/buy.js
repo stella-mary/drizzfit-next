@@ -14,7 +14,7 @@ function BuyPage({ selectedQuantity, selectedProductPrice, subtotal }) {
             <div className={styles.buy}>
                 <BuyHead />
                 <BuyDetails subtotal={subtotal} />
-                <BuyDiscount />
+                {/* <BuyDiscount /> */}
                 {/* <BuySummary /> */}
                 <BuyOrder />
 

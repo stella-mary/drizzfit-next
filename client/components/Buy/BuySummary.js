@@ -6,7 +6,7 @@ const BuySummary = ({ subtotal }) => {
 
     return (
         <div className={styles.BuySummary}>
-            {/* <div className={styles.borderbottom}>&#160;</div> */}
+            <div className={styles.borderbottom}>&#160;</div>
             <div className={styles.BuySummaryMain}>
                 <div className={styles.BuySummarySub}>
                     SUBTOTAL
