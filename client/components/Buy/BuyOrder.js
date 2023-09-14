@@ -36,7 +36,6 @@ const BuyOrder = () => {
             <div className={styles.closeButton} onClick={closeSidebar}>
               <CloseIcon />
             </div>
-
             <PlaceOrderPage />
           </div>
         )}

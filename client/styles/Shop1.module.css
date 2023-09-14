@@ -241,6 +241,10 @@ cursor: pointer;
   .shop1Main {
     flex-direction: column; 
   }
+
+  .sidebar {
+    width: auto;
+  }
   
   .shop1Sub {
     margin-top: 20px;

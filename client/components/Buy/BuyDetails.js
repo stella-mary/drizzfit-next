@@ -7,9 +7,9 @@ import BuyDiscount from './BuyDiscount';
 import BuyPage from "@/pages/buy";
 
 
-const BuyDetails = () => {
+const BuyDetails = ({ selectedQuantity, setSelectedQuantity }) => {
 
-    const [selectedQuantity, setSelectedQuantity] = useState(1);
+    // const [selectedQuantity, setSelectedQuantity] = useState(1);
     const [groupedProductDetails, setGroupedProductDetails] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState({});
     const [selectedDescription, setSelectedDescription] = useState("");

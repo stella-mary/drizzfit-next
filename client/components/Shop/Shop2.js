@@ -138,7 +138,7 @@ const Shop2 = () => {
           <div className={styles.closeButton} onClick={closeSidebar}>
             <CloseIcon />
           </div>
-          <BuyPage />
+          <BuyPage selectedQuantity={selectedQuantity} setSelectedQuantity={setSelectedQuantity} />
         </div>
       )}
     </div>

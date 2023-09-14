@@ -27,6 +27,12 @@
 
 .borderbottom{
   margin-top: 50%;
-  margin-bottom: 0;
+  margin-bottom: 15px;
   border-bottom: solid 1px #8d8d8d;
+}
+
+@media (max-width: 768px) {
+  .borderbottom{
+    margin-top: 100%;
+   }
 }
