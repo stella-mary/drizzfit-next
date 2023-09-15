@@ -1,3 +1,50 @@
-.PlaceOrderSummary {
+
+.BuyDetailsMain {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 10px;
+    width: 100%;
+    margin-top: 10%;
+  }
+
+.imageContainer7 {
+    width: 140px;
+    height: 12vh;
+    background-image: url("/image/product.webp");
+    background-position: center;
+    background-size: cover;
+  }
+
+  .BuyName {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+    text-align: left;
+  }
   
-}
+  .BuyNameMain {
+    font-family: 'Telegraf UltraBold 800', sans-serif;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    color: black;
+  }
+  
+  .BuyNameSub {
+    color: #000000;
+    display: block;
+    font-size: 14px;
+    font-family: 'Telegraf Regular 400', sans-serif;
+    font-Weight: normal;
+  }
+
+  .BuyPrice {
+    margin-top: 70px;
+    margin-right: 10px;
+    font-family: 'Telegraf Regular 400', sans-serif;
+    font-size: 15px;
+    color: black;
+  }
