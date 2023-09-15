@@ -1,21 +1,18 @@
-.PlaceOrderFooter {
-  font-family: 'Telegraf UltraBold 800';
-
-  display: flex;
-  margin-left: 15%;
-  margin-right: 10%;
-  margin-bottom: 10%;
-  margin-right: 5%;
-  margin-top: 10%;
+.PlaceOrderFooter{
+display: flex;
+justify-content: center;
+align-items: center;
 }
 
-.Button {
-  background-color: black;
-  color: white;
+
+.PlaceOrderButton {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  background: black;
+  width: 50%;
+  margin-top: 40px;
   padding: 20px;
-  width: 30%;
-  text-align: center;
-cursor: pointer;
   border-radius: 10px;
-  font-size: 15px;
+  color: white;
 }

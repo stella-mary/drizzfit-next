@@ -4,7 +4,9 @@ import EastIcon from '@mui/icons-material/East';
 
 const PlaceOrderFooter = () => {
     return (
-        <div></div>
+        <div className={styles.PlaceOrderFooter}>
+            <div className={styles.PlaceOrderButton}>Continue</div>
+        </div>
     );
 };
 

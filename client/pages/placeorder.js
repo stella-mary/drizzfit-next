@@ -6,20 +6,26 @@ import PlaceOrderFooter from '@/components/PlaceOrder/PlaceOrderFooter';
 import PlaceOrderMobile from '@/components/PlaceOrder/PlaceOrderMobile';
 import PlaceOrderPayment from '@/components/PlaceOrder/PlaceOrderPayment';
 import PlaceOrderSummary from '@/components/PlaceOrder/PlaceOrderSummary';
-import PlaceOrderStepper from '@/components/PlaceOrder/PlaceOrderStepper'
+import PlaceOrderStepper from '@/components/PlaceOrder/PlaceOrderStepper';
+import styles from "@/styles/PlaceOrder.module.css";
 
 const PlaceOrderPage = () => {
     return (
         <div>
             <PlaceOrderNavbar />
-            <PlaceOrderMenu />
-            <PlaceOrderStepper />
-            <PlaceOrderMobile />
-            <PlaceOrderAddress />
-            <PlaceOrderPayment />
-            <PlaceOrderSummary />
-            <PlaceOrderFooter />
-
+            <div className={styles.PlaceOrderContainer}>
+                <div className={styles.PlaceOrderContainer1}>
+                    <PlaceOrderMenu />
+                    <PlaceOrderStepper />
+                    <PlaceOrderMobile />
+                    <PlaceOrderAddress />
+                    <PlaceOrderPayment />
+                    <PlaceOrderFooter />
+                </div>
+                <div className={styles.PlaceOrderContainer2}>
+                    <PlaceOrderSummary />
+                </div>
+            </div>
         </div>
     );
 };

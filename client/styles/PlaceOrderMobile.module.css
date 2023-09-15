@@ -1,6 +1,24 @@
+/* PlaceOrderMobile.module.css */
 .PlaceOrderMobile {
+  font-family: 'Telegraf UltraBold 800', sans-serif;
   display: flex;
   align-items: center;
-  margin-top: 40px;
+  justify-content: center;
+  margin-top: 5rem;
+  font-size: 18px;
+}
+
+.PlaceOrderText {
+  display: flex;
+  margin-top: 25px;
+  align-items: center;
   justify-content: center;
 }
+
+.PlaceOrderNote{
+  font-size: 12px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+
