@@ -16,3 +16,14 @@ align-items: center;
   border-radius: 10px;
   color: white;
 }
+.PlaceOrderButtonDisabled {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  background: red;
+  width: 50%;
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+}
