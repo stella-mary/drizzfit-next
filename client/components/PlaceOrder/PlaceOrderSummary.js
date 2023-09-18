@@ -8,9 +8,9 @@ const PlaceOrderSummary = () => {
             <div className={styles.imageContainer7}></div>
             <div className={styles.BuyName}>
                 <div className={styles.BuyNameMain}>
-                    Menstrual Cap - Large
-                    Price: $445
-                    Quantity: 3
+                    <div className={styles.h1}>Menstrual Cap - Large</div>
+                    <div className={styles.para}>Price: $445</div>
+                    <div className={styles.para}>Quantity: 3</div>
                 </div>
             </div>
         </div>
