@@ -101,7 +101,7 @@ const PlaceOrderPage = ({ selectedQuantity, setSelectedQuantity }) => {
 
   return (
     <div>
-      <PlaceOrderNavbar />
+      {/* <PlaceOrderNavbar /> */}
       <div className={styles.PlaceOrderContainer}>
         <div className={styles.PlaceOrderContainer1}>
           <PlaceOrderStepper activeStep={currentActiveStep} />

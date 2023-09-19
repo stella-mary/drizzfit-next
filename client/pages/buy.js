@@ -9,12 +9,14 @@ import styles from '../styles/Buy.module.css';
 
 function BuyPage({ selectedQuantity, setSelectedQuantity, selectedProductPrice, subtotal }) {
 
+    console.log("quantity received buypage" + selectedQuantity)
+
     return (
         <div>
             <div className={styles.buy}>
                 <BuyHead />
                 <BuyDetails selectedQuantity={selectedQuantity} setSelectedQuantity={setSelectedQuantity} subtotal={subtotal} />
-                <BuyOrder />
+                <BuyOrder selectedQuantity={selectedQuantity} setSelectedQuantity={setSelectedQuantity} subtotal={subtotal} />
             </div>
         </div >
     );

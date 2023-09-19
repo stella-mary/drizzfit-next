@@ -1,3 +1,15 @@
+.closeButton {
+  background-color: #e0e0e0; 
+  border-radius: 50%; 
+  padding: 5px; 
+  display: inline-flex;
+  justify-content: center; 
+  align-items: center; 
+  cursor: pointer;
+  color: white;
+}
+
+
 .PlaceOrderContainer {
   display: flex;
   gap: 10%;

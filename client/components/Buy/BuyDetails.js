@@ -6,8 +6,10 @@ import BuySummary from "./BuySummary";
 import BuyDiscount from './BuyDiscount';
 import PlaceOrderSummary from "../PlaceOrder/PlaceOrderSummary";
 import BuyPage from "@/pages/buy";
+import PlaceOrder from "../Shop/PlaceOrder";
 
 const BuyDetails = ({ selectedQuantity, setSelectedQuantity }) => {
+    console.log("quantity received buydetails" + selectedQuantity)
 
     // const [selectedQuantity, setSelectedQuantity] = useState(1);
     const [groupedProductDetails, setGroupedProductDetails] = useState([]);
@@ -116,6 +118,7 @@ const BuyDetails = ({ selectedQuantity, setSelectedQuantity }) => {
             <div className={styles.borderbottom}>&#160;</div>
             <BuyDiscount />
             <BuySummary subtotal={subtotal} />
+
         </div>
     )
 }

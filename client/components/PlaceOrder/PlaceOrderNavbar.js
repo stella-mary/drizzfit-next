@@ -1,28 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "@/styles/PlaceOrderNavbar.module.css";
 import CloseIcon from "@mui/icons-material/Close";
 
-const PlaceOrderNavbar = () => {
-
-    const [isDialogOpen, setIsDialogOpen] = useState(false);
-
-    // Function to open the dialog
-    const openDialog = () => {
-        setIsDialogOpen(true);
-    };
-
-    // Function to close the dialog
-    const closeDialog = () => {
-        setIsDialogOpen(false);
-    };
-
-
+const PlaceOrderNavbar = ({ closeDialog }) => {
     return (
         <div className={styles.PlaceOrderNavbar}>
             <div className={styles.orderContainer1}></div>
             <div className={styles.PlaceOrderClose}>
-                <div className={styles.closeButton} >
-                    <CloseIcon onClick={closeDialog} />
+                <div className={styles.closeButton} onClick={closeDialog}>
+                    <CloseIcon />
                 </div>
             </div>
         </div>
