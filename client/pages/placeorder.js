@@ -15,22 +15,10 @@ const PlaceOrderPage = ({ selectedQuantity, setSelectedQuantity }) => {
   const [groupedProductDetails, setGroupedProductDetails] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState({});
   const [selectedDescription, setSelectedDescription] = useState("");
+
   const subtotal = selectedQuantity * (selectedProduct.price || 0);
-  console.log("placeorderSubtotal" + subtotal)
-
-  const handleDecreaseQuantity = () => {
-    if (selectedQuantity > 1) {
-      setSelectedQuantity(selectedQuantity - 1);
-    }
-  };
-
-  const handleIncrease = () => {
-    setSelectedQuantity(parseInt(selectedQuantity) + 1);
-    console.log(
-      "Selected Quantity is now an integer:",
-      parseInt(selectedQuantity) + 1
-    );
-  };
+  console.log("selectedQuantity" + selectedQuantity)
+  console.log("subtotal" + subtotal)
 
   // currentActiveStep
   const [currentActiveStep, setCurrentActiveStep] = useState(2);
@@ -135,9 +123,10 @@ const PlaceOrderPage = ({ selectedQuantity, setSelectedQuantity }) => {
         </div>
         <div className={styles.PlaceOrderContainer2}>
           <PlaceOrderSummary
+            setSelectedQuantity={setSelectedQuantity}
             productName={selectedProduct.name}
             productDescription={selectedProduct.description}
-            quantity={selectedQuantity}
+            selectedQuantity={selectedQuantity}
             productPrice={selectedProduct.price}
             subtotal={subtotal}
           />

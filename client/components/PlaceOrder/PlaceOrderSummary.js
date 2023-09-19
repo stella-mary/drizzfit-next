@@ -6,7 +6,8 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import axios from "axios";
 
 
-const PlaceOrderSummary = ({ productName, productDescription, quantity, productPrice, subtotal }) => {
+const PlaceOrderSummary = ({ productName, productDescription, selectedQuantity, productPrice, subtotal }) => {
+
     const [isContentVisible, setContentVisible] = useState(true);
 
     const toggleContent = () => {
@@ -32,7 +33,7 @@ const PlaceOrderSummary = ({ productName, productDescription, quantity, productP
                             <div className={styles.PlaceOrderSummarySub}>
                                 <div className={styles.h2}>{productName} - {productDescription}</div>
                                 <div className={styles.para}>Price: {productPrice}</div>
-                                <div className={styles.para}>Quantity: {quantity}</div>
+                                <div className={styles.para}>Quantity: {selectedQuantity}</div>
                             </div>
                         </div>
                     </div>
