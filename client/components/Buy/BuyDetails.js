@@ -4,8 +4,8 @@ import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import BuySummary from "./BuySummary";
 import BuyDiscount from './BuyDiscount';
+import PlaceOrderSummary from "../PlaceOrder/PlaceOrderSummary";
 import BuyPage from "@/pages/buy";
-
 
 const BuyDetails = ({ selectedQuantity, setSelectedQuantity }) => {
 
@@ -17,7 +17,6 @@ const BuyDetails = ({ selectedQuantity, setSelectedQuantity }) => {
     const subtotal = selectedQuantity * (selectedProduct.price || 0);
     console.log("selectedQuantity" + selectedQuantity)
     console.log("subtotal" + subtotal)
-
 
     useEffect(() => {
         console.log("server" + process.env.BASE_URL);

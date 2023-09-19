@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import axios from "axios";
 
-const PlaceOrderSummary = () => {
+
+const PlaceOrderSummary = ({ productName, productDescription, quantity, productPrice, subtotal }) => {
     const [isContentVisible, setContentVisible] = useState(true);
 
     const toggleContent = () => {
@@ -28,16 +30,16 @@ const PlaceOrderSummary = () => {
                         <div className={styles.imageContainer7}></div>
                         <div className={styles.PlaceOrderSummaryMain}>
                             <div className={styles.PlaceOrderSummarySub}>
-                                <div className={styles.h2}>Menstrual Cap - Large</div>
-                                <div className={styles.para}>Price: $445</div>
-                                <div className={styles.para}>Quantity: 3</div>
+                                <div className={styles.h2}>{productName} - {productDescription}</div>
+                                <div className={styles.para}>Price: {productPrice}</div>
+                                <div className={styles.para}>Quantity: {quantity}</div>
                             </div>
                         </div>
                     </div>
                     <div className={styles.PlaceOrderSummaryTable}>
                         <div className={styles.PlaceOrderSummaryTable1}>
                             <div className={styles.thead}>Subtotal</div>
-                            <div className={styles.thead}>₹</div>
+                            <div className={styles.thead}>₹ {subtotal}</div>
                         </div>
                         <div className={styles.PlaceOrderSummaryTable1}>
                             <div className={styles.thead}>Shipping</div>
@@ -46,7 +48,7 @@ const PlaceOrderSummary = () => {
                         <div className={styles.border}></div>
                         <div className={styles.PlaceOrderSummaryTable1}>
                             <div className={styles.thead1}>To Pay</div>
-                            <div className={styles.thead1}>₹</div>
+                            <div className={styles.thead1}>₹ {subtotal}</div>
                         </div>
                     </div>
                 </div>

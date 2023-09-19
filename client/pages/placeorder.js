@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PlaceOrderNavbar from "@/components/PlaceOrder/PlaceOrderNavbar";
 import PlaceOrderAddress from "@/components/PlaceOrder/PlaceOrderAddress";
 import PlaceOrderFooter from "@/components/PlaceOrder/PlaceOrderFooter";
@@ -7,9 +7,31 @@ import PlaceOrderPayment from "@/components/PlaceOrder/PlaceOrderPayment";
 import PlaceOrderSummary from "@/components/PlaceOrder/PlaceOrderSummary";
 import PlaceOrderStepper from "@/components/PlaceOrder/PlaceOrderStepper";
 import styles from "@/styles/PlaceOrder.module.css";
+import axios from "axios";
 import PlaceOrderMobileOTP from "@/components/PlaceOrder/PlaceOrderMobileOTP";
 
-const PlaceOrderPage = () => {
+const PlaceOrderPage = ({ selectedQuantity, setSelectedQuantity }) => {
+
+  const [groupedProductDetails, setGroupedProductDetails] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState({});
+  const [selectedDescription, setSelectedDescription] = useState("");
+  const subtotal = selectedQuantity * (selectedProduct.price || 0);
+  console.log("placeorderSubtotal" + subtotal)
+
+  const handleDecreaseQuantity = () => {
+    if (selectedQuantity > 1) {
+      setSelectedQuantity(selectedQuantity - 1);
+    }
+  };
+
+  const handleIncrease = () => {
+    setSelectedQuantity(parseInt(selectedQuantity) + 1);
+    console.log(
+      "Selected Quantity is now an integer:",
+      parseInt(selectedQuantity) + 1
+    );
+  };
+
   // currentActiveStep
   const [currentActiveStep, setCurrentActiveStep] = useState(2);
 
@@ -54,6 +76,41 @@ const PlaceOrderPage = () => {
     }
   };
 
+
+  useEffect(() => {
+    console.log("server" + process.env.BASE_URL);
+    console.log("process" + JSON.stringify(process.env));
+    // console.log("stella" + BASE_URL)
+    axios.get(`${process.env.BASE_URL}/product/all`).then((response) => {
+      console.log("Product details: ", response.data);
+
+      // Group products by name
+      const groupedProducts = {};
+      response.data.forEach((product) => {
+        if (!groupedProducts[product.name]) {
+          groupedProducts[product.name] = [];
+        }
+        groupedProducts[product.name].push(product);
+      });
+      console.log("groupedProducts: ", groupedProducts);
+      setGroupedProductDetails(groupedProducts);
+
+      // Assuming the first product in the first group is the selected product
+      if (groupedProducts[Object.keys(groupedProducts)[0]]) {
+        console.log(
+          "Selected Product: ",
+          groupedProducts[Object.keys(groupedProducts)[0]][0]
+        );
+        setSelectedProduct(groupedProducts[Object.keys(groupedProducts)[0]][0]);
+        setSelectedDescription(
+          groupedProducts[Object.keys(groupedProducts)[0]][0].description
+        );
+      }
+    });
+  }, []);
+
+
+
   return (
     <div>
       <PlaceOrderNavbar />
@@ -77,7 +134,13 @@ const PlaceOrderPage = () => {
           />
         </div>
         <div className={styles.PlaceOrderContainer2}>
-          <PlaceOrderSummary />
+          <PlaceOrderSummary
+            productName={selectedProduct.name}
+            productDescription={selectedProduct.description}
+            quantity={selectedQuantity}
+            productPrice={selectedProduct.price}
+            subtotal={subtotal}
+          />
         </div>
       </div>
     </div>
