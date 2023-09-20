@@ -3,7 +3,6 @@ import styles from "@/styles/PlaceOrderClosePopup.module.css";
 
 const PlaceOrderClosePopup = ({ closeNo, closeDialog }) => {
 
-
     return (
         <div>
             <div className={styles.para}>Products in huge demand<br />might run <span className={styles.bgcolor}> Out of Stock</span></div>

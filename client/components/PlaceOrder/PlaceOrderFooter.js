@@ -6,6 +6,7 @@ const PlaceOrderFooter = ({
   isContinueButtonEnabled,
   handleContinueButtonClick,
 }) => {
+
   return (
     <div className={styles.PlaceOrderFooter}>
       <div
@@ -15,7 +16,7 @@ const PlaceOrderFooter = ({
             : styles.PlaceOrderButtonDisabled
         }
       >
-        Continue
+        Continue<span className={styles.space} /><EastIcon />
       </div>
     </div>
   );

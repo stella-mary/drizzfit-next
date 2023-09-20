@@ -21,7 +21,7 @@ const PlaceOrderPage = ({ selectedQuantity, setSelectedQuantity }) => {
   console.log("subtotal" + subtotal)
 
   // currentActiveStep
-  const [currentActiveStep, setCurrentActiveStep] = useState(2);
+  const [currentActiveStep, setCurrentActiveStep] = useState(1);
 
   //  step 1 state and validation
   const [mobileNumber, setMobileNumber] = useState("");
@@ -109,7 +109,7 @@ const PlaceOrderPage = ({ selectedQuantity, setSelectedQuantity }) => {
             validateMobileNumber(mobileNumber) ? (
               <PlaceOrderMobileOTP />
             ) : (
-              <PlaceOrderMobile updateMobileNumber />
+              <PlaceOrderMobile updateMobileNumber={updateMobileNumber} />
             )
           ) : (
             <div></div>

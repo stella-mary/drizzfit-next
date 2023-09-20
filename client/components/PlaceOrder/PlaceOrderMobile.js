@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import styles from "@/styles/PlaceOrderMobile.module.css";
 import TextField from "@mui/material/TextField";
 import Checkbox from '@mui/material/Checkbox';
@@ -19,18 +19,29 @@ const PlaceOrderMobile = () => {
                     inputProps={{
                         maxLength: 18, // Including "+91 | "
                         style: {
-                            color: 'red',
                             width: '100%',
-                            borderRadius: '20px'
+                            borderRadius: '20px',
+                            borderColor: '#f0775a'
+                        },
+                    }}
+                    InputProps={{
+                        style: {
+                            color: 'black'
                         },
                     }}
                 />
             </div>
-            <div className={styles.PlaceOrderNote}><Checkbox
-                checked={checked}
-                onChange={handleChange}
-                inputProps={{ 'aria-label': 'controlled' }}
-            /> Notify me for orders, updates & offers</div>
+            <div className={styles.PlaceOrderNote}>
+                <label className="checkboxLabel">
+                    <Checkbox
+                        checked={checked}
+                        onChange={handleChange}
+                        inputProps={{ 'aria-label': 'controlled' }}
+                        className={styles.checkboxInput}
+                    />
+                    Notify me for orders, updates & offers
+                </label>
+            </div>
         </div>
     )
 }
