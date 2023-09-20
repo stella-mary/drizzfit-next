@@ -9,6 +9,8 @@ import CloseIcon from "@mui/icons-material/Close";
 const PlaceOrderSummary = ({ productName, productDescription, selectedQuantity, productPrice, subtotal }) => {
     console.log("quantity received in placeordersummary" + selectedQuantity)
 
+    const topay = subtotal + 100;
+
     const [isContentVisible, setContentVisible] = useState(true);
 
     const toggleContent = () => {
@@ -58,12 +60,12 @@ const PlaceOrderSummary = ({ productName, productDescription, selectedQuantity, 
                             </div>
                             <div className={styles.PlaceOrderSummaryTable1}>
                                 <div className={styles.thead}>Shipping</div>
-                                <div className={styles.thead}>Free</div>
+                                <div className={styles.thead}>₹ 100</div>
                             </div>
                             <div className={styles.border}></div>
                             <div className={styles.PlaceOrderSummaryTable1}>
                                 <div className={styles.thead1}>To Pay</div>
-                                <div className={styles.thead1}>₹ {subtotal}</div>
+                                <div className={styles.thead1}>₹ {topay}</div>
                             </div>
                         </div>
                     </div>

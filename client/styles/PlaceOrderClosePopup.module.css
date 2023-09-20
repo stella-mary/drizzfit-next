@@ -1,0 +1,23 @@
+.para {
+  font-family: 'Telegraf Regular 400';
+  font-size: 0.875rem;
+  margin-top: 10px;
+  line-height: 1.5em;
+}
+
+.table {
+  display: flex;
+  margin-top: 25px;
+  justify-content: space-between;
+}
+
+.thead {
+  font-family: 'Telegraf Regular 400';
+  font-size: 1.3rem;
+  color: #97aacf;
+  cursor: pointer;
+}
+
+.bgcolor {
+color: #f19f99;
+}
