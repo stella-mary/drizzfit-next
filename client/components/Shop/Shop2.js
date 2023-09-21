@@ -1,12 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "@/styles/Shop1.module.css";
 import axios from "axios";
 import { useMediaQuery } from "@mui/material";
-import { useRouter } from "next/router";
 import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import BuyPage from "@/pages/buy";
-import BuyDetails from "../Buy/BuyDetails";
 import CloseIcon from "@mui/icons-material/Close";
 
 const Shop2 = () => {
@@ -17,8 +15,6 @@ const Shop2 = () => {
   const [state, setState] = useState({ right: true });
   const [size, setSize] = useState("Medium");
   const isMobile = useMediaQuery("(max-width: 768px)");
-  const [discountCode, setDiscountCode] = useState("");
-  const router = useRouter();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   // Function to open/close the sidebar
@@ -155,6 +151,8 @@ const Shop2 = () => {
           <BuyPage
             selectedQuantity={selectedQuantity}
             setSelectedQuantity={setSelectedQuantity}
+            selectedDescription={selectedDescription}
+            selectedProduct={selectedProduct}
           />
         </div>
       )}
