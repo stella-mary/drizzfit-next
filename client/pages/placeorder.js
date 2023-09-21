@@ -66,9 +66,6 @@ const PlaceOrderPage = ({ selectedQuantity, setSelectedQuantity }) => {
         validateStep1Data();
     }
 
-    if (currentActiveStep === 1 && allStep1InputsValid) {
-      router.push('/placeordermobileOTP');
-    }
   };
 
   useEffect(() => {
