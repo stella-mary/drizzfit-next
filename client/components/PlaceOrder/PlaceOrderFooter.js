@@ -15,6 +15,7 @@ const PlaceOrderFooter = ({
             ? styles.PlaceOrderButton
             : styles.PlaceOrderButtonDisabled
         }
+        onClick={handleContinueButtonClick}
       >
         Continue<span className={styles.space} /><EastIcon />
       </div>

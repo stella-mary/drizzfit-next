@@ -9,6 +9,7 @@ import PlaceOrderStepper from "@/components/PlaceOrder/PlaceOrderStepper";
 import styles from "@/styles/PlaceOrder.module.css";
 import axios from "axios";
 import PlaceOrderMobileOTP from "@/components/PlaceOrder/PlaceOrderMobileOTP";
+import { useRouter } from 'next/router';
 
 const PlaceOrderPage = ({ selectedQuantity, setSelectedQuantity }) => {
 
@@ -19,6 +20,8 @@ const PlaceOrderPage = ({ selectedQuantity, setSelectedQuantity }) => {
   const subtotal = selectedQuantity * (selectedProduct.price || 0);
   console.log("selectedQuantity" + selectedQuantity)
   console.log("subtotal" + subtotal)
+
+  const router = useRouter();
 
   // currentActiveStep
   const [currentActiveStep, setCurrentActiveStep] = useState(1);
@@ -58,12 +61,15 @@ const PlaceOrderPage = ({ selectedQuantity, setSelectedQuantity }) => {
 
   const handleContinueButtonClick = () => {
     // Mobile Nmber validation
-    switch (activeStep) {
+    switch (currentActiveStep) {
       case 1:
         validateStep1Data();
     }
-  };
 
+    if (currentActiveStep === 1 && allStep1InputsValid) {
+      router.push('/placeordermobileOTP');
+    }
+  };
 
   useEffect(() => {
     console.log("server" + process.env.BASE_URL);
@@ -97,11 +103,8 @@ const PlaceOrderPage = ({ selectedQuantity, setSelectedQuantity }) => {
     });
   }, []);
 
-
-
   return (
     <div>
-      {/* <PlaceOrderNavbar /> */}
       <div className={styles.PlaceOrderContainer}>
         <div className={styles.PlaceOrderContainer1}>
           <PlaceOrderStepper activeStep={currentActiveStep} />

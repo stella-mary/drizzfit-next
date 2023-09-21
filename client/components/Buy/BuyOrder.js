@@ -31,7 +31,7 @@ const BuyOrder = ({ selectedQuantity, subtotal }) => {
           <div className={styles.dialogContainer1}>
             <div className={styles.dialogContent}>
               <PlaceOrderNavbar closeDialog={closeDialog} />
-              <PlaceOrderPage selectedQuantity={selectedQuantity} />
+              <PlaceOrderPage selectedQuantity={selectedQuantity} router={router} />
             </div>
           </div>
         </div>
