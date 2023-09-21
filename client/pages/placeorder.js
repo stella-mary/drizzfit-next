@@ -65,7 +65,6 @@ const PlaceOrderPage = ({ selectedQuantity, setSelectedQuantity }) => {
       case 1:
         validateStep1Data();
     }
-
   };
 
   useEffect(() => {
