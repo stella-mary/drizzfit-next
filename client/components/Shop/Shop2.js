@@ -12,7 +12,6 @@ const Shop2 = () => {
   const [groupedProductDetails, setGroupedProductDetails] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState({});
   const [selectedDescription, setSelectedDescription] = useState("");
-  const [state, setState] = useState({ right: true });
   const [size, setSize] = useState("Medium");
   const isMobile = useMediaQuery("(max-width: 768px)");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
