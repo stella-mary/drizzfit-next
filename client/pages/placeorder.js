@@ -7,21 +7,17 @@ import PlaceOrderPayment from "@/components/PlaceOrder/PlaceOrderPayment";
 import PlaceOrderSummary from "@/components/PlaceOrder/PlaceOrderSummary";
 import PlaceOrderStepper from "@/components/PlaceOrder/PlaceOrderStepper";
 import styles from "@/styles/PlaceOrder.module.css";
-import axios from "axios";
 import PlaceOrderMobileOTP from "@/components/PlaceOrder/PlaceOrderMobileOTP";
-import { useRouter } from 'next/router';
 
-const PlaceOrderPage = ({ selectedQuantity, setSelectedQuantity }) => {
-
-  const [groupedProductDetails, setGroupedProductDetails] = useState([]);
-  const [selectedProduct, setSelectedProduct] = useState({});
-  const [selectedDescription, setSelectedDescription] = useState("");
-
+const PlaceOrderPage = ({
+  selectedQuantity,
+  setSelectedQuantity,
+  selectedProduct,
+}) => {
   const subtotal = selectedQuantity * (selectedProduct.price || 0);
-  console.log("selectedQuantity" + selectedQuantity)
-  console.log("subtotal" + subtotal)
-
-  const router = useRouter();
+  console.log("selectedQuantity" + selectedQuantity);
+  console.log("subtotal" + subtotal);
+  console.log("Selected Product: ", selectedProduct);
 
   // currentActiveStep
   const [currentActiveStep, setCurrentActiveStep] = useState(1);
@@ -37,11 +33,6 @@ const PlaceOrderPage = ({ selectedQuantity, setSelectedQuantity }) => {
     }
     setIsContinueButtonEnabled(false);
   };
-
-  // step 2 state
-  const [homeAddress, setHomeAddress] = useState("");
-
-  const [isContinueButtonEnabled, setIsContinueButtonEnabled] = useState(false);
 
   const validateMobileNumber = (mobile) => {
     if (mobile === "") return false;
@@ -67,38 +58,6 @@ const PlaceOrderPage = ({ selectedQuantity, setSelectedQuantity }) => {
     }
   };
 
-  useEffect(() => {
-    console.log("server" + process.env.BASE_URL);
-    console.log("process" + JSON.stringify(process.env));
-    // console.log("stella" + BASE_URL)
-    axios.get(`${process.env.BASE_URL}/product/all`).then((response) => {
-      console.log("Product details: ", response.data);
-
-      // Group products by name
-      const groupedProducts = {};
-      response.data.forEach((product) => {
-        if (!groupedProducts[product.name]) {
-          groupedProducts[product.name] = [];
-        }
-        groupedProducts[product.name].push(product);
-      });
-      console.log("groupedProducts: ", groupedProducts);
-      setGroupedProductDetails(groupedProducts);
-
-      // Assuming the first product in the first group is the selected product
-      if (groupedProducts[Object.keys(groupedProducts)[0]]) {
-        console.log(
-          "Selected Product: ",
-          groupedProducts[Object.keys(groupedProducts)[0]][0]
-        );
-        setSelectedProduct(groupedProducts[Object.keys(groupedProducts)[0]][0]);
-        setSelectedDescription(
-          groupedProducts[Object.keys(groupedProducts)[0]][0].description
-        );
-      }
-    });
-  }, []);
-
   return (
     <div>
       <div className={styles.PlaceOrderContainer}>
@@ -108,7 +67,10 @@ const PlaceOrderPage = ({ selectedQuantity, setSelectedQuantity }) => {
             validateMobileNumber(mobileNumber) ? (
               <PlaceOrderMobileOTP />
             ) : (
-              <PlaceOrderMobile updateMobileNumber={updateMobileNumber} />
+              <PlaceOrderMobile
+                updateMobileNumber={updateMobileNumber}
+                selectedProduct={selectedProduct}
+              />
             )
           ) : (
             <div></div>

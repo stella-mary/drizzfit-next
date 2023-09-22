@@ -27,6 +27,7 @@ function BuyPage({
           selectedQuantity={selectedQuantity}
           setSelectedQuantity={setSelectedQuantity}
           subtotal={subtotal}
+          selectedProduct={selectedProduct}
         />
       </div>
     </div>

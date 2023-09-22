@@ -4,12 +4,8 @@ import { useRouter } from "next/router";
 import PlaceOrderPage from "@/pages/placeorder";
 import PlaceOrderNavbar from "../PlaceOrder/PlaceOrderNavbar";
 
-const BuyOrder = ({ selectedQuantity, subtotal }) => {
+const BuyOrder = ({ selectedQuantity, selectedProduct }) => {
   const router = useRouter();
-
-  const navigateToPlaceOrderMenu = () => {
-    router.push("/placeorder");
-  };
 
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
@@ -34,6 +30,7 @@ const BuyOrder = ({ selectedQuantity, subtotal }) => {
               <PlaceOrderPage
                 selectedQuantity={selectedQuantity}
                 router={router}
+                selectedProduct={selectedProduct}
               />
             </div>
           </div>
