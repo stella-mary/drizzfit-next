@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "@/styles/Shop1.module.css";
 import axios from "axios";
 import { useMediaQuery } from "@mui/material";
 import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import BuyPage from "@/pages/buy";
+import AppContext from "../AppContext";
 import CloseIcon from "@mui/icons-material/Close";
 
 const Shop2 = () => {
+
+  const context = useContext(AppContext);
+
   const [selectedQuantity, setSelectedQuantity] = useState(1);
   const [groupedProductDetails, setGroupedProductDetails] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState({});
