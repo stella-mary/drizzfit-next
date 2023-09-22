@@ -34,6 +34,9 @@ const PlaceOrderPage = ({
     setIsContinueButtonEnabled(false);
   };
 
+  const [isContinueButtonEnabled, setIsContinueButtonEnabled] = useState(false);
+  const [homeAddress, setHomeAddress] = useState("");
+
   const validateMobileNumber = (mobile) => {
     if (mobile === "") return false;
     return true;
