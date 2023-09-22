@@ -34,8 +34,10 @@ const PlaceOrderPage = ({
     setIsContinueButtonEnabled(false);
   };
 
-  const [isContinueButtonEnabled, setIsContinueButtonEnabled] = useState(false);
+  // step 2 state
   const [homeAddress, setHomeAddress] = useState("");
+
+  const [isContinueButtonEnabled, setIsContinueButtonEnabled] = useState(false);
 
   const validateMobileNumber = (mobile) => {
     if (mobile === "") return false;
@@ -55,6 +57,7 @@ const PlaceOrderPage = ({
 
   const handleContinueButtonClick = () => {
     // Mobile Nmber validation
+    console.log("Continue btn clicked");
     switch (currentActiveStep) {
       case 1:
         validateStep1Data();
