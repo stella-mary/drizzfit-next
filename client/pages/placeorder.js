@@ -40,7 +40,8 @@ const PlaceOrderPage = ({
   const [isContinueButtonEnabled, setIsContinueButtonEnabled] = useState(false);
 
   const validateMobileNumber = (mobile) => {
-    if (mobile === "") return false;
+    console.log("" + mobile)
+    if (mobile == "") return false;
     return true;
   };
 

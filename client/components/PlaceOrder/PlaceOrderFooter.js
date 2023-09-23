@@ -6,17 +6,19 @@ const PlaceOrderFooter = ({
   isContinueButtonEnabled,
   handleContinueButtonClick,
 }) => {
+  const buttonClassName = isContinueButtonEnabled
+    ? styles.PlaceOrderButton
+    : styles.PlaceOrderButtonDisabled;
+
+  const handleClick = () => {
+    if (isContinueButtonEnabled) {
+      handleContinueButtonClick();
+    }
+  };
 
   return (
     <div className={styles.PlaceOrderFooter}>
-      <div
-        className={
-          isContinueButtonEnabled
-            ? styles.PlaceOrderButton
-            : styles.PlaceOrderButtonDisabled
-        }
-        onClick={handleContinueButtonClick}
-      >
+      <div className={buttonClassName} onClick={handleClick}>
         Continue<span className={styles.space} /><EastIcon />
       </div>
     </div>
@@ -24,3 +26,4 @@ const PlaceOrderFooter = ({
 };
 
 export default PlaceOrderFooter;
+
