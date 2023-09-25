@@ -35,3 +35,39 @@
   cursor: pointer;
 }
 
+.PlaceOrderFooter{
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  align-items: center;
+  }
+
+.PlaceOrderButton {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  background: black;
+  width: 50%;
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.PlaceOrderButtonDisabled {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  background: red;
+  width: 50%;
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+}
+
+.space {
+  padding-left: 10px;
+  vertical-align: middle;
+}
