@@ -25,7 +25,6 @@ export const updateOrder = (req, res) => {
   Orders.findOne({ orderId: orderId })
     .then((order) => {
       order.billingAddress = req.body.billingAddress;
-      order.customerId = req.body.customerId;
       order
         .save()
         .then((data) => res.json("Order Updated: ", data))
@@ -74,4 +73,17 @@ export const deleteOrder = (req, res) => {
     .catch((err) => {
       return res.status(500).json({ error: "Failed to delete event" });
     });
+};
+
+export const updateOrderStatus = (req, res) => {
+  const orderId = req.params.orderId;
+  Orders.findOne({ orderId: orderId })
+    .then((order) => {
+      order.status = req.body.status;
+      order
+        .save()
+        .then((data) => res.json("Order status Updated: ", data))
+        .catch((err) => res.status(400).json("Error: ", err));
+    })
+    .catch((err) => res.status(400).json("Error: ", err));
 };
