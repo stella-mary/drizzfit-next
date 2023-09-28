@@ -4,7 +4,7 @@ import TextField from "@mui/material/TextField";
 import Checkbox from "@mui/material/Checkbox";
 import EastIcon from "@mui/icons-material/East";
 
-const PlaceOrderMobile = ({ updateMobileNumber, selectedProduct, onNextClick }) => {
+const PlaceOrderMobile = ({ updateMobileNumber }) => {
   const [mobileNumber, setMobileNumber] = useState("");
   const [checked, setChecked] = React.useState(true);
 
@@ -15,7 +15,6 @@ const PlaceOrderMobile = ({ updateMobileNumber, selectedProduct, onNextClick }) 
   const handleContinue = () => {
     if (mobileNumberIsValid()) {
       updateMobileNumber(mobileNumber);
-      // onNextClick();
     }
   };
 
@@ -58,7 +57,11 @@ const PlaceOrderMobile = ({ updateMobileNumber, selectedProduct, onNextClick }) 
         </label>
       </div>
       <div className={styles.PlaceOrderFooter}>
-        <div className={styles.PlaceOrderButton} onClick={handleContinue}>Continue<span className={styles.space} /><EastIcon /></div>
+        <div className={styles.PlaceOrderButton} onClick={handleContinue}>
+          Continue
+          <span className={styles.space} />
+          <EastIcon />
+        </div>
       </div>
     </div>
   );

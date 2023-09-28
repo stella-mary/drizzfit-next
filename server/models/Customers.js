@@ -11,18 +11,10 @@ const customerSchema = new mongoose.Schema({
     type: String,
     // required: true,
   },
-  // password: {
-  //   type: String,
-  //   required: true,
-  // },
   fullName: {
     type: String,
     // required: true,
   },
-  // secondName: {
-  //   type: String,
-  //   // required: true,
-  // },
   phoneNumber: {
     type: String,
     required: true,

@@ -35,7 +35,6 @@ const PlaceOrderPage = ({
     setMobileNumber(mobileNumber);
   };
 
-
   const validateStep1Data = () => {
     if (validateMobileNumber()) {
       //mobileNumber not empty && mobile number contains only number && contains 10 digits)
@@ -49,19 +48,11 @@ const PlaceOrderPage = ({
 
   const [isContinueButtonEnabled, setIsContinueButtonEnabled] = useState(false);
 
-
   const validateMobileNumber = (mobile) => {
-    console.log("" + mobile)
+    console.log("" + mobile);
     if (mobile == "") return false;
     return true;
   };
-
-  // const updateMobileNumber = (mobileNumber) => {
-  //   if (validateMobileNumber(mobileNumber)) {
-  //     setMobileNumber(mobileNumber);
-  //     validateStep1Data();
-  //   }
-  // };
 
   const updateActiveStep = (newStepNumber) => {
     setCurrentActiveStep(newStepNumber);
@@ -81,24 +72,11 @@ const PlaceOrderPage = ({
       <div className={styles.PlaceOrderContainer}>
         <div className={styles.PlaceOrderContainer1}>
           <PlaceOrderStepper activeStep={currentActiveStep} />
-          {/* {currentActiveStep === 1 ? (
-            <PlaceOrderMobile
-              updateMobileNumber={updateMobileNumber}
-              selectedProduct={selectedProduct}
-              onNextClick={handleNextClick} // Pass the callback to navigate to the next step
-            />
-          ) : (
-            <div></div>
-          )} */}
-
           {currentActiveStep == 1 ? (
             validateMobileNumber(mobileNumber) ? (
-              <PlaceOrderMobileOTP />
+              <PlaceOrderMobileOTP mobileNumber={mobileNumber} />
             ) : (
-              <PlaceOrderMobile
-                updateMobileNumber={updateMobileNumber}
-                selectedProduct={selectedProduct}
-              />
+              <PlaceOrderMobile updateMobileNumber={updateMobileNumber} />
             )
           ) : (
             <div></div>
