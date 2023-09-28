@@ -3,8 +3,13 @@ import styles from "@/styles/PlaceOrderMobile.module.css";
 import TextField from "@mui/material/TextField";
 import Checkbox from "@mui/material/Checkbox";
 import EastIcon from "@mui/icons-material/East";
+import axios from "axios";
 
-const PlaceOrderMobile = ({ updateMobileNumber }) => {
+const PlaceOrderMobile = ({
+  updateMobileNumber,
+  selectedProduct,
+  selectedQuantity,
+}) => {
   const [mobileNumber, setMobileNumber] = useState("");
   const [checked, setChecked] = React.useState(true);
 
@@ -15,6 +20,32 @@ const PlaceOrderMobile = ({ updateMobileNumber }) => {
   const handleContinue = () => {
     if (mobileNumberIsValid()) {
       updateMobileNumber(mobileNumber);
+      axios
+        .post("http://localhost:1992/customer/add", {
+          phoneNumber: mobileNumber,
+        })
+        .then((response) => {
+          console.log("Customer Response: ", response.data),
+            axios
+              .post("http://localhost:1992/order/add", {
+                customerId: response.data.customerId,
+                orderDate: new Date(),
+                status: "Add to Cart",
+              })
+              .then((res) => {
+                console.log("Order Response: ", res.data),
+                  axios
+                    .post("http://localhost:1992/orderitem/add", {
+                      orderId: res.data.orderId,
+                      productId: selectedProduct.productId,
+                      quantity: selectedQuantity,
+                      priceAtOrder: selectedProduct.price,
+                    })
+                    .then((response) =>
+                      console.log("OrderItem Response: ", response.data)
+                    );
+              });
+        });
     }
   };
 

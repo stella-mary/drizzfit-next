@@ -76,7 +76,11 @@ const PlaceOrderPage = ({
             validateMobileNumber(mobileNumber) ? (
               <PlaceOrderMobileOTP mobileNumber={mobileNumber} />
             ) : (
-              <PlaceOrderMobile updateMobileNumber={updateMobileNumber} />
+              <PlaceOrderMobile
+                updateMobileNumber={updateMobileNumber}
+                selectedProduct={selectedProduct}
+                selectedQuantity={selectedQuantity}
+              />
             )
           ) : (
             <div></div>
