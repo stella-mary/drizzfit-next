@@ -1,11 +1,29 @@
 import React from 'react'
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
-const PlaceOrderAddress = () => {
+
+const PlaceOrderAddress = ({ mobileNumber }) => {
     return (
         <div>
-            Hey! Welcome back +91 93449 41067 Edit
-
-
+            Edit Address
+            <span className={styles.bgcolor}>{mobileNumber} <BorderColorIcon fontSize="16px" /></span>
+            <Box
+                component="form"
+                sx={{
+                    '& > :not(style)': { m: 1, width: '25ch' },
+                }}
+                noValidate
+                autoComplete="off"
+            >
+                <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+                <TextField id="filled-basic" label="Filled" variant="filled" />
+                <TextField id="standard-basic" label="Standard" variant="standard" />
+            </Box>
+            Pincode
+            City
+            State
+            Full Name
         </div>
     )
 }
