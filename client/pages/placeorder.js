@@ -20,7 +20,7 @@ const PlaceOrderPage = ({
   console.log("Selected Product: ", selectedProduct);
 
   // currentActiveStep
-  const [currentActiveStep, setCurrentActiveStep] = useState(1);
+  const [currentActiveStep, setCurrentActiveStep] = useState(2);
 
   //  step 1 state and validation
   const [mobileNumber, setMobileNumber] = useState("");
@@ -86,7 +86,7 @@ const PlaceOrderPage = ({
             <div></div>
           )}
 
-          {currentActiveStep == 2 ? <PlaceOrderAddress /> : <div></div>}
+          {currentActiveStep == 2 ? <PlaceOrderAddress mobileNumber={mobileNumber} /> : <div></div>}
           {currentActiveStep == 3 ? <PlaceOrderPayment /> : <div></div>}
           {/* <PlaceOrderFooter
             isContinueButtonEnabled

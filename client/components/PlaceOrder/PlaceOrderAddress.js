@@ -1,13 +1,15 @@
 import React from 'react'
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import styles from "@/styles/PlaceOrderAddress.module.css";
+import BorderColorIcon from '@mui/icons-material/BorderColor';
 
 
 const PlaceOrderAddress = ({ mobileNumber }) => {
     return (
         <div>
             Edit Address
-            <span className={styles.bgcolor}>{mobileNumber} <BorderColorIcon fontSize="16px" /></span>
+            <h1><span className={styles.bgcolor}>{mobileNumber} <BorderColorIcon fontSize="16px" /></span></h1>
             <Box
                 component="form"
                 sx={{
