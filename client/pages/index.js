@@ -9,6 +9,7 @@ import Guide from '@/components/Home/Guide'
 import Size from '@/components/Home/Size'
 import Users from '@/components/Home/Users'
 import Use from '@/components/Home/Use'
+import ContactUs from '@/components/Home/ContactUs'
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
       <Size />
       <Users />
       <Use />
+      <ContactUs />
     </div >
   )
 }

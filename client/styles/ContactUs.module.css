@@ -1,0 +1,87 @@
+.ContactUs {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  background-color: #fee600;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;  
+}
+
+.imageContactUs1 {
+  width: 100%; 
+  height: 100vh;
+  background-image: url("/image/contactus.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+
+.ContactUsMain{
+  display: flex;
+  padding-left: 10%;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.h1{
+  font-family: 'Telegraf UltraBold 800';
+  font-size: 50px;
+}
+
+.para {
+  font-family: 'Telegraf Regular 400';
+  margin-top: 20px;
+  font-size: 20px;
+  line-height: 1.5em;
+  font-weight: normal;
+}
+
+.ContactUsButton {
+display: flex;
+margin-top: 5rem;
+gap: 20px;
+}
+
+.ContactUsButtonIcon {
+  background-color: black;
+  color: #fee600;
+  padding: 2px;
+  border-radius: 10px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .ContactUs {
+    grid-template-columns: 1fr;
+    padding: 5%;
+    gap: 20px;
+   
+  }
+  
+  .ContactUsMain {
+    padding: 0%; 
+  }
+  
+  .button {
+    width: 40%; 
+    padding: 10px; 
+    font-size: 18px; 
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+  .h1 {
+    font-size: 40px;
+     
+  }
+  
+  .para {
+    font-size: 18px; 
+  }
+}  
+
