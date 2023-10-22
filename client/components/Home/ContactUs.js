@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect, } from "react";
 import { useInView } from "react-intersection-observer";
-import FacebookIcon from '@mui/icons-material/Facebook';
+import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 
@@ -33,6 +33,9 @@ const ContactUs = () => {
     const [ref2, inView2] = useInView();
     const control3 = useAnimation();
     const [ref3, inView3] = useInView();
+    const control4 = useAnimation();
+    const [ref4, inView4] = useInView();
+
 
     useEffect(() => {
         if (inView1) {
@@ -55,6 +58,15 @@ const ContactUs = () => {
             control3.start("visible");
         } else {
             control3.start("hidden");
+        }
+    }, [control3, inView3]);
+
+
+    useEffect(() => {
+        if (inView4) {
+            control4.start("visible");
+        } else {
+            control4.start("hidden");
         }
     }, [control3, inView3]);
 
@@ -94,8 +106,12 @@ const ContactUs = () => {
                     hello@reallygreatsite.com
                 </motion.div>
                 <motion.div
-                    className={styles.ContactUsButton}>
-                    <div className={styles.ContactUsButtonIcon}><FacebookIcon /></div>
+                    className={styles.ContactUsButton}
+                    ref={ref4}
+                    variants={boxVariant}
+                    initial="hidden"
+                    animate={control4}>
+                    <div className={styles.ContactUsButtonIcon}><FacebookRoundedIcon /></div>
                     <div className={styles.ContactUsButtonIcon}><InstagramIcon /></div>
                     <div className={styles.ContactUsButtonIcon}><TwitterIcon /></div>
                 </motion.div>

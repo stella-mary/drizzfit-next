@@ -48,11 +48,12 @@ gap: 20px;
   background-color: black;
   color: #fee600;
   padding: 2px;
-  border-radius: 10px;
+  border-radius: 50px;
 display: flex;
 justify-content: center;
 align-items: center;
 }
+
 
 @media screen and (max-width: 768px) {
   .ContactUs {
