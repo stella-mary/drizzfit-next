@@ -68,7 +68,7 @@ const ContactUs = () => {
         } else {
             control4.start("hidden");
         }
-    }, [control3, inView3]);
+    }, [control4, inView4]);
 
     return (
         <div className={styles.ContactUs}>
