@@ -9,14 +9,4 @@
   flex-direction: row;
 }
 
-/* Add bullet point before "Home" label */
-#outlined-basic::before {
-  content: "•"; /* Unicode for a bullet point (•) */
-  margin-right: 0.5em; /* Adjust the spacing as needed */
-}
 
-/* Add bullet point before "Work" label */
-#outlined-basic + #outlined-basic::before {
-  content: "•"; /* Unicode for a bullet point (•) */
-  margin-right: 0.5em; /* Adjust the spacing as needed */
-}

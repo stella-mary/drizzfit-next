@@ -13,7 +13,7 @@ const PlaceOrderAddress = ({ mobileNumber }) => {
             <div className={styles.placeOrderAddress}>Edit Address</div>
             <div><span className={styles.bgcolor}>{mobileNumber} <BorderColorIcon fontSize="10px" /></span></div>
             <div style={{ display: 'flex' }}>
-                <div style={{ flex: 1, overflowX: 'auto', height: '200px' }}>
+                <div style={{ flex: 1, overflowX: 'auto', height: '150px' }}>
                     <Box
                         component="form"
                         sx={{
@@ -66,14 +66,19 @@ const PlaceOrderAddress = ({ mobileNumber }) => {
                         autoComplete="off"
                     >
                         <TextField id="outlined-basic" label="Full Address" variant="outlined" />
+
                     </Box>
                     <div className='placeOrderAddressMain'>
                         <div className={styles.placeOrderAddress}>Address Type</div>
-
                     </div>
                 </div>
             </div>
-        </div>
+            <ul>
+                <li>Coffee</li>
+                <li>Tea</li>
+                <li>Milk</li>
+            </ul>
+        </div >
     )
 }
 
