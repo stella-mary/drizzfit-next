@@ -6,6 +6,10 @@
 
 .placeOrderAddressMain {
   display: flex;
+}
+
+.placeOrderAddressSub {
+  display: flex;
   flex-direction: row;
 }
 

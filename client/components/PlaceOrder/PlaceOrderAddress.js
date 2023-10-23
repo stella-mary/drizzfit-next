@@ -2,11 +2,14 @@ import React from 'react'
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import styles from "@/styles/PlaceOrderAddress.module.css";
-
 import BorderColorIcon from '@mui/icons-material/BorderColor';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
 
 const PlaceOrderAddress = ({ mobileNumber }) => {
-
 
     return (
         <div>
@@ -70,14 +73,29 @@ const PlaceOrderAddress = ({ mobileNumber }) => {
                     </Box>
                     <div className='placeOrderAddressMain'>
                         <div className={styles.placeOrderAddress}>Address Type</div>
+                        <FormControl>
+                            <RadioGroup
+                                row
+                                aria-labelledby="demo-row-radio-buttons-group-label"
+                                name="row-radio-buttons-group"
+                            >
+                                <FormControlLabel value="home" control={<Radio />} label="Home" />
+                                <FormControlLabel value="work" control={<Radio />} label="Work" />
+                            </RadioGroup>
+                        </FormControl>
                     </div>
+                    <div className={styles.placeOrderAddress}>Shipping method</div>
+                    <FormControl>
+                        <RadioGroup row aria-labelledby="demo-row-radio-buttons-group-label" name="row-radio-buttons-group"
+                        >
+                            <FormControlLabel value="freeshipping" control={<Radio />} label="Free Shipping @ #10" />
+
+                        </RadioGroup>
+                    </FormControl>
+
                 </div>
             </div>
-            <ul>
-                <li>Coffee</li>
-                <li>Tea</li>
-                <li>Milk</li>
-            </ul>
+
         </div >
     )
 }

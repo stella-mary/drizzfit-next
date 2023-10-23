@@ -8,6 +8,7 @@ import PlaceOrderSummary from "@/components/PlaceOrder/PlaceOrderSummary";
 import PlaceOrderStepper from "@/components/PlaceOrder/PlaceOrderStepper";
 import styles from "@/styles/PlaceOrder.module.css";
 import PlaceOrderMobileOTP from "@/components/PlaceOrder/PlaceOrderMobileOTP";
+import PlaceOrderAddress1 from "@/components/PlaceOrder/PlaceOrderAddress1";
 
 const PlaceOrderPage = ({
   selectedQuantity,
@@ -86,7 +87,23 @@ const PlaceOrderPage = ({
             <div></div>
           )}
 
-          {currentActiveStep == 2 ? <PlaceOrderAddress mobileNumber={mobileNumber} setMobileNumber={setMobileNumber} validateMobileNumber={validateMobileNumber} /> : <div></div>}
+          {currentActiveStep == 2 ? (
+            validateMobileNumber(mobileNumber) ? (
+              <PlaceOrderAddress1 />
+            ) : (
+              <PlaceOrderAddress
+                mobileNumber={mobileNumber}
+              // updateMobileNumber={updateMobileNumber}
+              // selectedProduct={selectedProduct}
+              // selectedQuantity={selectedQuantity}
+              />
+            )
+          ) : (
+            <div></div>
+          )}
+
+          {/* {currentActiveStep === 2 ? <PlaceOrderAddress mobileNumber={mobileNumber} /> : <div></div>} */}
+
           {currentActiveStep == 3 ? <PlaceOrderPayment /> : <div></div>}
           {/* <PlaceOrderFooter
             isContinueButtonEnabled
