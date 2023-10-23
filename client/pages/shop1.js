@@ -3,7 +3,7 @@ import Navbar from '@/components/Home/Navbar';
 import styles from '../styles/Shop1.module.css';
 import Shop1 from '@/components/Shop/Shop1';
 import Shop2 from '@/components/Shop/Shop2';
-import BuyPage from './buy';
+import BuyPage from '@/components/Buy';
 
 const Shop1Page = () => {
     return (

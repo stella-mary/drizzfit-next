@@ -4,7 +4,7 @@ import axios from "axios";
 import { useMediaQuery } from "@mui/material";
 import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import BuyPage from "@/pages/buy";
+import BuyPage from "../Buy";
 import AppContext from "../AppContext";
 import CloseIcon from "@mui/icons-material/Close";
 
