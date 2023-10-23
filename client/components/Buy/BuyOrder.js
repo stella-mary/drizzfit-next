@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "@/styles/BuyOrder.module.css";
 import { useRouter } from "next/router";
-import PlaceOrderPage from "@/pages/placeorder";
+import PlaceOrderPage from "../Shop/PlaceOrder";
 import PlaceOrderNavbar from "../PlaceOrder/PlaceOrderNavbar";
 
 const BuyOrder = ({ selectedQuantity, selectedProduct }) => {

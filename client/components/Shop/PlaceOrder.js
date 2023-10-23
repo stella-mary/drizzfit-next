@@ -1,146 +1,114 @@
-// import React, { useEffect, useState } from "react";
-// import styles from "@/styles/Shop.module.css";
-// import Dialog from "@mui/material/Dialog";
-// import ClearIcon from "@mui/icons-material/Clear";
-// import DialogActions from "@mui/material/DialogActions";
-// import DialogContent from "@mui/material/DialogContent";
-// import DialogContentText from "@mui/material/DialogContentText";
-// import DialogTitle from "@mui/material/DialogTitle";
-// import Button from "@mui/material/Button";
-// import Box from "@mui/material/Box";
-// import Stepper from "@mui/material/Stepper";
-// import Step from "@mui/material/Step";
-// import StepLabel from "@mui/material/StepLabel";
-// import Typography from "@mui/material/Typography";
-// import TextField from "@mui/material/TextField";
-// import axios from "axios";
+import React, { useState, useEffect } from "react";
+import PlaceOrderNavbar from "@/components/PlaceOrder/PlaceOrderNavbar";
+import PlaceOrderAddress from "@/components/PlaceOrder/PlaceOrderAddress";
+import PlaceOrderFooter from "@/components/PlaceOrder/PlaceOrderFooter";
+import PlaceOrderMobile from "@/components/PlaceOrder/PlaceOrderMobile";
+import PlaceOrderPayment from "@/components/PlaceOrder/PlaceOrderPayment";
+import PlaceOrderSummary from "@/components/PlaceOrder/PlaceOrderSummary";
+import PlaceOrderStepper from "@/components/PlaceOrder/PlaceOrderStepper";
+import styles from "@/styles/PlaceOrder.module.css";
+import PlaceOrderMobileOTP from "@/components/PlaceOrder/PlaceOrderMobileOTP";
+import PlaceOrderAddress1 from "@/components/PlaceOrder/PlaceOrderAddress1";
 
-// const steps = ["Mobile", "Address", "Payment"];
+const PlaceOrderPage = ({
+  selectedQuantity,
+  setSelectedQuantity,
+  selectedProduct,
+}) => {
+  const subtotal = selectedQuantity * (selectedProduct.price || 0);
+  console.log("selectedQuantity" + selectedQuantity);
+  console.log("subtotal" + subtotal);
+  console.log("Selected Product: ", selectedProduct);
 
-// export default function PlaceOrder({ open, onClose, orderId, openDialog }) {
-//   const [activeStep, setActiveStep] = useState(0);
-//   const [phoneNumber, setPhoneNumber] = useState();
-//   console.log("Order Id in place order: ", orderId);
+  // currentActiveStep
+  const [currentActiveStep, setCurrentActiveStep] = useState(1);
 
-//   const handleNext = () => {
-//     axios
-//       .post(`${process.env.BASE_URL}/customer/add`, {
-//         phoneNumber: phoneNumber,
-//       })
-//       .then((response) => {
-//         console.log("Customer Response: ", response.data);
-//         axios
-//           .put(`${process.env.BASE_URL}/order/update/${orderId}`, {
-//             customerId: response.data.customerId,
-//           })
-//           .then((res) => console.log("Order update response: ", res.data));
-//       });
-//     // setActiveStep((prevActiveStep) => prevActiveStep + 1);
-//   };
+  //  step 1 state and validation
+  const [mobileNumber, setMobileNumber] = useState("");
+  const [allStep1InputsValid, setAllStep1InputsValid] = useState(false);
 
-//   const handleBack = () => {
-//     setActiveStep((prevActiveStep) => prevActiveStep - 1);
-//   };
+  const handleNextClick = () => {
+    // Move to the next step
+    setCurrentActiveStep(currentActiveStep + 1);
+  };
 
-//   const handleReset = () => {
-//     setActiveStep(0);
-//   };
+  const updateMobileNumber = (mobileNumber) => {
+    setMobileNumber(mobileNumber);
+  };
 
-//   const handleClose = () => {
-//     onClose(openDialog);
-//   };
+  const validateStep1Data = () => {
+    if (validateMobileNumber()) {
+      //mobileNumber not empty && mobile number contains only number && contains 10 digits)
+      setAllStep1InputsValid(true);
+    }
+    setIsContinueButtonEnabled(false);
+  };
 
-//   return (
-//     <div className={styles.shop}>
-//       <Dialog
-//         open={open}
-//         onClose={handleClose}
-//         PaperProps={{
-//           sx: {
-//             width: "100%",
-//           },
-//         }}
-//       >
-//         <DialogActions>
-//           <ClearIcon onClick={onClose} color="primary">
-//             Close
-//           </ClearIcon>
-//         </DialogActions>
+  // step 2 state
+  const [homeAddress, setHomeAddress] = useState("");
 
-//         {/* <DialogTitle>Order Placed Successfully</DialogTitle> */}
-//         <DialogContent>
-//           <DialogContentText>
-//             <Box
-//               sx={{
-//                 width: "100%",
-//                 padding: "24px",
-//               }}
-//             >
-//               <Stepper activeStep={activeStep}>
-//                 {steps.map((label, index) => {
-//                   const stepProps = {};
-//                   const labelProps = {};
-//                   return (
-//                     <Step key={label} {...stepProps}>
-//                       <StepLabel {...labelProps}>{label}</StepLabel>
-//                     </Step>
-//                   );
-//                 })}
-//               </Stepper>
-//               {activeStep === steps.length ? (
-//                 <React.Fragment>
-//                   <Typography sx={{ mt: 2, mb: 1 }}>
-//                     All steps completed - you&apos;re finished
-//                   </Typography>
-//                   <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
-//                     <Box sx={{ flex: "1 1 auto" }} />
-//                     <Button onClick={handleReset}>Reset</Button>
-//                   </Box>
-//                 </React.Fragment>
-//               ) : (
-//                 <React.Fragment>
-//                   <Typography sx={{ mt: 2, mb: 1 }}>
-//                     {/* Step {activeStep + 1} */}
-//                   </Typography>
-//                   {activeStep === 0 && (
-//                     <React.Fragment>
-//                       <Box sx={{ display: "flex", flexDirection: "column" }}>
-//                         <Typography variant="body">
-//                           Enter Mobile Number:
-//                         </Typography>
-//                         <TextField
-//                           fullWidth
-//                           defaultValue="+91 | "
-//                           inputProps={{
-//                             maxLength: 18, // Including "+91 | "
-//                           }}
-//                           value={phoneNumber}
-//                           onChange={(e) => setPhoneNumber(e.target.value)}
-//                         />
-//                       </Box>
-//                     </React.Fragment>
-//                   )}
-//                   <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
-//                     <Button
-//                       color="inherit"
-//                       disabled={activeStep === 0}
-//                       onClick={handleBack}
-//                       sx={{ mr: 1 }}
-//                     >
-//                       {/* Back */}
-//                     </Button>
-//                     <Box sx={{ flex: "1 1 auto" }} />
-//                     <Button onClick={handleNext}>
-//                       {activeStep === steps.length - 1 ? "Finish" : "Continue"}
-//                     </Button>
-//                   </Box>
-//                 </React.Fragment>
-//               )}
-//             </Box>
-//           </DialogContentText>
-//         </DialogContent>
-//       </Dialog>
-//       {/* ...existing code... */}
-//     </div>
-//   );
-// }
+  const [isContinueButtonEnabled, setIsContinueButtonEnabled] = useState(false);
+
+  const validateMobileNumber = (mobile) => {
+    console.log("" + mobile);
+    if (mobile == "") return false;
+    return true;
+  };
+
+  const updateActiveStep = (newStepNumber) => {
+    setCurrentActiveStep(newStepNumber);
+  };
+
+  const handleContinueButtonClick = () => {
+    // Mobile Nmber validation
+    console.log("Continue btn clicked");
+    switch (currentActiveStep) {
+      case 1:
+        validateStep1Data();
+    }
+  };
+
+  return (
+    <div>
+      <div className={styles.PlaceOrderContainer}>
+        <div className={styles.PlaceOrderContainer1}>
+          <PlaceOrderStepper activeStep={currentActiveStep} />
+          {currentActiveStep == 1 ? (
+            validateMobileNumber(mobileNumber) ? (
+              <PlaceOrderMobileOTP mobileNumber={mobileNumber} />
+            ) : (
+              <PlaceOrderMobile
+                updateMobileNumber={updateMobileNumber}
+                selectedProduct={selectedProduct}
+                selectedQuantity={selectedQuantity}
+              />
+            )
+          ) : (
+            <div></div>
+          )}
+
+
+          {currentActiveStep === 2 ? <PlaceOrderAddress mobileNumber={mobileNumber} /> : <div></div>}
+
+          {currentActiveStep == 3 ? <PlaceOrderPayment /> : <div></div>}
+          {/* <PlaceOrderFooter
+            isContinueButtonEnabled
+            handleContinueButtonClick={handleContinueButtonClick}
+          /> */}
+        </div>
+        <div className={styles.PlaceOrderContainer2}>
+          <PlaceOrderSummary
+            setSelectedQuantity={setSelectedQuantity}
+            productName={selectedProduct.name}
+            productDescription={selectedProduct.description}
+            selectedQuantity={selectedQuantity}
+            productPrice={selectedProduct.price}
+            subtotal={subtotal}
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default PlaceOrderPage;

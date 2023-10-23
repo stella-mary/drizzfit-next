@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "@/styles/PlaceOrderNavbar.module.css";
 import CloseIcon from "@mui/icons-material/Close";
-import PlaceOrderPage from "@/pages/placeorder";
+import PlaceOrderPage from "../Shop/PlaceOrder";
 import PlaceOrderClosePopup from "./PlaceOrderClosePopup";
 
 const PlaceOrderNavbar = ({ closeDialog }) => {
