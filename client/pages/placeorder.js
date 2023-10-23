@@ -21,7 +21,7 @@ const PlaceOrderPage = ({
   console.log("Selected Product: ", selectedProduct);
 
   // currentActiveStep
-  const [currentActiveStep, setCurrentActiveStep] = useState(2);
+  const [currentActiveStep, setCurrentActiveStep] = useState(1);
 
   //  step 1 state and validation
   const [mobileNumber, setMobileNumber] = useState("");
