@@ -87,22 +87,8 @@ const PlaceOrderPage = ({
             <div></div>
           )}
 
-          {currentActiveStep == 2 ? (
-            validateMobileNumber(mobileNumber) ? (
-              <PlaceOrderAddress1 />
-            ) : (
-              <PlaceOrderAddress
-                mobileNumber={mobileNumber}
-              // updateMobileNumber={updateMobileNumber}
-              // selectedProduct={selectedProduct}
-              // selectedQuantity={selectedQuantity}
-              />
-            )
-          ) : (
-            <div></div>
-          )}
 
-          {/* {currentActiveStep === 2 ? <PlaceOrderAddress mobileNumber={mobileNumber} /> : <div></div>} */}
+          {currentActiveStep === 2 ? <PlaceOrderAddress mobileNumber={mobileNumber} /> : <div></div>}
 
           {currentActiveStep == 3 ? <PlaceOrderPayment /> : <div></div>}
           {/* <PlaceOrderFooter
