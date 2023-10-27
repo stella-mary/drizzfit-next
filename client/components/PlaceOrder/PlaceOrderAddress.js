@@ -13,7 +13,7 @@ const PlaceOrderAddress = ({ mobileNumber }) => {
 
     return (
         <div>
-            <div className={styles.placeOrderAddress}>Edit Address</div>
+            <div className={styles.placeOrderAddress}> Edit Address</div>
             <div><span className={styles.bgcolor}>{mobileNumber} <BorderColorIcon fontSize="10px" /></span></div>
             <div style={{ display: 'flex' }}>
                 <div style={{ flex: 1, overflowX: 'auto', height: '150px' }}>

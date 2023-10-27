@@ -27,6 +27,8 @@ const PlaceOrderPage = ({
   const [mobileNumber, setMobileNumber] = useState("");
   const [allStep1InputsValid, setAllStep1InputsValid] = useState(false);
 
+  const [allStep2InputsValid, setAllStep2InputsValid] = useState(false);
+
   const handleNextClick = () => {
     // Move to the next step
     setCurrentActiveStep(currentActiveStep + 1);
@@ -40,6 +42,14 @@ const PlaceOrderPage = ({
     if (validateMobileNumber()) {
       //mobileNumber not empty && mobile number contains only number && contains 10 digits)
       setAllStep1InputsValid(true);
+    }
+    setIsContinueButtonEnabled(false);
+  };
+
+  const validateStep2Data = () => {
+    if (validateMobileNumber()) {
+      //mobileNumber not empty && mobile number contains only number && contains 10 digits)
+      setAllStep2InputsValid(true);
     }
     setIsContinueButtonEnabled(false);
   };
@@ -68,6 +78,13 @@ const PlaceOrderPage = ({
         if (validateMobileNumber(mobileNumber)) {
           validateStep1Data();
           setCurrentActiveStep(2); // Move to step 2 (Address) when mobile number is valid
+        }
+        break;
+      case 2:
+        // validateStep1Data();
+        if (validateMobileNumber(mobileNumber)) {
+          validateStep2Data();
+          setCurrentActiveStep(3); // Move to step 2 (Address) when mobile number is valid
         }
         break;
 
@@ -99,11 +116,14 @@ const PlaceOrderPage = ({
 
           {currentActiveStep === 2 ? <PlaceOrderAddress mobileNumber={mobileNumber} /> : <div></div>}
 
-          {currentActiveStep == 3 ? <PlaceOrderPayment /> : <div></div>}
+          {currentActiveStep == 3 ? <PlaceOrderPayment mobileNumber={mobileNumber} /> : <div></div>}
           <PlaceOrderFooter
             isContinueButtonEnabled
             handleContinueButtonClick={handleContinueButtonClick}
+            mobileNumber={mobileNumber}
+            updateMobileNumber={updateMobileNumber}
           />
+
         </div>
         <div className={styles.PlaceOrderContainer2}>
           <PlaceOrderSummary

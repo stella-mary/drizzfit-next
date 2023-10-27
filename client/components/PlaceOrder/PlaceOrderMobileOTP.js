@@ -4,6 +4,7 @@ import BorderColorIcon from '@mui/icons-material/BorderColor';
 import PlaceOrderMobile from "./PlaceOrderMobile";
 import { useRouter } from "next/router"
 
+
 const PlaceOrderMobileOTP = ({ mobileNumber }) => {
 
   const router = useRouter();
@@ -28,6 +29,13 @@ const PlaceOrderMobileOTP = ({ mobileNumber }) => {
         <div className={styles.box}></div>
       </div>
       <div className={styles.center1}>Resend OTP in </div>
+      {/* <div className={styles.PlaceOrderFooter}>
+        <div className={styles.PlaceOrderButton} >
+          Continue
+          <span className={styles.space} />
+          <EastIcon />
+        </div>
+      </div> */}
 
     </div>
   );

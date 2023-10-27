@@ -1,9 +1,9 @@
 import React from 'react'
 
-const PlaceOrderPayment = () => {
+const PlaceOrderPayment = ({ mobileNumber }) => {
     return (
         <div>
-
+            {mobileNumber}
         </div>
     )
 }
