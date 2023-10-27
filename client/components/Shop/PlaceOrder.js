@@ -64,9 +64,18 @@ const PlaceOrderPage = ({
     console.log("Continue btn clicked");
     switch (currentActiveStep) {
       case 1:
-        validateStep1Data();
+        // validateStep1Data();
+        if (validateMobileNumber(mobileNumber)) {
+          validateStep1Data();
+          setCurrentActiveStep(2); // Move to step 2 (Address) when mobile number is valid
+        }
+        break;
+
+      default:
+        break;
     }
   };
+
 
   return (
     <div>
@@ -91,10 +100,10 @@ const PlaceOrderPage = ({
           {currentActiveStep === 2 ? <PlaceOrderAddress mobileNumber={mobileNumber} /> : <div></div>}
 
           {currentActiveStep == 3 ? <PlaceOrderPayment /> : <div></div>}
-          {/* <PlaceOrderFooter
+          <PlaceOrderFooter
             isContinueButtonEnabled
             handleContinueButtonClick={handleContinueButtonClick}
-          /> */}
+          />
         </div>
         <div className={styles.PlaceOrderContainer2}>
           <PlaceOrderSummary

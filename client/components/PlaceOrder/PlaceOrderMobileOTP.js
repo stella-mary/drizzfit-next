@@ -28,6 +28,7 @@ const PlaceOrderMobileOTP = ({ mobileNumber }) => {
         <div className={styles.box}></div>
       </div>
       <div className={styles.center1}>Resend OTP in </div>
+
     </div>
   );
 };

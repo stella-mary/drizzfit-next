@@ -113,7 +113,6 @@ const ContactUs = () => {
                     <div className={styles.ContactUsButtonIcon}><a href="https://www.instagram.com/drizzfit_mc/"><InstagramIcon /></a></div>
                 </motion.div>
             </div>
-
         </div>
     )
 }
