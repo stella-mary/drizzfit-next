@@ -8,6 +8,8 @@ const PlaceOrderMobileOTP = ({
   mobileNumber,
   updateMobileNumber,
   handleClick,
+  goToStep1,
+  handleGoToStep1,
   selectedProduct,
   selectedQuantity,
 }) => {
@@ -42,11 +44,12 @@ const PlaceOrderMobileOTP = ({
     <div className={styles.PlaceOrderMobileOTP}>
       <div className={styles.h1}>Verify Mobile Number</div>
       <div className={styles.para}>
-        To Use Your Saved Address, Enter the OTP Sent to
+        Enter the OTP Sent to
       </div>
       <div className={styles.center}>
         <span className={styles.bgcolor}>
-          {mobileNumber} <BorderColorIcon fontSize="16px" />
+          {mobileNumber}
+          <BorderColorIcon fontSize="16px" cursor="pointer" onClick={goToStep1} />
         </span>
       </div>
       <div className={styles.otpInputContainer}>

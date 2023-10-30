@@ -9,6 +9,7 @@ import PlaceOrderStepper from "@/components/PlaceOrder/PlaceOrderStepper";
 import styles from "@/styles/PlaceOrder.module.css";
 import PlaceOrderMobileOTP from "@/components/PlaceOrder/PlaceOrderMobileOTP";
 import PlaceOrderAddress1 from "@/components/PlaceOrder/PlaceOrderAddress1";
+import { useRouter } from "next/router";
 
 const PlaceOrderPage = ({
   selectedQuantity,
@@ -19,6 +20,8 @@ const PlaceOrderPage = ({
   console.log("selectedQuantity" + selectedQuantity);
   console.log("subtotal" + subtotal);
   console.log("Selected Product: ", selectedProduct);
+
+  const router = useRouter();
 
   // currentActiveStep
   const [currentActiveStep, setCurrentActiveStep] = useState(1);
@@ -34,6 +37,12 @@ const PlaceOrderPage = ({
     setCurrentActiveStep(currentActiveStep + 1);
   };
 
+  const handleGoToStep1 = () => {
+    setCurrentActiveStep(currentActiveStep - 1);
+    // router.push("/PlaceOrderMobile");
+    // setCurrentStep(1); // Assuming 1 represents "step1"
+  };
+
   const updateMobileNumber = (mobileNumber) => {
     setMobileNumber(mobileNumber);
   };
@@ -46,13 +55,6 @@ const PlaceOrderPage = ({
     setIsContinueButtonEnabled(false);
   };
 
-  const validateStep2Data = () => {
-    if (validateMobileNumber()) {
-      //mobileNumber not empty && mobile number contains only number && contains 10 digits)
-      setAllStep2InputsValid(true);
-    }
-    setIsContinueButtonEnabled(false);
-  };
 
   // step 2 state
   const [homeAddress, setHomeAddress] = useState("");
@@ -79,17 +81,6 @@ const PlaceOrderPage = ({
           validateStep1Data();
           setCurrentActiveStep(2); // Move to step 2 (Address) when mobile number is valid
         }
-      //   break;
-      // case 2:
-      //   // validateStep1Data();
-      //   if (validateMobileNumber(mobileNumber)) {
-      //     validateStep2Data();
-      //     setCurrentActiveStep(3); // Move to step 2 (Address) when mobile number is valid
-      //   }
-      //   break;
-
-      // default:
-      //   break;
     }
   };
 
@@ -101,12 +92,13 @@ const PlaceOrderPage = ({
           <PlaceOrderStepper activeStep={currentActiveStep} />
           {currentActiveStep == 1 ? (
             validateMobileNumber(mobileNumber) ? (
-              <PlaceOrderMobileOTP mobileNumber={mobileNumber} handleClick={handleNextClick} />
+              <PlaceOrderMobileOTP mobileNumber={mobileNumber} goToStep1={handleGoToStep1} handleClick={handleNextClick} />
             ) : (
               <PlaceOrderMobile
                 updateMobileNumber={updateMobileNumber}
                 selectedProduct={selectedProduct}
                 selectedQuantity={selectedQuantity}
+
               />
             )
           ) : (
