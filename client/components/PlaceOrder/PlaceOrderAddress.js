@@ -8,8 +8,13 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
+import EastIcon from "@mui/icons-material/East";
 
-const PlaceOrderAddress = ({ mobileNumber }) => {
+const PlaceOrderAddress = ({ mobileNumber, handleClick }) => {
+
+    const handleContinue = () => {
+        handleClick();
+    }
 
     return (
         <div>
@@ -95,6 +100,14 @@ const PlaceOrderAddress = ({ mobileNumber }) => {
 
                 </div>
             </div>
+            <div className={styles.PlaceOrderFooter}>
+                <div className={styles.PlaceOrderButton} onClick={handleContinue}>
+                    Continue
+                    <span className={styles.space} />
+                    <EastIcon />
+                </div>
+            </div>
+
 
         </div >
     )

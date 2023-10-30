@@ -50,3 +50,40 @@
 .bgcolor {
   color: red;
 }
+
+.PlaceOrderFooter{
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  align-items: center;
+  }
+
+  .PlaceOrderButton {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    background: #a25148;
+    width: 100%;
+    margin-top: 40px;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .disabledButton {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    background: #af908d;
+    width: 50%;
+    margin-top: 40px;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+  }
+  
+  .space {
+    padding-left: 10px;
+    vertical-align: middle;
+  }

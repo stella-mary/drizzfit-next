@@ -79,17 +79,17 @@ const PlaceOrderPage = ({
           validateStep1Data();
           setCurrentActiveStep(2); // Move to step 2 (Address) when mobile number is valid
         }
-        break;
-      case 2:
-        // validateStep1Data();
-        if (validateMobileNumber(mobileNumber)) {
-          validateStep2Data();
-          setCurrentActiveStep(3); // Move to step 2 (Address) when mobile number is valid
-        }
-        break;
+      //   break;
+      // case 2:
+      //   // validateStep1Data();
+      //   if (validateMobileNumber(mobileNumber)) {
+      //     validateStep2Data();
+      //     setCurrentActiveStep(3); // Move to step 2 (Address) when mobile number is valid
+      //   }
+      //   break;
 
-      default:
-        break;
+      // default:
+      //   break;
     }
   };
 
@@ -101,7 +101,7 @@ const PlaceOrderPage = ({
           <PlaceOrderStepper activeStep={currentActiveStep} />
           {currentActiveStep == 1 ? (
             validateMobileNumber(mobileNumber) ? (
-              <PlaceOrderMobileOTP mobileNumber={mobileNumber} />
+              <PlaceOrderMobileOTP mobileNumber={mobileNumber} handleClick={handleNextClick} />
             ) : (
               <PlaceOrderMobile
                 updateMobileNumber={updateMobileNumber}
@@ -114,15 +114,15 @@ const PlaceOrderPage = ({
           )}
 
 
-          {currentActiveStep === 2 ? <PlaceOrderAddress mobileNumber={mobileNumber} /> : <div></div>}
+          {currentActiveStep === 2 ? <PlaceOrderAddress mobileNumber={mobileNumber} handleClick={handleNextClick} /> : <div></div>}
 
           {currentActiveStep == 3 ? <PlaceOrderPayment mobileNumber={mobileNumber} /> : <div></div>}
-          <PlaceOrderFooter
+          {/* <PlaceOrderFooter
             isContinueButtonEnabled
             handleContinueButtonClick={handleContinueButtonClick}
             mobileNumber={mobileNumber}
             updateMobileNumber={updateMobileNumber}
-          />
+          /> */}
 
         </div>
         <div className={styles.PlaceOrderContainer2}>

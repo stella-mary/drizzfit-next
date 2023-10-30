@@ -45,7 +45,7 @@
   display: flex;
   justify-content:center;
   align-items: center;
-  background: black;
+  background: #a25148;
   width: 50%;
   margin-top: 40px;
   padding: 20px;
@@ -54,11 +54,11 @@
   cursor: pointer;
 }
 
-.PlaceOrderButtonDisabled {
+.disabledButton {
   display: flex;
   justify-content:center;
   align-items: center;
-  background: red;
+  background: #af908d;
   width: 50%;
   margin-top: 40px;
   padding: 20px;
@@ -70,3 +70,4 @@
   padding-left: 10px;
   vertical-align: middle;
 }
+

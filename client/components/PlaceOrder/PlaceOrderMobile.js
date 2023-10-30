@@ -12,6 +12,7 @@ const PlaceOrderMobile = ({
 }) => {
   const [mobileNumber, setMobileNumber] = useState("");
   const [checked, setChecked] = React.useState(true);
+  const [isContinueButtonEnabled, setIsContinueButtonEnabled] = useState(false);
 
   const handleChange = (event) => {
     setChecked(event.target.checked);
@@ -50,7 +51,18 @@ const PlaceOrderMobile = ({
   };
 
   const mobileNumberIsValid = () => {
-    return true; // Replace with your validation logic
+    // Implement your validation logic here
+    // For example, check if mobileNumber is a 10-digit number
+    return /^\d{10}$/.test(mobileNumber);
+  };
+
+
+  // Function to handle changes in the TextField
+  const handleMobileNumberChange = (e) => {
+    const newValue = e.target.value;
+    setMobileNumber(newValue);
+    setIsContinueButtonEnabled(mobileNumberIsValid());
+
   };
 
   return (
@@ -58,9 +70,9 @@ const PlaceOrderMobile = ({
       <div className={styles.PlaceOrderMobile}>Enter Mobile Number</div>
       <div className={styles.PlaceOrderText}>
         <TextField
-          defaultValue="+91 | "
+          defaultValue=" "
           value={mobileNumber}
-          onChange={(e) => setMobileNumber(e.target.value)}
+          onChange={handleMobileNumberChange}
           inputProps={{
             maxLength: 18, // Including "+91 | "
             style: {
@@ -77,7 +89,7 @@ const PlaceOrderMobile = ({
         />
       </div>
       <div className={styles.PlaceOrderNote}>
-        <label className="checkboxLabel">
+        {/* <label className="checkboxLabel">
           <Checkbox
             checked={checked}
             onChange={handleChange} // Use the handleChange function here
@@ -85,10 +97,15 @@ const PlaceOrderMobile = ({
             className={styles.checkboxInput}
           />
           Notify me for orders, updates & offers
-        </label>
+        </label> */}
       </div>
       <div className={styles.PlaceOrderFooter}>
-        <div className={styles.PlaceOrderButton} onClick={handleContinue}>
+        <div
+          className={`${styles.PlaceOrderButton} ${!isContinueButtonEnabled ? styles.disabledButton : ""
+            }`}
+          onClick={handleContinue}
+          disabled={!isContinueButtonEnabled}
+        >
           Continue
           <span className={styles.space} />
           <EastIcon />
