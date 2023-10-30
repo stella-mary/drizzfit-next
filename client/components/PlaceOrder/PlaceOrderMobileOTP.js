@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "@/styles/PlaceOrderMobileOTP.module.css";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 import EastIcon from "@mui/icons-material/East";
@@ -13,21 +13,28 @@ const PlaceOrderMobileOTP = ({
 }) => {
   const [otp, setOTP] = useState(""); // State to store OTP
   const [isOTPVerified, setIsOTPVerified] = useState(false);
+  const [isContinueButtonEnabled, setIsContinueButtonEnabled] = useState(false);
 
   const handleOTPChange = (e) => {
     const newValue = e.target.value;
     setOTP(newValue);
   };
 
+  useEffect(() => {
+    // Check if the OTP input is exactly 4 characters to enable the "Continue" button
+    setIsContinueButtonEnabled(otp.length === 4);
+  }, [otp]);
+
   const handleContinue = () => {
-    // You should implement your OTP verification logic here.
-    // For now, we'll check if the entered OTP is "1234" for demonstration purposes.
-    if (otp === "1234") {
-      setIsOTPVerified(true); // Set OTP verification status to true
-      handleClick(); // Continue to the next step
+    if (isContinueButtonEnabled) {
+      if (otp === "1234") {
+        setIsOTPVerified(true); // Set OTP verification status to true
+        handleClick(); // Continue to the next step
+      } else {
+        alert("Incorrect OTP. Please try again.");
+      }
     } else {
-      // Handle incorrect OTP (e.g., display an error message)
-      alert("Incorrect OTP. Please try again.");
+      alert("Please enter a 4-digit OTP.");
     }
   };
 
@@ -60,9 +67,10 @@ const PlaceOrderMobileOTP = ({
       <div className={styles.center1}>Resend OTP in </div> */}
       <div className={styles.PlaceOrderFooter}>
         <div
-          className={styles.PlaceOrderButton}
+          className={`${styles.PlaceOrderButton} ${!isContinueButtonEnabled ? styles.disabledButton : ""
+            }`}
           onClick={handleContinue}
-          disabled={isOTPVerified || otp.length !== 4}
+          disabled={!isContinueButtonEnabled}
         >
           Continue
           <span className={styles.space} />
