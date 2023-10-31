@@ -24,6 +24,7 @@ const PlaceOrderPage = ({
   const router = useRouter();
 
   // currentActiveStep
+  const [currentActiveStep1, setCurrentActiveStep1] = useState(0);
   const [currentActiveStep, setCurrentActiveStep] = useState(1);
 
   //  step 1 state and validation
@@ -38,10 +39,9 @@ const PlaceOrderPage = ({
   };
 
   const handleGoToStep1 = () => {
-    setCurrentActiveStep(currentActiveStep - 1);
-    // router.push("/PlaceOrderMobile");
-    // setCurrentStep(1); // Assuming 1 represents "step1"
+    setCurrentActiveStep1(currentActiveStep1 + 1);
   };
+
 
   const handleGoToStep2 = () => {
     setCurrentActiveStep(1);
@@ -98,7 +98,7 @@ const PlaceOrderPage = ({
           <PlaceOrderStepper activeStep={currentActiveStep} />
           {currentActiveStep == 1 ? (
             validateMobileNumber(mobileNumber) ? (
-              <PlaceOrderMobileOTP mobileNumber={mobileNumber} goToStep1={handleGoToStep1} handleClick={handleNextClick} />
+              <PlaceOrderMobileOTP mobileNumber={mobileNumber} handleGoToStep1={handleGoToStep1} handleClick={handleNextClick} />
             ) : (
               <PlaceOrderMobile
                 updateMobileNumber={updateMobileNumber}

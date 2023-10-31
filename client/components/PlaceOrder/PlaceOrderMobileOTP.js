@@ -8,7 +8,6 @@ const PlaceOrderMobileOTP = ({
   mobileNumber,
   updateMobileNumber,
   handleClick,
-  goToStep1,
   handleGoToStep1,
   selectedProduct,
   selectedQuantity,
@@ -49,7 +48,7 @@ const PlaceOrderMobileOTP = ({
       <div className={styles.center}>
         <span className={styles.bgcolor}>
           {mobileNumber}
-          <BorderColorIcon fontSize="16px" cursor="pointer" onClick={goToStep1} />
+          <BorderColorIcon fontSize="16px" cursor="pointer" onClick={handleGoToStep1} />
         </span>
       </div>
       <div className={styles.otpInputContainer}>
