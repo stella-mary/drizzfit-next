@@ -38,7 +38,7 @@ const PlaceOrderPage = ({
   };
 
   const handleGoToStep1 = () => {
-    setCurrentActiveStep(currentActiveStep - 1);
+    setCurrentActiveStep(1);
     // router.push("/PlaceOrderMobile");
     // setCurrentStep(1); // Assuming 1 represents "step1"
   };
@@ -98,7 +98,6 @@ const PlaceOrderPage = ({
                 updateMobileNumber={updateMobileNumber}
                 selectedProduct={selectedProduct}
                 selectedQuantity={selectedQuantity}
-
               />
             )
           ) : (

@@ -19,6 +19,17 @@
   color: black;
 }
 
+.bgcolor1 {
+  background: yellow;
+  border-radius: 50%;
+  padding: 10px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+}
+
 .step {
   flex: 1;
   text-align: center;
