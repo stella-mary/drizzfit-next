@@ -11,6 +11,7 @@ const PlaceOrderMobileOTP = ({
   handleGoToStep1,
   selectedProduct,
   selectedQuantity,
+  setIsMobileNumberEditing,
 }) => {
   const [otp, setOTP] = useState(""); // State to store OTP
   const [isOTPVerified, setIsOTPVerified] = useState(false);
@@ -42,13 +43,15 @@ const PlaceOrderMobileOTP = ({
   return (
     <div className={styles.PlaceOrderMobileOTP}>
       <div className={styles.h1}>Verify Mobile Number</div>
-      <div className={styles.para}>
-        Enter the OTP Sent to
-      </div>
+      <div className={styles.para}>Enter the OTP Sent to</div>
       <div className={styles.center}>
         <span className={styles.bgcolor}>
           {mobileNumber}
-          <BorderColorIcon fontSize="16px" cursor="pointer" onClick={handleGoToStep1} />
+          <BorderColorIcon
+            fontSize="16px"
+            cursor="pointer"
+            onClick={() => setIsMobileNumberEditing(true)}
+          />
         </span>
       </div>
       <div className={styles.otpInputContainer}>
@@ -69,8 +72,9 @@ const PlaceOrderMobileOTP = ({
       <div className={styles.center1}>Resend OTP in </div> */}
       <div className={styles.PlaceOrderFooter}>
         <div
-          className={`${styles.PlaceOrderButton} ${!isContinueButtonEnabled ? styles.disabledButton : ""
-            }`}
+          className={`${styles.PlaceOrderButton} ${
+            !isContinueButtonEnabled ? styles.disabledButton : ""
+          }`}
           onClick={handleContinue}
           disabled={!isContinueButtonEnabled}
         >

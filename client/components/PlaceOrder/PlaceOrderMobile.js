@@ -9,6 +9,7 @@ const PlaceOrderMobile = ({
   updateMobileNumber,
   selectedProduct,
   selectedQuantity,
+  setIsMobileNumberEditing,
 }) => {
   const [mobileNumber, setMobileNumber] = useState("");
   const [checked, setChecked] = React.useState(true);
@@ -56,13 +57,11 @@ const PlaceOrderMobile = ({
     return /^\d{10}$/.test(mobileNumber);
   };
 
-
   // Function to handle changes in the TextField
   const handleMobileNumberChange = (e) => {
     const newValue = e.target.value;
     setMobileNumber(newValue);
     setIsContinueButtonEnabled(mobileNumberIsValid());
-
   };
 
   return (
@@ -101,8 +100,9 @@ const PlaceOrderMobile = ({
       </div>
       <div className={styles.PlaceOrderFooter}>
         <div
-          className={`${styles.PlaceOrderButton} ${!isContinueButtonEnabled ? styles.disabledButton : ""
-            }`}
+          className={`${styles.PlaceOrderButton} ${
+            !isContinueButtonEnabled ? styles.disabledButton : ""
+          }`}
           onClick={handleContinue}
           disabled={!isContinueButtonEnabled}
         >

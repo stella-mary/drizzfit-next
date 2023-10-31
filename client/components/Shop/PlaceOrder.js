@@ -32,7 +32,11 @@ const PlaceOrderPage = ({
   const [allStep1InputsValid, setAllStep1InputsValid] = useState(false);
 
   const [allStep2InputsValid, setAllStep2InputsValid] = useState(false);
+  const [isMobileNumberEditing, setIsMobileNumberEditing] = useState(false);
 
+  const handleEditMobileNumberClick = () => {
+    setIsMobileNumberEditing(true);
+  };
   const handleNextClick = () => {
     // Move to the next step
     setCurrentActiveStep(currentActiveStep + 1);
@@ -41,7 +45,6 @@ const PlaceOrderPage = ({
   const handleGoToStep1 = () => {
     setCurrentActiveStep1(currentActiveStep1 + 1);
   };
-
 
   const handleGoToStep2 = () => {
     setCurrentActiveStep(1);
@@ -60,7 +63,6 @@ const PlaceOrderPage = ({
     }
     setIsContinueButtonEnabled(false);
   };
-
 
   // step 2 state
   const [homeAddress, setHomeAddress] = useState("");
@@ -90,15 +92,19 @@ const PlaceOrderPage = ({
     }
   };
 
-
   return (
     <div>
       <div className={styles.PlaceOrderContainer}>
         <div className={styles.PlaceOrderContainer1}>
           <PlaceOrderStepper activeStep={currentActiveStep} />
           {currentActiveStep == 1 ? (
-            validateMobileNumber(mobileNumber) ? (
-              <PlaceOrderMobileOTP mobileNumber={mobileNumber} handleGoToStep1={handleGoToStep1} handleClick={handleNextClick} />
+            validateMobileNumber(mobileNumber) && !isMobileNumberEditing ? (
+              <PlaceOrderMobileOTP
+                mobileNumber={mobileNumber}
+                handleGoToStep1={handleGoToStep1}
+                handleClick={handleNextClick}
+                setIsMobileNumberEditing={setIsMobileNumberEditing}
+              />
             ) : (
               <PlaceOrderMobile
                 updateMobileNumber={updateMobileNumber}
@@ -110,17 +116,27 @@ const PlaceOrderPage = ({
             <div></div>
           )}
 
+          {currentActiveStep === 2 ? (
+            <PlaceOrderAddress
+              goToStep1={handleGoToStep2}
+              mobileNumber={mobileNumber}
+              handleClick={handleNextClick}
+            />
+          ) : (
+            <div></div>
+          )}
 
-          {currentActiveStep === 2 ? <PlaceOrderAddress goToStep1={handleGoToStep2} mobileNumber={mobileNumber} handleClick={handleNextClick} /> : <div></div>}
-
-          {currentActiveStep == 3 ? <PlaceOrderPayment mobileNumber={mobileNumber} /> : <div></div>}
+          {currentActiveStep == 3 ? (
+            <PlaceOrderPayment mobileNumber={mobileNumber} />
+          ) : (
+            <div></div>
+          )}
           {/* <PlaceOrderFooter
             isContinueButtonEnabled
             handleContinueButtonClick={handleContinueButtonClick}
             mobileNumber={mobileNumber}
             updateMobileNumber={updateMobileNumber}
           /> */}
-
         </div>
         <div className={styles.PlaceOrderContainer2}>
           <PlaceOrderSummary
