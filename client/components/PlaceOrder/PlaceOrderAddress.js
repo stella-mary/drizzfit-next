@@ -10,7 +10,7 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import EastIcon from "@mui/icons-material/East";
 
-const PlaceOrderAddress = ({ mobileNumber, handleClick }) => {
+const PlaceOrderAddress = ({ mobileNumber, handleClick, goToStep1 }) => {
 
     const handleContinue = () => {
         handleClick();
@@ -19,7 +19,7 @@ const PlaceOrderAddress = ({ mobileNumber, handleClick }) => {
     return (
         <div>
             <div className={styles.placeOrderAddress}> Edit Address</div>
-            <div><span className={styles.bgcolor}>{mobileNumber} <BorderColorIcon fontSize="10px" /></span></div>
+            <div><span className={styles.bgcolor}>{mobileNumber} <BorderColorIcon fontSize="16px" cursor="pointer" onClick={goToStep1} /></span></div>
             <div style={{ display: 'flex' }}>
                 <div style={{ flex: 1, overflowX: 'auto', height: '150px' }}>
                     <Box

@@ -38,6 +38,12 @@ const PlaceOrderPage = ({
   };
 
   const handleGoToStep1 = () => {
+    setCurrentActiveStep(currentActiveStep - 1);
+    // router.push("/PlaceOrderMobile");
+    // setCurrentStep(1); // Assuming 1 represents "step1"
+  };
+
+  const handleGoToStep2 = () => {
     setCurrentActiveStep(1);
     // router.push("/PlaceOrderMobile");
     // setCurrentStep(1); // Assuming 1 represents "step1"
@@ -105,7 +111,7 @@ const PlaceOrderPage = ({
           )}
 
 
-          {currentActiveStep === 2 ? <PlaceOrderAddress mobileNumber={mobileNumber} handleClick={handleNextClick} /> : <div></div>}
+          {currentActiveStep === 2 ? <PlaceOrderAddress goToStep1={handleGoToStep2} mobileNumber={mobileNumber} handleClick={handleNextClick} /> : <div></div>}
 
           {currentActiveStep == 3 ? <PlaceOrderPayment mobileNumber={mobileNumber} /> : <div></div>}
           {/* <PlaceOrderFooter
