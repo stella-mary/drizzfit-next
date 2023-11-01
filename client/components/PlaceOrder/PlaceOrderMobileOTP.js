@@ -8,6 +8,7 @@ const PlaceOrderMobileOTP = ({
   mobileNumber,
   updateMobileNumber,
   handleClick,
+  handleEdit,
   handleGoToStep1,
   selectedProduct,
   selectedQuantity,
@@ -51,7 +52,7 @@ const PlaceOrderMobileOTP = ({
           <BorderColorIcon
             fontSize="16px"
             cursor="pointer"
-            onClick={() => setIsMobileNumberEditing(true)}
+            onClick={handleEdit}
           />
         </span>
       </div>

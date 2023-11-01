@@ -9,12 +9,16 @@ const PlaceOrderMobile = ({
   updateMobileNumber,
   selectedProduct,
   selectedQuantity,
+  handleEdit,
+  editedMobileNumber,
   setIsMobileNumberEditing,
   handleContinueButtonClick,
 }) => {
-  const [mobileNumber, setMobileNumber] = useState("");
+  const [mobileNumber, setMobileNumber] = useState(editedMobileNumber || "");
+  console.log("New editedMobileNumber" + editedMobileNumber)
   const [checked, setChecked] = React.useState(true);
   const [isContinueButtonEnabled, setIsContinueButtonEnabled] = useState(false);
+
 
   const handleChange = (event) => {
     setChecked(event.target.checked);
@@ -52,6 +56,7 @@ const PlaceOrderMobile = ({
     }
   };
 
+
   const mobileNumberIsValid = () => {
     // Implement your validation logic here
     // For example, check if mobileNumber is a 10-digit number
@@ -65,12 +70,14 @@ const PlaceOrderMobile = ({
     setIsContinueButtonEnabled(mobileNumberIsValid());
   };
 
+
+
   return (
     <div>
       <div className={styles.PlaceOrderMobile}>Enter Mobile Number</div>
       <div className={styles.PlaceOrderText}>
         <TextField
-          defaultValue=" "
+          // defaultValue=""
           value={mobileNumber}
           onChange={handleMobileNumberChange}
           inputProps={{

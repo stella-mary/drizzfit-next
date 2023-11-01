@@ -15,6 +15,7 @@ const PlaceOrderPage = ({
   selectedQuantity,
   setSelectedQuantity,
   selectedProduct,
+
 }) => {
   const subtotal = selectedQuantity * (selectedProduct.price || 0);
   console.log("selectedQuantity" + selectedQuantity);
@@ -34,8 +35,6 @@ const PlaceOrderPage = ({
   const [allStep2InputsValid, setAllStep2InputsValid] = useState(false);
   const [isMobileNumberEditing, setIsMobileNumberEditing] = useState(false);
 
-
-  const [editedMobileNumber, setEditedMobileNumber] = useState("");
   const handleEditMobileNumberClick = () => {
     setIsMobileNumberEditing(true);
   };
@@ -94,6 +93,14 @@ const PlaceOrderPage = ({
     }
   };
 
+  const [editedMobileNumber, setEditedMobileNumber] = useState(mobileNumber);
+
+  const handleEdit = () => {
+    setIsMobileNumberEditing(true);
+    setEditedMobileNumber(mobileNumber);
+  }
+
+
   return (
     <div>
       <div className={styles.PlaceOrderContainer}>
@@ -104,6 +111,7 @@ const PlaceOrderPage = ({
               <PlaceOrderMobileOTP
                 mobileNumber={mobileNumber}
                 handleClick={handleNextClick}
+                handleEdit={handleEdit}
                 setIsMobileNumberEditing={setIsMobileNumberEditing}
               />
             ) : (
@@ -111,6 +119,8 @@ const PlaceOrderPage = ({
                 updateMobileNumber={updateMobileNumber}
                 selectedProduct={selectedProduct}
                 selectedQuantity={selectedQuantity}
+                editedMobileNumber={editedMobileNumber}
+                setEditedMobileNumber={setEditedMobileNumber}
               />
             )
           ) : (
