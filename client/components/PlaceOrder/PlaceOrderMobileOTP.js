@@ -12,6 +12,7 @@ const PlaceOrderMobileOTP = ({
   selectedProduct,
   selectedQuantity,
   setIsMobileNumberEditing,
+  setIsMobileNumberBeingEdited, // Add this prop
 }) => {
   const [otp, setOTP] = useState(""); // State to store OTP
   const [isOTPVerified, setIsOTPVerified] = useState(false);

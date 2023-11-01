@@ -34,6 +34,8 @@ const PlaceOrderPage = ({
   const [allStep2InputsValid, setAllStep2InputsValid] = useState(false);
   const [isMobileNumberEditing, setIsMobileNumberEditing] = useState(false);
 
+
+  const [editedMobileNumber, setEditedMobileNumber] = useState("");
   const handleEditMobileNumberClick = () => {
     setIsMobileNumberEditing(true);
   };
@@ -109,8 +111,6 @@ const PlaceOrderPage = ({
                 updateMobileNumber={updateMobileNumber}
                 selectedProduct={selectedProduct}
                 selectedQuantity={selectedQuantity}
-
-
               />
             )
           ) : (
