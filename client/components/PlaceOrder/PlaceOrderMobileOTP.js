@@ -72,9 +72,8 @@ const PlaceOrderMobileOTP = ({
       <div className={styles.center1}>Resend OTP in </div> */}
       <div className={styles.PlaceOrderFooter}>
         <div
-          className={`${styles.PlaceOrderButton} ${
-            !isContinueButtonEnabled ? styles.disabledButton : ""
-          }`}
+          className={`${styles.PlaceOrderButton} ${!isContinueButtonEnabled ? styles.disabledButton : ""
+            }`}
           onClick={handleContinue}
           disabled={!isContinueButtonEnabled}
         >

@@ -10,6 +10,7 @@ const PlaceOrderMobile = ({
   selectedProduct,
   selectedQuantity,
   setIsMobileNumberEditing,
+  handleContinueButtonClick,
 }) => {
   const [mobileNumber, setMobileNumber] = useState("");
   const [checked, setChecked] = React.useState(true);
@@ -100,9 +101,8 @@ const PlaceOrderMobile = ({
       </div>
       <div className={styles.PlaceOrderFooter}>
         <div
-          className={`${styles.PlaceOrderButton} ${
-            !isContinueButtonEnabled ? styles.disabledButton : ""
-          }`}
+          className={`${styles.PlaceOrderButton} ${!isContinueButtonEnabled ? styles.disabledButton : ""
+            }`}
           onClick={handleContinue}
           disabled={!isContinueButtonEnabled}
         >

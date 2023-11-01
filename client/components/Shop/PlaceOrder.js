@@ -101,7 +101,6 @@ const PlaceOrderPage = ({
             validateMobileNumber(mobileNumber) && !isMobileNumberEditing ? (
               <PlaceOrderMobileOTP
                 mobileNumber={mobileNumber}
-                handleGoToStep1={handleGoToStep1}
                 handleClick={handleNextClick}
                 setIsMobileNumberEditing={setIsMobileNumberEditing}
               />
@@ -110,6 +109,8 @@ const PlaceOrderPage = ({
                 updateMobileNumber={updateMobileNumber}
                 selectedProduct={selectedProduct}
                 selectedQuantity={selectedQuantity}
+
+
               />
             )
           ) : (
