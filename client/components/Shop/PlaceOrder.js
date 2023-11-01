@@ -35,6 +35,7 @@ const PlaceOrderPage = ({
   const [allStep2InputsValid, setAllStep2InputsValid] = useState(false);
   const [isMobileNumberEditing, setIsMobileNumberEditing] = useState(false);
 
+
   const handleEditMobileNumberClick = () => {
     setIsMobileNumberEditing(true);
   };
@@ -142,12 +143,6 @@ const PlaceOrderPage = ({
           ) : (
             <div></div>
           )}
-          {/* <PlaceOrderFooter
-            isContinueButtonEnabled
-            handleContinueButtonClick={handleContinueButtonClick}
-            mobileNumber={mobileNumber}
-            updateMobileNumber={updateMobileNumber}
-          /> */}
         </div>
         <div className={styles.PlaceOrderContainer2}>
           <PlaceOrderSummary

@@ -11,6 +11,7 @@ const PlaceOrderMobile = ({
   selectedQuantity,
   handleEdit,
   editedMobileNumber,
+  setEditedMobileNumber,
   setIsMobileNumberEditing,
   handleContinueButtonClick,
 }) => {
@@ -18,7 +19,6 @@ const PlaceOrderMobile = ({
   console.log("New editedMobileNumber" + editedMobileNumber)
   const [checked, setChecked] = React.useState(true);
   const [isContinueButtonEnabled, setIsContinueButtonEnabled] = useState(false);
-
 
   const handleChange = (event) => {
     setChecked(event.target.checked);
@@ -54,6 +54,11 @@ const PlaceOrderMobile = ({
               });
         });
     }
+  };
+
+  const handleEditClick = () => {
+    handleEdit(); // Call the parent's function to handle "Edit" button click
+    setEditedMobileNumber(mobileNumber); // Update edited mobile number
   };
 
 

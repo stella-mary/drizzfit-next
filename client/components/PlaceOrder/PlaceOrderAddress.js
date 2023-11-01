@@ -18,7 +18,7 @@ const PlaceOrderAddress = ({ mobileNumber, handleClick, goToStep1 }) => {
 
     return (
         <div>
-            <div className={styles.placeOrderAddress}> Edit Address</div>
+            {/* <div className={styles.placeOrderAddress}> Edit Address</div> */}
             <div><span className={styles.bgcolor}>{mobileNumber} <BorderColorIcon fontSize="16px" cursor="pointer" onClick={goToStep1} /></span></div>
             <div style={{ display: 'flex' }}>
                 <div style={{ flex: 1, overflowX: 'auto', height: '150px' }}>
