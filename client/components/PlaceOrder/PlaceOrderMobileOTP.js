@@ -38,7 +38,7 @@ const PlaceOrderMobileOTP = ({
         alert("Incorrect OTP. Please try again.");
       }
     } else {
-      alert("Please enter a 4-digit OTP.");
+      alert("Please enter OTP.");
     }
   };
 

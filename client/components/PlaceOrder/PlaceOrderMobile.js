@@ -56,11 +56,6 @@ const PlaceOrderMobile = ({
     }
   };
 
-  const handleEditClick = () => {
-    handleEdit(); // Call the parent's function to handle "Edit" button click
-    setEditedMobileNumber(mobileNumber); // Update edited mobile number
-  };
-
 
   const mobileNumberIsValid = () => {
     // Implement your validation logic here
@@ -74,8 +69,6 @@ const PlaceOrderMobile = ({
     setMobileNumber(newValue);
     setIsContinueButtonEnabled(mobileNumberIsValid());
   };
-
-
 
   return (
     <div>

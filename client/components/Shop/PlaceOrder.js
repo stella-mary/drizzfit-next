@@ -101,7 +101,6 @@ const PlaceOrderPage = ({
     setEditedMobileNumber(mobileNumber);
   }
 
-
   return (
     <div>
       <div className={styles.PlaceOrderContainer}>
