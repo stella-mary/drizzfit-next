@@ -38,7 +38,6 @@
 }
 
 .active {
-  border-bottom: solid 2px red;
   flex: 1;
   text-align: center;
   font-weight: bold;
@@ -49,3 +48,22 @@
 .space {
   padding-left: 10px;
 }
+
+.checkIcon {
+  background: yellow;
+  border-radius: 50%;
+  padding: 10px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: black;
+
+}
+
+.disabled {
+  color: brown; 
+  font-weight: bold;
+}
+
+
