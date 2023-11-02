@@ -14,6 +14,7 @@ const PlaceOrderMobile = ({
   setEditedMobileNumber,
   setIsMobileNumberEditing,
   handleContinueButtonClick,
+  handleNextClick,
 }) => {
   const [mobileNumber, setMobileNumber] = useState(editedMobileNumber || "");
   console.log("New editedMobileNumber" + editedMobileNumber)
@@ -27,6 +28,8 @@ const PlaceOrderMobile = ({
   const handleContinue = () => {
     if (mobileNumberIsValid()) {
       updateMobileNumber(mobileNumber);
+      setEditedMobileNumber(mobileNumber);
+      console.log("setEditedmobilenumber" + mobileNumber)
       axios
         .post("http://localhost:1992/customer/add", {
           phoneNumber: mobileNumber,
@@ -51,7 +54,9 @@ const PlaceOrderMobile = ({
                     .then((response) =>
                       console.log("OrderItem Response: ", response.data)
                     );
+                handleNextClick();
               });
+
         });
     }
   };
@@ -69,6 +74,9 @@ const PlaceOrderMobile = ({
     setMobileNumber(newValue);
     setIsContinueButtonEnabled(mobileNumberIsValid());
   };
+
+
+
 
   return (
     <div>

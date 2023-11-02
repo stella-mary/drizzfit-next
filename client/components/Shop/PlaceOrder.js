@@ -120,6 +120,7 @@ const PlaceOrderPage = ({
                 selectedProduct={selectedProduct}
                 selectedQuantity={selectedQuantity}
                 editedMobileNumber={editedMobileNumber}
+                handleNextClick={handleNextClick}
                 setEditedMobileNumber={setEditedMobileNumber}
               />
             )
