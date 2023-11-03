@@ -89,9 +89,10 @@ const PlaceOrderPage = ({
         // validateStep1Data();
         if (validateMobileNumber(mobileNumber)) {
           validateStep1Data();
-          setCurrentActiveStep(2); // Move to step 2 (Address) when mobile number is valid
+          setCurrentActiveStep(1); // Move to step 2 (Address) when mobile number is valid
         }
     }
+
   };
 
   const [editedMobileNumber, setEditedMobileNumber] = useState(mobileNumber);
@@ -120,6 +121,7 @@ const PlaceOrderPage = ({
                 selectedProduct={selectedProduct}
                 selectedQuantity={selectedQuantity}
                 editedMobileNumber={editedMobileNumber}
+                handleContinueButtonClick={handleContinueButtonClick}
                 handleNextClick={handleNextClick}
                 setEditedMobileNumber={setEditedMobileNumber}
               />

@@ -54,7 +54,7 @@ const PlaceOrderMobile = ({
                     .then((response) =>
                       console.log("OrderItem Response: ", response.data)
                     );
-                handleNextClick();
+                handleContinueButtonClick();
               });
 
         });
