@@ -1,4 +1,3 @@
-
 .place-order-stepper {
   display: flex;
   justify-content: space-between;
@@ -30,6 +29,12 @@
   color: white;
 }
 
+.step {
+  flex: 1;
+  text-align: center;
+  font-weight: bold;
+  padding: 5px;
+}
 
 .active {
   flex: 1;
@@ -44,22 +49,30 @@
 }
 
 .checkIcon {
-  background: green;
+  background: yellow;
   border-radius: 50%;
   padding: 10px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  color: white;
+  color: black;
+
 }
 
 .disabled {
   color: brown; 
   font-weight: bold;
-  
 }
 
 
-
-
+.checkIcon {
+  background: green; /* Background color for the CheckIcon */
+  border-radius: 50%;
+  padding: 10px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: black; /* Text color for the CheckIcon */
+}
