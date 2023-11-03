@@ -19,13 +19,14 @@ const PlaceOrderMobile = ({
   const handleContinue = () => {
     if (mobileNumberIsValid()) {
       updateMobileNumber(mobileNumber);
+      updateMobileNumber(editedMobileNumber);
       console.log("Updated Mobile Number: " + mobileNumber);
-      updateEditedMobileNumber(editedMobileNumber);
+      // updateEditedMobileNumber(editedMobileNumber);
       console.log("EditedMobileNumber: " + editedMobileNumber);
 
       axios
         .post("http://localhost:1992/customer/add", {
-          phoneNumber: mobileNumber,
+          phoneNumber: mobileNumber || editedMobileNumber
         })
         .then((response) => {
           console.log("Customer Response: ", response.data);
