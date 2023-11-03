@@ -15,18 +15,18 @@ const PlaceOrderPage = ({
   selectedQuantity,
   setSelectedQuantity,
   selectedProduct,
-
 }) => {
   const subtotal = selectedQuantity * (selectedProduct.price || 0);
-  console.log("selectedQuantity" + selectedQuantity);
-  console.log("subtotal" + subtotal);
-  console.log("Selected Product: ", selectedProduct);
+  // console.log("selectedQuantity" + selectedQuantity);
+  // console.log("subtotal" + subtotal);
+  // console.log("Selected Product: ", selectedProduct);
 
   const router = useRouter();
 
   // currentActiveStep
   const [currentActiveStep1, setCurrentActiveStep1] = useState(0);
   const [currentActiveStep, setCurrentActiveStep] = useState(1);
+  const [currentStep1Part, setCurrentStep1Part] = useState(1);
 
   //  step 1 state and validation
   const [mobileNumber, setMobileNumber] = useState("");
@@ -48,8 +48,6 @@ const PlaceOrderPage = ({
     setMobileNumber(mobileNumber);
   };
 
-
-
   // step 2 state
   const [homeAddress, setHomeAddress] = useState("");
 
@@ -70,12 +68,11 @@ const PlaceOrderPage = ({
   const handleEdit = () => {
     setIsMobileNumberEditing(true);
     setEditedMobileNumber(mobileNumber);
-  }
+  };
 
   const updateEditedMobileNumber = (editedMobileNumber) => {
     setEditedMobileNumber(editedMobileNumber);
   };
-
 
   return (
     <div>
@@ -83,14 +80,7 @@ const PlaceOrderPage = ({
         <div className={styles.PlaceOrderContainer1}>
           <PlaceOrderStepper activeStep={currentActiveStep} />
           {currentActiveStep == 1 ? (
-            validateMobileNumber(mobileNumber) && !isMobileNumberEditing ? (
-              <PlaceOrderMobileOTP
-                mobileNumber={mobileNumber}
-                handleClick={handleNextClick}
-                handleEdit={handleEdit}
-                setIsMobileNumberEditing={setIsMobileNumberEditing}
-              />
-            ) : (
+            currentStep1Part === 1 ? (
               <PlaceOrderMobile
                 updateMobileNumber={updateMobileNumber}
                 updateEditedMobileNumber={updateEditedMobileNumber}
@@ -99,7 +89,22 @@ const PlaceOrderPage = ({
                 editedMobileNumber={editedMobileNumber}
                 handleNextClick={handleNextClick}
                 setEditedMobileNumber={setEditedMobileNumber}
+                setCurrentStep1Part={setCurrentStep1Part}
+                setMobileNumber={setMobileNumber}
+                mobileNumber={mobileNumber}
               />
+            ) : (
+              currentStep1Part === 2 && (
+                <PlaceOrderMobileOTP
+                  mobileNumber={mobileNumber}
+                  handleClick={handleNextClick}
+                  handleEdit={handleEdit}
+                  setIsMobileNumberEditing={setIsMobileNumberEditing}
+                  setCurrentStep1Part={setCurrentStep1Part}
+                  selectedProduct={selectedProduct}
+                  selectedQuantity={selectedQuantity}
+                />
+              )
             )
           ) : (
             <div></div>

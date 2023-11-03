@@ -8,6 +8,9 @@ const PlaceOrderMobileOTP = ({
   mobileNumber,
   handleClick,
   handleEdit,
+  setCurrentStep1Part,
+  selectedProduct,
+  selectedQuantity,
 }) => {
   const [otp, setOTP] = useState(""); // State to store OTP
   const [isOTPVerified, setIsOTPVerified] = useState(false);
@@ -22,10 +25,40 @@ const PlaceOrderMobileOTP = ({
     setIsContinueButtonEnabled(otp.length === 4);
   }, [otp]);
 
+  const handleSubmit = () => {
+    axios
+      .post("http://localhost:1992/customer/add", {
+        phoneNumber: mobileNumber,
+      })
+      .then((response) => {
+        console.log("Customer Response: ", response.data);
+        axios
+          .post("http://localhost:1992/order/add", {
+            customerId: response.data.customerId,
+            orderDate: new Date(),
+            status: "Add to Cart",
+          })
+          .then((res) => {
+            console.log("Order Response: ", res.data);
+            axios
+              .post("http://localhost:1992/orderitem/add", {
+                orderId: res.data.orderId,
+                productId: selectedProduct.productId,
+                quantity: selectedQuantity,
+                priceAtOrder: selectedProduct.price,
+              })
+              .then((response) =>
+                console.log("OrderItem Response: ", response.data)
+              );
+          });
+      });
+  };
+
   const handleContinue = () => {
     if (isContinueButtonEnabled) {
       if (otp === "1234") {
         setIsOTPVerified(true); // Set OTP verification status to true
+        handleSubmit();
         handleClick(); // Continue to the next step
       } else {
         alert("Incorrect OTP. Please try again.");
@@ -45,7 +78,7 @@ const PlaceOrderMobileOTP = ({
           <BorderColorIcon
             fontSize="16px"
             cursor="pointer"
-            onClick={handleEdit}
+            onClick={() => setCurrentStep1Part(1)}
           />
         </span>
       </div>
@@ -60,8 +93,9 @@ const PlaceOrderMobileOTP = ({
       </div>
       <div className={styles.PlaceOrderFooter}>
         <div
-          className={`${styles.PlaceOrderButton} ${!isContinueButtonEnabled ? styles.disabledButton : ""
-            }`}
+          className={`${styles.PlaceOrderButton} ${
+            !isContinueButtonEnabled ? styles.disabledButton : ""
+          }`}
           onClick={handleContinue}
           disabled={!isContinueButtonEnabled}
         >
