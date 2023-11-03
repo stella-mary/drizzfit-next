@@ -6,14 +6,8 @@ import axios from "axios";
 
 const PlaceOrderMobileOTP = ({
   mobileNumber,
-  updateMobileNumber,
   handleClick,
   handleEdit,
-  handleGoToStep1,
-  selectedProduct,
-  selectedQuantity,
-  setIsMobileNumberEditing,
-  setIsMobileNumberBeingEdited, // Add this prop
 }) => {
   const [otp, setOTP] = useState(""); // State to store OTP
   const [isOTPVerified, setIsOTPVerified] = useState(false);
@@ -25,7 +19,6 @@ const PlaceOrderMobileOTP = ({
   };
 
   useEffect(() => {
-    // Check if the OTP input is exactly 4 characters to enable the "Continue" button
     setIsContinueButtonEnabled(otp.length === 4);
   }, [otp]);
 
@@ -65,13 +58,6 @@ const PlaceOrderMobileOTP = ({
           className={styles.otpInput}
         />
       </div>
-      {/* <div className={styles.boxnote}>
-        <div className={styles.box}></div>
-        <div className={styles.box}></div>
-        <div className={styles.box}></div>
-        <div className={styles.box}></div>
-      </div>
-      <div className={styles.center1}>Resend OTP in </div> */}
       <div className={styles.PlaceOrderFooter}>
         <div
           className={`${styles.PlaceOrderButton} ${!isContinueButtonEnabled ? styles.disabledButton : ""

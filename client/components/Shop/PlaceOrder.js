@@ -35,36 +35,20 @@ const PlaceOrderPage = ({
   const [allStep2InputsValid, setAllStep2InputsValid] = useState(false);
   const [isMobileNumberEditing, setIsMobileNumberEditing] = useState(false);
 
-
-  const handleEditMobileNumberClick = () => {
-    setIsMobileNumberEditing(true);
-  };
   const handleNextClick = () => {
     // Move to the next step
     setCurrentActiveStep(currentActiveStep + 1);
   };
 
-  const handleGoToStep1 = () => {
-    setCurrentActiveStep1(currentActiveStep1 + 1);
-  };
-
   const handleGoToStep2 = () => {
     setCurrentActiveStep(1);
-    // router.push("/PlaceOrderMobile");
-    // setCurrentStep(1); // Assuming 1 represents "step1"
   };
 
   const updateMobileNumber = (mobileNumber) => {
     setMobileNumber(mobileNumber);
   };
 
-  const validateStep1Data = () => {
-    if (validateMobileNumber()) {
-      //mobileNumber not empty && mobile number contains only number && contains 10 digits)
-      setAllStep1InputsValid(true);
-    }
-    setIsContinueButtonEnabled(false);
-  };
+
 
   // step 2 state
   const [homeAddress, setHomeAddress] = useState("");
@@ -81,26 +65,17 @@ const PlaceOrderPage = ({
     setCurrentActiveStep(newStepNumber);
   };
 
-  const handleContinueButtonClick = () => {
-    // Mobile Nmber validation
-    console.log("Continue btn clicked");
-    switch (currentActiveStep) {
-      case 1:
-        // validateStep1Data();
-        if (validateMobileNumber(mobileNumber)) {
-          validateStep1Data();
-          setCurrentActiveStep(1); // Move to step 2 (Address) when mobile number is valid
-        }
-    }
-
-  };
-
   const [editedMobileNumber, setEditedMobileNumber] = useState(mobileNumber);
 
   const handleEdit = () => {
     setIsMobileNumberEditing(true);
     setEditedMobileNumber(mobileNumber);
   }
+
+  const updateEditedMobileNumber = (editedMobileNumber) => {
+    setEditedMobileNumber(editedMobileNumber);
+  };
+
 
   return (
     <div>
@@ -118,10 +93,10 @@ const PlaceOrderPage = ({
             ) : (
               <PlaceOrderMobile
                 updateMobileNumber={updateMobileNumber}
+                updateEditedMobileNumber={updateEditedMobileNumber}
                 selectedProduct={selectedProduct}
                 selectedQuantity={selectedQuantity}
                 editedMobileNumber={editedMobileNumber}
-                handleContinueButtonClick={handleContinueButtonClick}
                 handleNextClick={handleNextClick}
                 setEditedMobileNumber={setEditedMobileNumber}
               />
