@@ -19,7 +19,7 @@
 }
 
 .bgcolor1 {
-  background: yellow;
+  background: brown;
   border-radius: 50%;
   padding: 10px;
   display: inline-flex;
@@ -48,23 +48,23 @@
   padding-left: 10px;
 }
 
-.checkIcon {
-  background: yellow;
-  border-radius: 50%;
-  padding: 10px;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  color: black;
-
-}
-
 .disabled {
   color: brown; 
   font-weight: bold;
 }
 
+.disabled1 {
+  color: grey; 
+  font-weight: bold;
+}
+
+.title {
+color: brown;
+}
+
+.title1 {
+  color: green;
+  }
 
 .checkIcon {
   background: green; /* Background color for the CheckIcon */
