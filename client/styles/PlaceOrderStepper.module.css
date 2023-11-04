@@ -19,15 +19,29 @@
 }
 
 .bgcolor1 {
-  background: brown;
-  border-radius: 50%;
   padding: 10px;
-  display: inline-flex;
-  justify-content: center;
+  display: flex;
+  gap: 10px;
   align-items: center;
   cursor: pointer;
   color: white;
 }
+
+.bgcolor2{
+color: brown;
+padding: 10px;
+border-radius: 50%;
+cursor: pointer;
+border: 1px solid brown;
+}
+
+.bgcolor3{
+  color: green;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid green;
+  }
 
 .step {
   flex: 1;
@@ -49,9 +63,14 @@
 }
 
 .disabled {
-  color: brown; 
-  font-weight: bold;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  cursor: pointer;
+  color: gray;
 }
+
 
 .disabled1 {
   color: grey; 
@@ -69,10 +88,11 @@ color: brown;
 .checkIcon {
   background: green; /* Background color for the CheckIcon */
   border-radius: 50%;
-  padding: 10px;
+  padding: 5px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  font-size: 5px;
   color: black; /* Text color for the CheckIcon */
 }
