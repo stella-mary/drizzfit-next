@@ -35,6 +35,8 @@ const PlaceOrderPage = ({
   const [allStep2InputsValid, setAllStep2InputsValid] = useState(false);
   const [isMobileNumberEditing, setIsMobileNumberEditing] = useState(false);
 
+  const [customerId, setCustomerId] = useState();
+
   const handleNextClick = () => {
     // Move to the next step
     setCurrentActiveStep(currentActiveStep + 1);
@@ -103,6 +105,7 @@ const PlaceOrderPage = ({
                   setCurrentStep1Part={setCurrentStep1Part}
                   selectedProduct={selectedProduct}
                   selectedQuantity={selectedQuantity}
+                  setCustomerId={setCustomerId}
                 />
               )
             )
@@ -115,6 +118,7 @@ const PlaceOrderPage = ({
               goToStep1={handleGoToStep2}
               mobileNumber={mobileNumber}
               handleClick={handleNextClick}
+              customerId={customerId}
             />
           ) : (
             <div></div>

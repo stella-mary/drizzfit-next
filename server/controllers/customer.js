@@ -5,12 +5,22 @@ export const postCustomer = (req, res) => {
   const fullName = " ";
   const email = " ";
   const address = " ";
+  const addressType = " ";
+  const shippingMethod = " ";
+  const pincode = " ";
+  const city = " ";
+  const state = " ";
 
   const newCustomer = new Customers({
     phoneNumber,
     fullName,
     email,
     address,
+    addressType,
+    shippingMethod,
+    pincode,
+    city,
+    state,
   });
 
   newCustomer
@@ -26,6 +36,11 @@ export const updateCustomer = (req, res) => {
       customer.fullName = req.body.fullName;
       customer.email = req.body.email;
       customer.address = req.body.address;
+      customer.addressType = req.body.addressType;
+      customer.shippingMethod = req.body.shippingMethod;
+      customer.pincode = req.body.pincode;
+      customer.city = req.body.city;
+      customer.state = req.body.state;
       customer
         .save()
         .then((data) => res.json("Customer Details Updated: ", data))
@@ -50,6 +65,11 @@ export const getCustomerById = (req, res) => {
           fullName: customer.fullName,
           phoneNumber: customer.phoneNumber,
           address: customer.address,
+          addressType: customer.addressType,
+          shippingMethod: customer.shippingMethod,
+          pincode: customer.pincode,
+          city: customer.city,
+          state: customer.state,
         };
         res.json(customerDetails);
       } else {

@@ -11,6 +11,7 @@ const PlaceOrderMobileOTP = ({
   setCurrentStep1Part,
   selectedProduct,
   selectedQuantity,
+  setCustomerId,
 }) => {
   const [otp, setOTP] = useState(""); // State to store OTP
   const [isOTPVerified, setIsOTPVerified] = useState(false);
@@ -32,6 +33,7 @@ const PlaceOrderMobileOTP = ({
       })
       .then((response) => {
         console.log("Customer Response: ", response.data);
+        setCustomerId(response.data.customerId);
         axios
           .post("http://localhost:1992/order/add", {
             customerId: response.data.customerId,

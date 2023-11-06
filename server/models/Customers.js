@@ -23,6 +23,22 @@ const customerSchema = new mongoose.Schema({
     type: String,
     // required: true,
   },
+  addressType: {
+    type: String,
+    default: "Home",
+  },
+  shippingMethod: {
+    type: String,
+  },
+  pincode: {
+    type: String,
+  },
+  city: {
+    type: String,
+  },
+  State: {
+    type: String,
+  },
 });
 
 customerSchema.plugin(autoIncrement.plugin, {
