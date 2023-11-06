@@ -12,18 +12,24 @@ const PlaceOrderStepper = ({ activeStep }) => {
         <span className={activeStep === 1 ? styles.title : styles.title1}>Mobile</span>
       </div>
 
-      <div className={activeStep === 2 ? styles.disabled : styles.bgcolor1}  >
-        <span className={activeStep === 2 ? styles.disabled : styles.bgcolor2}>
-          {activeStep <= 2 ? 2 : <div className={styles.bgcolor3}><CheckIcon /></div>}
+      <div className={activeStep === 1 ? styles.bgcolor1 : styles.disabled}>
+        <span className={activeStep === 2 ? styles.disabled : ''}>
+
+          <span className={activeStep === 2 ? styles.bgcolor2 : activeStep === 1 ? styles.disabled1 : styles.bgcolor3}>
+            {activeStep === 1 ? "2" : <CheckIcon fontSize="5px" />}
+          </span>
+
+          {/* {activeStep <= 2 ? 2 : <div className={styles.bgcolor3}><CheckIcon fontSize="5px" /></div>} */}
         </span>
-        <span className={activeStep === 2 ? styles.title1 : styles.title}>Mobile</span>
+        <span className={activeStep === 2 ? styles.title : activeStep === 1 ? styles.disabled : styles.title1}>Mobile</span>
+
       </div>
 
-      <div className={activeStep === 3 ? styles.disabled : styles.bgcolor1}>
-        <span className={activeStep === 3 ? styles.disabled : styles.bgcolor2}>
-          {activeStep <= 3 ? 3 : <div className={styles.bgcolor3}><CheckIcon /></div>}
+      <div className={activeStep === 1 ? styles.bgcolor1 : styles.disabled}>
+        <span className={activeStep === 3 ? styles.bgcolor2 : styles.disabled}>
+          {activeStep <= 3 ? 3 : <div className={styles.bgcolor3}><CheckIcon fontSize="5px" /></div>}
         </span>
-        <span className={activeStep === 3 ? styles.title1 : styles.title}>Mobile</span>
+        <span className={activeStep === 3 ? styles.title : styles.disabled}>Mobile</span>
       </div>
     </div >
   );

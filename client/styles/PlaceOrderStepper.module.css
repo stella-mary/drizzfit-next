@@ -35,6 +35,14 @@ cursor: pointer;
 border: 1px solid brown;
 }
 
+.bgcolor2a{
+  color: gray;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid brown;
+  }
+
 .bgcolor3{
   color: green;
   padding: 10px;
@@ -42,6 +50,14 @@ border: 1px solid brown;
   cursor: pointer;
   border: 1px solid green;
   }
+
+  .bgcolor3a{
+    color: gray;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid green;
+    }
 
 .step {
   flex: 1;
@@ -72,10 +88,13 @@ border: 1px solid brown;
 }
 
 
-.disabled1 {
-  color: grey; 
-  font-weight: bold;
-}
+.disabled1{
+  color: gray;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid gray;
+  }
 
 .title {
 color: brown;
@@ -84,6 +103,10 @@ color: brown;
 .title1 {
   color: green;
   }
+
+  .title2 {
+    color: gray;
+    }
 
 .checkIcon {
   background: green; /* Background color for the CheckIcon */
@@ -96,3 +119,4 @@ color: brown;
   font-size: 5px;
   color: black; /* Text color for the CheckIcon */
 }
+
