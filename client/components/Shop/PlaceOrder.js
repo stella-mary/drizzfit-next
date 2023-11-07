@@ -76,6 +76,12 @@ const PlaceOrderPage = ({
     setEditedMobileNumber(editedMobileNumber);
   };
 
+  const handleContinue = () => {
+    // Pass the validated input values to PlaceOrderAddress1
+    setCurrentActiveStep(2); // Assuming 2 is the step where you want to show PlaceOrderAddress1
+  };
+
+
   return (
     <div>
       <div className={styles.PlaceOrderContainer}>
