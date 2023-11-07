@@ -1,12 +1,6 @@
-<<<<<<< Updated upstream
 import React, { useState } from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-=======
-import React, { useState, useEffect } from "react";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
->>>>>>> Stashed changes
 import styles from "@/styles/PlaceOrderAddress.module.css";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 import Radio from "@mui/material/Radio";
@@ -51,7 +45,6 @@ const PlaceOrderAddress = ({
     handleClick();
   };
 
-<<<<<<< Updated upstream
   return (
     <div>
       {/* <div className={styles.placeOrderAddress}> Edit Address</div> */}
@@ -206,51 +199,5 @@ const PlaceOrderAddress = ({
     </div>
   );
 };
-=======
-    const [pincode, setPincode] = useState("");
-    const [city, setCity] = useState("");
-    const [state, setState] = useState("");
-    const [fullName, setFullName] = useState("");
-    const [emailAddress, setEmailAddress] = useState("");
-    const [fullAddress, setFullAddress] = useState("");
-
-    return (
-        <div>
-            {/* <div className={styles.placeOrderAddress}> Edit Address</div> */}
-            <div><span className={styles.bgcolor}>{mobileNumber} <BorderColorIcon fontSize="16px" cursor="pointer" onClick={goToStep1} /></span></div>
-            <div style={{ display: 'flex' }}>
-                <div style={{ flex: 1, overflowX: 'auto', height: '150px' }}>
-                    <Box
-                        component="form"
-                        sx={{
-                            '& > :not(style)': { m: 1, width: '42ch' },
-                        }}
-                        noValidate
-                        autoComplete="off"
-                    >
-                        <TextField
-                            id="pincode"
-                            label="Pincode"
-                            variant="outlined"
-                            value={pincode}
-                            onChange={(e) => {
-                                const value = e.target.value;
-                                // Perform your validation logic here
-                                if (value.match(/^\d{6}$/)) { // Example: Check for a 6-digit pincode
-                                    setPincode(value); // Update the state if the value is valid
-                                }
-                            }}
-                        />
-
-                    </Box>
-                    <Box
-                        component="form"
-                        sx={{
-                            '& > :not(style)': { m: 1, width: '20ch' },
-                            display: "flex",
-                        }}
-                        noValidate
-                        autoComplete="off"
->>>>>>> Stashed changes
 
 export default PlaceOrderAddress;
