@@ -14,8 +14,8 @@ const PlaceOrderStepper = ({ activeStep }) => {
 
       <div className={activeStep === 1 ? styles.bgcolor1 : styles.disabled}>
         <span className={activeStep === 2 ? styles.disabled : ''}>
-          <span className={activeStep === 2 ? styles.bgcolor2 : activeStep === 1 ? styles.disabled1 : styles.bgcolor3}>
-            {activeStep === 1 ? "2" : <CheckIcon fontSize="5px" />}
+          <span className={activeStep === 2 ? styles.bgcolor2 : activeStep === 2 ? styles.disabled1 : styles.bgcolor3}>
+            {activeStep === 1 ? 2 : <CheckIcon fontSize="5px" />}
           </span>
         </span>
         <span className={activeStep === 2 ? styles.title : activeStep === 1 ? styles.disabled : styles.title1}>Address</span>
@@ -23,10 +23,9 @@ const PlaceOrderStepper = ({ activeStep }) => {
 
       <div className={activeStep === 1 ? styles.bgcolor1 : styles.disabled}>
         <span className={activeStep === 3 ? styles.disabled : ''}>
-          <span className={activeStep === 3 ? styles.bgcolor2 : activeStep === 1 ? styles.disabled1 : styles.bgcolor3}>
-            {activeStep === 1 ? "3" : <CheckIcon fontSize="5px" />}
+          <span className={activeStep === 3 ? styles.bgcolor2 : activeStep === 3 ? styles.disabled1 : styles.bgcolor3}>
+            {activeStep === 1 ? 3 : <CheckIcon fontSize="5px" />}
           </span>
-          {/* {activeStep <= 2 ? 2 : <div className={styles.bgcolor3}><CheckIcon fontSize="5px" /></div>} */}
         </span>
         <span className={activeStep === 2 ? styles.title : activeStep === 1 ? styles.disabled : styles.title1}>Payment</span>
       </div>
